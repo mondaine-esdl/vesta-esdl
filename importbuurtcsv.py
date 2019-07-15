@@ -50,7 +50,7 @@ def main():
             houses = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Woningen",
-                numberOfBuildings = EInt(row[column_names.index('Aantal_woningen')])
+                # numberOfBuildings = EInt(row[column_names.index('Aantal_woningen')])
             )
             utilities = AggregatedBuilding(
                 id=str(uuid.uuid4()),
