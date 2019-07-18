@@ -38,7 +38,7 @@ def main():
     qau_emission_KG = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO")
 
 
-    with open('C:/GeoDMS/LocalData/vestadv/Results/Strategie1_isolatie_ewp/PerPlanRegio_ESDL.csv', newline='') as csvfile:
+    with open('data/Strategie1_isolatie_ewp/PerPlanRegio_ESDL.csv', newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
 
         column_names = next(reader)
