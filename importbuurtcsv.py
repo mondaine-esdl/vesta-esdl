@@ -5,7 +5,7 @@ from xmlresource import XMLResource
 import datetime
 import uuid
 import csv
-import pandas
+# import pandas
 
 
 def attr_to_dict(eobj):
@@ -50,13 +50,15 @@ def main():
             houses = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Woningen",
-                # numberOfBuildings = EInt(row[column_names.index('Aantal_woningen')])
+                numberOfBuildings = int(row[column_names.index('Aantal_woningen')])
             )
+            area.asset.append(houses)
             utilities = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Utiliteiten",
-                # numberOfBuildings = EInt(row[column_names.index('Aantal_utiliteiten')])
+                numberOfBuildings = int(row[column_names.index('Aantal_utiliteiten')])
             )
+            area.asset.append(utilities)
 
             hd_total = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_Warmte_totaal")
             hd_total_ip = InPort(id=str(uuid.uuid4()), name="InPort")
