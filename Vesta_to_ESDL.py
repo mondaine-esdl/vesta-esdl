@@ -31,8 +31,23 @@ def main():
     instance = Instance(name="y2030")
     
     RegioNaam = "GooiEnVechtstreek"
-    StrategieNaam = "s0_referentie"
-
+    StrategieNaam = "S0_Referentie"
+# =============================================================================
+#     StrategieNaam = "S1a_AllElectric_lucht"
+#     StrategieNaam = "S1b_AllElectric_bodem"
+#     StrategieNaam = "S2a_restwarmte"
+#     StrategieNaam = "S2b_Geothermie-metcontour"
+#     StrategieNaam = "S2c_Geothermie-zondercontour"
+#     StrategieNaam = "S2d_BioWKK"
+#     StrategieNaam = "S3a_LT3030"
+#     StrategieNaam = "S3b_LT3070"
+#     StrategieNaam = "S3c_LT3050"
+#     StrategieNaam = "S3d_WKO"
+#     StrategieNaam = "S3e_TEO"
+#     StrategieNaam = "S4_hwp_GG"
+#     StrategieNaam = "S5_HR_GG"#     
+# =============================================================================
+    
     # AbstractInstanceDate = InstanceDate.date(2020)
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
     es.instance.append(instance)
@@ -41,10 +56,10 @@ def main():
     qau_energy_GJ_yr = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
     qau_emission_KG = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO")
 
-    filename = "data/%s/PerPlanRegio_ESDL_GeV.csv" % StrategieNaam
+    filename = "data/%s/PerPlanRegio_ESDL_%s.csv" % (StrategieNaam,RegioNaam)
     
     with open(filename, newline='') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
+        reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
         print(column_names)
