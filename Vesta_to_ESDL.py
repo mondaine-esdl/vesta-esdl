@@ -28,19 +28,24 @@ def main():
 
     # Create a new EnergySystem
     es = EnergySystem(name="Vesta Resultaten")
-    instance = Instance(name="StartJaar")
+    instance = Instance(name="y2030")
+    
+    RegioNaam = "GooiEnVechtstreek"
+    StrategieNaam = "s0_referentie"
+
     # AbstractInstanceDate = InstanceDate.date(2020)
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
     es.instance.append(instance)
-    es.instance[0].area = Area(name="RESMetropoolregioEindhoven")
+    es.instance[0].area = Area(name=RegioNaam)
 
     qau_energy_GJ_yr = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
     qau_emission_KG = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO")
 
-
-    with open('data/Strategie1_isolatie_ewp/PerPlanRegio_ESDL.csv', newline='') as csvfile:
-        reader = csv.reader(csvfile, delimiter=';')
-
+    filename = "data/%s/PerPlanRegio_ESDL_GeV.csv" % StrategieNaam
+    
+    with open(filename, newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        
         column_names = next(reader)
         print(column_names)
 
@@ -84,6 +89,22 @@ def main():
             hd_LT.port.append(hd_LT_ip)
             area.asset.append(hd_LT)
 
+            hd_elek = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_ElektrischeWarmte")
+            hd_elek_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+            hd_elek_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_ElektrischeWarmte')]))
+            hd_elek_sv.profileQuantityAndUnit = qau_energy_GJ_yr
+            hd_elek_ip.profile = hd_elek_sv
+            hd_elek.port.append(hd_elek_ip)
+            area.asset.append(hd_elek)
+            
+            cd = CoolingDemand(id=str(uuid.uuid4()), name="Vraag_Koude")
+            cd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+            cd_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_Koude')]))
+            cd_sv.profileQuantityAndUnit = qau_energy_GJ_yr
+            cd_ip.profile = cd_sv
+            cd.port.append(cd_ip)
+            area.asset.append(cd)
+
             ed = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_Elektriciteit")
             ed_ip = InPort(id=str(uuid.uuid4()), name="InPort")
             ed_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_Elektriciteit')]))
@@ -100,10 +121,12 @@ def main():
             gd.port.append(gd_ip)
             area.asset.append(gd)
 
-            co2 = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot', value=row[column_names.index('CO2_uitstoot')])
-            costs = StringKPI(id=str(uuid.uuid4()),name='Maatschappelijke_kosten', value=row[column_names.index('Maatschappelijke_kosten,')])
+            co2_gas = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_gas', value=row[column_names.index('CO2_uitstoot_gas')])
+            co2_elek = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_elek', value=row[column_names.index('CO2_uitstoot_elek')])
+            costs = StringKPI(id=str(uuid.uuid4()),name='Maatschappelijke_kosten', value=row[column_names.index('Maatschappelijke_kosten')])
             kpis = KPIs(id=str(uuid.uuid4()))
-            kpis.kpi.append(co2)
+            kpis.kpi.append(co2_gas)
+            kpis.kpi.append(co2_elek)
             kpis.kpi.append(costs)
             area.KPIs = kpis
 
@@ -111,7 +134,9 @@ def main():
 
             # print("Energy system: {}".format(attr_to_dict(es)))
 
-    resource = rset.create_resource(URI('vesta_output_warmtekeuze_per_buurt.esdl'))
+    export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
+
+    resource = rset.create_resource(URI(export_name))
     resource.append(es)
     resource.save()
 
