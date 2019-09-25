@@ -17,8 +17,7 @@ def attr_to_dict(eobj):
             d[attr] = eobj.eGet(attr)
     return d
 
-
-def main():
+def MakeESDL(RegioNaam, StrategieNaam):
     # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
     rset = ResourceSet()
     # register the metamodel (available in the generated files)
@@ -30,23 +29,6 @@ def main():
     es = EnergySystem(name="Vesta Resultaten")
     instance = Instance(name="y2030")
     
-    RegioNaam = "GooiEnVechtstreek"
-    StrategieNaam = "S0_Referentie"
-# =============================================================================
-#     StrategieNaam = "S1a_AllElectric_lucht"
-#     StrategieNaam = "S1b_AllElectric_bodem"
-#     StrategieNaam = "S2a_restwarmte"
-#     StrategieNaam = "S2b_Geothermie-metcontour"
-#     StrategieNaam = "S2c_Geothermie-zondercontour"
-#     StrategieNaam = "S2d_BioWKK"
-#     StrategieNaam = "S3a_LT3030"
-#     StrategieNaam = "S3b_LT3070"
-#     StrategieNaam = "S3c_LT3050"
-#     StrategieNaam = "S3d_WKO"
-#     StrategieNaam = "S3e_TEO"
-#     StrategieNaam = "S4_hwp_GG"
-#     StrategieNaam = "S5_HR_GG"#     
-# =============================================================================
     
     # AbstractInstanceDate = InstanceDate.date(2020)
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
@@ -62,7 +44,7 @@ def main():
         reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
-        print(column_names)
+#        print(column_names)
 
         for row in reader:
             area = Area(id=row[column_names.index('BU_CODE')], scope="NEIGHBOURHOOD")
@@ -154,6 +136,20 @@ def main():
     resource = rset.create_resource(URI(export_name))
     resource.append(es)
     resource.save()
+    
+    return (RegioNaam, StrategieNaam)
+
+def main():
+    
+    RegioNaam = "GooiEnVechtstreek"
+    Strategien= ["S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem"
+                 , "S2a_restwarmte", "S2b_Geothermie-metcontour"
+                 , "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
+    
+    for i in list(Strategien):
+        StrategieNaam= i    
+        MakeESDL(RegioNaam, StrategieNaam)
+        print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
 
 if __name__ == '__main__':
     main()
