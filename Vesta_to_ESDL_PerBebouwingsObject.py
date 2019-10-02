@@ -26,7 +26,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
     rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)  # we register the factory for '.esdl' extension and XML serialization
 
     # Create a new EnergySystem
-    es = EnergySystem(name="Vesta Resultaten")
+    es = EnergySystem(name="Vesta Resultaten PerBebouwingsObject")
     instance = Instance(name="y2030")
     
     
@@ -38,7 +38,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
     qau_energy_GJ_yr = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
     qau_emission_KG = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO")
 
-    filename = "data/%s/PerPlanRegio_ESDL_%s.csv" % (StrategieNaam,RegioNaam)
+    filename = "data/%s/PerBebouwingsObject_ESDL_%s.csv" % (StrategieNaam,RegioNaam)
     
     with open(filename, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
@@ -48,19 +48,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
         for row in reader:
             area = Area(id=row[column_names.index('BU_CODE')], scope="NEIGHBOURHOOD")
-
-            houses = AggregatedBuilding(
-                id=str(uuid.uuid4()),
-                name="Woningen",
-                numberOfBuildings = int(row[column_names.index('Aantal_woningen')])
-            )
-            area.asset.append(houses)
-            utilities = AggregatedBuilding(
-                id=str(uuid.uuid4()),
-                name="Utiliteiten",
-                numberOfBuildings = int(row[column_names.index('Aantal_utiliteiten')])
-            )
-            area.asset.append(utilities)
 
             hd_total = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_Warmte_totaal")
             hd_total_ip = InPort(id=str(uuid.uuid4()), name="InPort")
