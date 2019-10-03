@@ -44,17 +44,25 @@ def MakeESDL(RegioNaam, StrategieNaam):
         reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
-#        print(column_names)
+        print(column_names)
 
         for row in reader:
             area = Area(id=row[column_names.index('BU_CODE')], scope="NEIGHBOURHOOD")
 
+            houses_eq = AggregatedBuilding(
+                id=str(uuid.uuid4()),
+                name="Woning_equivalenten",
+                numberOfBuildings = float(row[column_names.index('Aantal_WoningEQ')])
+            )
+            area.asset.append(houses_eq)
+            
             houses = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Woningen",
                 numberOfBuildings = int(row[column_names.index('Aantal_woningen')])
             )
             area.asset.append(houses)
+            
             utilities = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Utiliteiten",
@@ -111,20 +119,22 @@ def MakeESDL(RegioNaam, StrategieNaam):
             area.asset.append(ed)
 
             gd = GasDemand(id=str(uuid.uuid4()), name="Vraag_Aardgas")
-            gd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+            gd_ip = InPort(id=str(uuid.uuid4()), name="Aansl_aardgas")
             gd_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_Aardgas')]))
             gd_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             gd_ip.profile = gd_sv
             gd.port.append(gd_ip)
             area.asset.append(gd)
 
-            co2_gas = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_gas', value=row[column_names.index('CO2_uitstoot_gas')])
+            co2_gas = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_gas', value=row[column_names.index('CO2_uitstoot_gas')], profileQuantityAndUnit = qau_emission_KG)
             co2_elek = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_elek', value=row[column_names.index('CO2_uitstoot_elek')])
             costs = StringKPI(id=str(uuid.uuid4()),name='Maatschappelijke_kosten', value=row[column_names.index('Maatschappelijke_kosten')])
+            warmte_optie = StringKPI(id=str(uuid.uuid4()),name='Warmte_Allocatie_Optie', value=row[column_names.index('WarmteAllocatieOptie')])
             kpis = KPIs(id=str(uuid.uuid4()))
             kpis.kpi.append(co2_gas)
             kpis.kpi.append(co2_elek)
             kpis.kpi.append(costs)
+            kpis.kpi.append(warmte_optie)
             area.KPIs = kpis
 
             es.instance[0].area.area.append(area)
@@ -142,9 +152,10 @@ def MakeESDL(RegioNaam, StrategieNaam):
 def main():
     
     RegioNaam = "GooiEnVechtstreek"
-    Strategien= ["S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem"
-                 , "S2a_restwarmte", "S2b_Geothermie-metcontour"
-                 , "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
+    Strategien= ["S0_Referentie"]
+#    Strategien= ["S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem"
+#                 , "S2a_restwarmte", "S2b_Geothermie-metcontour"
+#                 , "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
     
     for i in list(Strategien):
         StrategieNaam= i    
