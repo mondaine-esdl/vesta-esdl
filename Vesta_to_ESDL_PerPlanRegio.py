@@ -52,7 +52,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             houses = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Woningen_eq",
-                numberOfBuildings = int(row[column_names.index('Aantal_WoningEQ')]),
+                numberOfBuildings = int(float(row[column_names.index('Aantal_WoningEQ')])),
                 aggregated = True
             )
             area.asset.append(houses)
