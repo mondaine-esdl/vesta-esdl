@@ -52,7 +52,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             houses = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Woningen_eq",
-                numberOfBuildings = int(row[column_names.index('Aantal_WoningEQ')]),
+                numberOfBuildings = int(float(row[column_names.index('Aantal_WoningEQ')])),
                 aggregated = True
             )
             area.asset.append(houses)
@@ -133,7 +133,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             houses.asset.append(ed)
 
 
-            co2_gas = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_gas', value=row[column_names.index('CO2_uitstoot_gas')], profileQuantityAndUnit = qau_emission_KG)
+            co2_gas = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_gas', value=row[column_names.index('CO2_uitstoot_gas')], quantityAndUnit = qau_emission_KG)
             co2_elek = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_elek', value=row[column_names.index('CO2_uitstoot_elek')])
             costs = StringKPI(id=str(uuid.uuid4()),name='Maatschappelijke_kosten', value=row[column_names.index('Maatschappelijke_kosten')])
             warmte_optie = StringKPI(id=str(uuid.uuid4()),name='Warmte_Allocatie_Optie', value=row[column_names.index('WarmteAllocatieOptie')])
