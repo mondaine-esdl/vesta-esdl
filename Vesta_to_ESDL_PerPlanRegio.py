@@ -36,23 +36,37 @@ def MakeESDL(RegioNaam, StrategieNaam):
     es.instance[0].area = Area(id=str(uuid.uuid4()), name=RegioNaam)
 
     qau_energy_GJ_yr = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
-    qau_emission_KG = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO")
-
-    filename = "data/%s/PerPlanRegio_ESDL_%s.csv" % (StrategieNaam,RegioNaam)
+    qau_cost_EURO_yr = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="COST", unit="EURO", multiplier="NONE", perTimeUnit="YEAR") 
+    
+#    dit moet GJ_yr_ha zijn
+    qau_energy_GJ_ha = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
+    
+#    dit moet euro per ton zijn.
+    qau_cost_EURO_TON = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO", perTimeUnit="YEAR") 
+    
+#    dit moet ton per jaar zijn.
+    qau_emission_TON_yr = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO", perTimeUnit="YEAR") 
+    
+    
+    filename = "data/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam,StrategieNaam)
     
     with open(filename, newline='') as csvfile:
+        csvfile = (line.lower() for line in csvfile)
         reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
         print(column_names)
 
         for row in reader:
-            area = Area(id=row[column_names.index('BU_CODE')], scope="NEIGHBOURHOOD")
-
+            area = Area(id=row[column_names.index('bu_code')], scope="NEIGHBOURHOOD")
+            
+# =============================================================================
+# ------------------------------BUILDINGS--------------------------------------          
+# =============================================================================
             houses = AggregatedBuilding(
                 id=str(uuid.uuid4()),
-                name="Woningen_eq",
-                numberOfBuildings = int(float(row[column_names.index('Aantal_WoningEQ')])),
+                name="Woningen",
+                numberOfBuildings = int(float(row[column_names.index('i09_aantal_woningen')])),
                 aggregated = True
             )
             area.asset.append(houses)
@@ -60,17 +74,33 @@ def MakeESDL(RegioNaam, StrategieNaam):
             utilities = AggregatedBuilding(
                 id=str(uuid.uuid4()),
                 name="Utiliteiten",
-                numberOfBuildings = int(float(row[column_names.index('Aantal_utiliteiten')])),
+                numberOfBuildings = int(float(row[column_names.index('i10_aantal_utiliteit')])),
                 aggregated = True
             )
             area.asset.append(utilities)
-
-            g_network = GasNetwork(id=str(uuid.uuid4()), name="Gas_network")
+            
+# =============================================================================
+# ------------------------------NETWORK----------------------------------------          
+# =============================================================================
+            g_network = GasNetwork(id=str(uuid.uuid4()), name="Gas_network", aggregated = True)
             g_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
             g_network.port.append(g_network_op)
             houses.asset.append(g_network)
             
-            g_con = GConnection(id=str(uuid.uuid4()), name="Gas_connector")
+            h_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_network", aggregated = True)
+            h_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+            h_network.port.append(h_network_op)
+            houses.asset.append(h_network)
+            
+            e_network = ElectricityNetwork(id=str(uuid.uuid4()), name="Electricity_network", aggregated = True)
+            e_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+            e_network.port.append(e_network_op)
+            houses.asset.append(e_network)
+            
+# =============================================================================
+# ------------------------------CONNECTORS-------------------------------------          
+# =============================================================================
+            g_con = GConnection(id=str(uuid.uuid4()), name="Gas_connector", aggregated = True)
             g_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
             g_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
             g_con_ip.connectedTo.append(g_network_op)
@@ -78,7 +108,26 @@ def MakeESDL(RegioNaam, StrategieNaam):
             g_con.port.append(g_con_op)
             houses.asset.append(g_con)
             
-            g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater")
+            h_con = HConnection(id=str(uuid.uuid4()), name="Heating_connector", aggregated = True)
+            h_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+            h_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+            h_con_ip.connectedTo.append(h_network_op)
+            h_con.port.append(h_con_ip)
+            h_con.port.append(h_con_op)
+            houses.asset.append(h_con)
+            
+            e_con = EConnection(id=str(uuid.uuid4()), name="Elektricity_connector", aggregated = True)
+            e_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+            e_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+            e_con_ip.connectedTo.append(e_network_op)
+            e_con.port.append(e_con_ip)
+            e_con.port.append(e_con_op)
+            houses.asset.append(e_con)
+            
+# =============================================================================
+# ------------------------------CONVERTORS-------------------------------------          
+# =============================================================================
+            g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater", aggregated = True)
             g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
             g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
             g_heater_ip.connectedTo.append(g_con_op)
@@ -86,77 +135,97 @@ def MakeESDL(RegioNaam, StrategieNaam):
             g_heater.port.append(g_heater_op)
             houses.asset.append(g_heater)
 
-            gd = GasDemand(id=str(uuid.uuid4()), name="Vraag_Aardgas")
+            h_pump = HeatPump(id=str(uuid.uuid4()), name="Heat_pump", aggregated = True)
+            h_pump_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+            h_pump_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+            h_pump_ip.connectedTo.append(e_con_op)
+            h_pump.port.append(h_pump_ip)
+            h_pump.port.append(h_pump_op)
+            houses.asset.append(h_pump)
+
+# =============================================================================
+# ------------------------------DEMAND-----------------------------------------          
+# =============================================================================
+            gd = GasDemand(id=str(uuid.uuid4()), name="Vraag_Aardgas", aggregated = True)
             gd_ip = InPort(id=str(uuid.uuid4()), name="Aansl_aardgas")
             gd_ip.connectedTo.append(g_heater_op)
-            gd_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_Aardgas')]) * float(row[column_names.index('Aantal_WoningEQ')]))
+            gd_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('h02_vraag_aardgas')]) * float(row[column_names.index('i11_woningequivalenten')]))
             gd_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             gd_ip.profile = gd_sv
             gd.port.append(gd_ip)
             houses.asset.append(gd)
             
-            hd_total = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_Warmte_totaal")
+            hd_total = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_Warmte_totaal", aggregated = True)
             hd_total_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-            hd_total_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_Warmte_totaal')]) * float(row[column_names.index('Aantal_WoningEQ')]))
+            hd_total_ip.connectedTo.append(h_con_op)
+            hd_total_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('h01_warmtetotaal')]) * float(row[column_names.index('i11_woningequivalenten')]))
             hd_total_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             hd_total_ip.profile = hd_total_sv
             hd_total.port.append(hd_total_ip)
             houses.asset.append(hd_total)
 
-            hd_MT = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_MT_Warmte")
+            hd_MT = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_MT_Warmte", aggregated = True)
             hd_MT_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-            hd_MT_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_MT_Warmte')]) * float(row[column_names.index('Aantal_WoningEQ')]))
+            hd_MT_ip.connectedTo.append(h_con_op)
+            hd_MT_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('h05_vraag_mtwarmte')]) * float(row[column_names.index('i11_woningequivalenten')]))
             hd_MT_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             hd_MT_ip.profile = hd_MT_sv
             hd_MT.port.append(hd_MT_ip)
             houses.asset.append(hd_MT)
 
-            hd_LT = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_LT_Warmte")
+            hd_LT = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_LT_Warmte", aggregated = True)
             hd_LT_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-            hd_LT_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_LT_Warmte')]) * float(row[column_names.index('Aantal_WoningEQ')]))
+            hd_LT_ip.connectedTo.append(h_con_op)
+            hd_LT_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('h06_vraag_ltwarmte')]) * float(row[column_names.index('i11_woningequivalenten')]))
             hd_LT_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             hd_LT_ip.profile = hd_LT_sv
             hd_LT.port.append(hd_LT_ip)
             houses.asset.append(hd_LT)
 
-            hd_elek = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_ElektrischeWarmte")
+            hd_elek = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_ElektrischeWarmte", aggregated = True)
             hd_elek_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-            hd_elek_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_ElektrischeWarmte')]) * float(row[column_names.index('Aantal_WoningEQ')]))
+            hd_elek_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('h04_vraag_elekwarmte')]) * float(row[column_names.index('i11_woningequivalenten')]))
             hd_elek_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             hd_elek_ip.profile = hd_elek_sv
             hd_elek.port.append(hd_elek_ip)
             houses.asset.append(hd_elek)
             
-            cd = CoolingDemand(id=str(uuid.uuid4()), name="Vraag_Koude")
+            cd = CoolingDemand(id=str(uuid.uuid4()), name="Vraag_Koude", aggregated = True)
             cd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-            cd_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_Koude')]) * float(row[column_names.index('Aantal_WoningEQ')]))
+            cd_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('h08_vraag_koude')]) * float(row[column_names.index('i11_woningequivalenten')]))
             cd_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             cd_ip.profile = cd_sv
             cd.port.append(cd_ip)
             houses.asset.append(cd)
 
-            ed = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_Elektriciteit")
+            ed = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_Elektriciteit", aggregated = True)
             ed_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-            ed_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('Vraag_Elektriciteit')]) * float(row[column_names.index('Aantal_WoningEQ')]))
+            ed_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('h09_vraag_elektotaal')]) * float(row[column_names.index('i11_woningequivalenten')]))
             ed_sv.profileQuantityAndUnit = qau_energy_GJ_yr
             ed_ip.profile = ed_sv
             ed.port.append(ed_ip)
             houses.asset.append(ed)
 
-            co2_gas = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_gas', value=str(float(row[column_names.index('CO2_uitstoot_gas')])  * float(row[column_names.index('Aantal_WoningEQ')])), quantityAndUnit = qau_emission_KG)
-            co2_elek = StringKPI(id=str(uuid.uuid4()),name='CO2_uitstoot_elek', value=str(float(row[column_names.index('CO2_uitstoot_elek')])  * float(row[column_names.index('Aantal_WoningEQ')])))
-            costs = StringKPI(id=str(uuid.uuid4()),name='Maatschappelijke_kosten', value=str(float(row[column_names.index('Maatschappelijke_kosten')])  * float(row[column_names.index('Aantal_WoningEQ')])))
-            warmte_optie = StringKPI(id=str(uuid.uuid4()),name='Warmte_Allocatie_Optie', value=row[column_names.index('WarmteAllocatieOptie')])
+# =============================================================================
+# ------------------------------OTHER------------------------------------------          
+# =============================================================================
+            co2_reductie       = StringKPI(id=str(uuid.uuid4()),name='h10_CO2_reductie',   value=str(float(row[column_names.index('h10_co2_reductie')])), quantityAndUnit = qau_emission_TON_yr)
+            nat_abs_meerkosten = StringKPI(id=str(uuid.uuid4()),name='nat_abs_meerkosten', value=str(float(row[column_names.index('h11_nat_abskosten')])), quantityAndUnit = qau_cost_EURO_yr)
+            nat_meerkosten     = StringKPI(id=str(uuid.uuid4()),name='nat_meerkosten',     value=str(float(row[column_names.index('h12_nat_meerkosten')])), quantityAndUnit = qau_cost_EURO_yr)
+            nat_meerkosten_CO2 = StringKPI(id=str(uuid.uuid4()),name='nat_meerkosten_CO2', value=str(float(row[column_names.index('h13_nat_meerkost_co2')])), quantityAndUnit = qau_cost_EURO_TON)
+            nat_meerkosten_WEQ = StringKPI(id=str(uuid.uuid4()),name='nat_meerkosten_WEQ', value=str(float(row[column_names.index('h16_nat_meerkost_weq')])), quantityAndUnit = qau_cost_EURO_yr)
+           
+#            warmte_optie = StringKPI(id=str(uuid.uuid4()),name='Warmte_Allocatie_Optie', value=row[column_names.index('WarmteAllocatieOptie')])
             kpis = KPIs(id=str(uuid.uuid4()))
-            kpis.kpi.append(co2_gas)
-            kpis.kpi.append(co2_elek)
-            kpis.kpi.append(costs)
-            kpis.kpi.append(warmte_optie)
+            kpis.kpi.append(co2_reductie)
+            kpis.kpi.append(nat_abs_meerkosten)
+            kpis.kpi.append(nat_meerkosten)
+            kpis.kpi.append(nat_meerkosten_CO2)
+            kpis.kpi.append(nat_meerkosten_WEQ)
+#            kpis.kpi.append(warmte_optie)
             houses.KPIs = kpis
 
             es.instance[0].area.area.append(area)
-
-            # print("Energy system: {}".format(attr_to_dict(es)))
 
     export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
 
@@ -169,10 +238,10 @@ def MakeESDL(RegioNaam, StrategieNaam):
 def main():
     
     RegioNaam = "GooiEnVechtstreek"
-    Strategien= ["S0_Referentie"]
-#    Strategien= ["S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem"
-#                 , "S2a_restwarmte", "S2b_Geothermie-metcontour"
-#                 , "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
+#    Strategien= ["S0_Referentie"]
+    Strategien= ["StartJaar","S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem"
+                 , "S2a_restwarmte", "S2b_Geothermie-metcontour"
+                 , "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
     
     for i in list(Strategien):
         StrategieNaam= i    
