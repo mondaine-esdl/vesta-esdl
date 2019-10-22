@@ -85,17 +85,17 @@ def MakeESDL(RegioNaam, StrategieNaam):
             g_network = GasNetwork(id=str(uuid.uuid4()), name="Gas_network", aggregated = True)
             g_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
             g_network.port.append(g_network_op)
-            houses.asset.append(g_network)
+            area.asset.append(g_network)
             
             h_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_network", aggregated = True)
             h_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
             h_network.port.append(h_network_op)
-            houses.asset.append(h_network)
+            area.asset.append(h_network)
             
             e_network = ElectricityNetwork(id=str(uuid.uuid4()), name="Electricity_network", aggregated = True)
             e_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
             e_network.port.append(e_network_op)
-            houses.asset.append(e_network)
+            area.asset.append(e_network)
             
 # =============================================================================
 # ------------------------------CONNECTORS-------------------------------------          
@@ -223,7 +223,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             kpis.kpi.append(nat_meerkosten_CO2)
             kpis.kpi.append(nat_meerkosten_WEQ)
 #            kpis.kpi.append(warmte_optie)
-            houses.KPIs = kpis
+            area.KPIs = kpis
 
             es.instance[0].area.area.append(area)
 
