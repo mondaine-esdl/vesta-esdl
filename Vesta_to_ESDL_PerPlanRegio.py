@@ -237,16 +237,18 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
 def main():
     
-    RegioNaam = "GooiEnVechtstreek"
+    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
 #    Strategien= ["S0_Referentie"]
     Strategien= ["StartJaar","S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem"
                  , "S2a_restwarmte", "S2b_Geothermie-metcontour"
                  , "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
     
     for i in list(Strategien):
-        StrategieNaam= i    
-        MakeESDL(RegioNaam, StrategieNaam)
-        print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
+        for j in list(RegioNamen):
+            StrategieNaam= i
+            RegioNaam= j
+            MakeESDL(RegioNaam, StrategieNaam)
+            print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
 
 if __name__ == '__main__':
     main()

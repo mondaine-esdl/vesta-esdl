@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<DocType name="GeoDmsMetaInfo">
+<DefaultInfo>
+	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio/result
+	</FullName>
+	<GeoDmsVersion>GeoDms 7.182 [Release] [x64] [Oct  9 2018] [Complete Edition]
+	</GeoDmsVersion>
+	<StatusFlags>0x5ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	</StatusFlags>
+</DefaultInfo>
+<Software>
+	<GeoDmsVersion>7.182
+	</GeoDmsVersion>
+</Software>
+<Config>
+	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio/result
+	</FullName>
+	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)<BR/>
+				
+	</Expr>
+</Config>
+<Environment>
+	<Processor>Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+	</Processor>
+	<User>Jip Claassens
+	</User>
+	<ComputerName>VU-PC
+	</ComputerName>
+</Environment>
+<Git>
+	<RevisionInfo>
+	</RevisionInfo>
+</Git>
+<Svn>
+	<RevisionInfo>SubWCRev: &apos;c:\GeoDMS\ProjDir\VestaLeidraad&apos;<BR/>
+		Last committed at revision 390<BR/>
+		Updated to revision 392<BR/>
+		Local modifications found<BR/>
+		Unversioned items found<BR/>
+		
+	</RevisionInfo>
+</Svn>
+</DocType>
