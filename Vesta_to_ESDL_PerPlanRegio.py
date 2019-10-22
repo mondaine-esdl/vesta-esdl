@@ -26,14 +26,14 @@ def MakeESDL(RegioNaam, StrategieNaam):
     rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)  # we register the factory for '.esdl' extension and XML serialization
 
     # Create a new EnergySystem
-    es = EnergySystem(name="Vesta Resultaten PerPlanRegio")
-    instance = Instance(name="y2030")
-    
-    
+    es = EnergySystem(id=str(uuid.uuid4()), name="Vesta Resultaten PerPlanRegio")
+    instance = Instance(id=str(uuid.uuid4()), name="y2030")
+
     # AbstractInstanceDate = InstanceDate.date(2020)
+    instance.date = InstanceDate(date=EDate.from_string("2030-01-01"))
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
     es.instance.append(instance)
-    es.instance[0].area = Area(name=RegioNaam)
+    es.instance[0].area = Area(id=str(uuid.uuid4()), name=RegioNaam)
 
     qau_energy_GJ_yr = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
     qau_emission_KG = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="EMISSION", unit="GRAM", multiplier="KILO")
@@ -79,7 +79,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             houses.asset.append(g_con)
             
             g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater")
-            g_heater_ip = OutPort(id=str(uuid.uuid4()), name="InPort")
+            g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
             g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
             g_heater_ip.connectedTo.append(g_con_op)
             g_heater.port.append(g_heater_ip)
