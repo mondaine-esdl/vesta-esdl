@@ -62,6 +62,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
         for row in reader:
             area = Area(id=row[column_names.index('bu_code')], scope="NEIGHBOURHOOD")
+            area_list = row[column_names.index('bu_code')]
             
 # =============================================================================
 # ------------------------------BUILDINGS--------------------------------------          
@@ -218,14 +219,30 @@ def MakeESDL(RegioNaam, StrategieNaam):
             nat_meerkosten_CO2 = StringKPI(id=str(uuid.uuid4()),name='nat_meerkosten_CO2', value=str(float(row[column_names.index('h13_nat_meerkost_co2')])), quantityAndUnit = qau_cost_EURO_TON)
             nat_meerkosten_WEQ = StringKPI(id=str(uuid.uuid4()),name='nat_meerkosten_WEQ', value=str(float(row[column_names.index('h16_nat_meerkost_weq')])), quantityAndUnit = qau_cost_EURO_yr)
            
-#            warmte_optie = StringKPI(id=str(uuid.uuid4()),name='Warmte_Allocatie_Optie', value=row[column_names.index('WarmteAllocatieOptie')])
             kpis = KPIs(id=str(uuid.uuid4()))
             kpis.kpi.append(co2_reductie)
             kpis.kpi.append(nat_abs_meerkosten)
             kpis.kpi.append(nat_meerkosten)
             kpis.kpi.append(nat_meerkosten_CO2)
             kpis.kpi.append(nat_meerkosten_WEQ)
-#            kpis.kpi.append(warmte_optie)
+            
+# =============================================================================
+# ------------------------------WARMTE OPTIES----------------------------------          
+# =============================================================================
+            
+            with open("data/Strategie_6_Hoofdindicatoren.csv", newline='') as csvfile_warmte:
+                csvfile_warmte = (line.lower() for line in csvfile_warmte)
+                reader_warmte = csv.reader(csvfile_warmte, delimiter=';')
+                
+                column_names_warmte = next(reader_warmte)
+#                print(column_names_warmte)
+            
+                for row in reader:
+                    area_NL = row[column_names_warmte.index('bu_code')]
+                    warmte_optie_NL = StringKPI(id=str(uuid.uuid4()),name='Warmte_Allocatie_Optie', value=row[column_names_warmte.index('v01_strategievariant')])
+                if area_NL in area_list:
+                    kpis.kpi.append(warmte_optie_NL)
+
             area.KPIs = kpis
 
             es.instance[0].area.area.append(area)
@@ -242,11 +259,10 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
 def main():
     
-    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
-#    Strategien= ["S0_Referentie"]
-    Strategien= ["StartJaar","S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem"
-                 , "S2a_restwarmte", "S2b_Geothermie-metcontour"
-                 , "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
+#    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
+    RegioNamen= ["Hengelo"]
+    Strategien= ["S0_Referentie"]
+#    Strategien= ["StartJaar","S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem", "S2a_restwarmte", "S2b_Geothermie-metcontour", "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
     
     for i in list(Strategien):
         for j in list(RegioNamen):
