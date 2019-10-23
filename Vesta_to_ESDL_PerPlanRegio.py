@@ -7,6 +7,9 @@ import uuid
 import csv
 # import pandas
 
+from MondaineHub import MondaineHub
+mh = MondaineHub('jclaassens@objectvision.nl')
+
 
 def attr_to_dict(eobj):
     d = dict()
@@ -232,6 +235,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
     resource = rset.create_resource(URI(export_name))
     resource.append(es)
     resource.save()
+
+    mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam, resource)
     
     return (RegioNaam, StrategieNaam)
 
