@@ -2,7 +2,7 @@
 
 <DocType name="GeoDmsMetaInfo">
 <DefaultInfo>
-	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio/result
+	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio_GooiEnVechtstreek/result
 	</FullName>
 	<GeoDmsVersion>GeoDms 7.182 [Release] [x64] [Oct  9 2018] [Complete Edition]
 	</GeoDmsVersion>
@@ -14,7 +14,7 @@
 	</GeoDmsVersion>
 </Software>
 <Config>
-	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio/result
+	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio_GooiEnVechtstreek/result
 	</FullName>
 	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)<BR/>
 				
