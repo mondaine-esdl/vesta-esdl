@@ -1,0 +1,40 @@
+
+
+nraansl_gas				= aantal woningen (bestaand of nieuwbouw) en utiliteiten met een gas aansluiting
+nraansl_mwkk			= aantal woningen (bestaand of nieuwbouw) en utiliteiten met een micro warmte kracht koppeling installatie
+nraansl_ewp				= aantal woningen (bestaand of nieuwbouw) en utiliteiten met een elektrische warmte pomp of een aansluiten op een collectieve eWP
+nraansl_hwp				= aantal woningen (bestaand of nieuwbouw) en utiliteiten met een elektrische warmte pomp en een gasheater installatie
+nraansl_ewv				= aantal woningen (bestaand of nieuwbouw) en utiliteiten met een elektrische weerstandsverwarming
+nraansl_restwarmte		= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van restwarmtebronnen
+nraansl_geothermie		= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van geothermie
+nraansl_wijkwkk			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van een collectieve wijk warmte kracht koppeling installatie
+nraansl_biowkk			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van collectieve bio warmte kracht koppeling installatie
+nraansl_wko				= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van warmte-koude opslag
+nraansl_lt15_30			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van een warmte conversie methode waarbij de temperatuur opgeplust wordt van 15 naar 30 graden
+nraansl_lt15_50			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van een warmte conversie methode waarbij de temperatuur opgeplust wordt van 15 naar 50 graden
+nraansl_lt15_70			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van een warmte conversie methode waarbij de temperatuur opgeplust wordt van 15 naar 70 graden
+nraansl_lt30_30			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van een warmtebron van 30 en dit vervolgens ook op die temperatuur het huis binnen komt
+nraansl_lt30_50			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van een warmte conversie methode waarbij de temperatuur opgeplust wordt van 30 naar 50 graden
+nraansl_lt30_70			= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van een warmte conversie methode waarbij de temperatuur opgeplust wordt van 30 naar 70 graden
+nraansl_teo				= aantal woningen (bestaand of nieuwbouw) en utiliteiten die gebruik maken van thermische energie uit oppervlaktewater
+
+i09_aantal_woningen		= aantal bestaande en nieuwbouw woningeenheden (verblijfsobjecten uit de BAG met gebruiksdoel wonen)
+i10_aantal_utiliteit	= aantal bestaande en nieuwbouw utiliteiten (verblijfsobjecten uit de BAG met een gebruiksdoel ongelijk aan wonen en industrie)
+i11_woningequivalenten	= samenvoeging van woningen en utiliteiten, waarbij een woning 1 is en het aantal utiliteiten wordt bepaald op basis van de oppervlakte (oppervlakte utiliteiten / 130m2)
+
+h01_warmtetotaal		= H02_Vraag_aardgas + H03_Vraag_groengas + H04_Vraag_elekwarmte + H05_Vraag_MTwarmte + H06_Vraag_LTwarmte
+h02_vraag_aardgas		= g-vraag bestaande woningen en utiliteiten zonder bestaand warmtenet + bijstook bestaande warmtenetten + gasverbruik hulpketels nieuw warmtenet + gasverbruik opwekking nieuw warmtenet
+h03_vraag_groengas		= groen-g-vraag bestaande woningen en utiliteiten zonder bestaand warmtenet + bijstook bestaande warmtenetten + groen-g-verbruik hulpketels nieuw warmtenet + groen-g-verbruik opwekking nieuw warmtenet
+h04_vraag_elekwarmte	= e-vraag van eWP bestaande woningen en utiliteit zonder bestaand warmtenet + e-vraag van hWP bestaande woningen en utiliteiten zonder bestaand warmtenet 
+							+ e-vraag opwekking nieuwe warmtenetten + e-vraag inpandig nieuwe warmtenetten + e-vraag pompenergie nieuwe warmtenetten + e-vraag pompenergie bestaande warmtenetten
+h05_vraag_mtwarmte		= mt-w-vraag bestaande warmtenetten in woningen en utiliteiten + mt-w-vraag nieuwe warmtenetten in woningen en utiliteiten
+h06_vraag_ltwarmte		= lt-w-vraag nieuwe warmtenetten in woningen en utiliteiten
+h07_warmte_hectare		= h01_warmtetotaal / oppervlakte van de buurt in hectare
+h08_vraag_koude			= functionele koudevraag woningen en utiliteiten
+h09_vraag_elektotaal	= e-vraag inpandig nieuwe warmtenetten + e-vraag pompenergie nieuwe warmtenetten + e-vraag opwekking nieuwe warmtenetten + e-vraag pompenergie bestaande warmtenetten + correctie e-vraag bestaande 
+							warmtenetten voor woningen en utiliteiten tbv eWP en hWP + e-vraag pompenergie woningen en utiliteiten zonder bestaand warmtenet + e-vraag tbv van koude voor woningen en utiliteiten met en zonder bestaand warmtenet
+h10_co2_reductie		= verschil in CO2 uitstoot tov startjaar
+h11_nat_abskosten		= absolute nationale kosten
+h12_nat_meerkosten		= nationale meerkosten ten opzichte van startjaar
+h13_nat_meerkost_co2	= nationale meerkosten per vermeden ton CO2
+h16_nat_meerkost_weq	= nationale meerkosten per woningequivalent
