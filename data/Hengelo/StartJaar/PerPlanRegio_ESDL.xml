@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="windows-1252"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <DocType name="GeoDmsMetaInfo">
 <DefaultInfo>
-	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio/result
+	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio_Hengelo/result
 	</FullName>
-	<GeoDmsVersion>GeoDms 7.182 [Release] [x64] [Oct  9 2018] [Complete Edition]
+	<GeoDmsVersion>GeoDms 7.202 [Release] [x64] [Oct 11 2019] [Complete Edition]
 	</GeoDmsVersion>
-	<StatusFlags>0x5ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	<StatusFlags>0x45ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
 	</StatusFlags>
 </DefaultInfo>
 <Software>
-	<GeoDmsVersion>7.182
+	<GeoDmsVersion>7.202
 	</GeoDmsVersion>
 </Software>
 <Config>
-	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio/result
+	<FullName>/Resultaten/Exports/ESDL/export_PerPlanRegio_Hengelo/result
 	</FullName>
-	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)<BR/>
-				
+	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)
 	</Expr>
 </Config>
 <Environment>

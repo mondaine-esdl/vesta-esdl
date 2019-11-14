@@ -1,188 +1,188 @@
-BU_CODE;I01_buurtcode;I02_buurtnaam;I03_wijkcode;I04_wijknaam;I05_gemeentecode;I06_gemeentenaam;I07_energieregionaam;I08_provincienaam;I09_aantal_woningen;I10_aantal_utiliteit;I11_woningequivalenten;Uitgesloten;H01_warmtetotaal;H02_Vraag_aardgas;H03_Vraag_groengas;H04_Vraag_elekwarmte;H05_Vraag_MTwarmte;H06_Vraag_LTwarmte;H07_Warmte_hectare;H08_Vraag_koude;H09_Vraag_elektotaal;H10_CO2_reductie;H11_Nat_abskosten;H12_Nat_meerkosten;H13_Nat_meerkost_CO2;H16_Nat_meerkost_WEQ;nr_OrgEntity
-BU03760101;BU03760101;Bijvanck;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1815;98;1894;False;38;38;0;0;0;0;707;2;12;0;1795285;1795285;0;0;2115
-BU03760102;BU03760102;Blaricum-Dorp;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;2235;187;2568;False;60;60;0;0;0;0;400;2;16;0;3677195;3677195;0;0;2116
-BU03760103;BU03760103;Blaricummer Heide;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1;3;9;False;102;102;0;0;0;0;11;10;29;0;24258;24258;0;0;2117
-BU03760104;BU03760104;Blaricummermeent;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;816;116;912;False;34;21;0;0;13;0;442;2;12;0;772135;772135;0;0;2118
-BU03760105;BU03760105;Crailo;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;56;5;355;False;65;65;0;0;0;0;639;1;27;0;575150;575150;0;0;2119
-BU03760106;BU03760106;De Kampen;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1;0;1;False;82;82;0;0;0;0;0;3;12;0;1382;1382;0;0;2120
-BU03760107;BU03760107;Eemmeer-Blaricum;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;0;0;0;False;0;0;0;0;0;0;0;0;0;0;3652;3652;0;0;2121
-BU03760108;BU03760108;Stichtsebrug;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;0;2;1;False;13;13;0;0;0;0;0;113;144;0;3230;3230;0;0;2122
-BU03760109;BU03760109;Warandepark-De Eng;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1;1;2;False;88;88;0;0;0;0;1;10;20;0;7720;7720;0;0;2123
-BU04020101;BU04020101;Centrum;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1893;546;3736;False;44;44;0;0;0;0;4138;2;35;0;6197414;6197414;0;0;5229
-BU04020102;BU04020102;Havenstraatbuurt;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1522;203;1737;False;41;41;0;0;0;0;3250;2;17;0;1845778;1845778;0;0;5230
-BU04020103;BU04020103;Sint Vitusbuurt;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;836;58;1014;False;47;47;0;0;0;0;2348;1;14;0;1090827;1090827;0;0;5231
-BU04020104;BU04020104;Langgewenstbuurt;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;936;263;1741;False;42;42;0;0;0;0;3555;2;32;0;2678407;2678407;0;0;5232
-BU04020201;BU04020201;Boomberg;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1530;211;2209;False;59;59;0;0;0;0;1439;2;20;0;3183009;3183009;0;0;5233
-BU04020202;BU04020202;Raadhuiskwartier;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;641;89;1018;False;71;71;0;0;0;0;1599;2;27;0;1852008;1852008;0;0;5234
-BU04020203;BU04020203;Trompenberg-Zuid;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;471;58;1178;False;63;63;0;0;0;0;2520;1;38;0;2302493;2302493;0;0;5235
-BU04020204;BU04020204;Villaparken;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;577;57;850;False;59;59;0;0;0;0;406;2;19;0;1320669;1320669;0;0;5236
-BU04020205;BU04020205;Trompenberg-Noord;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;286;24;365;False;66;66;0;0;0;0;643;2;20;0;588629;588629;0;0;5237
-BU04020206;BU04020206;Media Park;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;7;102;2444;False;58;58;0;0;0;0;2475;1;50;0;5392316;5392316;0;0;5238
-BU04020301;BU04020301;Havenkwartier;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;16;119;727;False;29;29;0;0;0;0;341;1;42;0;1290028;1290028;0;0;5239
-BU04020302;BU04020302;Het Rode Dorp;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;616;9;624;False;46;46;0;0;0;0;2263;1;12;0;628155;628155;0;0;5240
-BU04020303;BU04020303;Zeverijn;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;845;80;972;False;39;39;0;0;0;0;1511;2;13;0;936238;936238;0;0;5241
-BU04020304;BU04020304;Kerkelanden;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;3034;488;3909;False;36;36;0;0;0;0;1006;2;17;0;4145884;4145884;0;0;5242
-BU04020401;BU04020401;Bloemenkwartier Noord;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1300;216;1471;False;48;48;0;0;0;0;2584;2;16;0;1657909;1657909;0;0;5243
-BU04020402;BU04020402;Bloemenkwartier Zuid;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2307;156;2495;False;44;44;0;0;0;0;1870;1;14;0;2624631;2624631;0;0;5244
-BU04020403;BU04020403;Schrijverskwartier;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;810;127;853;False;55;55;0;0;0;0;1445;2;14;0;1040062;1040062;0;0;5245
-BU04020404;BU04020404;Staatsliedenkwartier;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1620;256;1745;False;47;47;0;0;0;0;1945;2;14;0;1876952;1876952;0;0;5246
-BU04020405;BU04020405;Zeeheldenkwartier;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2277;429;2422;False;37;37;0;0;0;0;1636;2;12;0;2178405;2178405;0;0;5247
-BU04020501;BU04020501;Schilderskwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1437;247;2061;False;59;59;0;0;0;0;1402;2;21;0;3024123;3024123;0;0;5248
-BU04020502;BU04020502;t Hoogt van t Kruis;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;624;51;676;False;50;50;0;0;0;0;244;3;13;0;814006;814006;0;0;5249
-BU04020503;BU04020503;Arenaparkkwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;240;155;1621;False;38;38;0;0;0;0;1237;1;45;0;3124075;3124075;0;0;5250
-BU04020504;BU04020504;West-Indiëkwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;97;4;122;False;84;84;0;0;0;0;322;2;15;0;232546;232546;0;0;5251
-BU04020505;BU04020505;Van Riebeeckkwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1933;209;2148;False;35;35;0;0;0;0;1771;1;12;0;1849760;1849760;0;0;5252
-BU04020506;BU04020506;Egelshoek;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;0;2;3;False;13;13;0;0;0;0;8;8;65;0;17695;17695;0;0;5253
-BU04020601;BU04020601;Geuzenbuurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1200;111;1560;False;45;45;0;0;0;0;2537;1;17;0;1788710;1788710;0;0;5254
-BU04020602;BU04020602;Electrobuurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1066;47;1289;False;43;43;0;0;0;0;2391;1;16;0;1407654;1407654;0;0;5255
-BU04020603;BU04020603;Kleine Driftbuurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1916;142;2269;False;39;39;0;0;0;0;1899;1;16;0;2367142;2367142;0;0;5256
-BU04020604;BU04020604;Liebergen;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2251;84;2464;False;39;39;0;0;0;0;1950;1;13;0;2360282;2360282;0;0;5257
-BU04020605;BU04020605;Astronomische Buurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2403;226;2859;False;48;44;0;0;4;0;1804;2;18;0;3467122;3467122;0;0;5258
-BU04020606;BU04020606;Annas Hoeve;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;204;4;217;False;34;34;0;0;0;0;406;2;12;0;212819;212819;0;0;5259
-BU04020701;BU04020701;Johannes Geradtswegbuurt;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;890;38;1032;False;51;51;0;0;0;0;1592;2;15;0;1236962;1236962;0;0;5260
-BU04020702;BU04020702;Erfgooiersbuurt;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;767;82;812;False;48;48;0;0;0;0;1703;2;14;0;878629;878629;0;0;5261
-BU04020703;BU04020703;Noord;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;3684;276;3927;False;35;35;0;0;0;0;1474;1;12;0;3413598;3413598;0;0;5262
-BU04020704;BU04020704;AZC Crailo;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;9;2;21;False;57;57;0;0;0;0;46;2;38;0;45818;45818;0;0;5263
-BU04020801;BU04020801;Hilversumse Meent;WK040208;Hilversumse Meent;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1827;86;1890;False;42;42;0;0;0;0;769;2;12;0;1891495;1891495;0;0;5264
-BU04020901;BU04020901;Landelijk Gebied 91;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;12;22;94;False;46;46;0;0;0;0;6;4;36;0;227180;227180;0;0;5265
-BU04020902;BU04020902;Landelijk Gebied 92;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;0;5;16;False;30;30;0;0;0;0;7;5;43;0;36592;36592;0;0;5266
-BU04020903;BU04020903;Landelijk Gebied 93;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;19;35;489;False;117;117;0;0;0;0;92;1;33;0;1083797;1083797;0;0;5267
-BU04020904;BU04020904;Landelijk Gebied 94;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;37;13;86;False;73;73;0;0;0;0;43;2;38;0;219147;219147;0;0;5268
-BU04020905;BU04020905;Landelijk Gebied 95;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;134;87;568;False;62;62;0;0;0;0;45;2;23;0;886662;886662;0;0;5269
-BU04020906;BU04020906;Landelijk Gebied 96;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;6;2;10;False;75;75;0;0;0;0;7;9;19;0;28056;28056;0;0;5270
-BU04020907;BU04020907;Landelijk Gebied 97;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;4;7;24;False;46;46;0;0;0;0;4;7;44;0;52400;52400;0;0;5271
-BU04060001;BU04060001;De Noord;WK040600;Wijk 00 Oude Dorp;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1673;229;2156;False;50;50;0;0;0;0;1826;2;22;0;2974122;2974122;0;0;5346
-BU04060002;BU04060002;De Zuid;WK040600;Wijk 00 Oude Dorp;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1250;66;1328;False;49;49;0;0;0;0;1388;2;14;0;1522393;1522393;0;0;5347
-BU04060103;BU04060103;Westereng;WK040601;Wijk 01 Westereng;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1008;34;1109;False;52;52;0;0;0;0;862;2;13;0;1332105;1332105;0;0;5348
-BU04060204;BU04060204;Flevo;WK040602;Wijk 02 Buitenwijken;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;94;2;95;False;74;74;0;0;0;0;81;3;12;0;181581;181581;0;0;5349
-BU04060205;BU04060205;Bikbergen;WK040602;Wijk 02 Buitenwijken;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;109;4;145;False;78;78;0;0;0;0;100;2;23;0;291382;291382;0;0;5350
-BU04060206;BU04060206;Crailo;WK040602;Wijk 02 Buitenwijken;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;149;16;361;False;88;88;0;0;0;0;214;2;25;0;731491;731491;0;0;5351
-BU04060307;BU04060307;Thames;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;32;3;35;False;71;71;0;0;0;0;37;3;13;0;65457;65457;0;0;5352
-BU04060308;BU04060308;IJzeren veld;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;63;6;67;False;74;74;0;0;0;0;68;3;13;0;119657;119657;0;0;5353
-BU04060327;BU04060327;Parrewijn;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;7;2;9;False;63;63;0;0;0;0;6;5;20;0;23259;23259;0;0;5354
-BU04060328;BU04060328;Tafelberger Heide;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1;1;2;False;60;60;0;0;0;0;1;5;25;0;3057;3057;0;0;5355
-BU04060329;BU04060329;Rijsbergen;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;4;3;36;False;40;40;0;0;0;0;42;1;24;0;49506;49506;0;0;5356
-BU04060330;BU04060330;Huizerhoogt;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;42;2;43;False;64;64;0;0;0;0;320;3;12;0;67440;67440;0;0;5357
-BU04060409;BU04060409;Sijsjesberg;WK040604;Wijk 04 Staatslieden en Componistenbuurt;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;244;3;247;False;66;66;0;0;0;0;869;2;12;0;338293;338293;0;0;5358
-BU04060410;BU04060410;Zuidereng;WK040604;Wijk 04 Staatslieden en Componistenbuurt;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;980;50;1091;False;52;52;0;0;0;0;661;2;13;0;1287164;1287164;0;0;5359
-BU04060511;BU04060511;Gooierhoofd;WK040605;Wijk 05 Havengebied;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;359;19;467;False;40;40;0;0;0;0;650;2;17;0;506383;506383;0;0;5360
-BU04060512;BU04060512;Wolfskamer;WK040605;Wijk 05 Havengebied;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;34;31;210;False;46;46;0;0;0;0;166;3;38;0;375183;375183;0;0;5361
-BU04060513;BU04060513;Industriewijk t Plaveen;WK040605;Wijk 05 Havengebied;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;232;128;1132;False;38;38;0;0;0;0;686;1;41;0;2089285;2089285;0;0;5362
-BU04060614;BU04060614;Bovenweg;WK040606;Wijk 06 Zenderwijk en Bovenweg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1331;97;1666;False;37;37;0;0;0;0;1494;2;16;0;1671978;1671978;0;0;5363
-BU04060615;BU04060615;Zenderwijk;WK040606;Wijk 06 Zenderwijk en Bovenweg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;559;45;608;False;45;45;0;0;0;0;1358;2;14;0;648597;648597;0;0;5364
-BU04060716;BU04060716;Stad en Lande;WK040607;Wijk 07 Stad en Lande;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1599;289;1822;False;42;42;0;0;0;0;968;2;16;0;2038554;2038554;0;0;5365
-BU04060817;BU04060817;Huizermaat West;WK040608;Wijk 08 Huizermaat West en Zuid;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1453;168;1582;False;39;39;0;0;0;0;985;2;14;0;1596178;1596178;0;0;5366
-BU04060818;BU04060818;Huizermaat Zuid;WK040608;Wijk 08 Huizermaat West en Zuid;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1366;80;1583;False;34;34;0;0;0;0;1312;1;16;0;1545072;1545072;0;0;5367
-BU04060919;BU04060919;Huizermaat Noord;WK040609;Wijk 09 Huizermaat Noord;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1409;60;1438;False;37;37;0;0;0;0;1257;2;11;0;1255598;1255598;0;0;5368
-BU04061020;BU04061020;Bijvanck Noord;WK040610;Wijk 10 Bijvanck;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;750;28;779;False;37;37;0;0;0;0;1071;1;11;0;676603;676603;0;0;5369
-BU04061021;BU04061021;Bijvanck West;WK040610;Wijk 10 Bijvanck;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;221;12;223;False;42;42;0;0;0;0;940;2;12;0;215690;215690;0;0;5370
-BU04061123;BU04061123;Bovenmaat Noord;WK040611;Wijk 11 Bovenmaten;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1478;35;1493;False;38;38;0;0;0;0;1065;1;11;0;1342234;1342234;0;0;5371
-BU04061124;BU04061124;Bovenmaat West;WK040611;Wijk 11 Bovenmaten;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;821;58;912;False;33;33;0;0;0;0;1944;1;14;0;790684;790684;0;0;5372
-BU04061125;BU04061125;Bovenmaat-Oost;WK040611;Wijk 11 Bovenmaten;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;593;8;623;False;35;35;0;0;0;0;741;1;11;0;526856;526856;0;0;5373
-BU04061226;BU04061226;Filosofenbuurt;WK040612;Wijk 12 Hogemaat;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;801;10;823;False;38;38;0;0;0;0;840;2;11;0;756511;756511;0;0;5374
-BU04061231;BU04061231;De Tuit;WK040612;Wijk 12 Hogemaat;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;120;0;120;False;44;44;0;0;0;0;915;2;11;0;120712;120712;0;0;5375
-BU04170320;BU04170320;Laren-Centrum;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;995;374;1736;False;60;60;0;0;0;0;1431;3;28;0;2919779;2919779;0;0;5390
-BU04170321;BU04170321;Laren-Natuurgebied;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;5;6;175;False;106;106;0;0;0;0;31;1;58;0;509769;509769;0;0;5391
-BU04170322;BU04170322;Omloop;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;569;52;684;False;46;46;0;0;0;0;634;2;18;0;842395;842395;0;0;5392
-BU04170323;BU04170323;Oostereng;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;512;41;546;False;62;62;0;0;0;0;342;2;14;0;745261;745261;0;0;5393
-BU04170324;BU04170324;Postiljon;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;164;5;184;False;36;36;0;0;0;0;759;2;13;0;172074;172074;0;0;5394
-BU04170325;BU04170325;Rijksweg-Noord;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;154;3;162;False;73;73;0;0;0;0;147;3;12;0;263190;263190;0;0;5395
-BU04170326;BU04170326;Rijksweg-Zuid;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;109;7;165;False;68;68;0;0;0;0;227;2;15;0;259566;259566;0;0;5396
-BU04170327;BU04170327;Steenbergen;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;246;10;372;False;61;61;0;0;0;0;269;2;19;0;551845;551845;0;0;5397
-BU04170328;BU04170328;Zevenend;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;2199;203;2376;False;50;50;0;0;0;0;1238;2;14;0;2738845;2738845;0;0;5398
-BU04170329;BU04170329;Zwarte Berg;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;296;19;381;False;75;75;0;0;0;0;283;2;16;0;634210;634210;0;0;5399
-BU04570001;BU04570001;Centrum;WK045700;Binnenstad;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;1194;179;1520;False;50;50;0;0;0;0;2360;2;19;0;1913877;1913877;0;0;5610
-BU04570002;BU04570002;Herensingelkwartier;WK045700;Binnenstad;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;513;47;587;False;45;45;0;0;0;0;3013;2;14;0;602606;602606;0;0;5611
-BU04570101;BU04570101;Bedrijventerrein Van Houten;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;118;51;751;False;45;45;0;0;0;0;659;1;28;0;1085492;1085492;0;0;5612
-BU04570102;BU04570102;Zuid I;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;368;22;416;False;41;41;0;0;0;0;1914;1;14;0;416651;416651;0;0;5613
-BU04570103;BU04570103;Zuid II;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;314;17;334;False;45;45;0;0;0;0;1231;2;13;0;359130;359130;0;0;5614
-BU04570104;BU04570104;De Klomp;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;254;41;260;False;46;46;0;0;0;0;1272;2;13;0;276924;276924;0;0;5615
-BU04570201;BU04570201;Dichtersbuurt;WK045702;Noord;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;1106;26;1163;False;33;33;0;0;0;0;1533;1;11;0;960117;960117;0;0;5616
-BU04570202;BU04570202;Schildersbuurt;WK045702;Noord;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;500;51;554;False;35;35;0;0;0;0;1642;2;12;0;484983;484983;0;0;5617
-BU04570301;BU04570301;Hogewey Noord;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;424;34;460;False;34;34;0;0;0;0;887;2;12;0;391594;391594;0;0;5618
-BU04570302;BU04570302;Hogewey Midden;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;930;155;1005;False;37;37;0;0;0;0;1731;2;14;0;962635;962635;0;0;5619
-BU04570303;BU04570303;Hogewey Zuid;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;904;100;1031;False;32;32;0;0;0;0;1831;2;13;0;882385;882385;0;0;5620
-BU04570304;BU04570304;Bedrijventerrein Noord;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;75;333;2696;False;39;39;0;0;0;0;1277;1;17;0;2744973;2744973;0;0;5621
-BU04570401;BU04570401;Aetsveld Noord;WK045704;Aetsveld;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;702;26;757;False;39;39;0;0;0;0;1209;1;13;0;736230;736230;0;0;5622
-BU04570402;BU04570402;Aetsveld Zuid;WK045704;Aetsveld;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;797;4;798;False;37;37;0;0;0;0;1215;1;10;0;683301;683301;0;0;5623
-BU04570701;BU04570701;Aetsveldsepolder;WK045707;Aetsveldsepolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;115;29;166;False;53;53;0;0;0;0;17;3;22;0;289141;289141;0;0;5624
-BU04570801;BU04570801;Oostelijke Vechtoever;WK045708;Oostelijke Vechtoever;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;136;109;221;False;56;56;0;0;0;0;12;5;23;0;434945;434945;0;0;5625
-BU04570901;BU04570901;Leeuwenveld;WK045709;Bloemendalerpolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;510;40;628;False;35;35;0;0;0;0;788;2;21;0;726950;726950;0;0;5626
-BU04570902;BU04570902;Bedrijventerrein Nijverheidslaan;WK045709;Bloemendalerpolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;12;31;298;False;32;32;0;0;0;0;550;1;27;0;382191;382191;0;0;5627
-BU04570903;BU04570903;Weespersluis;WK045709;Bloemendalerpolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;33;5;37;False;46;46;0;0;0;0;5;3;17;0;100035;100035;0;0;5628
-BU16960000;BU16960000;s-Graveland;WK169600;Wijk 00 s-Graveland;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;714;87;940;False;56;56;0;0;0;0;101;2;19;0;1363638;1363638;0;0;10098
-BU16960100;BU16960100;Oud-Kortenhoef;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;158;25;191;False;59;59;0;0;0;0;37;3;17;0;284957;284957;0;0;10099
-BU16960101;BU16960101;Rade Oranjebuurt Munniksveen en omgeving;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;2674;365;2965;False;42;42;0;0;0;0;333;2;14;0;3105744;3105744;0;0;10100
-BU16960102;BU16960102;Moleneind;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;75;11;89;False;58;58;0;0;0;0;72;3;14;0;129653;129653;0;0;10101
-BU16960103;BU16960103;Kromme Rade;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;38;11;43;False;64;64;0;0;0;0;12;4;13;0;78590;78590;0;0;10102
-BU16960200;BU16960200;Ankeveen;WK169602;Wijk 02 Ankeveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;120;4;126;False;58;58;0;0;0;0;31;2;13;0;155548;155548;0;0;10103
-BU16960201;BU16960201;Ankeveense Rade;WK169602;Wijk 02 Ankeveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;491;80;560;False;46;46;0;0;0;0;111;2;13;0;638544;638544;0;0;10104
-BU16960202;BU16960202;Hollandsch Ankeveen;WK169602;Wijk 02 Ankeveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;56;5;72;False;59;59;0;0;0;0;29;2;21;0;105379;105379;0;0;10105
-BU16960300;BU16960300;Oud-Loosdrecht;WK169603;Wijk 03 Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;1090;475;1566;False;50;50;0;0;0;0;111;4;19;0;2133061;2133061;0;0;10106
-BU16960400;BU16960400;Nieuw-Loosdrechtsedijk;WK169604;Wijk 04 Nieuw-Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;2706;419;3360;False;49;49;0;0;0;0;330;2;18;0;4231398;4231398;0;0;10107
-BU16960401;BU16960401;Muijeveld;WK169604;Wijk 04 Nieuw-Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;65;4;67;False;65;65;0;0;0;0;310;3;13;0;95811;95811;0;0;10108
-BU16960402;BU16960402;Boomhoek;WK169604;Wijk 04 Nieuw-Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;137;526;360;False;54;54;0;0;0;0;138;14;22;0;536252;536252;0;0;10109
-BU16960500;BU16960500;Breukeleveen;WK169605;Wijk 05 Breukeleveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;138;7;144;False;59;59;0;0;0;0;66;2;12;0;185394;185394;0;0;10110
-BU16960601;BU16960601;Horn- en Kuijerpolder;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;545;185;698;False;51;51;0;0;0;0;137;4;17;0;891435;891435;0;0;10111
-BU16960602;BU16960602;Blijkpolder;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;570;34;610;False;41;41;0;0;0;0;337;2;14;0;636825;636825;0;0;10112
-BU16960603;BU16960603;Horstermeer;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;287;41;419;False;65;65;0;0;0;0;45;2;20;0;715056;715056;0;0;10113
-BU16960604;BU16960604;Splegelpolder;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;831;94;910;False;44;44;0;0;0;0;177;2;14;0;1012230;1012230;0;0;10114
-BU19420000;BU19420000;Brinklaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;936;388;1549;False;47;47;0;0;0;0;3343;3;30;0;2354162;2354162;0;0;10524
-BU19420001;BU19420001;Raadhuisplein;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;867;152;1214;False;45;45;0;0;0;0;2696;2;24;0;1606048;1606048;0;0;10525
-BU19420002;BU19420002;Verbindingslaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;632;87;799;False;47;47;0;0;0;0;2843;2;20;0;993018;993018;0;0;10526
-BU19420003;BU19420003;Batterijlaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;500;37;570;False;52;52;0;0;0;0;2577;2;15;0;687354;687354;0;0;10527
-BU19420004;BU19420004;Cereslaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;564;52;656;False;42;42;0;0;0;0;2759;2;17;0;711590;711590;0;0;10528
-BU19420005;BU19420005;Bijlstraat;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;499;28;542;False;48;48;0;0;0;0;2243;2;12;0;572362;572362;0;0;10529
-BU19420006;BU19420006;Nijverheidswerf;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;420;52;511;False;47;47;0;0;0;0;2220;2;14;0;543115;543115;0;0;10530
-BU19420007;BU19420007;Laarderwegkwartier;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;633;141;718;False;41;41;0;0;0;0;1592;2;15;0;761702;761702;0;0;10531
-BU19420008;BU19420008;Spiegelzicht;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;459;125;560;False;56;56;0;0;0;0;2068;3;19;0;750823;750823;0;0;10532
-BU19420100;BU19420100;Prins Hendrikkwartier;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;315;69;444;False;64;64;0;0;0;0;2024;3;23;0;702292;702292;0;0;10533
-BU19420101;BU19420101;Hooftlaan;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;245;57;396;False;45;45;0;0;0;0;1587;2;24;0;536993;536993;0;0;10534
-BU19420102;BU19420102;Vondellaan;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;438;51;543;False;53;53;0;0;0;0;1485;2;16;0;682686;682686;0;0;10535
-BU19420103;BU19420103;Bredius-West;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;191;8;211;False;74;74;0;0;0;0;796;3;16;0;335251;335251;0;0;10536
-BU19420104;BU19420104;Bredius-Oost;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;431;24;617;False;55;55;0;0;0;0;911;2;15;0;771591;771591;0;0;10537
-BU19420200;BU19420200;Sportpark-Zuid;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1;15;87;False;88;88;0;0;0;0;469;3;21;0;143224;143224;0;0;10538
-BU19420201;BU19420201;Donderstraat;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;444;16;461;False;54;54;0;0;0;0;1598;2;14;0;546080;546080;0;0;10539
-BU19420202;BU19420202;Godelindebuurt;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;410;12;424;False;41;41;0;0;0;0;1918;1;13;0;419709;419709;0;0;10540
-BU19420203;BU19420203;Waltherlaan;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;260;24;274;False;55;55;0;0;0;0;1323;2;12;0;321660;321660;0;0;10541
-BU19420204;BU19420204;Bloemenbuurt;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;531;28;604;False;53;53;0;0;0;0;1361;2;14;0;715921;715921;0;0;10542
-BU19420205;BU19420205;Ooster Eng-Noord;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;920;252;1026;False;41;41;0;0;0;0;1503;2;14;0;1047381;1047381;0;0;10543
-BU19420206;BU19420206;Ooster Eng-Zuid;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1275;437;1571;False;43;43;0;0;0;0;1450;2;16;0;1668917;1668917;0;0;10544
-BU19420207;BU19420207;Midden Eng-Oost;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;801;83;850;False;38;38;0;0;0;0;1099;2;13;0;800122;800122;0;0;10545
-BU19420208;BU19420208;Midden Eng-West;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;700;38;714;False;40;40;0;0;0;0;1624;2;11;0;666374;666374;0;0;10546
-BU19420209;BU19420209;Wester Eng;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1070;261;1288;False;36;36;0;0;0;0;1072;2;17;0;1311935;1311935;0;0;10547
-BU19420300;BU19420300;Lomanplein;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;392;64;520;False;64;64;0;0;0;0;1343;3;18;0;776926;776926;0;0;10548
-BU19420301;BU19420301;Schimmellaan;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;155;47;207;False;66;66;0;0;0;0;1144;3;21;0;323755;323755;0;0;10549
-BU19420302;BU19420302;Boslaan;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;517;33;675;False;69;69;0;0;0;0;1009;2;15;0;965285;965285;0;0;10550
-BU19420303;BU19420303;Koedijk;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;269;15;273;False;65;65;0;0;0;0;769;3;12;0;380184;380184;0;0;10551
-BU19420304;BU19420304;Kom van Bieghel;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;696;123;932;False;40;40;0;0;0;0;1217;2;18;0;1022847;1022847;0;0;10552
-BU19420305;BU19420305;Meijerkamp;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;213;20;239;False;55;55;0;0;0;0;563;3;13;0;288657;288657;0;0;10553
-BU19420306;BU19420306;Fransekamp;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;107;23;350;False;33;33;0;0;0;0;66;1;52;0;759445;759445;0;0;10554
-BU19420400;BU19420400;Vesting Muiden;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;639;73;749;False;51;51;0;0;0;0;1288;2;15;0;899889;899889;0;0;10555
-BU19420401;BU19420401;Krijgsman;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;535;44;566;False;46;46;0;0;0;0;222;2;13;0;660497;660497;0;0;10556
-BU19420402;BU19420402;Muiderberg;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;773;229;859;False;52;52;0;0;0;0;302;3;15;0;1049931;1049931;0;0;10557
-BU19420403;BU19420403;Mariahoeve Muiden;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;324;28;341;False;47;47;0;0;0;0;893;2;14;0;379434;379434;0;0;10558
-BU19420404;BU19420404;Buitendijken Muiderberg;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;527;34;538;False;40;40;0;0;0;0;1158;2;12;0;507697;507697;0;0;10559
-BU19420408;BU19420408;Pampusweg;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;4;31;158;False;21;21;0;0;0;0;17;2;72;0;451575;451575;0;0;10560
-BU19420409;BU19420409;IJmeer;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1;0;1;False;63;63;0;0;0;0;8;2;11;0;6832;6832;0;0;10561
-BU19420410;BU19420410;Noordpolder;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;74;17;139;False;56;56;0;0;0;0;11;3;34;0;341452;341452;0;0;10562
-BU19420501;BU19420501;Naarden Vesting;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;836;235;1153;False;56;56;0;0;0;0;1147;3;23;0;1669496;1669496;0;0;10563
-BU19420502;BU19420502;Tuindorp Keverdijk;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1687;246;1848;False;42;42;0;0;0;0;974;2;14;0;1933321;1933321;0;0;10564
-BU19420503;BU19420503;Naarderwoonbos;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;181;16;202;False;52;52;0;0;0;0;191;3;13;0;249459;249459;0;0;10565
-BU19420504;BU19420504;Bedrijvenpark Gooimeer-Zuid;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;10;156;544;False;43;43;0;0;0;0;522;3;44;0;1061469;1061469;0;0;10566
-BU19420506;BU19420506;Oranje Nassaupark-Noord;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;253;65;279;False;56;56;0;0;0;0;739;3;14;0;359174;359174;0;0;10567
-BU19420507;BU19420507;Oranje Nassaupark-Zuid;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;549;68;583;False;54;54;0;0;0;0;1066;2;14;0;716974;716974;0;0;10568
-BU19420508;BU19420508;Ministerpark;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1054;133;1157;False;49;49;0;0;0;0;1295;2;15;0;1378443;1378443;0;0;10569
-BU19420509;BU19420509;Componistenkwartier;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;716;110;1098;False;51;51;0;0;0;0;509;2;20;0;1439579;1439579;0;0;10570
-BU19420510;BU19420510;Rembrandtpark;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;911;80;1010;False;52;52;0;0;0;0;995;2;14;0;1219802;1219802;0;0;10571
-BU19420511;BU19420511;Bos van Bredius-Noord;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;96;3;133;False;96;96;0;0;0;0;686;2;25;0;292773;292773;0;0;10572
-BU19420512;BU19420512;Valkeveen;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;259;104;507;False;57;57;0;0;0;0;33;3;32;0;1030133;1030133;0;0;10573
-BU19420513;BU19420513;Naardermeer;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;25;17;39;False;53;53;0;0;0;0;3;5;25;0;84242;84242;0;0;10574
-BU19420515;BU19420515;Bos van Bredius-Zuid;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;46;0;46;False;64;64;0;0;0;0;60;2;12;0;73088;73088;0;0;10575
-BU19420555;BU19420555;Bedrijvenpark Gooimeer-Noord;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;0;86;451;False;38;38;0;0;0;0;909;3;52;0;943048;943048;0;0;10576
-BU19420565;BU19420565;Vierhoven;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;511;106;582;False;41;41;0;0;0;0;1767;2;15;0;590756;590756;0;0;10577
-BU19420575;BU19420575;Naardermeerkwartier;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;183;78;210;False;44;44;0;0;0;0;819;3;15;0;226113;226113;0;0;10578
-BU19420585;BU19420585;De Fortlanden;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;405;7;462;False;40;40;0;0;0;0;994;1;12;0;444961;444961;0;0;10579
-BU03769997;BU03769997;UITGESLOTEN;WK037699;UITGESLOTEN;GM0376;UITGESLOTEN;UITGESLOTEN;UITGESLOTEN;0;0;0;True;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10735
-BU04069997;BU04069997;UITGESLOTEN;WK040699;UITGESLOTEN;GM0406;UITGESLOTEN;UITGESLOTEN;UITGESLOTEN;0;0;0;True;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10744
-BU19429997;BU19429997;UITGESLOTEN;WK194299;UITGESLOTEN;GM1942;UITGESLOTEN;UITGESLOTEN;UITGESLOTEN;0;0;0;True;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10762
+BU_CODE;I01_buurtcode;I02_buurtnaam;I03_wijkcode;I04_wijknaam;I05_gemeentecode;I06_gemeentenaam;I07_energieregionaam;I08_provincienaam;I09_aantal_woningen;I10_aantal_utiliteit;I11_woningequivalenten;Uitgesloten;H01_warmtetotaal;H02_Vraag_aardgas;H03_Vraag_groengas;H04_Vraag_elekwarmte;H05_Vraag_MTwarmte;H06_Vraag_LTwarmte;H07_Warmte_hectare;H08_Vraag_koude;H09_Vraag_elektotaal;H10_CO2_reductie;H11_Nat_abskosten;H12_Nat_meerkosten;H13_Nat_meerkost_CO2;H16_Nat_meerkost_WEQ;nrAansl_gas;nrAansl_mWKK;nrAansl_eWP;nrAansl_HWP;nrAansl_EWV;nrAansl_RestWarmte;nrAansl_GeoThermie;nrAansl_WijkWKK;nrAansl_BioWKK;nrAansl_WKO;nrAansl_Lt15_30;nrAansl_Lt15_50;nrAansl_Lt15_70;nrAansl_Lt30_30;nrAansl_Lt30_50;nrAansl_Lt30_70;nrAansl_TEO;nr_OrgEntity
+BU03760101;BU03760101;Bijvanck;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1815;98;1894;False;38;38;0;0;0;0;707;2;12;0;1795285;1795285;0;0;1913;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2115
+BU03760102;BU03760102;Blaricum-Dorp;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;2235;187;2568;False;60;60;0;0;0;0;400;2;16;0;3677195;3677195;0;0;2422;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2116
+BU03760103;BU03760103;Blaricummer Heide;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1;3;9;False;102;102;0;0;0;0;11;10;29;0;24258;24258;0;0;4;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2117
+BU03760104;BU03760104;Blaricummermeent;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;816;116;912;False;34;21;0;0;13;0;442;2;12;0;772135;772135;0;0;932;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2118
+BU03760105;BU03760105;Crailo;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;56;5;355;False;65;65;0;0;0;0;639;1;27;0;575150;575150;0;0;61;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2119
+BU03760106;BU03760106;De Kampen;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1;0;1;False;82;82;0;0;0;0;0;3;12;0;1382;1382;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2120
+BU03760107;BU03760107;Eemmeer-Blaricum;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;0;0;0;False;0;0;0;0;0;0;0;0;0;0;3652;3652;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2121
+BU03760108;BU03760108;Stichtsebrug;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;0;2;1;False;13;13;0;0;0;0;0;113;144;0;3230;3230;0;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2122
+BU03760109;BU03760109;Warandepark-De Eng;WK037601;Blaricum;GM0376;Blaricum;Noord-Holland Zuid;Noord-Holland;1;1;2;False;88;88;0;0;0;0;1;10;20;0;7720;7720;0;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2123
+BU04020101;BU04020101;Centrum;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1893;546;3736;False;44;44;0;0;0;0;4138;2;35;0;6197414;6197414;0;0;2439;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5229
+BU04020102;BU04020102;Havenstraatbuurt;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1522;203;1737;False;41;41;0;0;0;0;3250;2;17;0;1845778;1845778;0;0;1725;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5230
+BU04020103;BU04020103;Sint Vitusbuurt;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;836;58;1014;False;47;47;0;0;0;0;2348;1;14;0;1090827;1090827;0;0;894;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5231
+BU04020104;BU04020104;Langgewenstbuurt;WK040201;Centrum;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;936;263;1741;False;42;42;0;0;0;0;3555;2;32;0;2678407;2678407;0;0;1199;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5232
+BU04020201;BU04020201;Boomberg;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1530;211;2209;False;59;59;0;0;0;0;1439;2;20;0;3183009;3183009;0;0;1741;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5233
+BU04020202;BU04020202;Raadhuiskwartier;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;641;89;1018;False;71;71;0;0;0;0;1599;2;27;0;1852008;1852008;0;0;730;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5234
+BU04020203;BU04020203;Trompenberg-Zuid;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;471;58;1178;False;63;63;0;0;0;0;2520;1;38;0;2302493;2302493;0;0;529;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5235
+BU04020204;BU04020204;Villaparken;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;577;57;850;False;59;59;0;0;0;0;406;2;19;0;1320669;1320669;0;0;634;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5236
+BU04020205;BU04020205;Trompenberg-Noord;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;286;24;365;False;66;66;0;0;0;0;643;2;20;0;588629;588629;0;0;310;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5237
+BU04020206;BU04020206;Media Park;WK040202;Noordwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;7;102;2444;False;58;58;0;0;0;0;2475;1;50;0;5392316;5392316;0;0;109;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5238
+BU04020301;BU04020301;Havenkwartier;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;16;119;727;False;29;29;0;0;0;0;341;1;42;0;1290028;1290028;0;0;135;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5239
+BU04020302;BU04020302;Het Rode Dorp;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;616;9;624;False;46;46;0;0;0;0;2263;1;12;0;628155;628155;0;0;625;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5240
+BU04020303;BU04020303;Zeverijn;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;845;80;972;False;39;39;0;0;0;0;1511;2;13;0;936238;936238;0;0;925;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5241
+BU04020304;BU04020304;Kerkelanden;WK040203;Zuidwest;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;3034;488;3909;False;36;36;0;0;0;0;1006;2;17;0;4145884;4145884;0;0;3522;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5242
+BU04020401;BU04020401;Bloemenkwartier Noord;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1300;216;1471;False;48;48;0;0;0;0;2584;2;16;0;1657909;1657909;0;0;1516;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5243
+BU04020402;BU04020402;Bloemenkwartier Zuid;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2307;156;2495;False;44;44;0;0;0;0;1870;1;14;0;2624631;2624631;0;0;2463;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5244
+BU04020403;BU04020403;Schrijverskwartier;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;810;127;853;False;55;55;0;0;0;0;1445;2;14;0;1040062;1040062;0;0;937;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5245
+BU04020404;BU04020404;Staatsliedenkwartier;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1620;256;1745;False;47;47;0;0;0;0;1945;2;14;0;1876952;1876952;0;0;1876;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5246
+BU04020405;BU04020405;Zeeheldenkwartier;WK040204;Zuid;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2277;429;2422;False;37;37;0;0;0;0;1636;2;12;0;2178405;2178405;0;0;2706;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5247
+BU04020501;BU04020501;Schilderskwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1437;247;2061;False;59;59;0;0;0;0;1402;2;21;0;3024123;3024123;0;0;1684;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5248
+BU04020502;BU04020502;t Hoogt van t Kruis;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;624;51;676;False;50;50;0;0;0;0;244;3;13;0;814006;814006;0;0;675;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5249
+BU04020503;BU04020503;Arenaparkkwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;240;155;1621;False;38;38;0;0;0;0;1237;1;45;0;3124075;3124075;0;0;395;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5250
+BU04020504;BU04020504;West-Indiëkwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;97;4;122;False;84;84;0;0;0;0;322;2;15;0;232546;232546;0;0;101;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5251
+BU04020505;BU04020505;Van Riebeeckkwartier;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1933;209;2148;False;35;35;0;0;0;0;1771;1;12;0;1849760;1849760;0;0;2142;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5252
+BU04020506;BU04020506;Egelshoek;WK040205;Zuidoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;0;2;3;False;13;13;0;0;0;0;8;8;65;0;17695;17695;0;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5253
+BU04020601;BU04020601;Geuzenbuurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1200;111;1560;False;45;45;0;0;0;0;2537;1;17;0;1788710;1788710;0;0;1311;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5254
+BU04020602;BU04020602;Electrobuurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1066;47;1289;False;43;43;0;0;0;0;2391;1;16;0;1407654;1407654;0;0;1113;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5255
+BU04020603;BU04020603;Kleine Driftbuurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1916;142;2269;False;39;39;0;0;0;0;1899;1;16;0;2367142;2367142;0;0;2058;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5256
+BU04020604;BU04020604;Liebergen;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2251;84;2464;False;39;39;0;0;0;0;1950;1;13;0;2360282;2360282;0;0;2335;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5257
+BU04020605;BU04020605;Astronomische Buurt;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;2403;226;2859;False;48;44;0;0;4;0;1804;2;18;0;3467122;3467122;0;0;2629;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5258
+BU04020606;BU04020606;Annas Hoeve;WK040206;Oost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;204;4;217;False;34;34;0;0;0;0;406;2;12;0;212819;212819;0;0;208;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5259
+BU04020701;BU04020701;Johannes Geradtswegbuurt;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;890;38;1032;False;51;51;0;0;0;0;1592;2;15;0;1236962;1236962;0;0;928;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5260
+BU04020702;BU04020702;Erfgooiersbuurt;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;767;82;812;False;48;48;0;0;0;0;1703;2;14;0;878629;878629;0;0;849;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5261
+BU04020703;BU04020703;Noord;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;3684;276;3927;False;35;35;0;0;0;0;1474;1;12;0;3413598;3413598;0;0;3960;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5262
+BU04020704;BU04020704;AZC Crailo;WK040207;Noordoost;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;9;2;21;False;57;57;0;0;0;0;46;2;38;0;45818;45818;0;0;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5263
+BU04020801;BU04020801;Hilversumse Meent;WK040208;Hilversumse Meent;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;1827;86;1890;False;42;42;0;0;0;0;769;2;12;0;1891495;1891495;0;0;1913;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5264
+BU04020901;BU04020901;Landelijk Gebied 91;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;12;22;94;False;46;46;0;0;0;0;6;4;36;0;227180;227180;0;0;34;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5265
+BU04020902;BU04020902;Landelijk Gebied 92;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;0;5;16;False;30;30;0;0;0;0;7;5;43;0;36592;36592;0;0;5;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5266
+BU04020903;BU04020903;Landelijk Gebied 93;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;19;35;489;False;117;117;0;0;0;0;92;1;33;0;1083797;1083797;0;0;54;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5267
+BU04020904;BU04020904;Landelijk Gebied 94;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;37;13;86;False;73;73;0;0;0;0;43;2;38;0;219147;219147;0;0;50;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5268
+BU04020905;BU04020905;Landelijk Gebied 95;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;134;87;568;False;62;62;0;0;0;0;45;2;23;0;886662;886662;0;0;221;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5269
+BU04020906;BU04020906;Landelijk Gebied 96;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;6;2;10;False;75;75;0;0;0;0;7;9;19;0;28056;28056;0;0;8;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5270
+BU04020907;BU04020907;Landelijk Gebied 97;WK040209;Landelijk Gebied;GM0402;Hilversum;Noord-Holland Zuid;Noord-Holland;4;7;24;False;46;46;0;0;0;0;4;7;44;0;52400;52400;0;0;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5271
+BU04060001;BU04060001;De Noord;WK040600;Wijk 00 Oude Dorp;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1673;229;2156;False;50;50;0;0;0;0;1826;2;22;0;2974122;2974122;0;0;1902;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5346
+BU04060002;BU04060002;De Zuid;WK040600;Wijk 00 Oude Dorp;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1250;66;1328;False;49;49;0;0;0;0;1388;2;14;0;1522393;1522393;0;0;1316;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5347
+BU04060103;BU04060103;Westereng;WK040601;Wijk 01 Westereng;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1008;34;1109;False;52;52;0;0;0;0;862;2;13;0;1332105;1332105;0;0;1042;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5348
+BU04060204;BU04060204;Flevo;WK040602;Wijk 02 Buitenwijken;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;94;2;95;False;74;74;0;0;0;0;81;3;12;0;181581;181581;0;0;96;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5349
+BU04060205;BU04060205;Bikbergen;WK040602;Wijk 02 Buitenwijken;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;109;4;145;False;78;78;0;0;0;0;100;2;23;0;291382;291382;0;0;113;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5350
+BU04060206;BU04060206;Crailo;WK040602;Wijk 02 Buitenwijken;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;149;16;361;False;88;88;0;0;0;0;214;2;25;0;731491;731491;0;0;165;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5351
+BU04060307;BU04060307;Thames;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;32;3;35;False;71;71;0;0;0;0;37;3;13;0;65457;65457;0;0;35;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5352
+BU04060308;BU04060308;IJzeren veld;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;63;6;67;False;74;74;0;0;0;0;68;3;13;0;119657;119657;0;0;69;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5353
+BU04060327;BU04060327;Parrewijn;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;7;2;9;False;63;63;0;0;0;0;6;5;20;0;23259;23259;0;0;9;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5354
+BU04060328;BU04060328;Tafelberger Heide;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1;1;2;False;60;60;0;0;0;0;1;5;25;0;3057;3057;0;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5355
+BU04060329;BU04060329;Rijsbergen;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;4;3;36;False;40;40;0;0;0;0;42;1;24;0;49506;49506;0;0;7;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5356
+BU04060330;BU04060330;Huizerhoogt;WK040603;Wijk 03 Erica en Tafelberg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;42;2;43;False;64;64;0;0;0;0;320;3;12;0;67440;67440;0;0;44;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5357
+BU04060409;BU04060409;Sijsjesberg;WK040604;Wijk 04 Staatslieden en Componistenbuurt;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;244;3;247;False;66;66;0;0;0;0;869;2;12;0;338293;338293;0;0;247;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5358
+BU04060410;BU04060410;Zuidereng;WK040604;Wijk 04 Staatslieden en Componistenbuurt;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;980;50;1091;False;52;52;0;0;0;0;661;2;13;0;1287164;1287164;0;0;1030;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5359
+BU04060511;BU04060511;Gooierhoofd;WK040605;Wijk 05 Havengebied;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;359;19;467;False;40;40;0;0;0;0;650;2;17;0;506383;506383;0;0;378;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5360
+BU04060512;BU04060512;Wolfskamer;WK040605;Wijk 05 Havengebied;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;34;31;210;False;46;46;0;0;0;0;166;3;38;0;375183;375183;0;0;65;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5361
+BU04060513;BU04060513;Industriewijk t Plaveen;WK040605;Wijk 05 Havengebied;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;232;128;1132;False;38;38;0;0;0;0;686;1;41;0;2089285;2089285;0;0;360;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5362
+BU04060614;BU04060614;Bovenweg;WK040606;Wijk 06 Zenderwijk en Bovenweg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1331;97;1666;False;37;37;0;0;0;0;1494;2;16;0;1671978;1671978;0;0;1428;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5363
+BU04060615;BU04060615;Zenderwijk;WK040606;Wijk 06 Zenderwijk en Bovenweg;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;559;45;608;False;45;45;0;0;0;0;1358;2;14;0;648597;648597;0;0;604;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5364
+BU04060716;BU04060716;Stad en Lande;WK040607;Wijk 07 Stad en Lande;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1599;289;1822;False;42;42;0;0;0;0;968;2;16;0;2038554;2038554;0;0;1888;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5365
+BU04060817;BU04060817;Huizermaat West;WK040608;Wijk 08 Huizermaat West en Zuid;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1453;168;1582;False;39;39;0;0;0;0;985;2;14;0;1596178;1596178;0;0;1621;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5366
+BU04060818;BU04060818;Huizermaat Zuid;WK040608;Wijk 08 Huizermaat West en Zuid;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1366;80;1583;False;34;34;0;0;0;0;1312;1;16;0;1545072;1545072;0;0;1446;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5367
+BU04060919;BU04060919;Huizermaat Noord;WK040609;Wijk 09 Huizermaat Noord;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1409;60;1438;False;37;37;0;0;0;0;1257;2;11;0;1255598;1255598;0;0;1469;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5368
+BU04061020;BU04061020;Bijvanck Noord;WK040610;Wijk 10 Bijvanck;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;750;28;779;False;37;37;0;0;0;0;1071;1;11;0;676603;676603;0;0;778;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5369
+BU04061021;BU04061021;Bijvanck West;WK040610;Wijk 10 Bijvanck;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;221;12;223;False;42;42;0;0;0;0;940;2;12;0;215690;215690;0;0;233;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5370
+BU04061123;BU04061123;Bovenmaat Noord;WK040611;Wijk 11 Bovenmaten;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;1478;35;1493;False;38;38;0;0;0;0;1065;1;11;0;1342234;1342234;0;0;1513;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5371
+BU04061124;BU04061124;Bovenmaat West;WK040611;Wijk 11 Bovenmaten;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;821;58;912;False;33;33;0;0;0;0;1944;1;14;0;790684;790684;0;0;879;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5372
+BU04061125;BU04061125;Bovenmaat-Oost;WK040611;Wijk 11 Bovenmaten;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;593;8;623;False;35;35;0;0;0;0;741;1;11;0;526856;526856;0;0;601;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5373
+BU04061226;BU04061226;Filosofenbuurt;WK040612;Wijk 12 Hogemaat;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;801;10;823;False;38;38;0;0;0;0;840;2;11;0;756511;756511;0;0;811;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5374
+BU04061231;BU04061231;De Tuit;WK040612;Wijk 12 Hogemaat;GM0406;Huizen;Noord-Holland Zuid;Noord-Holland;120;0;120;False;44;44;0;0;0;0;915;2;11;0;120712;120712;0;0;120;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5375
+BU04170320;BU04170320;Laren-Centrum;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;995;374;1736;False;60;60;0;0;0;0;1431;3;28;0;2919779;2919779;0;0;1369;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5390
+BU04170321;BU04170321;Laren-Natuurgebied;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;5;6;175;False;106;106;0;0;0;0;31;1;58;0;509769;509769;0;0;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5391
+BU04170322;BU04170322;Omloop;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;569;52;684;False;46;46;0;0;0;0;634;2;18;0;842395;842395;0;0;621;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5392
+BU04170323;BU04170323;Oostereng;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;512;41;546;False;62;62;0;0;0;0;342;2;14;0;745261;745261;0;0;553;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5393
+BU04170324;BU04170324;Postiljon;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;164;5;184;False;36;36;0;0;0;0;759;2;13;0;172074;172074;0;0;169;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5394
+BU04170325;BU04170325;Rijksweg-Noord;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;154;3;162;False;73;73;0;0;0;0;147;3;12;0;263190;263190;0;0;157;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5395
+BU04170326;BU04170326;Rijksweg-Zuid;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;109;7;165;False;68;68;0;0;0;0;227;2;15;0;259566;259566;0;0;116;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5396
+BU04170327;BU04170327;Steenbergen;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;246;10;372;False;61;61;0;0;0;0;269;2;19;0;551845;551845;0;0;256;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5397
+BU04170328;BU04170328;Zevenend;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;2199;203;2376;False;50;50;0;0;0;0;1238;2;14;0;2738845;2738845;0;0;2402;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5398
+BU04170329;BU04170329;Zwarte Berg;WK041703;Laren;GM0417;Laren;Noord-Holland Zuid;Noord-Holland;296;19;381;False;75;75;0;0;0;0;283;2;16;0;634210;634210;0;0;315;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5399
+BU04570001;BU04570001;Centrum;WK045700;Binnenstad;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;1194;179;1520;False;50;50;0;0;0;0;2360;2;19;0;1913877;1913877;0;0;1373;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5610
+BU04570002;BU04570002;Herensingelkwartier;WK045700;Binnenstad;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;513;47;587;False;45;45;0;0;0;0;3013;2;14;0;602606;602606;0;0;560;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5611
+BU04570101;BU04570101;Bedrijventerrein Van Houten;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;118;51;751;False;45;45;0;0;0;0;659;1;28;0;1085492;1085492;0;0;169;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5612
+BU04570102;BU04570102;Zuid I;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;368;22;416;False;41;41;0;0;0;0;1914;1;14;0;416651;416651;0;0;390;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5613
+BU04570103;BU04570103;Zuid II;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;314;17;334;False;45;45;0;0;0;0;1231;2;13;0;359130;359130;0;0;331;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5614
+BU04570104;BU04570104;De Klomp;WK045701;Zuid;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;254;41;260;False;46;46;0;0;0;0;1272;2;13;0;276924;276924;0;0;295;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5615
+BU04570201;BU04570201;Dichtersbuurt;WK045702;Noord;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;1106;26;1163;False;33;33;0;0;0;0;1533;1;11;0;960117;960117;0;0;1132;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5616
+BU04570202;BU04570202;Schildersbuurt;WK045702;Noord;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;500;51;554;False;35;35;0;0;0;0;1642;2;12;0;484983;484983;0;0;551;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5617
+BU04570301;BU04570301;Hogewey Noord;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;424;34;460;False;34;34;0;0;0;0;887;2;12;0;391594;391594;0;0;458;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5618
+BU04570302;BU04570302;Hogewey Midden;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;930;155;1005;False;37;37;0;0;0;0;1731;2;14;0;962635;962635;0;0;1085;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5619
+BU04570303;BU04570303;Hogewey Zuid;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;904;100;1031;False;32;32;0;0;0;0;1831;2;13;0;882385;882385;0;0;1004;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5620
+BU04570304;BU04570304;Bedrijventerrein Noord;WK045703;Hogewey;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;75;333;2696;False;39;39;0;0;0;0;1277;1;17;0;2744973;2744973;0;0;408;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5621
+BU04570401;BU04570401;Aetsveld Noord;WK045704;Aetsveld;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;702;26;757;False;39;39;0;0;0;0;1209;1;13;0;736230;736230;0;0;728;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5622
+BU04570402;BU04570402;Aetsveld Zuid;WK045704;Aetsveld;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;797;4;798;False;37;37;0;0;0;0;1215;1;10;0;683301;683301;0;0;801;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5623
+BU04570701;BU04570701;Aetsveldsepolder;WK045707;Aetsveldsepolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;115;29;166;False;53;53;0;0;0;0;17;3;22;0;289141;289141;0;0;144;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5624
+BU04570801;BU04570801;Oostelijke Vechtoever;WK045708;Oostelijke Vechtoever;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;136;109;221;False;56;56;0;0;0;0;12;5;23;0;434945;434945;0;0;245;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5625
+BU04570901;BU04570901;Leeuwenveld;WK045709;Bloemendalerpolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;510;40;628;False;35;35;0;0;0;0;788;2;21;0;726950;726950;0;0;550;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5626
+BU04570902;BU04570902;Bedrijventerrein Nijverheidslaan;WK045709;Bloemendalerpolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;12;31;298;False;32;32;0;0;0;0;550;1;27;0;382191;382191;0;0;43;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5627
+BU04570903;BU04570903;Weespersluis;WK045709;Bloemendalerpolder;GM0457;Weesp;Noord-Holland Zuid;Noord-Holland;33;5;37;False;46;46;0;0;0;0;5;3;17;0;100035;100035;0;0;38;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5628
+BU16960000;BU16960000;s-Graveland;WK169600;Wijk 00 s-Graveland;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;714;87;940;False;56;56;0;0;0;0;101;2;19;0;1363638;1363638;0;0;801;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10098
+BU16960100;BU16960100;Oud-Kortenhoef;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;158;25;191;False;59;59;0;0;0;0;37;3;17;0;284957;284957;0;0;183;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10099
+BU16960101;BU16960101;Rade Oranjebuurt Munniksveen en omgeving;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;2674;365;2965;False;42;42;0;0;0;0;333;2;14;0;3105744;3105744;0;0;3039;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10100
+BU16960102;BU16960102;Moleneind;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;75;11;89;False;58;58;0;0;0;0;72;3;14;0;129653;129653;0;0;86;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10101
+BU16960103;BU16960103;Kromme Rade;WK169601;Wijk 01 Kortenhoef;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;38;11;43;False;64;64;0;0;0;0;12;4;13;0;78590;78590;0;0;49;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10102
+BU16960200;BU16960200;Ankeveen;WK169602;Wijk 02 Ankeveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;120;4;126;False;58;58;0;0;0;0;31;2;13;0;155548;155548;0;0;124;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10103
+BU16960201;BU16960201;Ankeveense Rade;WK169602;Wijk 02 Ankeveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;491;80;560;False;46;46;0;0;0;0;111;2;13;0;638544;638544;0;0;571;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10104
+BU16960202;BU16960202;Hollandsch Ankeveen;WK169602;Wijk 02 Ankeveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;56;5;72;False;59;59;0;0;0;0;29;2;21;0;105379;105379;0;0;61;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10105
+BU16960300;BU16960300;Oud-Loosdrecht;WK169603;Wijk 03 Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;1090;475;1566;False;50;50;0;0;0;0;111;4;19;0;2133061;2133061;0;0;1565;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10106
+BU16960400;BU16960400;Nieuw-Loosdrechtsedijk;WK169604;Wijk 04 Nieuw-Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;2706;419;3360;False;49;49;0;0;0;0;330;2;18;0;4231398;4231398;0;0;3125;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10107
+BU16960401;BU16960401;Muijeveld;WK169604;Wijk 04 Nieuw-Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;65;4;67;False;65;65;0;0;0;0;310;3;13;0;95811;95811;0;0;69;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10108
+BU16960402;BU16960402;Boomhoek;WK169604;Wijk 04 Nieuw-Loosdrecht;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;137;526;360;False;54;54;0;0;0;0;138;14;22;0;536252;536252;0;0;663;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10109
+BU16960500;BU16960500;Breukeleveen;WK169605;Wijk 05 Breukeleveen;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;138;7;144;False;59;59;0;0;0;0;66;2;12;0;185394;185394;0;0;145;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10110
+BU16960601;BU16960601;Horn- en Kuijerpolder;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;545;185;698;False;51;51;0;0;0;0;137;4;17;0;891435;891435;0;0;730;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10111
+BU16960602;BU16960602;Blijkpolder;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;570;34;610;False;41;41;0;0;0;0;337;2;14;0;636825;636825;0;0;604;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10112
+BU16960603;BU16960603;Horstermeer;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;287;41;419;False;65;65;0;0;0;0;45;2;20;0;715056;715056;0;0;328;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10113
+BU16960604;BU16960604;Splegelpolder;WK169606;Wijk 06 Nederhorst den Berg;GM1696;Wijdemeren;Noord-Holland Zuid;Noord-Holland;831;94;910;False;44;44;0;0;0;0;177;2;14;0;1012230;1012230;0;0;925;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10114
+BU19420000;BU19420000;Brinklaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;936;388;1549;False;47;47;0;0;0;0;3343;3;30;0;2354162;2354162;0;0;1324;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10524
+BU19420001;BU19420001;Raadhuisplein;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;867;152;1214;False;45;45;0;0;0;0;2696;2;24;0;1606048;1606048;0;0;1019;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10525
+BU19420002;BU19420002;Verbindingslaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;632;87;799;False;47;47;0;0;0;0;2843;2;20;0;993018;993018;0;0;719;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10526
+BU19420003;BU19420003;Batterijlaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;500;37;570;False;52;52;0;0;0;0;2577;2;15;0;687354;687354;0;0;537;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10527
+BU19420004;BU19420004;Cereslaan;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;564;52;656;False;42;42;0;0;0;0;2759;2;17;0;711590;711590;0;0;616;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10528
+BU19420005;BU19420005;Bijlstraat;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;499;28;542;False;48;48;0;0;0;0;2243;2;12;0;572362;572362;0;0;527;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10529
+BU19420006;BU19420006;Nijverheidswerf;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;420;52;511;False;47;47;0;0;0;0;2220;2;14;0;543115;543115;0;0;472;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10530
+BU19420007;BU19420007;Laarderwegkwartier;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;633;141;718;False;41;41;0;0;0;0;1592;2;15;0;761702;761702;0;0;774;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10531
+BU19420008;BU19420008;Spiegelzicht;WK194200;Bussum Centrum;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;459;125;560;False;56;56;0;0;0;0;2068;3;19;0;750823;750823;0;0;584;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10532
+BU19420100;BU19420100;Prins Hendrikkwartier;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;315;69;444;False;64;64;0;0;0;0;2024;3;23;0;702292;702292;0;0;384;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10533
+BU19420101;BU19420101;Hooftlaan;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;245;57;396;False;45;45;0;0;0;0;1587;2;24;0;536993;536993;0;0;302;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10534
+BU19420102;BU19420102;Vondellaan;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;438;51;543;False;53;53;0;0;0;0;1485;2;16;0;682686;682686;0;0;489;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10535
+BU19420103;BU19420103;Bredius-West;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;191;8;211;False;74;74;0;0;0;0;796;3;16;0;335251;335251;0;0;199;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10536
+BU19420104;BU19420104;Bredius-Oost;WK194201;Brediuskwartier;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;431;24;617;False;55;55;0;0;0;0;911;2;15;0;771591;771591;0;0;455;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10537
+BU19420200;BU19420200;Sportpark-Zuid;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1;15;87;False;88;88;0;0;0;0;469;3;21;0;143224;143224;0;0;16;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10538
+BU19420201;BU19420201;Donderstraat;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;444;16;461;False;54;54;0;0;0;0;1598;2;14;0;546080;546080;0;0;460;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10539
+BU19420202;BU19420202;Godelindebuurt;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;410;12;424;False;41;41;0;0;0;0;1918;1;13;0;419709;419709;0;0;422;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10540
+BU19420203;BU19420203;Waltherlaan;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;260;24;274;False;55;55;0;0;0;0;1323;2;12;0;321660;321660;0;0;284;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10541
+BU19420204;BU19420204;Bloemenbuurt;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;531;28;604;False;53;53;0;0;0;0;1361;2;14;0;715921;715921;0;0;559;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10542
+BU19420205;BU19420205;Ooster Eng-Noord;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;920;252;1026;False;41;41;0;0;0;0;1503;2;14;0;1047381;1047381;0;0;1172;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10543
+BU19420206;BU19420206;Ooster Eng-Zuid;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1275;437;1571;False;43;43;0;0;0;0;1450;2;16;0;1668917;1668917;0;0;1712;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10544
+BU19420207;BU19420207;Midden Eng-Oost;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;801;83;850;False;38;38;0;0;0;0;1099;2;13;0;800122;800122;0;0;884;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10545
+BU19420208;BU19420208;Midden Eng-West;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;700;38;714;False;40;40;0;0;0;0;1624;2;11;0;666374;666374;0;0;738;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10546
+BU19420209;BU19420209;Wester Eng;WK194202;Eng;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1070;261;1288;False;36;36;0;0;0;0;1072;2;17;0;1311935;1311935;0;0;1331;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10547
+BU19420300;BU19420300;Lomanplein;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;392;64;520;False;64;64;0;0;0;0;1343;3;18;0;776926;776926;0;0;456;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10548
+BU19420301;BU19420301;Schimmellaan;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;155;47;207;False;66;66;0;0;0;0;1144;3;21;0;323755;323755;0;0;202;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10549
+BU19420302;BU19420302;Boslaan;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;517;33;675;False;69;69;0;0;0;0;1009;2;15;0;965285;965285;0;0;550;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10550
+BU19420303;BU19420303;Koedijk;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;269;15;273;False;65;65;0;0;0;0;769;3;12;0;380184;380184;0;0;284;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10551
+BU19420304;BU19420304;Kom van Bieghel;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;696;123;932;False;40;40;0;0;0;0;1217;2;18;0;1022847;1022847;0;0;819;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10552
+BU19420305;BU19420305;Meijerkamp;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;213;20;239;False;55;55;0;0;0;0;563;3;13;0;288657;288657;0;0;233;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10553
+BU19420306;BU19420306;Fransekamp;WK194203;Spiegel;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;107;23;350;False;33;33;0;0;0;0;66;1;52;0;759445;759445;0;0;130;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10554
+BU19420400;BU19420400;Vesting Muiden;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;639;73;749;False;51;51;0;0;0;0;1288;2;15;0;899889;899889;0;0;712;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10555
+BU19420401;BU19420401;Krijgsman;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;535;44;566;False;46;46;0;0;0;0;222;2;13;0;660497;660497;0;0;579;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10556
+BU19420402;BU19420402;Muiderberg;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;773;229;859;False;52;52;0;0;0;0;302;3;15;0;1049931;1049931;0;0;1002;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10557
+BU19420403;BU19420403;Mariahoeve Muiden;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;324;28;341;False;47;47;0;0;0;0;893;2;14;0;379434;379434;0;0;352;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10558
+BU19420404;BU19420404;Buitendijken Muiderberg;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;527;34;538;False;40;40;0;0;0;0;1158;2;12;0;507697;507697;0;0;561;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10559
+BU19420408;BU19420408;Pampusweg;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;4;31;158;False;21;21;0;0;0;0;17;2;72;0;451575;451575;0;0;35;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10560
+BU19420409;BU19420409;IJmeer;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1;0;1;False;63;63;0;0;0;0;8;2;11;0;6832;6832;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10561
+BU19420410;BU19420410;Noordpolder;WK194204;Muiden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;74;17;139;False;56;56;0;0;0;0;11;3;34;0;341452;341452;0;0;91;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10562
+BU19420501;BU19420501;Naarden Vesting;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;836;235;1153;False;56;56;0;0;0;0;1147;3;23;0;1669496;1669496;0;0;1071;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10563
+BU19420502;BU19420502;Tuindorp Keverdijk;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1687;246;1848;False;42;42;0;0;0;0;974;2;14;0;1933321;1933321;0;0;1933;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10564
+BU19420503;BU19420503;Naarderwoonbos;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;181;16;202;False;52;52;0;0;0;0;191;3;13;0;249459;249459;0;0;197;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10565
+BU19420504;BU19420504;Bedrijvenpark Gooimeer-Zuid;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;10;156;544;False;43;43;0;0;0;0;522;3;44;0;1061469;1061469;0;0;166;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10566
+BU19420506;BU19420506;Oranje Nassaupark-Noord;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;253;65;279;False;56;56;0;0;0;0;739;3;14;0;359174;359174;0;0;318;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10567
+BU19420507;BU19420507;Oranje Nassaupark-Zuid;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;549;68;583;False;54;54;0;0;0;0;1066;2;14;0;716974;716974;0;0;617;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10568
+BU19420508;BU19420508;Ministerpark;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;1054;133;1157;False;49;49;0;0;0;0;1295;2;15;0;1378443;1378443;0;0;1187;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10569
+BU19420509;BU19420509;Componistenkwartier;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;716;110;1098;False;51;51;0;0;0;0;509;2;20;0;1439579;1439579;0;0;826;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10570
+BU19420510;BU19420510;Rembrandtpark;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;911;80;1010;False;52;52;0;0;0;0;995;2;14;0;1219802;1219802;0;0;991;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10571
+BU19420511;BU19420511;Bos van Bredius-Noord;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;96;3;133;False;96;96;0;0;0;0;686;2;25;0;292773;292773;0;0;99;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10572
+BU19420512;BU19420512;Valkeveen;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;259;104;507;False;57;57;0;0;0;0;33;3;32;0;1030133;1030133;0;0;363;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10573
+BU19420513;BU19420513;Naardermeer;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;25;17;39;False;53;53;0;0;0;0;3;5;25;0;84242;84242;0;0;42;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10574
+BU19420515;BU19420515;Bos van Bredius-Zuid;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;46;0;46;False;64;64;0;0;0;0;60;2;12;0;73088;73088;0;0;46;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10575
+BU19420555;BU19420555;Bedrijvenpark Gooimeer-Noord;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;0;86;451;False;38;38;0;0;0;0;909;3;52;0;943048;943048;0;0;86;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10576
+BU19420565;BU19420565;Vierhoven;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;511;106;582;False;41;41;0;0;0;0;1767;2;15;0;590756;590756;0;0;617;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10577
+BU19420575;BU19420575;Naardermeerkwartier;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;183;78;210;False;44;44;0;0;0;0;819;3;15;0;226113;226113;0;0;261;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10578
+BU19420585;BU19420585;De Fortlanden;WK194205;Naarden;GM1942;Gooise Meren;Noord-Holland Zuid;Noord-Holland;405;7;462;False;40;40;0;0;0;0;994;1;12;0;444961;444961;0;0;412;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10579
+BU03769997;BU03769997;UITGESLOTEN;WK037699;UITGESLOTEN;GM0376;UITGESLOTEN;UITGESLOTEN;UITGESLOTEN;0;0;0;True;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10735
+BU04069997;BU04069997;UITGESLOTEN;WK040699;UITGESLOTEN;GM0406;UITGESLOTEN;UITGESLOTEN;UITGESLOTEN;0;0;0;True;0;0;0;0;0;0;0;0;0;0;0;0;0;0;70;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10744
+BU19429997;BU19429997;UITGESLOTEN;WK194299;UITGESLOTEN;GM1942;UITGESLOTEN;UITGESLOTEN;UITGESLOTEN;0;0;0;True;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10762

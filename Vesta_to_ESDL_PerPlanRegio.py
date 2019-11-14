@@ -24,7 +24,7 @@ woning_keuzes = ['nraansl_gas', 'nraansl_mwkk', 'nraansl_ewp', 'nraansl_hwp', 'n
 
 #                                       bron            ,eng netwerk1   ,eng netwerk2  ,conn1       , conn2         , warmte netw       , warmte netw2      , warmteconn    ,coll conv          , indiv conv    ,indiv conv2      
 scenario_elementenlijst = {
-     "StartJaar"                    : [""               ,"g_network"    ,""            ,"g_con"     ,"e_con"        ,""                 ,""                 ,""             ,""                 ,""             ,""]      
+     "StartJaar"                    : [""               ,"g_network"    ,"e_network"   ,"g_con"     ,"e_con"        ,""                 ,""                 ,""             ,""                 ,"g_heater"     ,""]      
     ,"S0_Referentie"                : ["h_rest_70"      ,"g_network"    ,"e_network"   ,"g_con"     ,"e_con"        ,"h_mt70_network"   ,""                 ,""             ,"bioWKK"           ,"eWP"          ,""]
     ,"S1a_AllElectric_lucht"        : [""               ,"e_network"    ,""            ,"e_con"     ,""             ,"h_lt15_network"   ,""                 ,"h_lt15_con"   ,""                 ,"eWP_lucht"    ,""]
     ,"S1b_AllElectric_bodem"        : [""               ,"e_network"    ,""            ,"e_con"     ,""             ,"h_lt15_network"   ,""                 ,"h_lt15_con"   , ""                ,"eWP_bodem"    ,""]
@@ -198,7 +198,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 
             if "g_con" in scenario_elementenlijst[StrategieNaam]: 
                 g_con = GConnection(id=str(uuid.uuid4()), name="Gas_connector", aggregated = True)
-                g_con_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('nraansl_gas')]))
                 g_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                 g_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 g_con_ip.connectedTo.append(g_network_op)
@@ -275,7 +274,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 
             if "mWKK" in scenario_elementenlijst[StrategieNaam]: 
                 mWKK = HeatPump(id=str(uuid.uuid4()), name="mWKK", aggregated = True)
-                mWKK_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('nraansl_mwkk')]))
                 mWKK_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                 mWKK_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 mWKK_ip.connectedTo.append(g_con_op)
@@ -315,7 +313,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 
             if "eWP_30_50" in scenario_elementenlijst[StrategieNaam]: 
                 eWP_30_50 = HeatPump(id=str(uuid.uuid4()), name="eWP_30_50", aggregated = True)
-                eWP_30_50_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('nraansl_lt30_50')]))
                 eWP_30_50_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                 eWP_30_50_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 eWP_30_50_ip.connectedTo.append(h_lt30_con_op)
@@ -326,7 +323,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 
             if "eWP" in scenario_elementenlijst[StrategieNaam]: 
                 eWP = HeatPump(id=str(uuid.uuid4()), name="eWP", aggregated = True)
-                eWP_sv = SingleValue(id=str(uuid.uuid4()), value=float(row[column_names.index('nraansl_ewp')]))
                 eWP_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                 eWP_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 eWP_ip.connectedTo.append(e_con_op)
@@ -486,8 +482,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
 def main():
     
-#    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
-    RegioNamen= ["Hengelo"]
+    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
+#    RegioNamen= ["Hengelo"]
 #    Strategien= ["S1a_AllElectric_lucht"]
     Strategien= ["StartJaar","S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem", "S2a_restwarmte", "S2b_Geothermie-metcontour", "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
 #    Strategien= ["S0_Referentie", "S1a_AllElectric_lucht", "S1b_AllElectric_bodem", "S2a_restwarmte", "S2b_Geothermie-metcontour", "S2c_Geothermie-zondercontour", "S2d_BioWKK", "S3a_LT3030", "S3b_LT3070", "S3c_LT3050", "S3d_WKO", "S3e_TEO", "S4_hwp_GG", "S5_HR_GG"]
