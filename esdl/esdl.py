@@ -103,14 +103,14 @@ VehicleTypeEnum = EEnum('VehicleTypeEnum', literals=['UNDEFINED', 'CAR', 'TRUCK'
 MultiplierEnum = EEnum('MultiplierEnum', literals=[
                        'NONE', 'KILO', 'MEGA', 'GIGA', 'TERRA', 'PETA', 'MILLI', 'MICRO', 'NANO', 'PICO'])
 
-PhysicalQuantityEnum = EEnum('PhysicalQuantityEnum', literals=['UNDEFINED', 'ENERGY', 'POWER', 'VOLTAGE', 'PRESSURE', 'TEMPERATURE',
-                                                               'EMISSION', 'COST', 'TIME', 'LENGTH', 'DISTANCE', 'IRRADIANCE', 'SPEED', 'STATE_OF_CHARGE', 'VOLUME', 'AREA'])
+PhysicalQuantityEnum = EEnum('PhysicalQuantityEnum', literals=['UNDEFINED', 'ENERGY', 'POWER', 'VOLTAGE', 'PRESSURE', 'TEMPERATURE', 'EMISSION',
+                                                               'COST', 'TIME', 'LENGTH', 'DISTANCE', 'IRRADIANCE', 'SPEED', 'STATE_OF_CHARGE', 'VOLUME', 'AREA', 'POWER_REACTIVE', 'COMPOSITION', 'FLOW', 'STATE'])
 
-UnitEnum = EEnum('UnitEnum', literals=['NONE', 'JOULE', 'WATTHOUR', 'WATT', 'VOLT', 'BAR', 'PSI', 'DEGREES_CELSIUS', 'KELVIN', 'GRAM', 'EURO', 'DOLLAR', 'SECOND',
-                                       'MINUTE', 'QUARTER', 'HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR', 'METRE', 'SQUARE_METRE', 'CUBIC_METRE', 'LITRE', 'WATTSECOND', 'ARE', 'HECTARE', 'PERCENT'])
+UnitEnum = EEnum('UnitEnum', literals=['NONE', 'JOULE', 'WATTHOUR', 'WATT', 'VOLT', 'BAR', 'PSI', 'DEGREES_CELSIUS', 'KELVIN', 'GRAM', 'EURO', 'DOLLAR', 'SECOND', 'MINUTE', 'QUARTER',
+                                       'HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR', 'METRE', 'SQUARE_METRE', 'CUBIC_METRE', 'LITRE', 'WATTSECOND', 'ARE', 'HECTARE', 'PERCENT', 'VOLT_AMPERE', 'VOLT_AMPERE_REACTIVE'])
 
-TimeUnit = EEnum('TimeUnit', literals=['NONE', 'SECOND',
-                                       'MINUTE', 'QUARTER', 'HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR'])
+TimeUnitEnum = EEnum('TimeUnitEnum', literals=[
+                     'NONE', 'SECOND', 'MINUTE', 'QUARTER', 'HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR'])
 
 GasConversionTypeEnum = EEnum('GasConversionTypeEnum', literals=['UNDEFINED', 'SMR', 'ATR'])
 
@@ -136,7 +136,7 @@ RoomHeaterTypeEnum = EEnum('RoomHeaterTypeEnum', literals=[
                            'UNDEFINED', 'GAS_STOVE', 'WOOD_STOVE', 'ELECTRIC', 'INFRARED_PANEL'])
 
 BiomassHeaterTypeEnum = EEnum('BiomassHeaterTypeEnum', literals=[
-                              'UNDEFINED', 'FULLY_AUTOMATD', 'SEMI_AUTOMATED', 'PELLET_FIRED', 'CHP'])
+                              'UNDEFINED', 'FULLY_AUTOMATED', 'SEMI_AUTOMATED', 'PELLET_FIRED', 'CHP'])
 
 UTESPotentialTypeEnum = EEnum('UTESPotentialTypeEnum', literals=[
                               'UNDEFINED', 'HEAT_OPEN', 'HEAT_CLOSED', 'COLD_OPEN', 'COLD_CLOSED'])
@@ -147,6 +147,16 @@ UTESTypeEnum = EEnum('UTESTypeEnum', literals=[
 InterpolationMethodEnum = EEnum('InterpolationMethodEnum', literals=[
                                 'UNDEFINED', 'NONE', 'LINEAR', 'CUBIC', 'NEAREST', 'PREVIOUS', 'NEXT', 'OTHER'])
 
+PipeDiameterEnum = EEnum('PipeDiameterEnum', literals=['VALUE_SPECIFIED', 'DN6', 'DN8', 'DN10', 'DN15', 'DN20', 'DN25', 'DN32', 'DN40', 'DN50', 'DN65', 'DN80', 'DN100',
+                                                       'DN125', 'DN150', 'DN200', 'DN250', 'DN300', 'DN350', 'DN400', 'DN450', 'DN500', 'DN600', 'DN650', 'DN700', 'DN800', 'DN900', 'DN1000', 'DN1100', 'DN1200'])
+
+SwitchPositionEnum = EEnum('SwitchPositionEnum', literals=['UNDEFINED', 'OPEN', 'CLOSED'])
+
+AssetStateEnum = EEnum('AssetStateEnum', literals=['ENABLED', 'DISABLED'])
+
+QuantityAndUnitScopeEnum = EEnum('QuantityAndUnitScopeEnum', literals=[
+                                 'UNDEFINED', 'CONNECTION', 'BUILDING', 'HOUSEHOLD'])
+
 
 class EnergySystem(EObject, metaclass=MetaEClass):
     """This is the main class to describe an EnergySystem in ESDL. Each energy system description should start with this class. More information about ESDL and the Energy System can be found in the gitbook at https://energytransition.gitbook.io/esdl/"""
@@ -155,13 +165,15 @@ class EnergySystem(EObject, metaclass=MetaEClass):
     geographicalScope = EAttribute(eType=EString, derived=False, changeable=True)
     sector = EAttribute(eType=SectorEnum, derived=False, changeable=True, upper=-1)
     id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
+    version = EAttribute(eType=EString, derived=False, changeable=True)
     measures = EReference(ordered=True, unique=True, containment=True)
     instance = EReference(ordered=True, unique=True, containment=True, upper=-1)
     energySystemInformation = EReference(ordered=True, unique=True, containment=True)
     parties = EReference(ordered=True, unique=True, containment=True)
     services = EReference(ordered=True, unique=True, containment=True)
+    templates = EReference(ordered=True, unique=True, containment=True)
 
-    def __init__(self, *, name=None, description=None, geographicalScope=None, sector=None, measures=None, instance=None, energySystemInformation=None, parties=None, services=None, id=None, **kwargs):
+    def __init__(self, *, name=None, description=None, geographicalScope=None, sector=None, measures=None, instance=None, energySystemInformation=None, parties=None, services=None, id=None, version=None, templates=None, **kwargs):
         if kwargs:
             raise AttributeError('unexpected arguments: {}'.format(kwargs))
 
@@ -182,6 +194,9 @@ class EnergySystem(EObject, metaclass=MetaEClass):
         if id is not None:
             self.id = id
 
+        if version is not None:
+            self.version = version
+
         if measures is not None:
             self.measures = measures
 
@@ -196,6 +211,9 @@ class EnergySystem(EObject, metaclass=MetaEClass):
 
         if services is not None:
             self.services = services
+
+        if templates is not None:
+            self.templates = templates
 
 
 class Area(EObject, metaclass=MetaEClass):
@@ -217,8 +235,9 @@ class Area(EObject, metaclass=MetaEClass):
     KPIs = EReference(ordered=True, unique=True, containment=True)
     potential = EReference(ordered=True, unique=True, containment=True, upper=-1)
     geometry = EReference(ordered=True, unique=True, containment=True)
+    measures = EReference(ordered=True, unique=True, containment=True)
 
-    def __init__(self, *, id=None, name=None, scope=None, type=None, socialProperties=None, economicProperties=None, asset=None, area=None, containingArea=None, isOwnedBy=None, geometryReference=None, mobilityProperties=None, buildingDensity=None, KPIs=None, potential=None, geometry=None, **kwargs):
+    def __init__(self, *, id=None, name=None, scope=None, type=None, socialProperties=None, economicProperties=None, asset=None, area=None, containingArea=None, isOwnedBy=None, geometryReference=None, mobilityProperties=None, buildingDensity=None, KPIs=None, potential=None, geometry=None, measures=None, **kwargs):
         if kwargs:
             raise AttributeError('unexpected arguments: {}'.format(kwargs))
 
@@ -272,6 +291,9 @@ class Area(EObject, metaclass=MetaEClass):
         if geometry is not None:
             self.geometry = geometry
 
+        if measures is not None:
+            self.measures = measures
+
 
 @abstract
 class Port(EObject, metaclass=MetaEClass):
@@ -281,7 +303,7 @@ class Port(EObject, metaclass=MetaEClass):
     simultaneousPower = EAttribute(eType=EDouble, derived=False, changeable=True)
     name = EAttribute(eType=EString, derived=False, changeable=True)
     energyasset = EReference(ordered=True, unique=True, containment=False)
-    profile = EReference(ordered=True, unique=True, containment=True)
+    profile = EReference(ordered=True, unique=True, containment=True, upper=-1)
     carrier = EReference(ordered=True, unique=True, containment=False)
 
     def __init__(self, *, id=None, maxPower=None, energyasset=None, profile=None, carrier=None, simultaneousPower=None, name=None, **kwargs):
@@ -305,8 +327,8 @@ class Port(EObject, metaclass=MetaEClass):
         if energyasset is not None:
             self.energyasset = energyasset
 
-        if profile is not None:
-            self.profile = profile
+        if profile:
+            self.profile.extend(profile)
 
         if carrier is not None:
             self.carrier = carrier
@@ -409,20 +431,16 @@ class Item(EObject, metaclass=MetaEClass):
 
 class Measures(EObject, metaclass=MetaEClass):
     """Collection of measures that can be applied to an energy system"""
-    asset = EReference(ordered=True, unique=True, containment=True, upper=-1)
-    measuresCollection = EReference(ordered=True, unique=True, containment=True, upper=-1)
+    measure = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
-    def __init__(self, *, asset=None, measuresCollection=None, **kwargs):
+    def __init__(self, *, measure=None, **kwargs):
         if kwargs:
             raise AttributeError('unexpected arguments: {}'.format(kwargs))
 
         super().__init__()
 
-        if asset:
-            self.asset.extend(asset)
-
-        if measuresCollection:
-            self.measuresCollection.extend(measuresCollection)
+        if measure:
+            self.measure.extend(measure)
 
 
 class Instance(EObject, metaclass=MetaEClass):
@@ -986,13 +1004,17 @@ class VehicleCount(EObject, metaclass=MetaEClass):
 
 class Services(EObject, metaclass=MetaEClass):
     """Defines a collection of logical services used in the energy system, e.g. Demand-Response, Aggregator services, Energy markets and control strategies."""
+    id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
     service = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
-    def __init__(self, *, service=None, **kwargs):
+    def __init__(self, *, service=None, id=None, **kwargs):
         if kwargs:
             raise AttributeError('unexpected arguments: {}'.format(kwargs))
 
         super().__init__()
+
+        if id is not None:
+            self.id = id
 
         if service:
             self.service.extend(service)
@@ -1001,12 +1023,16 @@ class Services(EObject, metaclass=MetaEClass):
 @abstract
 class AbstractDataSource(EObject, metaclass=MetaEClass):
     """Abstract class to describe data sources or references to data sources"""
+    id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
 
-    def __init__(self, **kwargs):
+    def __init__(self, *, id=None, **kwargs):
         if kwargs:
             raise AttributeError('unexpected arguments: {}'.format(kwargs))
 
         super().__init__()
+
+        if id is not None:
+            self.id = id
 
 
 class KPIs(EObject, metaclass=MetaEClass):
@@ -1102,16 +1128,17 @@ class Parameters(EObject, metaclass=MetaEClass):
             self.parameterUnit = parameterUnit
 
 
-class MeasuresCombination(EObject, metaclass=MetaEClass):
-    """A combination of measures with single cost information that can be applied to an energy system. E.g. a combination of insulation and a heat pump. For a single measure (e.g. a PV installation) use Measures"""
+class Measure(EObject, metaclass=MetaEClass):
+    """A single measure or a combination of measures with collective cost information that can be applied to an energy system. An example of a measure-combination would be a combination of insulation and a heat pump."""
     id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
     name = EAttribute(eType=EString, derived=False, changeable=True)
     description = EAttribute(eType=EString, derived=False, changeable=True)
     asset = EReference(ordered=True, unique=True, containment=True, upper=-1)
     costInformation = EReference(ordered=True, unique=True, containment=True)
     dataSource = EReference(ordered=True, unique=True, containment=True)
+    restriction = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
-    def __init__(self, *, id=None, name=None, asset=None, costInformation=None, description=None, dataSource=None, **kwargs):
+    def __init__(self, *, id=None, name=None, asset=None, costInformation=None, description=None, dataSource=None, restriction=None, **kwargs):
         if kwargs:
             raise AttributeError('unexpected arguments: {}'.format(kwargs))
 
@@ -1134,6 +1161,9 @@ class MeasuresCombination(EObject, metaclass=MetaEClass):
 
         if dataSource is not None:
             self.dataSource = dataSource
+
+        if restriction:
+            self.restriction.extend(restriction)
 
 
 class Sectors(EObject, metaclass=MetaEClass):
@@ -1200,7 +1230,7 @@ class AbstractInstanceDate(EObject, metaclass=MetaEClass):
 
 
 class WeekSchedule(EObject, metaclass=MetaEClass):
-
+    """Specifies a week schedule for building usage"""
     mon = EReference(ordered=True, unique=True, containment=True)
     tue = EReference(ordered=True, unique=True, containment=True)
     wed = EReference(ordered=True, unique=True, containment=True)
@@ -1246,7 +1276,7 @@ class WeekSchedule(EObject, metaclass=MetaEClass):
 
 
 class DaySchedule(EObject, metaclass=MetaEClass):
-
+    """Specifies a day schedule as part of a week schedule. A day schedule is a collection of events with a timestamp"""
     event = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
     def __init__(self, *, event=None, **kwargs):
@@ -1260,7 +1290,7 @@ class DaySchedule(EObject, metaclass=MetaEClass):
 
 
 class Event(EObject, metaclass=MetaEClass):
-
+    """Event with a timestamp"""
     id = EAttribute(eType=EString, derived=False, changeable=True)
     time = EAttribute(eType=EString, derived=False, changeable=True)
     description = EAttribute(eType=EString, derived=False, changeable=True)
@@ -1287,6 +1317,7 @@ class Event(EObject, metaclass=MetaEClass):
 
 @abstract
 class AbstractBuildingUsage(EObject, metaclass=MetaEClass):
+    """Abstract class to support references to building usages"""
 
     def __init__(self, **kwargs):
         if kwargs:
@@ -1296,7 +1327,7 @@ class AbstractBuildingUsage(EObject, metaclass=MetaEClass):
 
 
 class BuildingUsageInformation(EObject, metaclass=MetaEClass):
-
+    """Part of Energy System Information that specifies generic building usage information that can be referenced from multiple individual buildings"""
     id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
     buildingUsage = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
@@ -1314,7 +1345,7 @@ class BuildingUsageInformation(EObject, metaclass=MetaEClass):
 
 
 class BuildingTypePercentage(EObject, metaclass=MetaEClass):
-
+    """Specifies the percentage of the selected building type"""
     buildingType = EAttribute(eType=BuildingTypeEnum, derived=False, changeable=True)
     percentage = EAttribute(eType=EDouble, derived=False, changeable=True)
 
@@ -1332,7 +1363,7 @@ class BuildingTypePercentage(EObject, metaclass=MetaEClass):
 
 
 class ResidentialBuildingTypePercentage(EObject, metaclass=MetaEClass):
-
+    """Specifies the percentage of the selected residential building type"""
     residentialBuildingType = EAttribute(
         eType=ResidentialBuildingTypeEnum, derived=False, changeable=True)
     percentage = EAttribute(eType=EDouble, derived=False, changeable=True)
@@ -1351,7 +1382,7 @@ class ResidentialBuildingTypePercentage(EObject, metaclass=MetaEClass):
 
 
 class HousingTypePercentage(EObject, metaclass=MetaEClass):
-
+    """Specifies the percentage of the selected housing type"""
     housingType = EAttribute(eType=HousingTypeEnum, derived=False, changeable=True)
     percentage = EAttribute(eType=EDouble, derived=False, changeable=True)
 
@@ -1366,6 +1397,145 @@ class HousingTypePercentage(EObject, metaclass=MetaEClass):
 
         if percentage is not None:
             self.percentage = percentage
+
+
+class CompoundMaterialComponent(EObject, metaclass=MetaEClass):
+
+    fraction = EAttribute(eType=EDouble, derived=False, changeable=True)
+    material = EReference(ordered=True, unique=True, containment=False)
+
+    def __init__(self, *, fraction=None, material=None, **kwargs):
+        if kwargs:
+            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if fraction is not None:
+            self.fraction = fraction
+
+        if material is not None:
+            self.material = material
+
+
+class IntTargetKPI(EObject, metaclass=MetaEClass):
+
+    value = EAttribute(eType=EInt, derived=False, changeable=True)
+    year = EAttribute(eType=EInt, derived=False, changeable=True)
+
+    def __init__(self, *, value=None, year=None, **kwargs):
+        if kwargs:
+            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if value is not None:
+            self.value = value
+
+        if year is not None:
+            self.year = year
+
+
+class DoubleTargetKPI(EObject, metaclass=MetaEClass):
+
+    value = EAttribute(eType=EDouble, derived=False, changeable=True)
+    year = EAttribute(eType=EInt, derived=False, changeable=True)
+
+    def __init__(self, *, value=None, year=None, **kwargs):
+        if kwargs:
+            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if value is not None:
+            self.value = value
+
+        if year is not None:
+            self.year = year
+
+
+class StringTargetKPI(EObject, metaclass=MetaEClass):
+
+    value = EAttribute(eType=EString, derived=False, changeable=True)
+    year = EAttribute(eType=EInt, derived=False, changeable=True)
+
+    def __init__(self, *, value=None, year=None, **kwargs):
+        if kwargs:
+            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if value is not None:
+            self.value = value
+
+        if year is not None:
+            self.year = year
+
+
+@abstract
+class Restriction(EObject, metaclass=MetaEClass):
+
+    def __init__(self, **kwargs):
+        if kwargs:
+            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+
+class Templates(EObject, metaclass=MetaEClass):
+    """Collection of templates, e.g. asset templates.
+"""
+    assetTemplate = EReference(ordered=True, unique=True, containment=True, upper=-1)
+
+    def __init__(self, *, assetTemplate=None, **kwargs):
+        if kwargs:
+            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if assetTemplate:
+            self.assetTemplate.extend(assetTemplate)
+
+
+class Address(EObject, metaclass=MetaEClass):
+    """The address of a building unit."""
+    streetName = EAttribute(eType=EString, derived=False, changeable=True)
+    houseNumber = EAttribute(eType=EInt, derived=False, changeable=True)
+    houseNumberLetter = EAttribute(eType=EString, derived=False, changeable=True)
+    houseNumberAnnex = EAttribute(eType=EString, derived=False, changeable=True)
+    postalCode = EAttribute(eType=EString, derived=False, changeable=True)
+    city = EAttribute(eType=EString, derived=False, changeable=True)
+    stateOrProvince = EAttribute(eType=EString, derived=False, changeable=True)
+    country = EAttribute(eType=EString, derived=False, changeable=True)
+
+    def __init__(self, *, streetName=None, houseNumber=None, houseNumberLetter=None, houseNumberAnnex=None, postalCode=None, city=None, stateOrProvince=None, country=None, **kwargs):
+        if kwargs:
+            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+
+        super().__init__()
+
+        if streetName is not None:
+            self.streetName = streetName
+
+        if houseNumber is not None:
+            self.houseNumber = houseNumber
+
+        if houseNumberLetter is not None:
+            self.houseNumberLetter = houseNumberLetter
+
+        if houseNumberAnnex is not None:
+            self.houseNumberAnnex = houseNumberAnnex
+
+        if postalCode is not None:
+            self.postalCode = postalCode
+
+        if city is not None:
+            self.city = city
+
+        if stateOrProvince is not None:
+            self.stateOrProvince = stateOrProvince
+
+        if country is not None:
+            self.country = country
 
 
 class InPort(Port):
@@ -1403,13 +1573,15 @@ class Asset(Item):
     aggregated = EAttribute(eType=EBoolean, derived=False, changeable=True)
     aggregationCount = EAttribute(eType=EInt, derived=False, changeable=True, default_value=1)
     installationDuration = EAttribute(eType=EDouble, derived=False, changeable=True)
+    assetType = EAttribute(eType=EString, derived=False, changeable=True)
+    state = EAttribute(eType=AssetStateEnum, derived=False, changeable=True)
     area = EReference(ordered=True, unique=True, containment=False)
     containingBuilding = EReference(ordered=True, unique=True, containment=False)
     geometry = EReference(ordered=True, unique=True, containment=True)
     costInformation = EReference(ordered=True, unique=True, containment=True)
     KPIs = EReference(ordered=True, unique=True, containment=True)
 
-    def __init__(self, *, surfaceArea=None, commissioningDate=None, decommissioningDate=None, owner=None, area=None, containingBuilding=None, geometry=None, costInformation=None, technicalLifetime=None, aggregated=None, aggregationCount=None, installationDuration=None, KPIs=None, **kwargs):
+    def __init__(self, *, surfaceArea=None, commissioningDate=None, decommissioningDate=None, owner=None, area=None, containingBuilding=None, geometry=None, costInformation=None, technicalLifetime=None, aggregated=None, aggregationCount=None, installationDuration=None, KPIs=None, assetType=None, state=None, **kwargs):
 
         super().__init__(**kwargs)
 
@@ -1436,6 +1608,12 @@ class Asset(Item):
 
         if installationDuration is not None:
             self.installationDuration = installationDuration
+
+        if assetType is not None:
+            self.assetType = assetType
+
+        if state is not None:
+            self.state = state
 
         if area is not None:
             self.area = area
@@ -1527,38 +1705,6 @@ class Potential(Item):
             self.quantityAndUnit = quantityAndUnit
 
 
-class EnergyCarrier(Carrier):
-    """Defines a carrier of energy with its emission and energy content properties"""
-    energyContent = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
-    emission = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
-    energyCarrierType = EAttribute(eType=RenewableTypeEnum, derived=False, changeable=True)
-    stateOfMatter = EAttribute(eType=StateOfMatterEnum, derived=False, changeable=True)
-    energyContentUnit = EReference(ordered=True, unique=True, containment=True)
-    emissionUnit = EReference(ordered=True, unique=True, containment=True)
-
-    def __init__(self, *, energyContent=None, emission=None, energyCarrierType=None, stateOfMatter=None, energyContentUnit=None, emissionUnit=None, **kwargs):
-
-        super().__init__(**kwargs)
-
-        if energyContent is not None:
-            self.energyContent = energyContent
-
-        if emission is not None:
-            self.emission = emission
-
-        if energyCarrierType is not None:
-            self.energyCarrierType = energyCarrierType
-
-        if stateOfMatter is not None:
-            self.stateOfMatter = stateOfMatter
-
-        if energyContentUnit is not None:
-            self.energyContentUnit = energyContentUnit
-
-        if emissionUnit is not None:
-            self.emissionUnit = emissionUnit
-
-
 @abstract
 class StaticProfile(GenericProfile):
     """Stores the profile in the ESDL model itself, in contrast with an external profile, which refers to an external source for a profile"""
@@ -1573,13 +1719,21 @@ class ExternalProfile(GenericProfile):
     """ExternalProfile allows to refer to an externally defined profile. Common uses are a profile defined in a (timeseries) database such as InfluxDB.
 It allows you to specify a multiplier to scale the supplied external profile by a certain factor (e.g. when using NEDU profiles). Default the multiplier is '1'."""
     multiplier = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=1.0)
+    startDate = EAttribute(eType=EDate, derived=False, changeable=True)
+    endDate = EAttribute(eType=EDate, derived=False, changeable=True)
 
-    def __init__(self, *, multiplier=None, **kwargs):
+    def __init__(self, *, multiplier=None, startDate=None, endDate=None, **kwargs):
 
         super().__init__(**kwargs)
 
         if multiplier is not None:
             self.multiplier = multiplier
+
+        if startDate is not None:
+            self.startDate = startDate
+
+        if endDate is not None:
+            self.endDate = endDate
 
 
 class PercentileDistribution(GenericDistribution):
@@ -1595,7 +1749,7 @@ class PercentileDistribution(GenericDistribution):
 
 
 @abstract
-class LabelDistribution(GenericDistribution):
+class SpecificLabelDistribution(GenericDistribution):
     """Abstract class to define a distribution with labels"""
 
     def __init__(self, **kwargs):
@@ -1678,7 +1832,6 @@ class Commodity(Carrier):
 
 class DataSource(AbstractDataSource):
     """A DataSource describes the source of the piece of information used in the energy system. E.g. a profile from NEDU or typical parameters of an Asset"""
-    id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
     name = EAttribute(eType=EString, derived=False, changeable=True)
     description = EAttribute(eType=EString, derived=False, changeable=True)
     reference = EAttribute(eType=EString, derived=False, changeable=True)
@@ -1687,12 +1840,9 @@ class DataSource(AbstractDataSource):
     version = EAttribute(eType=EString, derived=False, changeable=True)
     licence = EAttribute(eType=EString, derived=False, changeable=True)
 
-    def __init__(self, *, id=None, name=None, description=None, reference=None, attribution=None, releaseDate=None, version=None, licence=None, **kwargs):
+    def __init__(self, *, name=None, description=None, reference=None, attribution=None, releaseDate=None, version=None, licence=None, **kwargs):
 
         super().__init__(**kwargs)
-
-        if id is not None:
-            self.id = id
 
         if name is not None:
             self.name = name
@@ -1736,10 +1886,11 @@ class QuantityAndUnitType(AbstractQuantityAndUnit):
     perMultiplier = EAttribute(eType=MultiplierEnum, derived=False, changeable=True)
     perUnit = EAttribute(eType=UnitEnum, derived=False, changeable=True)
     description = EAttribute(eType=EString, derived=False, changeable=True)
-    perTimeUnit = EAttribute(eType=TimeUnit, derived=False, changeable=True)
+    perTimeUnit = EAttribute(eType=TimeUnitEnum, derived=False, changeable=True)
     id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
+    perScope = EAttribute(eType=QuantityAndUnitScopeEnum, derived=False, changeable=True)
 
-    def __init__(self, *, physicalQuantity=None, multiplier=None, unit=None, perMultiplier=None, perUnit=None, description=None, perTimeUnit=None, id=None, **kwargs):
+    def __init__(self, *, physicalQuantity=None, multiplier=None, unit=None, perMultiplier=None, perUnit=None, description=None, perTimeUnit=None, id=None, perScope=None, **kwargs):
 
         super().__init__(**kwargs)
 
@@ -1766,6 +1917,9 @@ class QuantityAndUnitType(AbstractQuantityAndUnit):
 
         if id is not None:
             self.id = id
+
+        if perScope is not None:
+            self.perScope = perScope
 
 
 class DataSourceReference(AbstractDataSource):
@@ -1905,7 +2059,7 @@ class WKB(Geometry):
 
 
 class BuildingUsage(AbstractBuildingUsage):
-
+    """Collection of information about the usage of a building, such as temperature set points and opening hours."""
     id = EAttribute(eType=EString, derived=False, changeable=True, iD=True)
     name = EAttribute(eType=EString, derived=False, changeable=True)
     coolingSetpoints = EReference(ordered=True, unique=True, containment=True)
@@ -1933,7 +2087,7 @@ class BuildingUsage(AbstractBuildingUsage):
 
 
 class BuildingUsageReference(AbstractBuildingUsage):
-
+    """Specifies a reference to building usage (such as opening hours)"""
     reference = EReference(ordered=True, unique=True, containment=False)
 
     def __init__(self, *, reference=None, **kwargs):
@@ -1945,43 +2099,55 @@ class BuildingUsageReference(AbstractBuildingUsage):
 
 
 class DoubleKPI(KPI):
-
+    """Specifies a KPI value as a double"""
     value = EAttribute(eType=EDouble, derived=False, changeable=True)
+    target = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
-    def __init__(self, *, value=None, **kwargs):
+    def __init__(self, *, value=None, target=None, **kwargs):
 
         super().__init__(**kwargs)
 
         if value is not None:
             self.value = value
+
+        if target:
+            self.target.extend(target)
 
 
 class StringKPI(KPI):
-
+    """Specifies a KPI value as a string"""
     value = EAttribute(eType=EString, derived=False, changeable=True)
+    target = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
-    def __init__(self, *, value=None, **kwargs):
+    def __init__(self, *, value=None, target=None, **kwargs):
 
         super().__init__(**kwargs)
 
         if value is not None:
             self.value = value
+
+        if target:
+            self.target.extend(target)
 
 
 class IntKPI(KPI):
-
+    """Specifies a KPI value as an integer"""
     value = EAttribute(eType=EInt, derived=False, changeable=True)
+    target = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
-    def __init__(self, *, value=None, **kwargs):
+    def __init__(self, *, value=None, target=None, **kwargs):
 
         super().__init__(**kwargs)
 
         if value is not None:
             self.value = value
 
+        if target:
+            self.target.extend(target)
+
 
 class FromToIntPerc(FromToPerc):
-
+    """Specifies a percentage range as an integer value, as part of a distribution, e.g. for defining a period of years (1945-1960) in Aggregated Buildings"""
     from_ = EAttribute(eType=EInt, derived=False, changeable=True)
     to = EAttribute(eType=EInt, derived=False, changeable=True)
 
@@ -1997,7 +2163,7 @@ class FromToIntPerc(FromToPerc):
 
 
 class FromToDoublePerc(FromToPerc):
-
+    """Specifies a percentage range as an double value, as part of a distribution, e.g. for defining energy usage (2.5-5.0 GJ of hot tap water) in Aggregated Buildings"""
     from_ = EAttribute(eType=EDouble, derived=False, changeable=True)
     to = EAttribute(eType=EDouble, derived=False, changeable=True)
 
@@ -2027,6 +2193,63 @@ class Material(Carrier):
 
         if stateOfMatter is not None:
             self.stateOfMatter = stateOfMatter
+
+
+class BuildingTypeRestriction(Restriction):
+
+    type = EAttribute(eType=BuildingTypeEnum, derived=False, changeable=True, upper=-1)
+
+    def __init__(self, *, type=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if type:
+            self.type.extend(type)
+
+
+class AreaTypeRestriction(Restriction):
+
+    type = EAttribute(eType=AreaTypeEnum, derived=False, changeable=True, upper=-1)
+
+    def __init__(self, *, type=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if type:
+            self.type.extend(type)
+
+
+class AssetTemplate(Item):
+    """Template for an asset. Can be used to specify a generic asset type where specific instances can refer to and inherit properties of.
+"""
+    asset = EReference(ordered=True, unique=True, containment=True)
+
+    def __init__(self, *, asset=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if asset is not None:
+            self.asset = asset
+
+
+@abstract
+class GenericLabelDistribution(GenericDistribution):
+
+    def __init__(self, **kwargs):
+
+        super().__init__(**kwargs)
+
+
+class DistributionKPI(KPI):
+
+    distribution = EReference(ordered=True, unique=True, containment=True)
+
+    def __init__(self, *, distribution=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if distribution is not None:
+            self.distribution = distribution
 
 
 @abstract
@@ -2086,8 +2309,9 @@ class AbstractBuilding(Asset):
     energyIndex = EAttribute(eType=EDouble, derived=False, changeable=True)
     asset = EReference(ordered=True, unique=True, containment=True, upper=-1)
     buildingUsage = EReference(ordered=True, unique=True, containment=True)
+    potential = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
-    def __init__(self, *, energyLabel=None, asset=None, energyIndex=None, buildingUsage=None, **kwargs):
+    def __init__(self, *, energyLabel=None, asset=None, energyIndex=None, buildingUsage=None, potential=None, **kwargs):
 
         super().__init__(**kwargs)
 
@@ -2103,21 +2327,60 @@ class AbstractBuilding(Asset):
         if buildingUsage is not None:
             self.buildingUsage = buildingUsage
 
+        if potential:
+            self.potential.extend(potential)
+
 
 class WindPotential(Potential):
-    """Represents wind potential"""
+    """Defines the potential for wind energy. This class can be used instead of 'SearchAreaWind' in case there is more information available."""
     value = EAttribute(eType=EDouble, derived=False, changeable=True)
-    height = EAttribute(eType=EInt, derived=False, changeable=True)
+    fullLoadHours = EAttribute(eType=EInt, derived=False, changeable=True)
+    area = EAttribute(eType=EDouble, derived=False, changeable=True)
+    height = EAttribute(eType=EDouble, derived=False, changeable=True)
 
-    def __init__(self, *, value=None, height=None, **kwargs):
+    def __init__(self, *, value=None, fullLoadHours=None, area=None, height=None, **kwargs):
 
         super().__init__(**kwargs)
 
         if value is not None:
             self.value = value
 
+        if fullLoadHours is not None:
+            self.fullLoadHours = fullLoadHours
+
+        if area is not None:
+            self.area = area
+
         if height is not None:
             self.height = height
+
+
+class EnergyCarrier(Material):
+    """Defines a carrier of energy with its emission and energy content properties"""
+    energyContent = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
+    emission = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
+    energyCarrierType = EAttribute(eType=RenewableTypeEnum, derived=False, changeable=True)
+    energyContentUnit = EReference(ordered=True, unique=True, containment=True)
+    emissionUnit = EReference(ordered=True, unique=True, containment=True)
+
+    def __init__(self, *, energyContent=None, emission=None, energyCarrierType=None, energyContentUnit=None, emissionUnit=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if energyContent is not None:
+            self.energyContent = energyContent
+
+        if emission is not None:
+            self.emission = emission
+
+        if energyCarrierType is not None:
+            self.energyCarrierType = energyCarrierType
+
+        if energyContentUnit is not None:
+            self.energyContentUnit = energyContentUnit
+
+        if emissionUnit is not None:
+            self.emissionUnit = emissionUnit
 
 
 class DateTimeProfile(StaticProfile):
@@ -2145,7 +2408,7 @@ When a model queries for a value from a certain date (and to a certain date), th
             self.value = value
 
 
-class StringLabelDistribution(LabelDistribution):
+class StringLabelDistribution(GenericLabelDistribution):
     """Defines a distribution in terms of self-defined labels"""
     stringPerc = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
@@ -2157,7 +2420,7 @@ class StringLabelDistribution(LabelDistribution):
             self.stringPerc.extend(stringPerc)
 
 
-class EnergyLabelDistribution(LabelDistribution):
+class EnergyLabelDistribution(SpecificLabelDistribution):
     """Defines a distribution in terms of energy labels"""
     labelPerc = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
@@ -2169,7 +2432,7 @@ class EnergyLabelDistribution(LabelDistribution):
             self.labelPerc.extend(labelPerc)
 
 
-class FromToDistribution(LabelDistribution):
+class FromToDistribution(GenericLabelDistribution):
     """Defines a distribution in terms of 'from' and 'to'"""
     fromToPerc = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
@@ -2275,27 +2538,36 @@ class Range(StaticProfile):
 
 
 class SolarPotential(Potential):
-    """Defines the potential for solar energy"""
+    """Defines the potential for solar energy. This class can be used instead of 'SearchAreaSolar' in case there is more information available."""
     value = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
-    SolarPotentialType = EAttribute(eType=PVInstallationTypeEnum, derived=False, changeable=True)
+    solarPotentialType = EAttribute(eType=PVInstallationTypeEnum, derived=False,
+                                    changeable=True, default_value=PVInstallationTypeEnum.UNDEFINED)
     fullLoadHours = EAttribute(eType=EInt, derived=False, changeable=True)
     area = EAttribute(eType=EDouble, derived=False, changeable=True)
+    angle = EAttribute(eType=EInt, derived=False, changeable=True)
+    orientation = EAttribute(eType=EInt, derived=False, changeable=True)
 
-    def __init__(self, *, value=None, SolarPotentialType=None, fullLoadHours=None, area=None, **kwargs):
+    def __init__(self, *, value=None, solarPotentialType=None, fullLoadHours=None, area=None, angle=None, orientation=None, **kwargs):
 
         super().__init__(**kwargs)
 
         if value is not None:
             self.value = value
 
-        if SolarPotentialType is not None:
-            self.SolarPotentialType = SolarPotentialType
+        if solarPotentialType is not None:
+            self.solarPotentialType = solarPotentialType
 
         if fullLoadHours is not None:
             self.fullLoadHours = fullLoadHours
 
         if area is not None:
             self.area = area
+
+        if angle is not None:
+            self.angle = angle
+
+        if orientation is not None:
+            self.orientation = orientation
 
 
 class ProfileReference(StaticProfile):
@@ -2380,7 +2652,7 @@ class UTESPotential(Potential):
 
 
 class BiomassPotential(Potential):
-
+    """Defines the biomass potential in a specific area."""
     value = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
 
     def __init__(self, *, value=None, **kwargs):
@@ -2392,7 +2664,7 @@ class BiomassPotential(Potential):
 
 
 class Glass(Asset):
-
+    """Allows to specify the glass of a building, e.g. for calculating heat loss"""
     uWindow = EAttribute(eType=EDouble, derived=False, changeable=True)
     glasType = EAttribute(eType=GlassTypeEnum, derived=False, changeable=True,
                           default_value=GlassTypeEnum.UNDEFINED)
@@ -2409,11 +2681,12 @@ class Glass(Asset):
 
 
 class SearchAreaWind(Potential):
-
+    """Specifies search areas for wind turbines. Search areas are a kind of 'legal' areas that have been appointed by the (local) government as possible areas for wind installations. Further research should give insight in the real potential (in terms of energy)."""
     fullLoadHours = EAttribute(eType=EInt, derived=False, changeable=True)
     area = EAttribute(eType=EDouble, derived=False, changeable=True)
+    height = EAttribute(eType=EDouble, derived=False, changeable=True)
 
-    def __init__(self, *, fullLoadHours=None, area=None, **kwargs):
+    def __init__(self, *, fullLoadHours=None, area=None, height=None, **kwargs):
 
         super().__init__(**kwargs)
 
@@ -2422,10 +2695,13 @@ class SearchAreaWind(Potential):
 
         if area is not None:
             self.area = area
+
+        if height is not None:
+            self.height = height
 
 
 class SearchAreaSolar(Potential):
-
+    """Specifies search areas for solar installations. Search areas are a kind of 'legal' areas that have been appointed by the (local) government as possible areas for solar installations. Further research should give insight in the real potential (in terms of energy)."""
     fullLoadHours = EAttribute(eType=EInt, derived=False, changeable=True)
     area = EAttribute(eType=EDouble, derived=False, changeable=True)
 
@@ -2440,8 +2716,8 @@ class SearchAreaSolar(Potential):
             self.area = area
 
 
-class BuildingTypeDistribution(LabelDistribution):
-
+class BuildingTypeDistribution(SpecificLabelDistribution):
+    """Specifies the way the building type is distributed in this area (e.g. Utility, Residential), specifing the percentage of buildings per type."""
     buildingTypePercentage = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
     def __init__(self, *, buildingTypePercentage=None, **kwargs):
@@ -2452,8 +2728,8 @@ class BuildingTypeDistribution(LabelDistribution):
             self.buildingTypePercentage.extend(buildingTypePercentage)
 
 
-class ResidentialBuildingTypeDistribution(LabelDistribution):
-
+class ResidentialBuildingTypeDistribution(SpecificLabelDistribution):
+    """Specifies the way the residential building type is distributed in this area (e.g. Vrijstaande Woning, Hoekwoning, Flatwoning), specifing the percentage of buildings per residential type."""
     residentialBuildingTypePercentage = EReference(
         ordered=True, unique=True, containment=True, upper=-1)
 
@@ -2465,8 +2741,8 @@ class ResidentialBuildingTypeDistribution(LabelDistribution):
             self.residentialBuildingTypePercentage.extend(residentialBuildingTypePercentage)
 
 
-class HousingTypeDistribution(LabelDistribution):
-
+class HousingTypeDistribution(SpecificLabelDistribution):
+    """Specifies the way the housing type is distributed in this area (e.g. Owner occupied, Housing Association, Private Rental), specifing the percentage of buildings per housing type."""
     housingTypePercentage = EReference(ordered=True, unique=True, containment=True, upper=-1)
 
     def __init__(self, *, housingTypePercentage=None, **kwargs):
@@ -2475,6 +2751,34 @@ class HousingTypeDistribution(LabelDistribution):
 
         if housingTypePercentage:
             self.housingTypePercentage.extend(housingTypePercentage)
+
+
+class CompoundMaterial(Material):
+
+    component = EReference(ordered=True, unique=True, containment=True, upper=-1)
+
+    def __init__(self, *, component=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if component:
+            self.component.extend(component)
+
+
+class TemplatedAsset(Asset):
+    """An instantiated asset that is referring to an asset template and the specific asset. The asset template contains generic information, the specific asset contains specific information about this instance (e.g. geometry)."""
+    asset = EReference(ordered=True, unique=True, containment=True)
+    template = EReference(ordered=True, unique=True, containment=False)
+
+    def __init__(self, *, asset=None, template=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if asset is not None:
+            self.asset = asset
+
+        if template is not None:
+            self.template = template
 
 
 @abstract
@@ -2611,7 +2915,7 @@ class Transport(EnergyAsset):
 
 class BuildingUnit(AbstractBuilding):
     """Describes a physical part of a building. In dutch 'verblijfsobject' in the BAG national building and address registry. This can be used e.g. to model appartments in appartment complexes"""
-    type = EAttribute(eType=BuildingTypeEnum, derived=False, changeable=True)
+    type = EAttribute(eType=BuildingTypeEnum, derived=False, changeable=True, upper=-1)
     housingType = EAttribute(eType=HousingTypeEnum, derived=False, changeable=True)
     numberOfInhabitants = EAttribute(eType=EInt, derived=False, changeable=True)
     inhabitantsType = EAttribute(eType=InhabitantsTypeEnum, derived=False, changeable=True)
@@ -2630,13 +2934,14 @@ class BuildingUnit(AbstractBuilding):
                            changeable=True, default_value=GlassTypeEnum.UNDEFINED)
     ventilationType = EAttribute(eType=VentilationTypeEnum, derived=False,
                                  changeable=True, default_value=VentilationTypeEnum.UNDEFINED)
+    address = EReference(ordered=True, unique=True, containment=True)
 
-    def __init__(self, *, type=None, housingType=None, numberOfInhabitants=None, inhabitantsType=None, floorArea=None, numberOfFloors=None, slantedRoofArea=None, flatRoofArea=None, roofType=None, wallArea=None, windowArea=None, rcFloor=None, rcWall=None, rfRoof=None, uWindow=None, glassType=None, ventilationType=None, **kwargs):
+    def __init__(self, *, type=None, housingType=None, numberOfInhabitants=None, inhabitantsType=None, floorArea=None, numberOfFloors=None, slantedRoofArea=None, flatRoofArea=None, roofType=None, wallArea=None, windowArea=None, rcFloor=None, rcWall=None, rfRoof=None, uWindow=None, glassType=None, ventilationType=None, address=None, **kwargs):
 
         super().__init__(**kwargs)
 
-        if type is not None:
-            self.type = type
+        if type:
+            self.type.extend(type)
 
         if housingType is not None:
             self.housingType = housingType
@@ -2685,6 +2990,9 @@ class BuildingUnit(AbstractBuilding):
 
         if ventilationType is not None:
             self.ventilationType = ventilationType
+
+        if address is not None:
+            self.address = address
 
 
 class Building(AbstractBuilding):
@@ -3102,16 +3410,16 @@ class GasHeater(Conversion):
             self.type = type
 
 
-class SourceProducer(Producer):
-    """Represents a generic source that produces a certain commodity. Used to model the rest of the energy system that is out of the current scope"""
+class Import(Producer):
+    """Represents a source that delivers imported energy into the current energy system. Used to model the rest of the energy system that is out of the current scope"""
 
     def __init__(self, **kwargs):
 
         super().__init__(**kwargs)
 
 
-class SinkConsumer(Consumer):
-    """Represents a generic sink that consumes a certain commodity. Used to model the rest of the energy system that is out of the current scope"""
+class Export(Consumer):
+    """Represents a consumer that consumes exported energy from the current energy system. Used to model the rest of the energy system that is out of the current scope"""
 
     def __init__(self, **kwargs):
 
@@ -3470,13 +3778,17 @@ class DrivenBySupply(ControlStrategy):
 class DrivenByProfile(ControlStrategy):
     """Control strategy specifying that an asset is driven by a profile specified in one of the ports (used in ESDL-based simulation tools)"""
     profile = EReference(ordered=True, unique=True, containment=True)
+    port = EReference(ordered=True, unique=True, containment=False)
 
-    def __init__(self, *, profile=None, **kwargs):
+    def __init__(self, *, profile=None, port=None, **kwargs):
 
         super().__init__(**kwargs)
 
         if profile is not None:
             self.profile = profile
+
+        if port is not None:
+            self.port = port
 
 
 class WaterToPower(Producer):
@@ -3511,10 +3823,15 @@ class AbstractConductor(Transport):
 @abstract
 class AbstractSwitch(Transport):
     """Abstract class to describe switches such as valve and a circuit breaker"""
+    position = EAttribute(eType=SwitchPositionEnum, derived=False,
+                          changeable=True, default_value=SwitchPositionEnum.UNDEFINED)
 
-    def __init__(self, **kwargs):
+    def __init__(self, *, position=None, **kwargs):
 
         super().__init__(**kwargs)
+
+        if position is not None:
+            self.position = position
 
 
 @abstract
@@ -3548,6 +3865,7 @@ class RoomHeater(Conversion):
 
 
 class BiomassHeater(Conversion):
+    """Converts biomass into heat and/or electricity"""
 
     def __init__(self, **kwargs):
 
@@ -3583,6 +3901,59 @@ class CurtailmentStrategy(ControlStrategy):
 
 
 class PVTInstallation(Producer):
+    """Defines an installation that combines PV and thermal energy collection"""
+
+    def __init__(self, **kwargs):
+
+        super().__init__(**kwargs)
+
+
+@abstract
+class AbstractSensor(Transport):
+
+    def __init__(self, **kwargs):
+
+        super().__init__(**kwargs)
+
+
+class PIDController(ControlStrategy):
+    """Control strategy specifying that an asset is driven by a PID controller (used in ESDL-based simulation tools)"""
+    Kp = EAttribute(eType=EDouble, derived=False, changeable=True)
+    Ki = EAttribute(eType=EDouble, derived=False, changeable=True)
+    Kd = EAttribute(eType=EDouble, derived=False, changeable=True)
+    sensor = EReference(ordered=True, unique=True, containment=False)
+    setPoint = EReference(ordered=True, unique=True, containment=True)
+
+    def __init__(self, *, Kp=None, Ki=None, Kd=None, sensor=None, setPoint=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if Kp is not None:
+            self.Kp = Kp
+
+        if Ki is not None:
+            self.Ki = Ki
+
+        if Kd is not None:
+            self.Kd = Kd
+
+        if sensor is not None:
+            self.sensor = sensor
+
+        if setPoint is not None:
+            self.setPoint = setPoint
+
+
+class SinkConsumer(Consumer):
+    """(Deprecated, will be removed in future ESDL versions) Represents a consumer that consumes exported energy from the current energy system. Used to model the rest of the energy system that is out of the current scope"""
+
+    def __init__(self, **kwargs):
+
+        super().__init__(**kwargs)
+
+
+class SourceProducer(Producer):
+    """(Deprecated, will be removed in future ESDL versions) Represents a source that delivers imported energy into the current energy system. Used to model the rest of the energy system that is out of the current scope"""
 
     def __init__(self, **kwargs):
 
@@ -3651,8 +4022,9 @@ class Pipe(AbstractConductor):
     outerDiameter = EAttribute(eType=EDouble, derived=False, changeable=True)
     length = EAttribute(eType=EDouble, derived=False, changeable=True)
     roughness = EAttribute(eType=EDouble, derived=False, changeable=True)
+    diameter = EAttribute(eType=PipeDiameterEnum, derived=False, changeable=True)
 
-    def __init__(self, *, innerDiameter=None, outerDiameter=None, length=None, roughness=None, **kwargs):
+    def __init__(self, *, innerDiameter=None, outerDiameter=None, length=None, roughness=None, diameter=None, **kwargs):
 
         super().__init__(**kwargs)
 
@@ -3667,6 +4039,9 @@ class Pipe(AbstractConductor):
 
         if roughness is not None:
             self.roughness = roughness
+
+        if diameter is not None:
+            self.diameter = diameter
 
 
 class Transformer(AbstractTransformer):
@@ -3734,7 +4109,7 @@ class FuelCell(CoGeneration):
 
 
 class WindParc(WindTurbine):
-    """Defines a wind parc of multiple turbines"""
+    """Deprecated - Defines a wind parc of multiple turbines"""
     numberOfTurbines = EAttribute(eType=EInt, derived=False, changeable=True)
 
     def __init__(self, *, numberOfTurbines=None, **kwargs):
@@ -3746,7 +4121,7 @@ class WindParc(WindTurbine):
 
 
 class PVParc(PVPanel):
-    """Defines a PV parc of multiple panels"""
+    """Deprecated - Defines a PV parc of multiple panels"""
     numberOfPanels = EAttribute(eType=EInt, derived=False, changeable=True)
 
     def __init__(self, *, numberOfPanels=None, **kwargs):
@@ -3767,10 +4142,14 @@ class Pump(AbstractTransformer):
 
 class Valve(AbstractSwitch):
     """Defines a valve, e.g. in a water, gas or heat network"""
+    valveCoefficient = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
 
-    def __init__(self, **kwargs):
+    def __init__(self, *, valveCoefficient=None, **kwargs):
 
         super().__init__(**kwargs)
+
+        if valveCoefficient is not None:
+            self.valveCoefficient = valveCoefficient
 
 
 class CHP(CoGeneration):
@@ -3829,7 +4208,7 @@ class PVInstallation(PVPanel):
             self.numberOfPanels = numberOfPanels
 
 
-class CircuitBraker(AbstractSwitch):
+class CircuitBreaker(AbstractSwitch):
     """Defines a circuit breaker in electric transmission or distribution grids"""
 
     def __init__(self, **kwargs):
@@ -3838,7 +4217,7 @@ class CircuitBraker(AbstractSwitch):
 
 
 class UTES(HeatStorage):
-
+    """Underground Thermal Energy Storage"""
     type = EAttribute(eType=UTESTypeEnum, derived=False, changeable=True,
                       default_value=UTESTypeEnum.UNDEFINED)
     UTESPotential = EReference(ordered=True, unique=True, containment=False)
@@ -3855,6 +4234,7 @@ class UTES(HeatStorage):
 
 
 class WaterBuffer(HeatStorage):
+    """Storage by means of storing energy in water, e.g. a tank."""
 
     def __init__(self, **kwargs):
 
@@ -3862,8 +4242,82 @@ class WaterBuffer(HeatStorage):
 
 
 class Joint(AbstractConductor):
-    """A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports."""
+    """A Joint is a means to connect AbstractConductors, such as Pipes and ElectricalCables. This helps when these conductors have opposite Ports."""
 
     def __init__(self, **kwargs):
 
         super().__init__(**kwargs)
+
+
+class Bus(AbstractConductor):
+
+    voltage = EAttribute(eType=EDouble, derived=False, changeable=True)
+
+    def __init__(self, *, voltage=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if voltage is not None:
+            self.voltage = voltage
+
+
+class Sensor(AbstractSensor):
+
+    quantityAndUnit = EReference(ordered=True, unique=True, containment=True)
+
+    def __init__(self, *, quantityAndUnit=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if quantityAndUnit is not None:
+            self.quantityAndUnit = quantityAndUnit
+
+
+class Switch(AbstractSwitch):
+
+    def __init__(self, **kwargs):
+
+        super().__init__(**kwargs)
+
+
+class Compressor(AbstractTransformer):
+
+    def __init__(self, **kwargs):
+
+        super().__init__(**kwargs)
+
+
+class PressureReducingValve(AbstractTransformer):
+
+    valveCoefficient = EAttribute(eType=EDouble, derived=False, changeable=True, default_value=0.0)
+
+    def __init__(self, *, valveCoefficient=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if valveCoefficient is not None:
+            self.valveCoefficient = valveCoefficient
+
+
+class PVPark(PVPanel):
+    """Defines a PV park of multiple panels"""
+    numberOfPanels = EAttribute(eType=EInt, derived=False, changeable=True)
+
+    def __init__(self, *, numberOfPanels=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if numberOfPanels is not None:
+            self.numberOfPanels = numberOfPanels
+
+
+class WindPark(WindTurbine):
+    """Defines a wind park of multiple turbines"""
+    numberOfTurbines = EAttribute(eType=EInt, derived=False, changeable=True)
+
+    def __init__(self, *, numberOfTurbines=None, **kwargs):
+
+        super().__init__(**kwargs)
+
+        if numberOfTurbines is not None:
+            self.numberOfTurbines = numberOfTurbines
