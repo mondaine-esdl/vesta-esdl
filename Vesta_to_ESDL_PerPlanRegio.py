@@ -113,7 +113,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         gd_natural_ip = InPort(id=str(uuid.uuid4()), name="Aansl_gas")
                         gd_natural_sv = SingleValue(id=str(uuid.uuid4()), value=gd_value)
                         gd_natural_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        gd_natural_ip.profile = gd_natural_sv
+                        gd_natural_ip.profile.append(gd_natural_sv)
                         gd_natural.port.append(gd_natural_ip)
                         houses.asset.append(gd_natural)
         
@@ -123,7 +123,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         gd_green_ip = InPort(id=str(uuid.uuid4()), name="Aansl_gas")
                         gd_green_sv = SingleValue(id=str(uuid.uuid4()), value=gd_green_value)
                         gd_green_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        gd_green_ip.profile = gd_green_sv
+                        gd_green_ip.profile.append(gd_green_sv)
                         gd_green.port.append(gd_green_ip)
                         houses.asset.append(gd_green)
         
@@ -133,7 +133,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         hd_total_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         hd_total_sv = SingleValue(id=str(uuid.uuid4()), value=hd_total_value)
                         hd_total_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        hd_total_ip.profile = hd_total_sv
+                        hd_total_ip.profile.append(hd_total_sv)
                         hd_total.port.append(hd_total_ip)
                         houses.asset.append(hd_total)
         
@@ -143,7 +143,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         hd_MT_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         hd_MT_sv = SingleValue(id=str(uuid.uuid4()), value=hd_MT_value)
                         hd_MT_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        hd_MT_ip.profile = hd_MT_sv
+                        hd_MT_ip.profile.append(hd_MT_sv)
                         hd_MT.port.append(hd_MT_ip)
                         houses.asset.append(hd_MT)
         
@@ -153,7 +153,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         hd_LT_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         hd_LT_sv = SingleValue(id=str(uuid.uuid4()), value=hd_LT_value)
                         hd_LT_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        hd_LT_ip.profile = hd_LT_sv
+                        hd_LT_ip.profile.append(hd_LT_sv)
                         hd_LT.port.append(hd_LT_ip)
                         houses.asset.append(hd_LT)
         
@@ -163,7 +163,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         hd_elek_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         hd_elek_sv = SingleValue(id=str(uuid.uuid4()), value=hd_elek_value)
                         hd_elek_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        hd_elek_ip.profile = hd_elek_sv
+                        hd_elek_ip.profile.append(hd_elek_sv)
                         hd_elek.port.append(hd_elek_ip)
                         houses.asset.append(hd_elek)
         
@@ -173,7 +173,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         cd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         cd_sv = SingleValue(id=str(uuid.uuid4()), value=cd_value)
                         cd_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        cd_ip.profile = cd_sv
+                        cd_ip.profile.append(cd_sv)
                         cd.port.append(cd_ip)
                         houses.asset.append(cd)
         
@@ -183,7 +183,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         ed_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         ed_sv = SingleValue(id=str(uuid.uuid4()), value=ed_value)
                         ed_sv.profileQuantityAndUnit = qau_energy_GJ_yr
-                        ed_ip.profile = ed_sv
+                        ed_ip.profile.append(ed_sv)
                         ed.port.append(ed_ip)
                         houses.asset.append(ed)
                         
