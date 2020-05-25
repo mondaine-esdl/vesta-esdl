@@ -59,7 +59,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
     instance.date = InstanceDate(date=EDate.from_string("2030-01-01"))
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
     es.instance.append(instance)
-    es.instance[0].area = Area(id=str(uuid.uuid4()), name=RegioNaam, scope="RES")
+    es.instance[0].area = Area(id=str(uuid.uuid4()), name=RegioNaam)
 
     qau_energy_GJ_yr    = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
     qau_cost_EURO_yr    = QuantityAndUnitType(id=str(uuid.uuid4()), physicalQuantity="COST", unit="EURO", multiplier="NONE", perTimeUnit="YEAR") 
