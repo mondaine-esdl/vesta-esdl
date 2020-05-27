@@ -493,7 +493,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
 def main():
     
-    RegioNamen= ["NoordHollandZuid"]
+    RegioNamen= ["Havenstad"]
 #    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
 #    RegioNamen= ["Hengelo"]
 #    Strategien= ["S1a_B_LuchtWP","S1b_B_BodemWP","S2a_B_Restwarmte"]
