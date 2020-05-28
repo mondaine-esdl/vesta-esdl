@@ -33,8 +33,6 @@
 		Changes not staged for commit:<BR/>
 		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
-			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
-			modified:   SubWCRevData.str<BR/>
 			modified:   git.txt<BR/>
 			modified:   model/LeidraadResultaten.dms<BR/>
 		<BR/>

@@ -6,7 +6,7 @@
 	</FullName>
 	<GeoDmsVersion>GeoDms 7.217 [Release] [x64] [Apr 25 2020] [Complete Edition]
 	</GeoDmsVersion>
-	<StatusFlags>0x45ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	<StatusFlags>0x45df = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
 	</StatusFlags>
 </DefaultInfo>
 <Software>
@@ -33,14 +33,8 @@
 		Changes not staged for commit:<BR/>
 		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
-			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
-			modified:   SubWCRevData.str<BR/>
 			modified:   git.txt<BR/>
-		<BR/>
-		Untracked files:<BR/>
-		  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)<BR/>
-			Runs/Referentie.dms<BR/>
-			log_vesta/<BR/>
+			modified:   model/LeidraadResultaten.dms<BR/>
 		<BR/>
 		no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<BR/>
 		

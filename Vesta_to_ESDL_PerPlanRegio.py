@@ -127,7 +127,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 g_network.port.append(g_network_op)
                 area.asset.append(g_network)
                 
-            if input_LT > 0.0:
+            if input_LT > 0.0 or "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam]:
                 h_lt_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_LT_network", aggregated = True)
                 h_lt_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                 h_lt_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
