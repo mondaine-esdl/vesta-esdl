@@ -1,1251 +1,1251 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<esdl:EnergySystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esdl="http://www.tno.nl/esdl" name="Vesta Resultaten PerPlanRegio" id="3c8f66f8-e1fb-463e-b87a-28d3d9082f6c">
-  <energySystemInformation xsi:type="esdl:EnergySystemInformation" id="16598207-75bc-46b1-9dd7-3319006b91d6">
-    <quantityAndUnits xsi:type="esdl:QuantityAndUnits" id="7736ff6b-6d1b-4371-ba60-5b13cf1c0c7b">
-      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" physicalQuantity="ENERGY" perTimeUnit="YEAR" multiplier="GIGA" id="energy_GJ_yr" unit="JOULE"/>
-      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" physicalQuantity="COST" perTimeUnit="YEAR" multiplier="NONE" id="cost_EURO_yr" unit="EURO"/>
-      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" physicalQuantity="ENERGY" perUnit="HECTARE" perTimeUnit="YEAR" multiplier="GIGA" id="energy_GJ_yr_ha" unit="JOULE"/>
-      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" multiplier="MEGA" physicalQuantity="EMISSION" id="cost_EURO_TON" unit="GRAM"/>
-      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" physicalQuantity="EMISSION" perTimeUnit="YEAR" multiplier="MEGA" id="emission_TON_yr" unit="GRAM"/>
-    </quantityAndUnits>
-  </energySystemInformation>
-  <instance xsi:type="esdl:Instance" name="y2030" aggrType="PER_COMMODITY" id="586e1ce7-8c68-4c8b-ab7b-b2c360c15f7f">
+<esdl:EnergySystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esdl="http://www.tno.nl/esdl" name="Vesta Resultaten PerPlanRegio" id="bf40251e-c7e8-4010-928a-a9dedbed50dd">
+  <instance xsi:type="esdl:Instance" aggrType="PER_COMMODITY" name="y2030" id="2104a10d-0af3-4349-8d58-74ceec56b31a">
     <date xsi:type="esdl:InstanceDate" date="2030-01-01T00:00:00.000000"/>
     <area xsi:type="esdl:Area" name="Havenstad" id="Havenstad">
-      <asset xsi:type="esdl:GasNetwork" id="c02495f3-7da0-416e-b649-12e135b1952a" name="Gas_network" aggregated="true">
-        <port xsi:type="esdl:OutPort" id="8670aeb2-0483-48c0-86bb-2c1e86eff994" name="OutPort" connectedTo="44291fa9-eee9-40f3-b848-495fa4b097cb 6ff89ae2-5801-4e00-a80e-e42c157e9f4f ee165709-f835-48c7-a990-0dc1ac75a0d0 2aa8e4f5-c3e5-4b2a-8eaa-35668ec607d2 d84e053b-83d2-4baa-9ac1-fb96097846f9 46d080f0-dbc1-4660-b77f-82b51e7a69d7 c2762374-8a90-4cbe-845c-137bc71b9f00 a8c6888e-3d20-415e-8d19-59e7a487d272 386640bb-21b2-4b24-b179-4b43f71c91ee 30e59713-3a73-4a0b-996c-d59959514a55 734ba5ff-ea2e-4e48-85d9-6c8618658690 27400249-c1a9-4e32-a79c-af0fccaa0b56 1e823728-4db5-4637-97a5-8a62c7e8ba6c d4923c93-4381-4592-98bc-7310b4744403 530e144e-e4c6-42d1-8aa0-f7ecfbccace8"/>
+      <asset xsi:type="esdl:GasNetwork" aggregated="true" id="6f3c9271-2ed0-4ba9-acf3-9bc718d31d37" name="Gas_network">
+        <port xsi:type="esdl:OutPort" name="OutPort" id="d925f0fa-c904-442f-8e76-85e68c54bd49" connectedTo="eaff9123-226f-4de5-a32b-6a57e6cbad80 ac9f9b3c-8a97-4a3f-9786-97f65e56973b e06b437d-4124-4acf-bccb-0bd02788547b 610db5da-7b7b-49ab-a89a-c39e87d38dc0 ce761a13-d5bd-4bfe-841a-73cbf9b8e0b1 8563dd73-f4ad-4eb1-8e76-3664e91705d6 5330a9e7-5d3e-4ad7-b12e-0ad466a29d34 3388486f-6e0c-4dc2-8d86-8e83f88afc97 8dbf36ce-f320-4e53-bb1d-ba368b47a46b c25769e7-7dac-47c0-9c6c-9a4a3d03b2fa 6b14a7f0-4453-48e1-95ce-1663c5fc3f28 cdcf88c5-904a-4a22-95e3-a4ab612809ca 56027d42-0224-431a-95c6-ee4424974166 1c558551-2116-43e9-ab30-c58651065eec 43d8e306-09d8-4776-9225-366661b3845c"/>
       </asset>
-      <asset xsi:type="esdl:HeatNetwork" id="8c4de683-ebfc-4b0f-b66a-f5c7754cb0f4" name="Heating_LT_network" aggregated="true">
-        <port xsi:type="esdl:InPort" id="206794e8-26a5-4667-bef1-4bf0fcfe5c16" name="InPort"/>
-        <port xsi:type="esdl:OutPort" id="21dfad75-55a2-48ca-9479-a0e180a9c251" name="OutPort"/>
+      <asset xsi:type="esdl:HeatNetwork" aggregated="true" id="cdedaa58-1785-48d0-af12-bae5b6808f52" name="Heating_LT_network">
+        <port xsi:type="esdl:InPort" name="InPort" id="57310814-2cb7-4e90-95bc-5743e5d9b441"/>
+        <port xsi:type="esdl:OutPort" name="OutPort" id="0b7c79fc-ac92-4499-9078-00b7a545afac"/>
       </asset>
-      <asset xsi:type="esdl:HeatNetwork" id="d6da5fd9-6081-4bc4-95cb-b772f7924984" name="Heating_MT_network" aggregated="true">
-        <port xsi:type="esdl:InPort" id="e86dc45e-3dbd-4420-a588-3ef098777794" name="InPort"/>
-        <port xsi:type="esdl:OutPort" id="6f2ad40c-e960-44a1-b448-c3db64fa8fd4" name="OutPort" connectedTo="6ab6f983-0be1-4592-b5ad-f16ca63101c8 00a2372b-fc85-426d-be12-934a9dc34338 fc9cdf3a-7479-4361-9db5-618b53319fba 6b4a35be-864c-4d5d-89c0-3799dc7dac17 3f333848-5fe0-4b8d-aedc-a964b73ba22c 55a2b1f1-171e-4015-bd9a-55ad27d95b58"/>
+      <asset xsi:type="esdl:HeatNetwork" aggregated="true" id="d2f7b1aa-99dd-4817-8f31-b552aa44e748" name="Heating_MT_network">
+        <port xsi:type="esdl:InPort" name="InPort" id="2296bde9-6854-4e0f-9bef-6d91dff5a61d"/>
+        <port xsi:type="esdl:OutPort" name="OutPort" id="06b01257-aba7-46da-9112-e1d4552ef56c" connectedTo="238718d3-e2df-4235-b37a-39adf43bb0d5 70e410c8-823e-4471-bed0-8d48053ab732 a12ada00-5432-4787-be1a-57f8b8ee8bf4 b5444386-6f05-4587-a654-c5e56671bfe1 363c4731-89cb-4a90-8816-424768ac2272 a428e98e-c524-4b92-8ecf-374577f3a9d5"/>
       </asset>
-      <asset xsi:type="esdl:ElectricityNetwork" id="2befb320-d537-49de-8905-2ba39a05ce70" name="Electricity_network" aggregated="true">
-        <port xsi:type="esdl:OutPort" id="718272cf-3f41-4da0-b458-c7245735a772" name="OutPort" connectedTo="acf7517e-12ef-41c2-bce8-6188e0d84a50 327eefd6-f95b-448e-b852-36386e25c2a6 bd00d409-6de3-444a-a0d8-43d11d172221 30b1f061-fd0e-4b9f-926d-a5e6ef2dfc88 370051a7-467c-440d-83e7-5c4b5ac17cd4 911f850b-3b95-4a58-8464-fddf748197ce 6e6a980c-8f94-4490-b2cb-2958bb1d5fb0 2335327e-ec0a-4082-9896-c2b6fa7406e3 58ac7f9c-371e-4fb5-a422-f3b88350fb85 3cedc968-c2c2-403d-9ff0-7d84aa825d63 9395520b-90c1-48fb-9bca-e562e4734742 9845754e-4aab-47e6-aefb-50af020ab8f7 6c4c5edc-d3b9-46b3-b76b-7b4b9e1427a5 f4412846-fac7-43ec-8abf-271a91c71a26 bdcd880a-4984-4f94-bf68-c6c7455f09ca"/>
+      <asset xsi:type="esdl:ElectricityNetwork" aggregated="true" id="43a12936-70cf-4300-b523-2f73cbf5e6f0" name="Electricity_network">
+        <port xsi:type="esdl:OutPort" name="OutPort" id="3249fbac-2584-44c6-9edc-d26161af45af" connectedTo="3d975d5e-985f-4086-8dc4-d048f3e0e8eb 71d2c935-665d-4716-b121-2c66f62031bb 7cddf5c1-3a2a-47ed-aeac-7e7c5e75ef6b cdaf8c6a-7dc4-4753-937f-2252362834bc 4b5474d3-4182-4b57-bd05-a5e465eb8ba6 20ec88a6-0fe5-4dd1-a94d-b0e993eb0518 a65fc6d5-668f-47e3-9559-6347cdc60b66 4688291e-bd6e-4769-aa5e-4a7993bf1910 cd87e1b7-a18d-46b1-9fcb-952b889dc4e8 ccdae6a4-0ced-4aca-a84a-9c84a5ac30e8 caaba52d-678b-4d3b-ac6a-9b1b295f3770 f2fafed1-c113-43db-ad34-7ea258caff05 1b2e05a2-e425-4e15-bc54-adda4c4176dd 7969adeb-bbbc-4acf-977a-7a517cac466b 61411718-44ca-4b98-91b1-3b1b61ba4dc5"/>
       </asset>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03631000">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2803" id="6d1e38ed-bf19-417c-8e9d-c87f42707822" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="85836a21-fdb3-45bd-bfb3-1e5c14247a55" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="44291fa9-eee9-40f3-b848-495fa4b097cb" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="92a827cf-f108-4dbb-a87f-25058cd884cf" value="52308.0">
+      <area xsi:type="esdl:Area" id="bu03631000" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="40f692f3-7d77-487a-bd82-6b953ed4fa58" numberOfBuildings="2803" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="f147e2f5-ad61-4f80-8a23-b0b7e91c050f" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="eaff9123-226f-4de5-a32b-6a57e6cbad80">
+              <profile xsi:type="esdl:SingleValue" value="52308.0" id="edb59375-ea7d-4cb3-8491-98f3292fe9bb">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="2e92e924-b459-4f63-bd85-85c70c79c7eb" name="OutPort" connectedTo="e7929d2d-2c5a-496f-a734-a10b841fc212"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="a2b2c1e6-57e7-431b-b331-583814eadf61" connectedTo="cdd40806-4f57-45af-9330-931244e3ef13"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="9536f2db-9b31-487d-9f8f-9032fe3c2d49" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="acf7517e-12ef-41c2-bce8-6188e0d84a50" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="5aefe5b3-94ee-4ac5-a7d5-b5f0ec92d908" value="139488.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="1e6a5d7f-762e-4efb-8727-be0f26c2e997" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="3d975d5e-985f-4086-8dc4-d048f3e0e8eb">
+              <profile xsi:type="esdl:SingleValue" value="139488.0" id="60d59c0a-1c78-43cd-9d9f-396447280d6a">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="245db6d5-f8d3-4541-abbe-c3aef1e2c508" name="OutPort" connectedTo="8ffeb25f-2969-49f2-9c83-afc13aa97d2b ae52849e-d803-4f16-a3c6-2deeb6cd0a49"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="a3ea66cc-bece-4463-85d7-379e4c4c0083" connectedTo="e3a56109-6c2e-455f-829d-2105b768ddfe f4abb72c-4418-4d5a-a868-fb6524b34106"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="e7fe27fb-e1d4-4f51-89e0-92c06b13b112" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="1aab2659-5b8c-4d94-8d68-0c2c759faecd" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="d49c6b7e-0604-49ce-9ed7-902f3e0ee9d6" value="69744.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="daeecb77-8a5f-4909-b19f-4c606f21de1f" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="91608433-7dcd-4b34-91cd-092a4a36d613" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="bdbcb5df-69d1-4ce8-8acb-c1f86c12234e" value="13077.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="d2f228c9-c248-4def-af39-a0fd326df4f4" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="badcec49-52bd-4a3e-91e7-b886842bc738">
+              <profile xsi:type="esdl:SingleValue" value="69744.0" id="9363e023-17a8-4ed2-9332-780c6e85d274">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="d57f7f0e-73d6-49d6-a9b2-a4046e7110d3" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="d4e2d3b3-ca38-4dc7-8969-90b678751d5f" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="4b302e61-d498-4393-84bb-7f2e40b3bdd9" value="26154.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="02419792-f3b8-495e-84f8-7c80e985a397" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="4279eb23-49f1-4fcb-82f1-d1018b413b1f">
+              <profile xsi:type="esdl:SingleValue" value="13077.0" id="f7e96aa8-3a5c-47ee-b66d-e7da62f648b3">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="6d192e2c-f8e3-4c6f-bda1-e0401d6efabf" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="cd773272-d9d3-4104-9471-b8a52953c335" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="5b355d71-84e6-4feb-8f3d-b404b174f64e" value="122052.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="3aa0ec2f-0544-4262-85e1-d17631519a96" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="42a8a5b7-6a0c-47d0-bb6f-43a00a66304f">
+              <profile xsi:type="esdl:SingleValue" value="26154.0" id="8b13bcb8-feec-41d3-a92c-28a25c78e1aa">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="d7b1a918-dc18-48f5-99e1-6dfd2bce5067" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="cf3e8945-b082-4070-9057-4f5818d8ceab" connectedTo="6d36bd32-6e38-419d-a3c7-30f7e994c783 af2c0281-9d8a-4bb1-a9b7-3ff5bf8b0e48">
-              <profile xsi:type="esdl:SingleValue" id="0003bfb6-206f-4a9e-a5a9-fee591ef117a" value="82821.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="bd45c669-d047-44bb-9d73-3e0d2fd6794f" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="8c57c8db-b1eb-4750-b059-14821209d87c">
+              <profile xsi:type="esdl:SingleValue" value="122052.0" id="a4d79fbf-a68d-4ec5-8495-ff5b942f1b83">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="48e11063-e0d5-4832-a957-fd5a5a63038e" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="8ffeb25f-2969-49f2-9c83-afc13aa97d2b" connectedTo="245db6d5-f8d3-4541-abbe-c3aef1e2c508">
-              <profile xsi:type="esdl:SingleValue" id="5f2bd00d-a180-49d3-a7b1-dd0077bbffcf" value="122052.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="7c87cc89-a8db-4fdc-a59f-3736a6324ca8" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="86c3adeb-3ca8-4a95-8178-73c84d0ddfd5 150b6aac-7674-4eb3-895e-444d5621ebab" name="InPort" id="cc405f3b-954c-4b73-b7f7-30f90bf76c3e">
+              <profile xsi:type="esdl:SingleValue" value="82821.0" id="0520a223-d331-45c9-967c-2fc16ae536b9">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="5a75b247-4550-4f43-a393-44e58ed2e2b4" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="e7929d2d-2c5a-496f-a734-a10b841fc212" name="InPort" connectedTo="2e92e924-b459-4f63-bd85-85c70c79c7eb"/>
-            <port xsi:type="esdl:OutPort" id="6d36bd32-6e38-419d-a3c7-30f7e994c783" name="OutPort" connectedTo="cf3e8945-b082-4070-9057-4f5818d8ceab"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="8033759e-b2e6-4a0c-9a7a-d88e3cafd4f1" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="a3ea66cc-bece-4463-85d7-379e4c4c0083" name="InPort" id="e3a56109-6c2e-455f-829d-2105b768ddfe">
+              <profile xsi:type="esdl:SingleValue" value="122052.0" id="89edb1e6-9068-4df2-9111-0b2a608ee329">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="efe0f8b8-3f38-4cc7-af79-733b8c602609" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="ae52849e-d803-4f16-a3c6-2deeb6cd0a49" name="InPort" connectedTo="245db6d5-f8d3-4541-abbe-c3aef1e2c508"/>
-            <port xsi:type="esdl:OutPort" id="af2c0281-9d8a-4bb1-a9b7-3ff5bf8b0e48" name="OutPort" connectedTo="cf3e8945-b082-4070-9057-4f5818d8ceab"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="ee2ecdf3-a2a6-4621-9592-6a18522e88ec" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="cdd40806-4f57-45af-9330-931244e3ef13" connectedTo="a2b2c1e6-57e7-431b-b331-583814eadf61"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="86c3adeb-3ca8-4a95-8178-73c84d0ddfd5" connectedTo="cc405f3b-954c-4b73-b7f7-30f90bf76c3e"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="41a9ff18-d2fe-415e-8865-f0acc63c9565" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="f4abb72c-4418-4d5a-a868-fb6524b34106" connectedTo="a3ea66cc-bece-4463-85d7-379e4c4c0083"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="150b6aac-7674-4eb3-895e-444d5621ebab" connectedTo="cc405f3b-954c-4b73-b7f7-30f90bf76c3e"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="6f0babcb-fc38-4bb6-adbe-c56d413258ef">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="a80d8d31-7651-4cbf-a405-8e05fbfbf14c">
+        <KPIs xsi:type="esdl:KPIs" id="56c590ac-0ce9-4789-bc63-ddb0a05cbce2">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="b0a2da25-74d6-42fe-a76d-fc5642c19001">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="2296141.0" name="nat_meerkost" id="feec85a6-ea67-4ea4-a9fe-2a3988c15079">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="2296141.0" id="679be751-16be-4cd0-ad18-727a6446e627">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="461.0" name="nat_meerkost_co2" id="19f5cecc-b732-492a-98d0-c3ad52b5ec18">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="461.0" id="0fcc7648-74d3-4f12-b08a-5f1a11f56742">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="527.0" name="nat_meerkost_weq" id="4d1495fb-7ff8-450f-b891-337bcee987c9">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="527.0" id="9af73215-6bde-45cd-bd19-7791c957a93a">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03631001">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="397" id="80d46b83-9168-46d1-972e-a3bb297cae0b" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="ae717f2b-a057-496d-a5b2-9482ceb0a601" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="6ff89ae2-5801-4e00-a80e-e42c157e9f4f" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="883d1e6e-5d98-4048-bb38-02e3e1e17083" value="14161.0">
+      <area xsi:type="esdl:Area" id="bu03631001" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="6404eb3a-b1c1-4488-ae28-2e14af814538" numberOfBuildings="397" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="133e39f0-e878-4309-ba6f-366c02d93771" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="ac9f9b3c-8a97-4a3f-9786-97f65e56973b">
+              <profile xsi:type="esdl:SingleValue" value="14161.0" id="47437abf-286b-4285-b7f6-313e2841d0ec">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="3563afbc-776e-479a-a7cb-9f5eb154087a" name="OutPort" connectedTo="0807412d-d481-48e4-8537-17c80d944774"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="a45d4e05-f577-4152-8108-e3b4722cfe82" connectedTo="caba6f01-789c-4c7b-a66d-2823ddd7cd94"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="2b1016ec-232e-479f-9a9d-35a0afc19588" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="327eefd6-f95b-448e-b852-36386e25c2a6" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="716fac54-43e4-476d-abd3-41896f2f25e8" value="32487.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="aa3be7ae-4c51-406a-b695-e0ea9d8e447d" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="71d2c935-665d-4716-b121-2c66f62031bb">
+              <profile xsi:type="esdl:SingleValue" value="32487.0" id="3151e305-6363-4d9e-b9ae-b17259dd1140">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="35f20749-fe1d-43a6-b244-6e21aef48745" name="OutPort" connectedTo="7b2c80da-7677-4e76-8684-f9d02cd379de 3ef282d0-476c-4789-a730-97eed6c9e9a3"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="c70c0024-154a-4feb-a729-91310c5d8892" connectedTo="786f2644-199b-4bea-aa4a-4b47c7c18383 a5da51ba-b11b-4a72-9811-4c0867258fe8"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="48e099d1-ef49-476b-b0c2-1db98659b501" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="e86c2a77-ab5f-46b3-9e1f-d8f59035b9c1" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="f1d31dea-c11e-42ea-8c18-5639baebca59" value="19992.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="bae087bf-0b84-4cd9-932f-831872bb2397" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="30ba0f6a-f9a9-452c-ace1-8b63afb9f842" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="ad6b893b-58c9-4255-804c-2b8473c2a33e" value="1666.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="e283ee88-b003-42e1-86d2-8b314c85416e" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="93cd8f99-8448-4a43-81c1-103f59ddc8ab">
+              <profile xsi:type="esdl:SingleValue" value="19992.0" id="b4d59d77-c77a-418e-b14d-6bab7a7dc2a7">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="cd16440f-9a8d-4738-9149-506a263413f0" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="310c964d-a448-4861-90d0-07e4512a9c67" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="d855a1cf-c5a9-44e9-a917-229092b65c86" value="8330.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="d4c291a4-cb27-4311-afb0-2ca6ee98ef18" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="64a8a8b5-828f-4a15-a910-60576bc4c98e">
+              <profile xsi:type="esdl:SingleValue" value="1666.0" id="3c86aed4-4767-4aa5-aa54-6387a4bac2f7">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="e3bf8b1d-986f-4ea4-afc9-cb8ceaf87449" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="24f2444b-7acd-4c23-844f-eee8d66b98f8" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="fe23cdcd-6a20-462d-a9c1-20d219347826" value="28322.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="47abe15a-71ed-4408-aa86-47234b9f8c96" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="74452291-a1f3-4488-bc1f-1e0ffd9337bb">
+              <profile xsi:type="esdl:SingleValue" value="8330.0" id="13122c89-0be6-430e-b1c6-a020adaad6ab">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="c2af0cf8-935d-4749-8387-f83f07768190" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="3e6219b0-f49a-49aa-8f9a-a87a18aeda64" connectedTo="7126284a-4627-4806-939d-e4bf05c04adb 2ca7a3cd-523c-43ce-a514-c4887b06ada7">
-              <profile xsi:type="esdl:SingleValue" id="9be7c498-cadc-470f-9f0a-e0b088363d07" value="21658.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="a1071da5-be43-486b-aa84-a502833ec1d7" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="a69df841-eb66-4318-b075-8354cb41efcf">
+              <profile xsi:type="esdl:SingleValue" value="28322.0" id="51941046-4787-4b06-a09f-e76c181510d0">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="c05133f6-6e4e-4fa9-b9fe-52c1d8a9d102" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="7b2c80da-7677-4e76-8684-f9d02cd379de" connectedTo="35f20749-fe1d-43a6-b244-6e21aef48745">
-              <profile xsi:type="esdl:SingleValue" id="7ffa9499-5776-46af-8d52-f6dd5cf7745a" value="28322.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="a8ec4b32-b463-433e-859c-94e9381c4acb" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="0af95ef5-7517-4cdd-abd7-613394d5c7f0 a0b7b684-7fcc-487c-b99c-a3108c470948" name="InPort" id="14f6a962-2302-4e25-b8c0-613b50f113df">
+              <profile xsi:type="esdl:SingleValue" value="21658.0" id="0dbfc24f-38b7-452c-9fca-1ad4c3f4c71e">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="41ac89f8-2d1f-44e3-8a73-c725bc498fa4" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="0807412d-d481-48e4-8537-17c80d944774" name="InPort" connectedTo="3563afbc-776e-479a-a7cb-9f5eb154087a"/>
-            <port xsi:type="esdl:OutPort" id="7126284a-4627-4806-939d-e4bf05c04adb" name="OutPort" connectedTo="3e6219b0-f49a-49aa-8f9a-a87a18aeda64"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="24683372-3189-4b25-aab3-cb6429dc46cc" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="c70c0024-154a-4feb-a729-91310c5d8892" name="InPort" id="786f2644-199b-4bea-aa4a-4b47c7c18383">
+              <profile xsi:type="esdl:SingleValue" value="28322.0" id="c67a0043-8c88-49bd-bbf7-f9c4aa6c8b31">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="fa9cac40-3bfe-4e46-a1e6-7928f8f8e6c8" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="3ef282d0-476c-4789-a730-97eed6c9e9a3" name="InPort" connectedTo="35f20749-fe1d-43a6-b244-6e21aef48745"/>
-            <port xsi:type="esdl:OutPort" id="2ca7a3cd-523c-43ce-a514-c4887b06ada7" name="OutPort" connectedTo="3e6219b0-f49a-49aa-8f9a-a87a18aeda64"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="7c3ecb3a-4169-430e-81b3-b2ec2dbd413a" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="caba6f01-789c-4c7b-a66d-2823ddd7cd94" connectedTo="a45d4e05-f577-4152-8108-e3b4722cfe82"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="0af95ef5-7517-4cdd-abd7-613394d5c7f0" connectedTo="14f6a962-2302-4e25-b8c0-613b50f113df"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="5efa4c72-e8f7-43dd-8724-edadf075d26a" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="a5da51ba-b11b-4a72-9811-4c0867258fe8" connectedTo="c70c0024-154a-4feb-a729-91310c5d8892"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="a0b7b684-7fcc-487c-b99c-a3108c470948" connectedTo="14f6a962-2302-4e25-b8c0-613b50f113df"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="3f09482b-4daa-40b1-8823-c272a5acad6a">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="05b35e81-5ea5-4dd8-989c-5381e0a2a8d5">
+        <KPIs xsi:type="esdl:KPIs" id="8c38bbee-1575-40e6-9807-4289e9d40551">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="7f6079db-cf9c-47da-821b-42026fc955a9">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="635048.0" name="nat_meerkost" id="07372c81-482f-480e-b004-d2085e01b499">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="635048.0" id="6e152d53-ea55-4c3d-869d-4ea5f0a94e7a">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="466.0" name="nat_meerkost_co2" id="8a72cb8a-2cd6-4b72-8eb1-11a8fe4808bb">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="466.0" id="457b079e-9faa-4fa1-90f9-96b964c3cfbc">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="763.0" name="nat_meerkost_weq" id="f0a80ade-f6d1-45b7-91a6-9bdd47b4b313">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="763.0" id="639e49c5-5b22-4c85-af1c-98ed5ff3fd81">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03631105">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="586" id="b87f3b26-0371-4ecb-9c4d-1f4fadfb6892" name="a03_aansl_mt" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="5f94b350-7ab3-4038-9013-d3022e771a18" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="ee165709-f835-48c7-a990-0dc1ac75a0d0" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="95c4b3c0-903a-4a21-81dc-8097a79dd7ad" value="97581.0">
+      <area xsi:type="esdl:Area" id="bu03631105" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="5cda4a73-e3b7-40d2-b506-63a2920baa6c" numberOfBuildings="586" name="a03_aansl_mt">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="1e2988c7-467b-4251-a5ce-67f8b862d9a9" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="e06b437d-4124-4acf-bccb-0bd02788547b">
+              <profile xsi:type="esdl:SingleValue" value="97581.0" id="3e51b44c-c5ea-4f39-a054-04c0dca26dbc">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="c061aa0e-eb6e-4dea-9a90-e1b3a8dbac36" name="OutPort" connectedTo="9af73f39-cd06-48c9-ad01-696a8f4fe68d"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="5149616e-1013-4864-896b-b2a13973fdf1" connectedTo="205c1af3-caec-4a74-ba09-ddf9e26f44e9"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="74ef1f4d-9413-4f8a-91eb-d7ce4cd00fc1" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="bd00d409-6de3-444a-a0d8-43d11d172221" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="e79e3e97-44ea-4033-8ded-95c5afa9d9b7" value="301614.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="49804d89-dd16-4fdd-a7be-56b92e161b33" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="7cddf5c1-3a2a-47ed-aeac-7e7c5e75ef6b">
+              <profile xsi:type="esdl:SingleValue" value="301614.0" id="8614ce41-ad4f-4ec3-afc9-88e72312a543">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="87ed4a39-6714-4e2e-b067-adf3216463f3" name="OutPort" connectedTo="670a1c6d-28a6-4c17-b5c9-dd0e6e4c40e2 b5adcebc-0100-4404-9ea8-98c733ea0ef5"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="88b0e265-d743-43e3-93ac-bb34b437e811" connectedTo="669f3661-eb55-4dea-8d63-64acb843c753 355258c2-22a4-43cf-abae-7ced28a2c63d"/>
           </asset>
-          <asset xsi:type="esdl:HConnection" id="36acbf70-9d25-47e3-8e3e-c60eb43544f0" name="Heating_mt_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" id="6ab6f983-0be1-4592-b5ad-f16ca63101c8" name="InPort" connectedTo="6f2ad40c-e960-44a1-b448-c3db64fa8fd4"/>
-            <port xsi:type="esdl:OutPort" id="985fd0cf-92df-468a-b01c-bb0751ee1aec" name="OutPort"/>
+          <asset xsi:type="esdl:HConnection" aggregated="true" id="dfaba4fb-a3c9-4a96-84cc-58a25295573f" name="Heating_mt_connector">
+            <port xsi:type="esdl:InPort" name="InPort" id="238718d3-e2df-4235-b37a-39adf43bb0d5" connectedTo="06b01257-aba7-46da-9112-e1d4552ef56c"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="a83ba68e-15d4-4abe-b288-30958ea57aef"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="ef2e52e2-a097-4ddb-a557-e3199c43ad59" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="66a2425b-4082-4edd-880d-096eea590d17" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="91bad0d2-c9b0-446d-b3d6-dadeb0c53836" value="195162.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="f57a9142-2117-4402-937b-6252e35f471f" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="1f9ee013-fe57-4d81-a6a9-b2d235b89bdc" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="cb974142-c4ee-4cb5-8187-d43e58eef8b1" value="26613.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="d4958c8a-666f-485b-a429-d7fb586fc9c2" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="39466a97-b219-41cf-b537-291317191730">
+              <profile xsi:type="esdl:SingleValue" value="195162.0" id="b0ca114f-5713-4ac1-93a5-44ac2c0a5e9e">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="1371cac5-294e-4676-bbc6-ec95b1614a56" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="f764d7ad-baba-48c3-a26a-3707a30e9792" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="9d6ee666-3a9f-4e67-b03a-3f6327117c27" value="79839.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="4c360587-dea2-4213-bb8e-f91a33d56c31" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="40d80461-bde7-4649-aaa9-76dae727949b">
+              <profile xsi:type="esdl:SingleValue" value="26613.0" id="2e857517-2f8f-4a8f-b0de-21c080344f7b">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="42a6acca-700d-4cfa-8dd8-d98d708fa1b3" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="2b7995c1-3c5d-4f0f-8b13-a86fffa7a946" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="2622ad15-b207-40ad-ac7b-69c3613f8132" value="283872.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="ae24c2bd-e368-4d26-ab2e-27da510c4ef3" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="46cdc37c-fbe9-4648-9969-d4aa3eeb6778">
+              <profile xsi:type="esdl:SingleValue" value="79839.0" id="c9ce0c72-032f-4866-918a-a1db17fea63d">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="8e2f3840-2794-4bba-b8db-f206c01a1517" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="f0d9b108-a442-4624-b7b2-43c1d4145c17" connectedTo="2c879fa8-86b1-4fea-a6a2-dd73baad7eca c2ae2964-ae9e-476e-9c86-acca5d384f89">
-              <profile xsi:type="esdl:SingleValue" id="de327aa2-78db-4fde-8acb-6b7745555520" value="221775.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="e86fc61f-46c5-42df-bf7b-f4d6ababf58a" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="b605d854-3bf3-4f7a-8db1-832f75628ef8">
+              <profile xsi:type="esdl:SingleValue" value="283872.0" id="40b820c9-bcdb-49d9-9a60-e8be37f61a99">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="efdbaed2-264f-467a-abdd-beb28864c7b2" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="670a1c6d-28a6-4c17-b5c9-dd0e6e4c40e2" connectedTo="87ed4a39-6714-4e2e-b067-adf3216463f3">
-              <profile xsi:type="esdl:SingleValue" id="418e57ca-fe0f-461a-a37d-d12578395f84" value="283872.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="ee97abc4-e386-41fe-bb40-f1e43d720d2d" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="2c46417b-3450-40d6-bc03-c9ec3302528b c04daa3e-0f26-4d65-9759-0f06c913c090" name="InPort" id="c3d1433c-544c-4dc1-980c-7f396d342bd8">
+              <profile xsi:type="esdl:SingleValue" value="221775.0" id="1958a5f6-f576-4e8a-a99d-71934ba35dbd">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="70e7a077-7f94-479c-98aa-33d90fbf734d" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="9af73f39-cd06-48c9-ad01-696a8f4fe68d" name="InPort" connectedTo="c061aa0e-eb6e-4dea-9a90-e1b3a8dbac36"/>
-            <port xsi:type="esdl:OutPort" id="2c879fa8-86b1-4fea-a6a2-dd73baad7eca" name="OutPort" connectedTo="f0d9b108-a442-4624-b7b2-43c1d4145c17"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="1c3e7d30-fd92-4c6a-8e1d-58dc0ad99f0e" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="88b0e265-d743-43e3-93ac-bb34b437e811" name="InPort" id="669f3661-eb55-4dea-8d63-64acb843c753">
+              <profile xsi:type="esdl:SingleValue" value="283872.0" id="3ee1d6a7-86f0-4268-8a1a-702ec1d51238">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="b6af95a3-e72d-4623-bb7a-e8d904219e64" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="b5adcebc-0100-4404-9ea8-98c733ea0ef5" name="InPort" connectedTo="87ed4a39-6714-4e2e-b067-adf3216463f3"/>
-            <port xsi:type="esdl:OutPort" id="c2ae2964-ae9e-476e-9c86-acca5d384f89" name="OutPort" connectedTo="f0d9b108-a442-4624-b7b2-43c1d4145c17"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="2459034a-e44d-4a7e-a1d8-64a4662f295c" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="205c1af3-caec-4a74-ba09-ddf9e26f44e9" connectedTo="5149616e-1013-4864-896b-b2a13973fdf1"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="2c46417b-3450-40d6-bc03-c9ec3302528b" connectedTo="c3d1433c-544c-4dc1-980c-7f396d342bd8"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="5fa6026a-f0fa-4c61-9b5a-df8cf645057e" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="355258c2-22a4-43cf-abae-7ced28a2c63d" connectedTo="88b0e265-d743-43e3-93ac-bb34b437e811"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="c04daa3e-0f26-4d65-9759-0f06c913c090" connectedTo="c3d1433c-544c-4dc1-980c-7f396d342bd8"/>
           </asset>
         </asset>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1947" id="1b8743f8-e3b6-4fb4-890a-025f446305e4" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="d733cba0-e58c-46bb-8ff0-d14b31466ef1" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="2aa8e4f5-c3e5-4b2a-8eaa-35668ec607d2" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="4a8d89c5-6319-428c-b75f-0861eb20ec6e" value="97581.0">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="01fd3131-d233-4d73-957e-47b3241f62df" numberOfBuildings="1947" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="5af2e821-31e5-4e8c-b2ba-8192b000f03f" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="610db5da-7b7b-49ab-a89a-c39e87d38dc0">
+              <profile xsi:type="esdl:SingleValue" value="97581.0" id="e253878c-7c8b-4396-8ea9-a9308609572a">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="23ab57b0-202d-46f9-901f-d5f4e9aa1546" name="OutPort" connectedTo="61357e39-b79a-40b2-b4bf-03e340cce8bc"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="2a0963c3-f553-4419-95f3-c2cb950fcb23" connectedTo="60fc3842-f910-4772-9280-27e40d8c46e2"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="2236ac48-9770-4cd2-9cbb-b5a467819b52" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="30b1f061-fd0e-4b9f-926d-a5e6ef2dfc88" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="071ab81d-4ee0-4ac6-8b50-1cc6542478b4" value="301614.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="a9b265ad-4c83-42eb-81cb-bfe1eb77b3fb" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="cdaf8c6a-7dc4-4753-937f-2252362834bc">
+              <profile xsi:type="esdl:SingleValue" value="301614.0" id="7bc2d49c-c822-4eef-bb1b-afbc0f20dcd9">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="a2598f67-73aa-4c86-81b5-de1bfdcaf429" name="OutPort" connectedTo="497a51d0-7482-4b0f-bacb-9e883f7ac0a3 0e691066-1f7d-4d87-a3a9-393fb33f65b6"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="6967ea14-eff4-4235-9dc9-7254b51a1821" connectedTo="abaf3344-8798-4346-a74f-f4fe04f76f2d e88a1fa8-7577-4ac1-8c79-aa0f5cc001b4"/>
           </asset>
-          <asset xsi:type="esdl:HConnection" id="ff67aa8d-92d1-49e5-9dae-0493c4d2c546" name="Heating_mt_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" id="00a2372b-fc85-426d-be12-934a9dc34338" name="InPort" connectedTo="6f2ad40c-e960-44a1-b448-c3db64fa8fd4"/>
-            <port xsi:type="esdl:OutPort" id="e036bfc2-55b2-4449-bc25-f861fd35104f" name="OutPort"/>
+          <asset xsi:type="esdl:HConnection" aggregated="true" id="e6d4288c-1fdc-47b9-81a2-e675e292ce5e" name="Heating_mt_connector">
+            <port xsi:type="esdl:InPort" name="InPort" id="70e410c8-823e-4471-bed0-8d48053ab732" connectedTo="06b01257-aba7-46da-9112-e1d4552ef56c"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="1ee17ede-1c46-4a68-b88a-d89d94c9bbcf"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="57ff4ca2-fd64-4226-8649-3c6d87e700f8" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="094482d9-3706-4c22-af44-7c3dd3bcce7b" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="bcf6df57-3ec7-4a07-a99b-46c41e9c1de1" value="195162.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="b7812534-b812-4f93-b122-71f63d341568" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="330e0e9c-81c1-4c90-83e4-4055c1f11f64" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="d207b0cb-efb0-4852-ac3f-7c40a3263e2d" value="26613.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="76c938a0-c669-45a4-b230-5d826bcfbce9" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="92ace08e-32c0-4159-9cf1-daeb984e98b0">
+              <profile xsi:type="esdl:SingleValue" value="195162.0" id="bf4a3832-fea5-4248-bbd3-bd3dc021e70a">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="df321703-4edc-4253-b3dc-cf97cae077ae" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="54691b11-472d-4d0d-ac4b-8ae54a955a15" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="54a8bab1-5183-43b7-9b41-51f75c6f70ca" value="79839.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="9071edea-c37a-46a2-985c-c29254097623" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="ab7e5d60-920f-4a4d-9857-cf763a0d06dd">
+              <profile xsi:type="esdl:SingleValue" value="26613.0" id="7cbaf1bf-f273-4b80-a6aa-ced26ba48d8e">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="1b577cd7-8f53-425a-8927-336ffcb79ea0" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="5ea34e53-b474-4349-8d3d-8a84c5725b20" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="9ac34d11-fe64-40d7-b9d3-e802e5d1a8d0" value="283872.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="b1f422e5-2135-4cd3-9e68-7b0029253ab2" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="b8ff84ab-67c3-4a80-b275-a5def1e86278">
+              <profile xsi:type="esdl:SingleValue" value="79839.0" id="7f171632-241c-4e28-8070-b650fec47cb8">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="488c5a98-3be9-4f79-8adc-48e519926ec4" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="702d058a-8049-44fe-8ed9-d95794a566c8" connectedTo="b654a32e-721c-4cb4-9dfd-0d3b521910df 8c916228-7f1f-48f7-b058-b33a5146aca2">
-              <profile xsi:type="esdl:SingleValue" id="93bd7b6b-ce43-4c52-bb11-90c9f8635083" value="221775.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="ea93dc11-06de-4003-b8d8-da609b2343e8" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="0e00f963-c4b0-49b6-b2b2-b8984c622432">
+              <profile xsi:type="esdl:SingleValue" value="283872.0" id="0a0f0bce-deb7-48b7-b09b-f04574e4e9c2">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="c95bad45-fb12-42c7-a343-35a1df28003d" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="497a51d0-7482-4b0f-bacb-9e883f7ac0a3" connectedTo="a2598f67-73aa-4c86-81b5-de1bfdcaf429">
-              <profile xsi:type="esdl:SingleValue" id="9eebb6e5-8179-4b92-b343-20e66f9308ea" value="283872.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="63383cd6-7c12-4cfa-9141-f58d373ff352" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="d1a682fd-6fe2-40dd-99cd-4a9f2f22bfa3 d23d79bd-fbf4-4aef-86c1-12dbf4e24143" name="InPort" id="42d3233e-7765-4cdd-ae9e-b977c6b399eb">
+              <profile xsi:type="esdl:SingleValue" value="221775.0" id="b262b1e6-16be-40bb-9b92-cff39d4d22b6">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="1eaffefd-86c9-48d7-ad7f-895b06d235c5" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="61357e39-b79a-40b2-b4bf-03e340cce8bc" name="InPort" connectedTo="23ab57b0-202d-46f9-901f-d5f4e9aa1546"/>
-            <port xsi:type="esdl:OutPort" id="b654a32e-721c-4cb4-9dfd-0d3b521910df" name="OutPort" connectedTo="702d058a-8049-44fe-8ed9-d95794a566c8"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="016fda3c-f9e3-461c-9e0d-670e136c8461" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="6967ea14-eff4-4235-9dc9-7254b51a1821" name="InPort" id="abaf3344-8798-4346-a74f-f4fe04f76f2d">
+              <profile xsi:type="esdl:SingleValue" value="283872.0" id="733085b9-2acf-4a51-84e8-8b55fbd3abd4">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="e0c472ff-0731-4ee7-ad54-4f3a7164de41" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="0e691066-1f7d-4d87-a3a9-393fb33f65b6" name="InPort" connectedTo="a2598f67-73aa-4c86-81b5-de1bfdcaf429"/>
-            <port xsi:type="esdl:OutPort" id="8c916228-7f1f-48f7-b058-b33a5146aca2" name="OutPort" connectedTo="702d058a-8049-44fe-8ed9-d95794a566c8"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="46f04540-753b-4f9e-9438-fd10ddb43bba" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="60fc3842-f910-4772-9280-27e40d8c46e2" connectedTo="2a0963c3-f553-4419-95f3-c2cb950fcb23"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="d1a682fd-6fe2-40dd-99cd-4a9f2f22bfa3" connectedTo="42d3233e-7765-4cdd-ae9e-b977c6b399eb"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="b86947ff-d52d-4baf-ba91-cdd49428fa91" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="e88a1fa8-7577-4ac1-8c79-aa0f5cc001b4" connectedTo="6967ea14-eff4-4235-9dc9-7254b51a1821"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="d23d79bd-fbf4-4aef-86c1-12dbf4e24143" connectedTo="42d3233e-7765-4cdd-ae9e-b977c6b399eb"/>
           </asset>
         </asset>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="586" id="a04e5f49-4968-4c2b-94bb-f26ad445fff4" name="a19_aansl_mt_restwarmte" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="250d2442-5924-4e7f-9ebf-832bfdca77fa" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="d84e053b-83d2-4baa-9ac1-fb96097846f9" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="7aef5b99-165a-4c2d-9865-c2be3eb3c319" value="97581.0">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="169e73eb-a0e9-4d80-8763-cf87a4eb87f0" numberOfBuildings="586" name="a19_aansl_mt_restwarmte">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="37d59731-67b7-4304-9336-4e70ad1a5e81" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="ce761a13-d5bd-4bfe-841a-73cbf9b8e0b1">
+              <profile xsi:type="esdl:SingleValue" value="97581.0" id="c2dc3b36-534c-4edc-9cd2-589287cc48fb">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="98f56da8-d383-4f88-a705-15c11fe7eff9" name="OutPort" connectedTo="ad9f189d-59e3-48a1-90d3-363d5984e8a4"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="e3f0a964-e0ac-4182-91eb-774bbd914371" connectedTo="3b4d8382-f422-4584-afa4-ad92475941c7"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="503e8555-126e-4d74-9cd9-90d0a4ec86ec" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="370051a7-467c-440d-83e7-5c4b5ac17cd4" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="44934e0f-77e8-48d8-b08e-eb8f42d0fecd" value="301614.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="7d060a1b-e9b1-4d67-a37c-e69d6692cfb6" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="4b5474d3-4182-4b57-bd05-a5e465eb8ba6">
+              <profile xsi:type="esdl:SingleValue" value="301614.0" id="07559fe2-4e53-40b8-a982-721fb5be24a4">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="5609d617-8cd3-4e03-b20e-c53343404310" name="OutPort" connectedTo="5b4b3c9a-5da4-4d57-a02d-216cb829e825 2ff66340-0a4c-4f15-94d3-b20a087ce643"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="aeb95e0d-7a31-48d1-9a65-2af5dc7cf072" connectedTo="6011ec07-a89e-48cd-baf1-7a31799a2c77 6e48b712-b9f3-419b-aa7c-b908dd8afb56"/>
           </asset>
-          <asset xsi:type="esdl:HConnection" id="dd24e68c-06ab-4a7f-aaec-628220373694" name="Heating_mt_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" id="fc9cdf3a-7479-4361-9db5-618b53319fba" name="InPort" connectedTo="6f2ad40c-e960-44a1-b448-c3db64fa8fd4"/>
-            <port xsi:type="esdl:OutPort" id="1e10269e-a1ff-474a-876c-29c26b1ca525" name="OutPort"/>
+          <asset xsi:type="esdl:HConnection" aggregated="true" id="73f1d9b9-cdd5-4a6d-aa25-50ccf4d95ff5" name="Heating_mt_connector">
+            <port xsi:type="esdl:InPort" name="InPort" id="a12ada00-5432-4787-be1a-57f8b8ee8bf4" connectedTo="06b01257-aba7-46da-9112-e1d4552ef56c"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="d8c18678-c80f-497e-9b39-8049a2910ad6"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="9f80800e-22da-40ef-98f7-bc7602431d5a" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="f89b159d-9cc1-4901-b1bd-ff9a22055013" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="30cd623e-460a-4152-a4af-f8044a331911" value="195162.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="1dbca0c6-4da7-4143-9f02-c517c6b1d184" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="740e3777-d275-4a87-be16-a0569a6ac80e" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="88185200-ac94-4498-a202-807a03dee512" value="26613.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="13f1b717-ec45-4647-bbe0-f56d4b6e3e79" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="52bc7a98-e5ce-4cf7-b10a-21364f54639a">
+              <profile xsi:type="esdl:SingleValue" value="195162.0" id="ebd243ff-d490-43ef-a4d6-c428b1203b73">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="f7dd18f9-0f23-4078-a399-378deff1d6c1" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="64f5cb2c-6b19-4380-8941-92e64886799d" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="e291c534-45a9-4fbe-9bb5-8e4f58d4d7ee" value="79839.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="d1f9b199-1f12-45b4-8be2-969b2b71d019" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="1af3d05d-c300-40c3-8e3a-22f3ae3f1687">
+              <profile xsi:type="esdl:SingleValue" value="26613.0" id="97b60521-4e21-41d3-884c-4803224e677a">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="adfff463-2389-44e6-bbac-64b3cb75c874" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="ff9b9178-b198-4249-8667-0c3ef15672d4" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="f4148d03-91f1-4a1d-8f4e-d972970a5b02" value="283872.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="b4d5334d-006b-4627-bf82-fb2abd7bcc83" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="bb0eab28-c8e7-4645-834b-d9e105d6985b">
+              <profile xsi:type="esdl:SingleValue" value="79839.0" id="9c085510-afed-4e53-b84e-6963239a8905">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="32ce622e-4e71-4ceb-8dfe-2395ee2708bf" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="d46a04d5-8516-4ab6-b9f4-86255203a59e" connectedTo="f520fd97-d3f0-40af-898f-7c10c83a3dbb 6f66315b-39a9-4c89-bee7-2205c0e0c2ea">
-              <profile xsi:type="esdl:SingleValue" id="4556f7c7-82cd-47d3-a9d3-7f83bfd66d6c" value="221775.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="11b147c9-16ed-4a34-b4e3-c16c183cef4e" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="cb22314f-37be-411e-940d-36c151fa4ec2">
+              <profile xsi:type="esdl:SingleValue" value="283872.0" id="7afe5951-902d-4d81-8ca8-0fc6901ce7f0">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="1942f008-747c-4e82-aecb-968c336ea0cd" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="5b4b3c9a-5da4-4d57-a02d-216cb829e825" connectedTo="5609d617-8cd3-4e03-b20e-c53343404310">
-              <profile xsi:type="esdl:SingleValue" id="0842befe-a397-4278-b9d7-1e31e7f759ff" value="283872.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="186c021a-5423-4556-bf1f-84e8af3bbd53" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="99608035-c845-4444-bf7a-d399030a777b 5820e725-a0a6-4e84-b03e-9adf99e5bf54" name="InPort" id="ebc2ea95-d431-44a3-9acf-a6127d745d3e">
+              <profile xsi:type="esdl:SingleValue" value="221775.0" id="4888193e-349c-4807-a287-4e8eb373efaa">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="d3312b75-300d-4d78-9ca4-f44110f028ac" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="ad9f189d-59e3-48a1-90d3-363d5984e8a4" name="InPort" connectedTo="98f56da8-d383-4f88-a705-15c11fe7eff9"/>
-            <port xsi:type="esdl:OutPort" id="f520fd97-d3f0-40af-898f-7c10c83a3dbb" name="OutPort" connectedTo="d46a04d5-8516-4ab6-b9f4-86255203a59e"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="d64be659-88d2-48d1-a5da-de82347f53b6" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="aeb95e0d-7a31-48d1-9a65-2af5dc7cf072" name="InPort" id="6011ec07-a89e-48cd-baf1-7a31799a2c77">
+              <profile xsi:type="esdl:SingleValue" value="283872.0" id="0c4d09ef-a43a-4073-a2ea-40d81252cee5">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="b24e5849-b6ce-4999-90bc-04667eab925d" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="2ff66340-0a4c-4f15-94d3-b20a087ce643" name="InPort" connectedTo="5609d617-8cd3-4e03-b20e-c53343404310"/>
-            <port xsi:type="esdl:OutPort" id="6f66315b-39a9-4c89-bee7-2205c0e0c2ea" name="OutPort" connectedTo="d46a04d5-8516-4ab6-b9f4-86255203a59e"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="9a018b75-4b74-47a0-911c-63aef9a8a831" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="3b4d8382-f422-4584-afa4-ad92475941c7" connectedTo="e3f0a964-e0ac-4182-91eb-774bbd914371"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="99608035-c845-4444-bf7a-d399030a777b" connectedTo="ebc2ea95-d431-44a3-9acf-a6127d745d3e"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="92ddbbfe-41a9-4392-a644-448adfbf2252" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="6e48b712-b9f3-419b-aa7c-b908dd8afb56" connectedTo="aeb95e0d-7a31-48d1-9a65-2af5dc7cf072"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="5820e725-a0a6-4e84-b03e-9adf99e5bf54" connectedTo="ebc2ea95-d431-44a3-9acf-a6127d745d3e"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="1a498cdd-c238-4470-85ae-a9ec61a3ce91">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="eca4797b-4327-4cb7-a24a-332fe4864920">
+        <KPIs xsi:type="esdl:KPIs" id="0d831b20-7505-415e-8359-b78973affa22">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="e1172f76-96e8-4786-a5ce-dd3717e15529">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="4056180.0" name="nat_meerkost" id="8614af4b-cac2-49e7-adeb-8430a94dafcf">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="4056180.0" id="b92d6303-43b7-49a0-aec1-90b766bfcda4">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="303.0" name="nat_meerkost_co2" id="3d022072-335e-40cd-903d-03e9b6c6821a">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="303.0" id="2b351667-53c3-42f7-910b-8a0e30539cb7">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="457.0" name="nat_meerkost_weq" id="a49a9ebc-ad8a-4bc6-8f0a-141ae52d739d">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="457.0" id="677aaa8d-28f9-4e47-8236-ccc11b47b93f">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03631306">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="39" id="280b7862-09ef-4131-a098-98f95d9940d1" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="3cca7677-4833-490e-8fe3-6e4daefb6dce" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="46d080f0-dbc1-4660-b77f-82b51e7a69d7" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="e026121a-2261-4984-a41a-94548cfa1fcc" value="2952.0">
+      <area xsi:type="esdl:Area" id="bu03631306" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="465eae9f-d716-43eb-abf9-61427debfce9" numberOfBuildings="39" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="5f45dc13-5ac5-47c0-9f3c-2419161236a2" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="8563dd73-f4ad-4eb1-8e76-3664e91705d6">
+              <profile xsi:type="esdl:SingleValue" value="2952.0" id="60aeeedf-0eca-4818-9548-1099f9ee425c">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="b306f642-7d80-4042-990b-1363e6f5fc89" name="OutPort" connectedTo="6eece3ef-015a-4c5b-8b40-eaafc062a018"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="6ee4459c-e0bb-44ac-b758-8deecd284634" connectedTo="0e4afa26-4305-4736-a65c-171f72c66ff3"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="a2d401f6-1ee9-4274-ac6e-cd938de49308" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="911f850b-3b95-4a58-8464-fddf748197ce" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="81d3cd6a-2f4b-47e8-9f4c-2e6d081dac66" value="7216.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="505300e3-c85e-4233-8052-cb0ceff49bae" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="20ec88a6-0fe5-4dd1-a94d-b0e993eb0518">
+              <profile xsi:type="esdl:SingleValue" value="7216.0" id="73b53293-49e5-446f-b25c-2a432ca8ec34">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="6453d35a-37a3-42fc-bf61-ce4f1d6956ed" name="OutPort" connectedTo="ecda0f3a-e0a6-4f5b-90a0-fb85d850826c 78d65af8-ca69-4ac8-8140-a701e28528c7"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="937b18d3-e93b-47ed-b5f2-646eaae463e0" connectedTo="fe8b1c97-4f46-4c68-afba-84dcc1e1ea61 e31cf952-9c96-4e61-99c8-b77c44fe9f03"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="ee0d995d-4d66-46ab-bad1-8b871406ba9d" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="47a8d744-131c-4673-9189-4ec1951df874" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="e47f7550-23fc-4930-aa56-29894be7afd1" value="3280.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="7dd01a23-df4a-4ecb-a921-316dd29f1d5f" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="1202e9a1-543a-4a77-bf26-a956ad3bb7d5" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="8491dc1f-de30-4647-8e98-e95ab18da043" value="328.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="26c5c7c7-e8cd-4234-aa99-0d42dcb159e4" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="31e7d973-6e0e-4ebc-809f-52a59f08a6e2">
+              <profile xsi:type="esdl:SingleValue" value="3280.0" id="82123b91-b166-4799-a618-ad44606c1870">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="7aec3291-06f3-414a-8845-a7ce309a685a" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="5e2f4694-1f6c-487b-ac16-d5ed096f76c1" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="7554cfae-a1b1-4816-a5dc-a70ed37279cb" value="3608.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="62a297e3-28cf-4d36-9458-bca9744201b1" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="2e582154-6eb2-488d-8816-4d826b57b76e">
+              <profile xsi:type="esdl:SingleValue" value="328.0" id="bd13b443-49c3-4edf-b14b-3af4e261de62">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="cef169e6-dffe-462e-b626-e2e296385862" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="4ed98b55-603a-4c65-9326-0697973889ed" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="980fca93-2515-4ed0-845d-6003409585dc" value="5904.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="4c0cc72f-13a7-42d2-a722-4fbd011a7cbe" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="4ea61503-f966-42f7-9ac7-7ba0af4d4bba">
+              <profile xsi:type="esdl:SingleValue" value="3608.0" id="bb8df9f8-af78-4fac-9985-f0f128631726">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="a8da6d08-ae82-4531-b998-8d8d09306657" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="42aa1bd7-c409-4b53-91f7-f157be1e5116" connectedTo="41ecf6d2-61ef-4d46-bd0b-47cd6557ffb2 7524f71d-5b8e-4348-bcd1-8fee485c4284">
-              <profile xsi:type="esdl:SingleValue" id="de1f7b4d-aed2-494b-9342-58b8a8d83501" value="3608.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="e458c7d1-e2ed-4de6-b14f-956867ca6ee7" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="92319293-391e-4271-960b-9a35b0b207c4">
+              <profile xsi:type="esdl:SingleValue" value="5904.0" id="03a4f188-5cec-48ae-a9d0-bc34c5393db6">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="44af9d7f-a4c3-4b9a-9510-c67115ce89bf" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="ecda0f3a-e0a6-4f5b-90a0-fb85d850826c" connectedTo="6453d35a-37a3-42fc-bf61-ce4f1d6956ed">
-              <profile xsi:type="esdl:SingleValue" id="62a16e93-e4dd-4e2a-a36a-6586d0da491d" value="5904.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="e1a8f23c-3e7b-4390-bcfc-e5405ddc461d" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="01b24a18-bc6a-4580-8110-67b338b35c51 ab9fde16-ab79-46f5-8e6f-58e24a02222d" name="InPort" id="80b06199-fd11-4a41-a90c-d10f1ea09edf">
+              <profile xsi:type="esdl:SingleValue" value="3608.0" id="33dbe821-3d75-4220-996a-5e12a74f7f82">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="347862f9-f0f4-4e04-b642-06c968137cdd" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="6eece3ef-015a-4c5b-8b40-eaafc062a018" name="InPort" connectedTo="b306f642-7d80-4042-990b-1363e6f5fc89"/>
-            <port xsi:type="esdl:OutPort" id="41ecf6d2-61ef-4d46-bd0b-47cd6557ffb2" name="OutPort" connectedTo="42aa1bd7-c409-4b53-91f7-f157be1e5116"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="7c0180c0-cc89-4c5f-820b-cf3eabf9beee" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="937b18d3-e93b-47ed-b5f2-646eaae463e0" name="InPort" id="fe8b1c97-4f46-4c68-afba-84dcc1e1ea61">
+              <profile xsi:type="esdl:SingleValue" value="5904.0" id="2b24e276-683a-47c6-bbfc-0f9f981825d3">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="a2f0e114-4219-423e-9588-4f54162d22fe" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="78d65af8-ca69-4ac8-8140-a701e28528c7" name="InPort" connectedTo="6453d35a-37a3-42fc-bf61-ce4f1d6956ed"/>
-            <port xsi:type="esdl:OutPort" id="7524f71d-5b8e-4348-bcd1-8fee485c4284" name="OutPort" connectedTo="42aa1bd7-c409-4b53-91f7-f157be1e5116"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="90b09dc9-fdea-40a5-b847-03b12a8a6d03" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="0e4afa26-4305-4736-a65c-171f72c66ff3" connectedTo="6ee4459c-e0bb-44ac-b758-8deecd284634"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="01b24a18-bc6a-4580-8110-67b338b35c51" connectedTo="80b06199-fd11-4a41-a90c-d10f1ea09edf"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="e582da24-f887-426f-8022-eeb486980480" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="e31cf952-9c96-4e61-99c8-b77c44fe9f03" connectedTo="937b18d3-e93b-47ed-b5f2-646eaae463e0"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="ab9fde16-ab79-46f5-8e6f-58e24a02222d" connectedTo="80b06199-fd11-4a41-a90c-d10f1ea09edf"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="09258c6f-3976-4294-acfc-c70a29743afa">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="010c15b3-7925-426c-87af-f464d60743ba">
+        <KPIs xsi:type="esdl:KPIs" id="323fea7c-4f6f-4090-8651-cb38fdec2d0e">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="aa5482fd-a50a-4287-999e-59db6013c371">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="162433.0" name="nat_meerkost" id="e031141a-2ab5-4095-b978-228c1745779e">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="162433.0" id="5370408a-72cb-454a-91a2-aa3b6b67c166">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="290.0" name="nat_meerkost_co2" id="178e5a10-40a0-4d2a-b1db-438268fd7345">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="290.0" id="229e1f48-3f80-4132-882b-965d47360539">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="993.0" name="nat_meerkost_weq" id="42f3cd76-ef03-49fa-be63-698f3d8d6b83">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="993.0" id="61fd40b9-2663-44c5-9648-87566c74391b">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03631307">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" id="847555c6-52b2-4c36-8fdd-857f6aaa078c" name="a03_aansl_mt" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="bcecdbd2-a76c-48ef-9671-2bd4ea4f85ad" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="c2762374-8a90-4cbe-845c-137bc71b9f00" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="9ac51338-7934-4c48-ac6d-849b7341aa16" value="9555.0">
+      <area xsi:type="esdl:Area" id="bu03631307" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="fc35af4f-a2f8-4030-a5aa-c4f7d15fe1fa" numberOfBuildings="2" name="a03_aansl_mt">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="3ace46fc-24fa-45c1-95b0-a2ab51e0614c" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="5330a9e7-5d3e-4ad7-b12e-0ad466a29d34">
+              <profile xsi:type="esdl:SingleValue" value="9555.0" id="62522335-4260-4f11-bde2-c942cdae26c2">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="812fc646-5e3e-4aa2-b170-210e665fe737" name="OutPort" connectedTo="29738dd8-d919-470a-a19d-90d49c0bebb7"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="16df96bd-edb3-46c9-860c-3b2be0efb67d" connectedTo="2cecc5af-2445-4fb1-85a8-ac04b46e16b2"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="2b7f8f28-34ab-454c-b29b-b75149ad82e1" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="6e6a980c-8f94-4490-b2cb-2958bb1d5fb0" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="6cb5bbd5-0d35-4641-87ac-6f8fa612c439" value="21840.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="1bbc0602-da2c-43f3-b72b-6228936c4c5d" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="a65fc6d5-668f-47e3-9559-6347cdc60b66">
+              <profile xsi:type="esdl:SingleValue" value="21840.0" id="b9cb5b62-cd51-4861-b696-2668695c88c1">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="a986683a-fea7-4d59-a084-e7d77418808c" name="OutPort" connectedTo="dc0619b9-77a7-468d-a284-06c28a499b5d 6bbb881a-2beb-44cc-951a-9c80d2f75a31"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="05fbe413-357e-47c5-badc-0af21f8eb7b2" connectedTo="0fbe2629-fabf-4ea5-af64-c97d71bb9341 45d07092-fedb-4aa5-9af6-0d961e136c89"/>
           </asset>
-          <asset xsi:type="esdl:HConnection" id="a08a3c82-4733-49b1-821c-5ac6631f884b" name="Heating_mt_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" id="6b4a35be-864c-4d5d-89c0-3799dc7dac17" name="InPort" connectedTo="6f2ad40c-e960-44a1-b448-c3db64fa8fd4"/>
-            <port xsi:type="esdl:OutPort" id="1f96f0d6-1ca4-4352-8bef-6073d73f6b05" name="OutPort"/>
+          <asset xsi:type="esdl:HConnection" aggregated="true" id="02356d8b-396a-4aa3-a249-ebc0158f485f" name="Heating_mt_connector">
+            <port xsi:type="esdl:InPort" name="InPort" id="b5444386-6f05-4587-a654-c5e56671bfe1" connectedTo="06b01257-aba7-46da-9112-e1d4552ef56c"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="465631a9-a3ad-4664-a662-526c01c64ad9"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="68480234-7b64-473c-93c3-e54f0fcdd6ed" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="1fdf0556-9179-47c1-bef2-2e470779e3da" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="d91ebaea-36be-4863-bd0c-63eae346f7a2" value="16380.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="5acc4357-a545-4c6b-9c73-a12768847092" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="8f25df7b-97b3-467c-beb5-083022102e5b" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="72bcbae8-256a-49d8-8f3e-15416d3fd1b7" value="5460.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="64296698-9256-43b7-888e-03e5e24f92ea" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="696958e3-753b-408f-9e1f-4b95d46a0b38">
+              <profile xsi:type="esdl:SingleValue" value="16380.0" id="4e06e9e4-6c32-4674-889f-327148cfb427">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="b72cf7e1-fa42-41a6-a2a0-b8703456d9fb" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="ea7ed9dd-6d8f-4ecb-bc7f-f216c286d689" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="dc9af9aa-c646-4289-a7af-0601718e6498" value="2730.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="b7494969-2dfc-4992-bb2d-649f418b951b" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="50b4c0d9-b0c1-4fde-8957-f0381db5aebc">
+              <profile xsi:type="esdl:SingleValue" value="5460.0" id="e1e5b38c-9ccb-4503-aa80-c8437a14e80d">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="d10cf45f-f473-4809-8680-31fdc1644e7e" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="ab2bf9ef-786a-43fa-8824-f6756694d30d" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="b58ea7b2-a904-4f07-b771-ac1cebff484d" value="19110.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="de035c4a-a3ff-4907-a8ec-7182ba699a2a" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="7901ab81-9daa-4100-bf67-8efdf29bd933">
+              <profile xsi:type="esdl:SingleValue" value="2730.0" id="6f335794-e944-4a23-81ae-45628e4cbe09">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="f5b240fa-f8c5-4432-a674-7ef643c5bd09" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="fbcec176-49d7-4897-8526-6977bbb34297" connectedTo="297ccc94-ca94-4673-aef8-ab523c431312 4fbcc376-0deb-40a1-a067-594840e52d7e">
-              <profile xsi:type="esdl:SingleValue" id="5dea396c-6ac0-4fa9-9c40-e74feddfb933" value="21840.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="29b07cf2-9368-4cd7-880e-679033bdf1d7" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="104bac5d-4050-42f7-a8b2-3a39e1eae819">
+              <profile xsi:type="esdl:SingleValue" value="19110.0" id="a5ca99a3-996e-4eed-a2f2-04216ff5aa9b">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="3b7cc035-795d-4501-bcd8-74d9bb674aa3" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="dc0619b9-77a7-468d-a284-06c28a499b5d" connectedTo="a986683a-fea7-4d59-a084-e7d77418808c">
-              <profile xsi:type="esdl:SingleValue" id="aa63c3c3-2990-4d2e-a829-2a84124e3df2" value="19110.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="be518189-9002-4cb6-a322-438b90f2cd71" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="c5405be4-65d5-4e73-88e2-382c09ee8f59 ec951e6e-4a37-4577-a144-ad37dce2aaaa" name="InPort" id="a5baa8b9-5294-480e-ab04-8af1b17a3a76">
+              <profile xsi:type="esdl:SingleValue" value="21840.0" id="8e135755-e13a-4d0a-8fc4-f84da3144103">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="9dbd960d-efaf-49e5-89e2-154c91dfee3f" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="29738dd8-d919-470a-a19d-90d49c0bebb7" name="InPort" connectedTo="812fc646-5e3e-4aa2-b170-210e665fe737"/>
-            <port xsi:type="esdl:OutPort" id="297ccc94-ca94-4673-aef8-ab523c431312" name="OutPort" connectedTo="fbcec176-49d7-4897-8526-6977bbb34297"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="4250a27f-3c9e-4363-8b63-316a1a1b79cf" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="05fbe413-357e-47c5-badc-0af21f8eb7b2" name="InPort" id="0fbe2629-fabf-4ea5-af64-c97d71bb9341">
+              <profile xsi:type="esdl:SingleValue" value="19110.0" id="96d65a3f-db98-4518-b290-d7c886d6a0ea">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="4901ca42-9079-448a-b088-d2899aa71b0a" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="6bbb881a-2beb-44cc-951a-9c80d2f75a31" name="InPort" connectedTo="a986683a-fea7-4d59-a084-e7d77418808c"/>
-            <port xsi:type="esdl:OutPort" id="4fbcc376-0deb-40a1-a067-594840e52d7e" name="OutPort" connectedTo="fbcec176-49d7-4897-8526-6977bbb34297"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="f8d9b58c-b462-40fd-8cbd-773d3cd6e032" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="2cecc5af-2445-4fb1-85a8-ac04b46e16b2" connectedTo="16df96bd-edb3-46c9-860c-3b2be0efb67d"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="c5405be4-65d5-4e73-88e2-382c09ee8f59" connectedTo="a5baa8b9-5294-480e-ab04-8af1b17a3a76"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="70457817-0ce5-4b49-ba9b-88d4e5f26ce3" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="45d07092-fedb-4aa5-9af6-0d961e136c89" connectedTo="05fbe413-357e-47c5-badc-0af21f8eb7b2"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="ec951e6e-4a37-4577-a144-ad37dce2aaaa" connectedTo="a5baa8b9-5294-480e-ab04-8af1b17a3a76"/>
           </asset>
         </asset>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="1046" id="29a45e52-b781-4e51-93e9-73bbe4757d9e" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="d8b3ce48-0d7c-4bf9-9c91-919848e6bea1" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="a8c6888e-3d20-415e-8d19-59e7a487d272" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="95d14b1b-715e-4a07-b614-1908dcd7d181" value="9555.0">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="4d006d21-33e3-48af-bd82-267e60dd7bb5" numberOfBuildings="1046" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="ffb26761-2009-44f9-9549-31d61c5dcf9c" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="3388486f-6e0c-4dc2-8d86-8e83f88afc97">
+              <profile xsi:type="esdl:SingleValue" value="9555.0" id="06231df3-0d6e-4b8f-8649-c95c9452f852">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="f26c8247-471d-471f-958b-fce1f871fc0d" name="OutPort" connectedTo="a1cc1996-840d-4cf1-924d-67877fb5d2a7"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="1de6e275-e2de-4047-841e-d110e1dd53e8" connectedTo="0110313a-9e11-41d5-b9b3-c06e326689f2"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="d99c5ba1-94cf-478b-851b-b8f067f12aaf" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="2335327e-ec0a-4082-9896-c2b6fa7406e3" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="6210769a-d08a-48d8-bb84-76d6e9da91fc" value="21840.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="dfe3a5b8-253a-4a63-bdee-0fd833e6bb5d" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="4688291e-bd6e-4769-aa5e-4a7993bf1910">
+              <profile xsi:type="esdl:SingleValue" value="21840.0" id="18c03406-a94c-4012-ab5a-ae7617693302">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="75610a2b-9b57-4509-85c9-78d267d945f5" name="OutPort" connectedTo="4e40f59b-34e4-479f-b3b8-daffa2f525fc e7272b81-2aef-496d-b718-ae144edf2e58"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="56908aa2-bbe6-46df-a8f1-2e060e2e9b67" connectedTo="67c8a2d2-af54-4df4-a824-8d1644d0b707 a31cc629-bf76-4351-bce6-1d272dcff4a3"/>
           </asset>
-          <asset xsi:type="esdl:HConnection" id="65813d0e-6562-4d56-b718-a5a28703e6f2" name="Heating_mt_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" id="3f333848-5fe0-4b8d-aedc-a964b73ba22c" name="InPort" connectedTo="6f2ad40c-e960-44a1-b448-c3db64fa8fd4"/>
-            <port xsi:type="esdl:OutPort" id="17385f2e-b282-4019-b26e-105c54bf54f2" name="OutPort"/>
+          <asset xsi:type="esdl:HConnection" aggregated="true" id="346597a5-113d-4b3c-bf48-f061728b56bf" name="Heating_mt_connector">
+            <port xsi:type="esdl:InPort" name="InPort" id="363c4731-89cb-4a90-8816-424768ac2272" connectedTo="06b01257-aba7-46da-9112-e1d4552ef56c"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="57fb7174-043f-43c0-8aa6-2074a98cc658"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="f84f35eb-7932-4714-8256-37d39a82132b" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="13f6e47e-39b0-4c92-83f7-cd3d8dc514f6" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="8d11ed45-494d-4935-b492-10826e5bf701" value="16380.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="373ac5ed-314f-462f-8e4c-555c73d77adf" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="33a6431b-10e5-4b45-91e3-af10cd602e16" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="420ea97e-4534-47bb-8dbe-c0ca5f962cc8" value="5460.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="5b9a3925-98d1-4fe9-8d7b-02ef423e71e4" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="e9ba5603-01ad-42f5-a132-f837ed329fb9">
+              <profile xsi:type="esdl:SingleValue" value="16380.0" id="e22d1bdb-b63c-46ff-abd4-301dd0932d19">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="b2dd728c-de31-47da-a5eb-a6b3fc8b5038" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="8ec4c004-b5cc-4b5d-b250-e0be222427e5" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="1e83f7b7-528d-4126-b7fb-cc38168c9a0e" value="2730.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="71d9ea94-f49b-43f7-88fe-562f2497ab1a" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="47fd94c8-570a-4e3f-aa34-ee32451db361">
+              <profile xsi:type="esdl:SingleValue" value="5460.0" id="07f5934b-af52-4028-be85-c0a8e4fe8a05">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="8026fc2d-89ec-499c-81fe-8165dbea4b7a" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="05d42adc-4b09-4f06-bcc1-828d1bf70dee" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="c6275e4a-fda2-417f-98fd-70ce72b50103" value="19110.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="675ea00c-5793-4965-93d7-c194fb0cde87" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="c9c62b8b-1759-4ce7-b397-ccdf6b644c38">
+              <profile xsi:type="esdl:SingleValue" value="2730.0" id="6f767712-3c87-4323-a790-5a4dbb707bd6">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="9484dc8e-d270-447f-b75b-b15dcd8f5cca" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="a055493c-e278-4ef3-b4b3-1a1ef89b1531" connectedTo="c29a2e09-e41b-4518-a09b-feacdcd7a8ee 9da2423d-6f9e-4a98-aa72-e4e1d5d314c0">
-              <profile xsi:type="esdl:SingleValue" id="cab91f1c-d468-44c7-94bf-29a80b51292c" value="21840.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="b18b5770-8aff-480a-a49b-216d1c39a5fb" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="dc2207d2-2e89-4946-a25e-8a3fca48d0a7">
+              <profile xsi:type="esdl:SingleValue" value="19110.0" id="bc364008-e39a-42b0-ba46-e835f131f3b9">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="bcb05119-3ef6-4cf8-b4e7-747fa87d0993" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="4e40f59b-34e4-479f-b3b8-daffa2f525fc" connectedTo="75610a2b-9b57-4509-85c9-78d267d945f5">
-              <profile xsi:type="esdl:SingleValue" id="1d804230-2267-49df-8ff5-b9007347c283" value="19110.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="f8c518be-7758-42cb-9c97-81f1bf54bb32" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="2f496a43-fc86-4498-bd6d-621dc9e02730 10aa6d78-d9b3-450e-8825-0e3565794ca0" name="InPort" id="5363d77e-95b4-42a6-b97b-67532ee36076">
+              <profile xsi:type="esdl:SingleValue" value="21840.0" id="6c3dd8cb-dd98-4465-95a6-3e29d586a3e9">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="0d44f37d-e9f9-4941-aea4-92a192d33e31" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="a1cc1996-840d-4cf1-924d-67877fb5d2a7" name="InPort" connectedTo="f26c8247-471d-471f-958b-fce1f871fc0d"/>
-            <port xsi:type="esdl:OutPort" id="c29a2e09-e41b-4518-a09b-feacdcd7a8ee" name="OutPort" connectedTo="a055493c-e278-4ef3-b4b3-1a1ef89b1531"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="50fffbb0-f48d-4115-9ce6-e68f7474a90f" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="56908aa2-bbe6-46df-a8f1-2e060e2e9b67" name="InPort" id="67c8a2d2-af54-4df4-a824-8d1644d0b707">
+              <profile xsi:type="esdl:SingleValue" value="19110.0" id="c940cb6d-2c39-4839-b08d-c1d8660cb826">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="05cbe5b1-5feb-4aeb-93b1-29d6fbfaf6c1" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="e7272b81-2aef-496d-b718-ae144edf2e58" name="InPort" connectedTo="75610a2b-9b57-4509-85c9-78d267d945f5"/>
-            <port xsi:type="esdl:OutPort" id="9da2423d-6f9e-4a98-aa72-e4e1d5d314c0" name="OutPort" connectedTo="a055493c-e278-4ef3-b4b3-1a1ef89b1531"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="b9491cdb-e816-4a9f-82ac-06e29ca32a47" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="0110313a-9e11-41d5-b9b3-c06e326689f2" connectedTo="1de6e275-e2de-4047-841e-d110e1dd53e8"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="2f496a43-fc86-4498-bd6d-621dc9e02730" connectedTo="5363d77e-95b4-42a6-b97b-67532ee36076"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="ac33b0dd-14dc-4ad6-bc57-a039ce6c3cf6" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="a31cc629-bf76-4351-bce6-1d272dcff4a3" connectedTo="56908aa2-bbe6-46df-a8f1-2e060e2e9b67"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="10aa6d78-d9b3-450e-8825-0e3565794ca0" connectedTo="5363d77e-95b4-42a6-b97b-67532ee36076"/>
           </asset>
         </asset>
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="2" id="0d2ccc10-67be-44a0-a30a-ab74029a06a3" name="a19_aansl_mt_restwarmte" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="b7a4469e-22af-4675-ab75-0678ea94ee11" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="386640bb-21b2-4b24-b179-4b43f71c91ee" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="2350e2bf-f3ad-4d11-b00e-b07d1fcb33b8" value="9555.0">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="6a018617-e12e-41cc-887a-8ade7bdd5ec6" numberOfBuildings="2" name="a19_aansl_mt_restwarmte">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="61e84ecc-a600-4638-be09-d96846213364" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="8dbf36ce-f320-4e53-bb1d-ba368b47a46b">
+              <profile xsi:type="esdl:SingleValue" value="9555.0" id="ddfc4aeb-eee4-4d26-9e9c-be492dd89b39">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="de4875b5-35dc-4c6d-b214-29df64fb6636" name="OutPort" connectedTo="cbc527d0-cccf-4e50-8f53-1b347a3eb22c"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="42f22208-dc9d-4900-a1c4-cd26f4d98077" connectedTo="351c763a-977f-404a-814c-72a91a08e4ef"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="66f575ea-166f-4b3b-81d0-166cbb940856" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="58ac7f9c-371e-4fb5-a422-f3b88350fb85" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="559a5025-478f-4678-a72e-28536fe49d6e" value="21840.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="16b8ec7e-6f83-4a64-aaa1-7de5eebee181" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="cd87e1b7-a18d-46b1-9fcb-952b889dc4e8">
+              <profile xsi:type="esdl:SingleValue" value="21840.0" id="9326e04b-abe5-49a2-8653-7a8d8a66c680">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="48af8f36-b7e3-407d-bc14-f014540b532a" name="OutPort" connectedTo="a2468ce7-9745-4ecd-9272-32a27ae34c11 8fd6adb0-f70f-429f-9a67-827445559502"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="109e34f3-d9ca-495f-811f-24631cce53ab" connectedTo="49699533-e71f-42a3-a3d2-483973c0a30a 45691024-78b9-4b9c-9637-a13de04d9b3d"/>
           </asset>
-          <asset xsi:type="esdl:HConnection" id="5e9e17b4-2f22-4fdc-9878-9220706e720a" name="Heating_mt_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" id="55a2b1f1-171e-4015-bd9a-55ad27d95b58" name="InPort" connectedTo="6f2ad40c-e960-44a1-b448-c3db64fa8fd4"/>
-            <port xsi:type="esdl:OutPort" id="c68f0085-282a-4589-92a8-97c3658217a4" name="OutPort"/>
+          <asset xsi:type="esdl:HConnection" aggregated="true" id="c36e0fed-e680-422f-9402-f8104d5ffcd4" name="Heating_mt_connector">
+            <port xsi:type="esdl:InPort" name="InPort" id="a428e98e-c524-4b92-8ecf-374577f3a9d5" connectedTo="06b01257-aba7-46da-9112-e1d4552ef56c"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="3bc50d9d-2156-4dc1-b95f-da2934491df6"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="4ccaa1ca-09d4-4786-801e-d31239cf5ded" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="349baeb2-6089-4a65-8f7f-1e4572a26dd1" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="64909cc5-8a93-4afd-aa9b-b880b87ee983" value="16380.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="4d4142f2-c978-4260-a706-fee952315b48" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="d998b48d-793f-40eb-ac0e-17088995b16f" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="ea0080d1-d496-4730-ac1a-a14a376460c3" value="5460.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="31bf3256-2a37-4b83-abe0-c7b604c63fd3" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="2ce5864b-2b2e-4a67-8a5f-5dfff32d8f67">
+              <profile xsi:type="esdl:SingleValue" value="16380.0" id="64564de9-d83a-4c22-a69b-9d6d1cd1c50b">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="4925dd4c-339d-4bf5-9d8f-98683be99f3a" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="db530463-0094-40b8-a4bf-d04e2d476ffc" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="cd75ef3a-6635-4f32-bd3c-436e465a3846" value="2730.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="8530e0d1-0792-4e98-b8e2-ab59575f6fef" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="49607993-d4c0-419f-a749-ff68360594af">
+              <profile xsi:type="esdl:SingleValue" value="5460.0" id="21531215-58fb-4eec-9175-2409a1742025">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="055e2c1c-c6f3-44ec-8a1f-80b44375bef2" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="dce15c01-be56-45ae-b2e7-99d189dc37f6" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="76f6962c-cf1f-4d39-8231-25f3d787a295" value="19110.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="50d993dc-b29a-40b4-943e-6301e6179487" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="9b43bef4-77fb-4dbd-bd23-00448c415542">
+              <profile xsi:type="esdl:SingleValue" value="2730.0" id="5766fefc-aa2a-43f1-8110-1df4bab7e5c0">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="e47b6aaf-197a-445e-a4fe-e05bf6075b1f" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="c98ff19b-649f-4802-9de1-d891b0fd6847" connectedTo="245c3fd7-8863-4e6a-bbc2-186a10268b58 76faa675-0b53-468e-aeea-ff40598cd1c7">
-              <profile xsi:type="esdl:SingleValue" id="ee0a0f7e-a770-45ec-8b1f-5585beb045ee" value="21840.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="a9dbac0d-66b6-42ce-b6ac-15eea87e1ee0" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="ce6ff5ee-1818-4403-b977-e255b0aa7954">
+              <profile xsi:type="esdl:SingleValue" value="19110.0" id="9db7bfd3-f89e-41b5-b53e-71e249060c22">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="8d8c97a6-f475-4acb-8a93-9f33eb4d0d25" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="a2468ce7-9745-4ecd-9272-32a27ae34c11" connectedTo="48af8f36-b7e3-407d-bc14-f014540b532a">
-              <profile xsi:type="esdl:SingleValue" id="d1c91f6c-e34c-49ca-9d58-36aa0ca6975e" value="19110.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="3de8b79a-1c3f-4fbe-9283-3bb7b7f071d1" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="3c406280-42ef-402e-8d16-2fbbc0160059 a7332e64-5c84-41c0-89bb-906b68d24004" name="InPort" id="a4f1d03a-e6fe-4b66-99a0-570912c5661b">
+              <profile xsi:type="esdl:SingleValue" value="21840.0" id="e6659567-5200-4c80-8ccf-5d87eb9c96d6">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="b1ab37ab-5253-497c-8bf3-946ee219c170" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="cbc527d0-cccf-4e50-8f53-1b347a3eb22c" name="InPort" connectedTo="de4875b5-35dc-4c6d-b214-29df64fb6636"/>
-            <port xsi:type="esdl:OutPort" id="245c3fd7-8863-4e6a-bbc2-186a10268b58" name="OutPort" connectedTo="c98ff19b-649f-4802-9de1-d891b0fd6847"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="fb463552-4821-4064-a9fd-fb6b1d99ec0e" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="109e34f3-d9ca-495f-811f-24631cce53ab" name="InPort" id="49699533-e71f-42a3-a3d2-483973c0a30a">
+              <profile xsi:type="esdl:SingleValue" value="19110.0" id="3a853813-5b5d-47b7-9dc9-907b7fc0bcb3">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="c8b4c376-e50c-4b14-a2be-e9891d6e2914" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="8fd6adb0-f70f-429f-9a67-827445559502" name="InPort" connectedTo="48af8f36-b7e3-407d-bc14-f014540b532a"/>
-            <port xsi:type="esdl:OutPort" id="76faa675-0b53-468e-aeea-ff40598cd1c7" name="OutPort" connectedTo="c98ff19b-649f-4802-9de1-d891b0fd6847"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="36b95f3d-3cd8-4cec-a26a-50ed22246a5c" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="351c763a-977f-404a-814c-72a91a08e4ef" connectedTo="42f22208-dc9d-4900-a1c4-cd26f4d98077"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="3c406280-42ef-402e-8d16-2fbbc0160059" connectedTo="a4f1d03a-e6fe-4b66-99a0-570912c5661b"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="17101c22-1faa-4914-a602-2001c65b3868" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="45691024-78b9-4b9c-9637-a13de04d9b3d" connectedTo="109e34f3-d9ca-495f-811f-24631cce53ab"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="a7332e64-5c84-41c0-89bb-906b68d24004" connectedTo="a4f1d03a-e6fe-4b66-99a0-570912c5661b"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="d1df31a3-b36c-4605-8091-df539e9dc7ec">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="6f9a6b50-07da-4cf8-be4f-230166d6a4ac">
+        <KPIs xsi:type="esdl:KPIs" id="68217425-6e5f-469e-a303-0582ed40b383">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="e9d632d5-dbed-4f95-a28d-699228140cd0">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="604521.0" name="nat_meerkost" id="e5736946-e09c-466e-8c8f-53b1eeefd8bd">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="604521.0" id="4d10618d-d42d-4898-955d-23e177e1f929">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="460.0" name="nat_meerkost_co2" id="7e072bf3-7c5b-47d3-b907-56de98d108e6">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="460.0" id="2c7eec4a-ff5d-4dac-b3e3-e5977dcbd6ed">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="443.0" name="nat_meerkost_weq" id="8cd93d7b-1050-4b68-af57-5ee9b0e78a51">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="443.0" id="0b14f361-5ba1-4a81-b10c-b72d7a1a120d">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03633600">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="240" id="d6523b79-3fa3-46d1-ab32-c5657868a51f" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="cfb62319-ee25-4d23-8c4b-bdbdbcc653e6" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="30e59713-3a73-4a0b-996c-d59959514a55" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="f1002420-03cb-4d95-8368-bbe845a9c443" value="11700.0">
+      <area xsi:type="esdl:Area" id="bu03633600" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="4f665779-7fec-4766-919e-db7511875fe3" numberOfBuildings="240" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="3d6147b6-8f4e-496c-a87d-23501bca5aaf" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="c25769e7-7dac-47c0-9c6c-9a4a3d03b2fa">
+              <profile xsi:type="esdl:SingleValue" value="11700.0" id="3e4a1ace-772b-4172-9063-74bf8ee6ba67">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="42e44db2-7edb-4696-9358-584b10418e8c" name="OutPort" connectedTo="7e21ff8b-cb2c-4008-a1dc-836d30acbfd0"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="d48a2251-c3f6-48fe-817f-a19aa9b94ce2" connectedTo="0c596898-9d33-4b05-a7c3-d7622a769f4b"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="84a97181-c008-4984-9106-205b93f358f8" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="3cedc968-c2c2-403d-9ff0-7d84aa825d63" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="bdbc84ae-911a-4b0e-9a31-46977a2836c1" value="26650.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="d0508537-4eda-4e03-99c4-6f31c2732ca0" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="ccdae6a4-0ced-4aca-a84a-9c84a5ac30e8">
+              <profile xsi:type="esdl:SingleValue" value="26650.0" id="ad07f4c6-4580-4aa4-bada-935c4d439ee9">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="19d65cd5-267a-485d-9e5b-f291d671e479" name="OutPort" connectedTo="b638e1d6-6db5-4b98-8d30-f143e982dfa7 ea4a7782-4c5b-4329-8beb-553abfb01aed"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="18e8d1f0-19d3-4abb-91f7-be6cd3aca141" connectedTo="e2739b3f-a9b4-43e9-89e3-fb345a871cf4 d4804dc2-76c5-49bd-a4a6-bc41d93503aa"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="c74a2b37-cd28-4c05-9155-a70928916625" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="b68540cd-4e84-4144-bbe6-a7fe3db92820" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="fc5122eb-f360-46ef-9b8c-093871a4be6f" value="15600.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="fd0445aa-694c-4648-a7f3-b7a259cf7518" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="65a99020-46de-40f3-98c5-7b0df7d7015d" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="221ed428-a478-4376-9ad9-3bc0a19d59c4" value="1950.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="1fb0bfc2-1640-4247-adef-5efc6b6fd261" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="67515139-5599-44af-a7ab-8361515b329f">
+              <profile xsi:type="esdl:SingleValue" value="15600.0" id="76e331c8-b25f-4dd7-9aeb-813fa95f04db">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="231118a8-17bf-429a-9761-640cf4d72766" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="268cd8a3-4577-48c4-a1a6-88415cef3f3c" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="2f8b6e4e-0f8d-4c7e-873b-858c4488a5b5" value="8450.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="70080849-81c1-4a3e-9e6e-d27223042870" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="ba1a2102-e66d-4ad3-ac92-68ad55ac48ae">
+              <profile xsi:type="esdl:SingleValue" value="1950.0" id="4c30903c-2150-4fba-8142-89249956e665">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="ca03ecdb-9946-4d60-809e-6a5a7ca0e226" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="7bbf1660-168f-48f7-9b1e-17844649c5f2" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="5f26c438-309e-47f0-87b5-78d2ee6b311a" value="22750.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="4e7206eb-6e55-4a75-a6f9-49ed47019a8c" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="5874627d-fe63-416f-bf53-fb3aae54b7a1">
+              <profile xsi:type="esdl:SingleValue" value="8450.0" id="05a6b5ce-0520-491d-81c8-3cce7f264c61">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="44c5ff0c-aba8-487c-97d5-69a11e0ab3c8" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="8be56e8d-1246-49b2-8259-6f3fdfe300fb" connectedTo="79ca133d-316f-4868-b1bb-a7d86b42fee3 a3a250d9-44ce-4248-90c0-3a752ed16039">
-              <profile xsi:type="esdl:SingleValue" id="90df8a80-2059-4dc2-833e-09901e894b4a" value="17550.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="12aaeecc-4c9c-4003-9976-61ccddcf2421" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="f293c937-8f70-4cbb-a649-e7b82872da69">
+              <profile xsi:type="esdl:SingleValue" value="22750.0" id="67976b57-7f90-4d2e-a15f-168b549e471c">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="1a2ec231-eb7e-4bcf-afdb-800c7d63ee5a" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="b638e1d6-6db5-4b98-8d30-f143e982dfa7" connectedTo="19d65cd5-267a-485d-9e5b-f291d671e479">
-              <profile xsi:type="esdl:SingleValue" id="c9e0c98d-1dbb-425c-b0b6-826e78697793" value="22750.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="92a945e3-064c-43da-a2d3-1f517eccf82c" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="c6c9e1e6-2170-461b-9ea7-d87c1c9c9c1b 0752862f-05a6-4fd6-b3b4-623b50e64c1b" name="InPort" id="36e672ae-ff94-41cd-a13f-edfc16592ced">
+              <profile xsi:type="esdl:SingleValue" value="17550.0" id="2df8fa5e-be0a-467a-8586-72d1f22f9065">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="6de566a9-c92b-49ad-a4fe-228a8046845f" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="7e21ff8b-cb2c-4008-a1dc-836d30acbfd0" name="InPort" connectedTo="42e44db2-7edb-4696-9358-584b10418e8c"/>
-            <port xsi:type="esdl:OutPort" id="79ca133d-316f-4868-b1bb-a7d86b42fee3" name="OutPort" connectedTo="8be56e8d-1246-49b2-8259-6f3fdfe300fb"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="d794862e-39b9-4988-866a-9ffe456dbbef" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="18e8d1f0-19d3-4abb-91f7-be6cd3aca141" name="InPort" id="e2739b3f-a9b4-43e9-89e3-fb345a871cf4">
+              <profile xsi:type="esdl:SingleValue" value="22750.0" id="61e228f8-10f3-4356-8ba0-9c97a6ed1b52">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="f4a553af-d697-4341-b5d1-bacc1aaa271e" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="ea4a7782-4c5b-4329-8beb-553abfb01aed" name="InPort" connectedTo="19d65cd5-267a-485d-9e5b-f291d671e479"/>
-            <port xsi:type="esdl:OutPort" id="a3a250d9-44ce-4248-90c0-3a752ed16039" name="OutPort" connectedTo="8be56e8d-1246-49b2-8259-6f3fdfe300fb"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="a7c49bcc-a204-48be-999a-19d46158e14f" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="0c596898-9d33-4b05-a7c3-d7622a769f4b" connectedTo="d48a2251-c3f6-48fe-817f-a19aa9b94ce2"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="c6c9e1e6-2170-461b-9ea7-d87c1c9c9c1b" connectedTo="36e672ae-ff94-41cd-a13f-edfc16592ced"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="5850979e-c4bf-4dfc-900f-30ae5cd9e41d" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="d4804dc2-76c5-49bd-a4a6-bc41d93503aa" connectedTo="18e8d1f0-19d3-4abb-91f7-be6cd3aca141"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="0752862f-05a6-4fd6-b3b4-623b50e64c1b" connectedTo="36e672ae-ff94-41cd-a13f-edfc16592ced"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="b3e1404e-21f4-4605-b87c-2331efa361aa">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="b9d4fcae-9f4e-4e7e-af6a-183d2356c244">
+        <KPIs xsi:type="esdl:KPIs" id="e74a9357-945c-48c8-9162-5d23f1f87167">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="14bb9817-a3f4-414a-bb2c-cf42dfe3cb5a">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="530487.0" name="nat_meerkost" id="eeddc38f-8e66-442d-922d-73e3e3cdf9af">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="530487.0" id="7eb714bb-95cb-45ee-a4dc-2d5bae2b5b5e">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="446.0" name="nat_meerkost_co2" id="f9f07637-2300-47af-919f-59a51ec96ff5">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="446.0" id="6ac82144-3372-47f8-bb3d-912d6b2ec780">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="817.0" name="nat_meerkost_weq" id="ae987b04-5ec5-47dc-b06e-b24f6177f5da">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="817.0" id="f17029d7-83a9-4a3a-824e-200a7cf1e757">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03633601">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="5625" id="2f6e7bb6-6f5c-4ece-8cc1-3a83ee8a44fb" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="396da8c0-ca5c-46fb-8965-3f46f0d9abc8" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="734ba5ff-ea2e-4e48-85d9-6c8618658690" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="4cb9301e-b612-4822-9451-3208ca79da05" value="69520.0">
+      <area xsi:type="esdl:Area" id="bu03633601" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="bc11a1dd-4a7e-475f-8dd2-50baee15a62a" numberOfBuildings="5625" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="bdbe422f-7a47-44a6-bff5-3e59656db07a" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="6b14a7f0-4453-48e1-95ce-1663c5fc3f28">
+              <profile xsi:type="esdl:SingleValue" value="69520.0" id="dabcbbb8-1880-41be-a3b4-e27dbacc3c9c">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="788ac962-2230-4053-8b32-23111ba370fa" name="OutPort" connectedTo="676ba6f8-4093-44c1-829f-dcf429a2049f"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="c537250c-7012-4e09-aac0-d675571db723" connectedTo="136f8993-8999-4407-822e-f903f85ad61c"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="8f6e482b-551f-4d27-80eb-4312e549898c" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="9395520b-90c1-48fb-9bca-e562e4734742" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="c2478865-34dd-4b76-af86-efca4f4ca4d9" value="152944.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="2f7a770a-a105-40ee-ad84-324501334fbf" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="caaba52d-678b-4d3b-ac6a-9b1b295f3770">
+              <profile xsi:type="esdl:SingleValue" value="152944.0" id="2b261263-25f9-4238-b24c-c62b08860719">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="ef918eff-d3f8-4138-8ee8-50200fea051a" name="OutPort" connectedTo="b7ad2e4a-de75-4031-8ffd-003d8394771f 3cc7139e-6556-4aaf-9e14-7d282297e725"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="78c49c66-41c5-4b62-a424-7c2de8b81e13" connectedTo="53771632-8227-447c-a9e8-0bd150d8f353 3c55f5b9-d201-4d2f-a11f-25e533b157c7"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="90f43c51-875d-490d-a215-d713195f1180" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="af14776b-d523-400f-acf5-02695c48c593" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="cd32adee-6b36-4110-8108-6b7ba0e2ff90" value="104280.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="af6637a7-f2ae-4513-b7fe-461712500dd5" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="56fdb5e3-fbd6-4944-8edc-760e6cafa72d" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="9b183777-2a47-45fa-b35d-38595fa012f5" value="20856.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="ae920db5-dcc6-49ce-8d2c-5bf7b3a95317" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="43382524-ad41-40bd-925b-a958a851a6f4">
+              <profile xsi:type="esdl:SingleValue" value="104280.0" id="273623ff-ec81-41ac-883e-a82c6eb6b297">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="4cfb9667-c70c-44bc-966e-1b7dcb9900af" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="3ffcc4d2-703a-481d-ae42-b19f4e0b715e" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="0dc8c7b6-ff70-416d-981a-4aaa90b66d11" value="20856.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="c2c8b8b3-7d5d-4516-bc44-cdb41c3b0bd3" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="01331acf-cbce-4647-9dbe-dee60dcb1562">
+              <profile xsi:type="esdl:SingleValue" value="20856.0" id="e58c253d-93b9-4021-933c-f1363f4fb354">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="28a4aae6-234f-4627-ac34-6958e93b0081" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="b0d37319-9f7d-400e-aa6a-5950076aaf19" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="b7ca1d0c-c6ad-4370-aabd-7be8f11e85e8" value="125136.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="052ea56f-ad9a-4e9e-b203-6784e9156854" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="f910c0d4-e1d4-4971-b5c7-ae7d4d1867dd">
+              <profile xsi:type="esdl:SingleValue" value="20856.0" id="69c82003-1c88-43d7-84ed-d3a1fb095fbc">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="bf0367c0-9427-4a83-84d3-a3502d40bec9" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="5adcd82f-dd81-496a-bb51-e6fdbe47f50c" connectedTo="b0705383-c2bc-497f-95e8-97a49955cdca 4c9a3275-aa72-461c-8448-6a36632cce71">
-              <profile xsi:type="esdl:SingleValue" id="5187b923-77a3-4cb9-87e9-04b3a6dfda8e" value="125136.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="011a9991-0166-4167-9a3b-7e5cd6c712f3" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="0039097f-c4d9-4242-a32a-62165bf09c43">
+              <profile xsi:type="esdl:SingleValue" value="125136.0" id="9c6cdcd7-b46a-4a88-9dbf-005f37b64943">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="49e9941c-a0b5-4816-bac5-c6fc7cfe0fd5" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="b7ad2e4a-de75-4031-8ffd-003d8394771f" connectedTo="ef918eff-d3f8-4138-8ee8-50200fea051a">
-              <profile xsi:type="esdl:SingleValue" id="83cc2fa0-5030-4d39-a95e-e03d57534c94" value="125136.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="e17a40f4-38e2-4105-920a-a030d2b811fa" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="68da9709-0537-4175-adb7-cc4badde52c6 f49d591e-9046-419b-8fa0-0fc0e628d6e6" name="InPort" id="80773618-617d-4957-ad5b-a92c2cc57578">
+              <profile xsi:type="esdl:SingleValue" value="125136.0" id="b57efd50-0489-4a45-b3af-5496de8b85de">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="6721cc65-0a8f-4170-8ad7-0a2726881a16" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="676ba6f8-4093-44c1-829f-dcf429a2049f" name="InPort" connectedTo="788ac962-2230-4053-8b32-23111ba370fa"/>
-            <port xsi:type="esdl:OutPort" id="b0705383-c2bc-497f-95e8-97a49955cdca" name="OutPort" connectedTo="5adcd82f-dd81-496a-bb51-e6fdbe47f50c"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="56d4c994-7f46-443e-bf5b-9eba44c0e598" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="78c49c66-41c5-4b62-a424-7c2de8b81e13" name="InPort" id="53771632-8227-447c-a9e8-0bd150d8f353">
+              <profile xsi:type="esdl:SingleValue" value="125136.0" id="b0da60ef-3b65-4a87-b00f-4c6c509963c1">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="1fff2aac-d948-43f2-8e66-879a22a7d671" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="3cc7139e-6556-4aaf-9e14-7d282297e725" name="InPort" connectedTo="ef918eff-d3f8-4138-8ee8-50200fea051a"/>
-            <port xsi:type="esdl:OutPort" id="4c9a3275-aa72-461c-8448-6a36632cce71" name="OutPort" connectedTo="5adcd82f-dd81-496a-bb51-e6fdbe47f50c"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="c0b03be5-937a-4298-a08c-9019ce3d19c2" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="136f8993-8999-4407-822e-f903f85ad61c" connectedTo="c537250c-7012-4e09-aac0-d675571db723"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="68da9709-0537-4175-adb7-cc4badde52c6" connectedTo="80773618-617d-4957-ad5b-a92c2cc57578"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="d51e1f43-3a31-4f5a-8e24-4810d5c9f216" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="3c55f5b9-d201-4d2f-a11f-25e533b157c7" connectedTo="78c49c66-41c5-4b62-a424-7c2de8b81e13"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="f49d591e-9046-419b-8fa0-0fc0e628d6e6" connectedTo="80773618-617d-4957-ad5b-a92c2cc57578"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="d80c20c2-9f6a-49af-a240-7b4f8e926c2a">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="c1542e06-676c-43b5-b6aa-d96811663d19">
+        <KPIs xsi:type="esdl:KPIs" id="c48f205d-7278-4d54-861a-884240db1d40">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="dfe2a6ef-3487-4bc1-9f3c-7e461525674a">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="3242173.0" name="nat_meerkost" id="46cd6430-ebc6-4359-ae2b-c7a73bf8950e">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="3242173.0" id="4d95d941-f9f8-4fb2-9102-6a0851e7103e">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="326.0" name="nat_meerkost_co2" id="0db52826-e646-46f8-b1da-58eb13f035eb">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="326.0" id="0b7bed1e-69e5-4000-b1e6-4be77b31be49">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="466.0" name="nat_meerkost_weq" id="df97cdc5-ee72-485c-b202-db750ccbc6b0">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="466.0" id="96d1f3d7-070f-4113-857e-3b3e81cdb43f">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03636601">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="287" id="21bcd093-2b47-4d4f-8dba-8f2c1f109cae" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="49ab18a1-f1c3-4964-916f-14c96d7e290d" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="27400249-c1a9-4e32-a79c-af0fccaa0b56" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="c7d42d90-c592-496b-9e41-787cc51741fc" value="4995.0">
+      <area xsi:type="esdl:Area" id="bu03636601" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="43216c64-cd85-4ed1-984b-4848805a8f9f" numberOfBuildings="287" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="5b281150-7ca3-4224-8ef9-4987fe8c141e" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="cdcf88c5-904a-4a22-95e3-a4ab612809ca">
+              <profile xsi:type="esdl:SingleValue" value="4995.0" id="6ad48b5f-30fd-45d2-a4ca-738eeaf8d773">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="8f007fb9-c19b-4a65-b0d3-0bf0f720f191" name="OutPort" connectedTo="62188281-c565-436b-9817-5b5ca6d85c2b"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="e097a25e-2411-4eb2-ac7e-981cc8370219" connectedTo="8c4cd581-24cb-40c3-b70b-8919889512e1"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="90597347-2c69-4a6e-96a7-72410bb7050e" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="9845754e-4aab-47e6-aefb-50af020ab8f7" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="cda55c43-6496-4760-b9bc-afb9a01e4826" value="6993.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="c45b667b-080e-4726-b32f-480f4d5160a3" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="f2fafed1-c113-43db-ad34-7ea258caff05">
+              <profile xsi:type="esdl:SingleValue" value="6993.0" id="2f4c3a80-3fb6-46b8-91c0-35b329859770">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="d2a8eac6-e69d-4449-ab7d-073d29e884c8" name="OutPort" connectedTo="e53d7996-9fcf-4f2c-8cd9-df5c7c3a682b dd8c63fe-0dca-4497-89a2-3fe47af72a87"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="f89a3a50-81c7-48c6-909f-44b351ce410b" connectedTo="105f05df-fe1c-458a-9280-ec7997ca00ae cff741bb-9122-4708-a51c-974b4a114638"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="53b9f0f1-830b-4700-8553-b505a930b6e2" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="7b3f3c3d-99b9-4151-8552-e2fe41b92d64" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="7dc870f6-3cd0-4ca6-96e3-e36ea3f87d2a" value="6993.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="5f93925e-643a-48d3-b266-8c605a7ca83e" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="2db1ba54-fa43-4015-8dfc-a0548544599c" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="7afc3d4e-7331-432a-8041-866144122ee7" value="1665.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="2183cdd1-6340-4cc2-9077-a835de22e560" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="f933a0ba-557e-44f1-ae75-cb1f276e07e0">
+              <profile xsi:type="esdl:SingleValue" value="6993.0" id="9505eb99-044c-40ad-ae85-536745b1fd3e">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="45bace30-3e8a-481a-a7ba-08e7c4ec9da7" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="fcfa8840-d5b0-4971-873e-ca10a00c1133" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="8feed5de-41ba-4334-a513-4c82bd5d75d1" value="1332.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="6323e3f0-6f54-4bc7-93b4-84d41832a0b3" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="0ea85cd9-1f6b-4191-bd04-0ba2dfeb5f56">
+              <profile xsi:type="esdl:SingleValue" value="1665.0" id="4aedc8e0-3594-45ab-bb1d-d2c3021a96ed">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="90514ce0-f526-4a4d-86d8-f307cd716037" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="996fea33-a946-4a5b-91da-751263e16323" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="d52b555f-cf54-42b2-826b-f8ca55605ce5" value="5328.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="3251e73c-4d6c-41a5-97e9-78af5a4ff2c9" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="f8d85704-c3e8-4f61-9f41-33272288eeb9">
+              <profile xsi:type="esdl:SingleValue" value="1332.0" id="d944140a-877a-4649-93f3-7b25eff1041f">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="d37294fd-077d-4b1e-96e5-5796e8cb33f4" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="494b603e-a865-4d7e-a0da-d2950118942c" connectedTo="1769dbe3-8b40-4898-a7c0-17cb63090596 aab4e536-a98e-46b5-9331-7298115027f3">
-              <profile xsi:type="esdl:SingleValue" id="b1b03dd9-4c5a-4001-853f-eff35b3d7662" value="8658.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="e3d5991e-73be-476f-a6bc-dc3847baafc6" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="f94ec99b-5a91-413a-ae97-bf3d12fdd211">
+              <profile xsi:type="esdl:SingleValue" value="5328.0" id="3bec8ddd-ec8a-4743-84b3-b0c17e8ab409">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="6f18c79d-7e47-41ae-b8dd-def36fd048c6" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="e53d7996-9fcf-4f2c-8cd9-df5c7c3a682b" connectedTo="d2a8eac6-e69d-4449-ab7d-073d29e884c8">
-              <profile xsi:type="esdl:SingleValue" id="a3843b14-9a8a-44fd-88cf-380956667f41" value="5328.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="8ff6d807-d401-4ef9-a7b2-a9b7e0c6995e" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="7d34babe-beb7-4a10-b0e6-5e2e9dce6d71 00baec7a-3870-49a0-943c-e1a7441a3970" name="InPort" id="bb94703e-9f00-4427-bf6a-480105e9e9fc">
+              <profile xsi:type="esdl:SingleValue" value="8658.0" id="0a6f4c08-dc8c-4fc8-bbd8-affd1af51d56">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="235989c0-edad-4564-a24c-71d2993a2882" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="62188281-c565-436b-9817-5b5ca6d85c2b" name="InPort" connectedTo="8f007fb9-c19b-4a65-b0d3-0bf0f720f191"/>
-            <port xsi:type="esdl:OutPort" id="1769dbe3-8b40-4898-a7c0-17cb63090596" name="OutPort" connectedTo="494b603e-a865-4d7e-a0da-d2950118942c"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="d1009c44-e2ae-4f35-9df4-adeb1ea6dbc1" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="f89a3a50-81c7-48c6-909f-44b351ce410b" name="InPort" id="105f05df-fe1c-458a-9280-ec7997ca00ae">
+              <profile xsi:type="esdl:SingleValue" value="5328.0" id="7fb6925e-af87-4ae4-8aeb-c6434f5c3432">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="d5661a97-689e-4261-988e-d789dce8eb3d" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="dd8c63fe-0dca-4497-89a2-3fe47af72a87" name="InPort" connectedTo="d2a8eac6-e69d-4449-ab7d-073d29e884c8"/>
-            <port xsi:type="esdl:OutPort" id="aab4e536-a98e-46b5-9331-7298115027f3" name="OutPort" connectedTo="494b603e-a865-4d7e-a0da-d2950118942c"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="df89c274-994e-4685-ad4a-65554c2c241d" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="8c4cd581-24cb-40c3-b70b-8919889512e1" connectedTo="e097a25e-2411-4eb2-ac7e-981cc8370219"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="7d34babe-beb7-4a10-b0e6-5e2e9dce6d71" connectedTo="bb94703e-9f00-4427-bf6a-480105e9e9fc"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="a699723f-d48a-456b-bbd4-632f80a02653" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="cff741bb-9122-4708-a51c-974b4a114638" connectedTo="f89a3a50-81c7-48c6-909f-44b351ce410b"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="00baec7a-3870-49a0-943c-e1a7441a3970" connectedTo="bb94703e-9f00-4427-bf6a-480105e9e9fc"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="79ed07a1-3197-4405-800b-013b9fa2daca">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="27399f8c-5720-4f87-bada-eb7190a6bf58">
+        <KPIs xsi:type="esdl:KPIs" id="14623946-f412-4c9c-ab61-f69ed8ee06a8">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="720f3300-48ad-4c55-a5c3-4823e657e0b0">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="223415.0" name="nat_meerkost" id="249f1eab-0d95-40e1-b954-d7b1812ea668">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="223415.0" id="1b72113c-4f85-48b6-9acb-3e9bb106b269">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="368.0" name="nat_meerkost_co2" id="01b0ab2d-35aa-4b14-83fc-07c2fc1b48f6">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="368.0" id="e64d8413-b18d-4fcd-8d92-ce699c5351aa">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="673.0" name="nat_meerkost_weq" id="a6266292-432a-4f69-9e1c-e81a341453f0">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="673.0" id="64da6a46-4ab8-41e0-baed-f57c3aa65617">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03636602">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="553" id="fe4d1544-5ff3-4363-8609-edfcd66316b6" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="cfc31808-9b0e-4814-ab31-7bdb55f27d9f" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="1e823728-4db5-4637-97a5-8a62c7e8ba6c" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="8f6f36d9-edd3-49b8-91dd-e0f9cf999e48" value="9264.0">
+      <area xsi:type="esdl:Area" id="bu03636602" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="6efe1bd1-d1da-4b99-951b-ba92b64b7525" numberOfBuildings="553" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="8abddfe5-1175-4a80-86d7-cdf07cd908d7" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="56027d42-0224-431a-95c6-ee4424974166">
+              <profile xsi:type="esdl:SingleValue" value="9264.0" id="c8a22ab2-02ec-431b-b379-55e631d518ff">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="0d5940ce-2a01-4d96-bd91-a806f5452e5a" name="OutPort" connectedTo="1da95d37-3368-4f58-94e0-b5095128a941"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="c4eef4e5-2c37-4849-9a09-aaec79a14d69" connectedTo="292ebca7-a0f7-4282-9512-f266f07232a7"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="24e5eea9-c13b-473b-b6be-28bebbb9bc56" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="6c4c5edc-d3b9-46b3-b76b-7b4b9e1427a5" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="77a2a926-4c59-4189-b687-94fcd6eafb8c" value="10422.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="322ef4eb-ddcd-4a5f-b2e0-b3f1c01f6911" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="1b2e05a2-e425-4e15-bc54-adda4c4176dd">
+              <profile xsi:type="esdl:SingleValue" value="10422.0" id="0e3097fb-86e1-4a43-829c-94bf2a5e86cd">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="3c1fb4dc-af3b-4fb3-b564-b5ee312e9630" name="OutPort" connectedTo="51f02f9b-03ec-4c5f-913c-3b5bd416a15b 01530abd-1d70-45af-8231-2110334a5f9b"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="ad48ad8b-7d1b-4155-a709-517b939a377b" connectedTo="b4adfc7d-da48-4585-89f3-ab2538163bdf 91d64a2f-5b3e-45bd-8555-c815e2293a8b"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="2378f337-13b1-4579-a3dc-1d29620ba8bc" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="98d70f7c-90cd-4dc2-a4c7-0cb106f153f0" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="6f01f1cf-50db-4f19-a601-14ad9e85a964" value="12159.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="7ede8702-5920-4cdf-a949-9dfef7e63592" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="6e7d0a6b-48aa-498c-98c4-1e6b6fa46511" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="4917a431-6b50-45ef-9317-965251874d87" value="4053.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="5a7bedf2-ea4c-447d-a443-b3d3cc3fc252" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="d00e7a03-c90b-4074-ab13-9ca79ec444fd">
+              <profile xsi:type="esdl:SingleValue" value="12159.0" id="b41dec50-a31f-40f4-9b34-eeb5b53bbea4">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="aff644be-9496-4c4f-b705-3e6d26c44a1a" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="6a66eaf7-6c55-4a4d-a588-514f41783446" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="c356c998-17f8-44ec-b9b8-dd9011749583" value="579.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="d164ff77-0544-4aef-8175-3dd201d9e8e9" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="52672b66-ef57-4f0b-a77d-ee33b1763ea4">
+              <profile xsi:type="esdl:SingleValue" value="4053.0" id="0f86302e-3d7a-4878-b69b-b6a6fa75854b">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="439dd365-8fe6-4caf-a500-012e339e23e5" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="1cf8f881-657a-4cc4-934b-13ea73dbeecc" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="3f1c9cdf-1411-46f6-91ce-dab9f6844627" value="7527.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="51a4d3c3-b161-42cc-b834-ec58afad0acc" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="ab060c62-327d-401e-be57-4bf9dd7c615f">
+              <profile xsi:type="esdl:SingleValue" value="579.0" id="695e5fa8-f554-4e83-84df-c891acddf84d">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="e224ff8e-38ff-4da3-8fe4-e0da15325a09" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="adc3eac1-bfd1-4150-ac38-f08982309fe3" connectedTo="04ac925c-0f0f-4a89-8ce2-7097903a1753 4d8e244d-ec20-43b2-aa9a-af6a67e6a843">
-              <profile xsi:type="esdl:SingleValue" id="8590b308-c896-42e4-9f53-f5d402593cdc" value="16212.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="8e236a75-c5e6-4c30-97c1-c5d6c1297562" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="ac365b41-fc9c-44d7-89d3-713021f0e564">
+              <profile xsi:type="esdl:SingleValue" value="7527.0" id="ad8d6f79-2219-4e57-9210-2c003bae36a3">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="1cc35b36-b624-4ef2-a362-e3b7379595a7" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="51f02f9b-03ec-4c5f-913c-3b5bd416a15b" connectedTo="3c1fb4dc-af3b-4fb3-b564-b5ee312e9630">
-              <profile xsi:type="esdl:SingleValue" id="1f45cbcd-372f-4609-bebd-cc6549532200" value="7527.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="fbb6ccb2-35cf-4348-9399-4ec531706100" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="818282fc-e09b-4cd7-a3af-85e95de927d4 d6d998fb-1a19-4b4b-91f5-d4077d2c019b" name="InPort" id="cc53503c-f120-4530-ac23-80d678074187">
+              <profile xsi:type="esdl:SingleValue" value="16212.0" id="52abe123-93d9-419b-ae9c-76cdcb0ff0a6">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="73e2fe77-66e6-43d1-9df6-f1fc61f54b0c" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="1da95d37-3368-4f58-94e0-b5095128a941" name="InPort" connectedTo="0d5940ce-2a01-4d96-bd91-a806f5452e5a"/>
-            <port xsi:type="esdl:OutPort" id="04ac925c-0f0f-4a89-8ce2-7097903a1753" name="OutPort" connectedTo="adc3eac1-bfd1-4150-ac38-f08982309fe3"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="e0581736-019d-4d8d-bbf8-84f2f8827ace" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="ad48ad8b-7d1b-4155-a709-517b939a377b" name="InPort" id="b4adfc7d-da48-4585-89f3-ab2538163bdf">
+              <profile xsi:type="esdl:SingleValue" value="7527.0" id="b53d1b2b-e2a9-4455-8095-900049119fdc">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="dec4b994-fa5a-4009-a0f8-83601fd3f8fa" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="01530abd-1d70-45af-8231-2110334a5f9b" name="InPort" connectedTo="3c1fb4dc-af3b-4fb3-b564-b5ee312e9630"/>
-            <port xsi:type="esdl:OutPort" id="4d8e244d-ec20-43b2-aa9a-af6a67e6a843" name="OutPort" connectedTo="adc3eac1-bfd1-4150-ac38-f08982309fe3"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="981828be-9594-4d2b-a071-c85108910115" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="292ebca7-a0f7-4282-9512-f266f07232a7" connectedTo="c4eef4e5-2c37-4849-9a09-aaec79a14d69"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="818282fc-e09b-4cd7-a3af-85e95de927d4" connectedTo="cc53503c-f120-4530-ac23-80d678074187"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="b7e7b4e0-15bb-4ce4-b70a-a30a04f4daf6" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="91d64a2f-5b3e-45bd-8555-c815e2293a8b" connectedTo="ad48ad8b-7d1b-4155-a709-517b939a377b"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="d6d998fb-1a19-4b4b-91f5-d4077d2c019b" connectedTo="cc53503c-f120-4530-ac23-80d678074187"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="9193477c-327d-40d0-bf31-a61b92a64533">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="68369530-3f39-4d74-baed-5f799eb5f6b3">
+        <KPIs xsi:type="esdl:KPIs" id="77907cc3-d28a-4862-babc-c354c80d1e07">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="25320cb4-f182-4885-b2ff-812d5d71f0af">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="338798.0" name="nat_meerkost" id="91466285-5a1f-4cc3-b361-992c53f1d7b8">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="338798.0" id="1303fb2b-2c5c-487d-b987-e23b7b43ef75">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="338.0" name="nat_meerkost_co2" id="47badb24-2600-40a8-aa29-28fec5c141cd">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="338.0" id="923e3e0c-ac43-4df0-8ad1-10660398dc65">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="586.0" name="nat_meerkost_weq" id="5f70502f-d5e9-4d3e-b01e-baa882f8b4c2">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="586.0" id="ea0f41cf-96e6-4a02-99fa-2df9755ffc85">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03636604">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="3" id="afa25dae-a9e0-458b-9f29-d712cf34c8f3" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="46fce8de-7bf0-41b7-a23a-c563c68619d7" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="d4923c93-4381-4592-98bc-7310b4744403" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="ad36ccc8-acb6-49fd-9084-1b8d9ae720bd" value="63.0">
+      <area xsi:type="esdl:Area" id="bu03636604" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="18ca5003-134e-4e29-bf53-a0e5ab228826" numberOfBuildings="3" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="3407e562-3106-43b7-971a-7654fa69a977" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="1c558551-2116-43e9-ab30-c58651065eec">
+              <profile xsi:type="esdl:SingleValue" value="63.0" id="f1edd7a3-65f2-44fd-a57c-6837b621c063">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="4954aeb6-5ab9-40df-beb1-48867015bfc9" name="OutPort" connectedTo="fd8f7008-a422-4ab6-8367-c36e7cb83fee"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="80310459-1100-4fe4-8d84-4129489efc5b" connectedTo="10f1dcd2-1e06-446c-9849-5cd013dadb6a"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="2907b698-9769-4734-abe0-c615ef351439" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="f4412846-fac7-43ec-8abf-271a91c71a26" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="b3231f00-2270-4824-8417-c23e3b3ddf75" value="78.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="26e43d3d-c5d0-4f2b-b1be-a37faeb7b957" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="7969adeb-bbbc-4acf-977a-7a517cac466b">
+              <profile xsi:type="esdl:SingleValue" value="78.0" id="dd484488-9240-4436-a0f8-ffbf1de7a020">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="27747ffe-c6c0-4714-9c23-4a37282d3b7b" name="OutPort" connectedTo="5b9db5a1-ac25-4557-96b2-b713343ef15f 4396fbcb-894d-4e96-aac3-7aec58b5f8b8"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="05c91f43-c971-4423-8b61-61d61a1322bc" connectedTo="4b8b3bba-5b09-4d2e-bcfa-a4079e1ed8a3 86d3e03d-ae04-4d03-aecd-4e39d62011c4"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="4e468c40-7fc1-4a34-bda4-c28945fb2f3c" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="b8d10ab5-4aaa-47c1-bff4-2507a4265215" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="22843d48-8dc2-432e-b47b-14f49104f3a2" value="102.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="9d1b0c33-cdfa-4c90-9804-c0f4cb1180df" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="f6ec839c-bf47-4872-8a5f-d2faf3d6a0c6" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="4d4b40f0-1b68-495c-8ec5-cc3537df8d89" value="24.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="7e7ca4d5-fb02-4506-9686-e7ef0572bdf6" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="cf7cf779-1fb5-4ea9-b594-ec70c1993343">
+              <profile xsi:type="esdl:SingleValue" value="102.0" id="b04cc02c-9fdb-401b-99e5-bc2a07611e5a">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="2c85971c-c602-4074-ab58-e238001620de" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="e226c783-8f50-40e9-9fc1-1d10de01460c" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="9fd4187b-9407-4cbf-9a17-511fc3afbf42" value="9.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="13048935-85cd-4bf9-ad30-251569c3f508" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="a71e2d64-c566-406b-9a34-5d4774e77bb4">
+              <profile xsi:type="esdl:SingleValue" value="24.0" id="9ac2f1f8-ab3a-4a0a-87ad-8fa5c73cbbb9">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="cdb47d80-54e8-4c1b-9def-773f5c40419d" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="2cad695f-b7a4-4f95-b2eb-e21fa5a9bb6f" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="3d393780-ac29-4a97-9841-7786c2d2e888" value="54.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="ac409f9e-c5eb-42ac-861b-bcf4efd0268f" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="8487b1ce-05e3-458d-895d-6e45095e2d2f">
+              <profile xsi:type="esdl:SingleValue" value="9.0" id="42f85c7e-8306-48b8-ad11-faed30aaec36">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="4af793ee-865d-4077-9353-589c37234ff7" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="10a6d3cb-e154-4b9c-8226-76713231e956" connectedTo="d333c8ec-71e3-4ee4-b671-2238f43a6605 4ca219c9-3289-4b39-863d-8e70f11cb895">
-              <profile xsi:type="esdl:SingleValue" id="a28db3cc-2268-4b1e-81ba-e5385600871e" value="126.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="89f9e8a8-9a3a-411e-bb0d-fabae829f747" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="6ae5ae4f-8d80-4b13-8102-a567bc2c8ded">
+              <profile xsi:type="esdl:SingleValue" value="54.0" id="240c7e08-c160-4162-9fbb-113fbef1c4ab">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="2310e805-6608-43a6-95f4-a9380a781e49" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="5b9db5a1-ac25-4557-96b2-b713343ef15f" connectedTo="27747ffe-c6c0-4714-9c23-4a37282d3b7b">
-              <profile xsi:type="esdl:SingleValue" id="a41576f5-ee10-4401-99ae-2e7fa040ad67" value="54.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="c22d1ee6-d601-4a75-9ca2-6501ad48dd2a" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="c04c435c-64b4-4f5b-8954-541b1d709f64 0f46f85b-fa42-4b0e-b547-592d9e0cf556" name="InPort" id="4cf07d40-6240-4254-8761-4eab07e7c6b9">
+              <profile xsi:type="esdl:SingleValue" value="126.0" id="ee57f4d9-aae3-4e3d-bea0-686d8e2de716">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="e5b78a4a-33cb-450a-a44d-4b7194c15358" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="fd8f7008-a422-4ab6-8367-c36e7cb83fee" name="InPort" connectedTo="4954aeb6-5ab9-40df-beb1-48867015bfc9"/>
-            <port xsi:type="esdl:OutPort" id="d333c8ec-71e3-4ee4-b671-2238f43a6605" name="OutPort" connectedTo="10a6d3cb-e154-4b9c-8226-76713231e956"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="781bc538-cb91-4c33-9f7c-ea00bf8536ec" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="05c91f43-c971-4423-8b61-61d61a1322bc" name="InPort" id="4b8b3bba-5b09-4d2e-bcfa-a4079e1ed8a3">
+              <profile xsi:type="esdl:SingleValue" value="54.0" id="b2591931-b4ff-4211-ace6-0f4e9fe84a82">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="e48cf37c-7238-4259-a918-626f465656cd" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="4396fbcb-894d-4e96-aac3-7aec58b5f8b8" name="InPort" connectedTo="27747ffe-c6c0-4714-9c23-4a37282d3b7b"/>
-            <port xsi:type="esdl:OutPort" id="4ca219c9-3289-4b39-863d-8e70f11cb895" name="OutPort" connectedTo="10a6d3cb-e154-4b9c-8226-76713231e956"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="a68935a4-f758-4dd7-896d-64d59ca21733" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="10f1dcd2-1e06-446c-9849-5cd013dadb6a" connectedTo="80310459-1100-4fe4-8d84-4129489efc5b"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="c04c435c-64b4-4f5b-8954-541b1d709f64" connectedTo="4cf07d40-6240-4254-8761-4eab07e7c6b9"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="8a10ffd7-28d7-48a2-8a41-9ed4b2f26037" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="86d3e03d-ae04-4d03-aecd-4e39d62011c4" connectedTo="05c91f43-c971-4423-8b61-61d61a1322bc"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="0f46f85b-fa42-4b0e-b547-592d9e0cf556" connectedTo="4cf07d40-6240-4254-8761-4eab07e7c6b9"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="edb024db-ee99-4f74-aa7b-45dda9210054">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="4da0d518-17bc-4cef-9a51-baead4f19cc8">
+        <KPIs xsi:type="esdl:KPIs" id="4fc9ec28-a394-456c-8139-0b942217a367">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="dd221178-4d26-4093-bc3e-1b4a9687e3d3">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="1882.0" name="nat_meerkost" id="409853be-1f38-436b-b66f-1f99454ccc4c">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="1882.0" id="628a1f29-b587-4fd3-91e5-9538ee547dcd">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="320.0" name="nat_meerkost_co2" id="b33bbb4d-ffb3-4783-9c20-cd66fbe01c2a">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="320.0" id="93637af6-24f0-4605-b28b-57a6223a4811">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="784.0" name="nat_meerkost_weq" id="e2bc7b41-6afd-4efa-b933-11088ec5cbf6">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="784.0" id="c4027f21-4995-4336-987b-d2e6c6d540ef">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
-      <area xsi:type="esdl:Area" scope="NEIGHBOURHOOD" id="bu03637104">
-        <asset xsi:type="esdl:AggregatedBuilding" numberOfBuildings="699" id="0e4db812-3040-42ff-b932-25989ba3f86e" name="a05_aansl_hwp_hg" energyLabel="LABEL_A" aggregated="true">
-          <asset xsi:type="esdl:GConnection" id="c52ab337-631f-4410-bad4-2002be444cb2" name="Gas_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="530e144e-e4c6-42d1-8aa0-f7ecfbccace8" connectedTo="8670aeb2-0483-48c0-86bb-2c1e86eff994">
-              <profile xsi:type="esdl:SingleValue" id="6555645d-9626-4f5a-ab79-54c089db1822" value="15036.0">
+      <area xsi:type="esdl:Area" id="bu03637104" scope="NEIGHBOURHOOD">
+        <asset xsi:type="esdl:AggregatedBuilding" energyLabel="LABEL_A" aggregated="true" id="e9195336-7072-4470-ae13-23cef4ac6d6d" numberOfBuildings="699" name="a05_aansl_hwp_hg">
+          <asset xsi:type="esdl:GConnection" aggregated="true" id="ff2b0972-4a2b-4bda-a061-4bab3994bec1" name="Gas_connector">
+            <port xsi:type="esdl:InPort" connectedTo="d925f0fa-c904-442f-8e76-85e68c54bd49" name="InPort" id="43d8e306-09d8-4776-9225-366661b3845c">
+              <profile xsi:type="esdl:SingleValue" value="15036.0" id="d290d467-454c-4d53-8c00-bac104d4da25">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="3c6dc661-efb8-4518-851d-8aa19e048a78" name="OutPort" connectedTo="4763f5b5-17ba-4066-af0d-26c25ad5f61a"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="7b135a0e-98fc-47d8-a9b8-5c1325475295" connectedTo="607d063c-5b1a-4cd0-8a3b-95e5591fa119"/>
           </asset>
-          <asset xsi:type="esdl:EConnection" id="0b5a1a6f-3241-4192-be8c-1a32ba936793" name="Elektricity_connector" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="bdcd880a-4984-4f94-bf68-c6c7455f09ca" connectedTo="718272cf-3f41-4da0-b458-c7245735a772">
-              <profile xsi:type="esdl:SingleValue" id="6ab27c1c-b33b-404a-bf9d-ce5973e1b0bd" value="43855.0">
+          <asset xsi:type="esdl:EConnection" aggregated="true" id="f234fd87-3bdc-45a3-9bc4-a9705c1250ea" name="Elektricity_connector">
+            <port xsi:type="esdl:InPort" connectedTo="3249fbac-2584-44c6-9edc-d26161af45af" name="InPort" id="61411718-44ca-4b98-91b1-3b1b61ba4dc5">
+              <profile xsi:type="esdl:SingleValue" value="43855.0" id="41a30042-e3d0-4f88-abac-b956c899022d">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
-            <port xsi:type="esdl:OutPort" id="b85fdd4a-81fb-4b61-a495-f46d9c074925" name="OutPort" connectedTo="05eb94b2-13b5-4bf0-9056-b2068622965d a197de5e-8f1c-4e95-8b04-9373b60569b0"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="875c64b1-9bec-4f5f-9806-23ce2a51dd51" connectedTo="ee10f3a6-16e4-4c76-a220-2f601264aaba 5b14be2b-7594-4e68-8459-ace81ca479f3"/>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SPACE_HEATING" id="aadc6745-4a88-419d-a863-90dec83fd9be" name="Vraag_Ruimteverwarming" aggregated="true">
-            <port xsi:type="esdl:InPort" id="ed067a40-09cd-404f-a2c2-174db4c6849a" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="16d4f8be-6dd2-4a37-b07e-2560a71dcf8a" value="21301.0">
-                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
-              </profile>
-            </port>
-          </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="HOT_TAPWATER" id="f193f928-ca27-46f7-957a-ac7880661813" name="Vraag_Tapwater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="865b9a55-60e1-4267-82ac-bd193508cd0f" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="cb57f5c0-50c3-4611-a1ca-ab384c4561de" value="2506.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SPACE_HEATING" id="60add71f-c059-44fd-b563-6c3e2f7e6530" name="Vraag_Ruimteverwarming">
+            <port xsi:type="esdl:InPort" name="InPort" id="1fe93d7d-49c2-49ac-901d-0664ca0fe3bd">
+              <profile xsi:type="esdl:SingleValue" value="21301.0" id="ce878bc0-535f-48a5-a28a-bcc4bfb54c9a">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:CoolingDemand" id="09b53f1d-2b5c-48f6-9d7b-3e5f2ca84790" name="Vraag_Koude" aggregated="true">
-            <port xsi:type="esdl:InPort" id="631e9f84-a15b-49cf-8804-379453d948f8" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="e41fbb8c-6829-4a9d-890e-136e49d6fbac" value="7518.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="HOT_TAPWATER" id="f524218a-1435-499d-94b4-ed4912dbd105" name="Vraag_Tapwater">
+            <port xsi:type="esdl:InPort" name="InPort" id="7518ff8f-6a94-4474-80bb-97e53a3b9ebe">
+              <profile xsi:type="esdl:SingleValue" value="2506.0" id="b14a1587-b676-4f5d-a192-f44f14ab44b6">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="31c7768d-1896-46d5-ad27-219f13f71d02" name="Vraag_elektrische_apparaten" aggregated="true">
-            <port xsi:type="esdl:InPort" id="007bfb22-c140-4efd-ad67-17ab17d41edb" name="InPort">
-              <profile xsi:type="esdl:SingleValue" id="341af1c3-57d8-415c-876b-771732c08e10" value="38843.0">
+          <asset xsi:type="esdl:CoolingDemand" aggregated="true" id="26a214dc-d7a5-47b5-bd5d-ee456688c022" name="Vraag_Koude">
+            <port xsi:type="esdl:InPort" name="InPort" id="a56b3c1d-adaa-4e0a-b939-d5987872e8d7">
+              <profile xsi:type="esdl:SingleValue" value="7518.0" id="aa3af0e4-70ec-4587-8c66-1e3acc7d1b10">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:HeatingDemand" type="SH_AND_HTW" id="17edc561-6739-4c9d-abca-95b4295c31ee" name="Vraag_warmte_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="7bee0aee-ff4e-4227-afb2-e88741ff68d0" connectedTo="c95832ad-1bc6-40a8-90f8-5ea480f4173b bb54fdb8-e407-402c-8661-5e37b72b0981">
-              <profile xsi:type="esdl:SingleValue" id="e21b354d-575d-4578-ae98-346816620f3d" value="23807.0">
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="c28c9a54-41e6-47d8-9249-b3ec86fd88f0" name="Vraag_elektrische_apparaten">
+            <port xsi:type="esdl:InPort" name="InPort" id="32e1211d-212a-4661-b43b-bc93b9ddcff2">
+              <profile xsi:type="esdl:SingleValue" value="38843.0" id="d952888c-9eab-455b-b733-4f27456f8bf3">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:ElectricityDemand" id="726408ad-9cbe-4f51-8ac6-f3c40048e494" name="Vraag_elektriciteit_totaal" aggregated="true">
-            <port xsi:type="esdl:InPort" name="InPort" id="05eb94b2-13b5-4bf0-9056-b2068622965d" connectedTo="b85fdd4a-81fb-4b61-a495-f46d9c074925">
-              <profile xsi:type="esdl:SingleValue" id="5caf3580-82ab-45c0-ad00-d282bb46c32a" value="38843.0">
+          <asset xsi:type="esdl:HeatingDemand" aggregated="true" type="SH_AND_HTW" id="e9974988-a604-4e47-970e-c4a6954a65b8" name="Vraag_warmte_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="462cf595-323f-4828-a960-bf314d70475f a03ba807-c5f5-4f09-959e-46a6254e9818" name="InPort" id="496c7c83-3113-4cbb-a6e0-0eadbba0072c">
+              <profile xsi:type="esdl:SingleValue" value="23807.0" id="77ba13cc-ed44-4ea6-abd6-031186282700">
                 <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
               </profile>
             </port>
           </asset>
-          <asset xsi:type="esdl:GasHeater" id="d025239a-f319-4e63-8f10-dc1ef100bd47" name="Gas_heater" aggregated="true">
-            <port xsi:type="esdl:InPort" id="4763f5b5-17ba-4066-af0d-26c25ad5f61a" name="InPort" connectedTo="3c6dc661-efb8-4518-851d-8aa19e048a78"/>
-            <port xsi:type="esdl:OutPort" id="c95832ad-1bc6-40a8-90f8-5ea480f4173b" name="OutPort" connectedTo="7bee0aee-ff4e-4227-afb2-e88741ff68d0"/>
+          <asset xsi:type="esdl:ElectricityDemand" aggregated="true" id="a96f964e-5cfc-4800-b50f-bb9b7f23a39c" name="Vraag_elektriciteit_totaal">
+            <port xsi:type="esdl:InPort" connectedTo="875c64b1-9bec-4f5f-9806-23ce2a51dd51" name="InPort" id="ee10f3a6-16e4-4c76-a220-2f601264aaba">
+              <profile xsi:type="esdl:SingleValue" value="38843.0" id="793914ef-70ed-49c4-b053-658d3a16b2f1">
+                <profileQuantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="energy_GJ_yr"/>
+              </profile>
+            </port>
           </asset>
-          <asset xsi:type="esdl:HeatPump" id="2267ed4a-1ffa-43f5-9db6-f228b4b0c112" name="eWP" aggregated="true">
-            <port xsi:type="esdl:InPort" id="a197de5e-8f1c-4e95-8b04-9373b60569b0" name="InPort" connectedTo="b85fdd4a-81fb-4b61-a495-f46d9c074925"/>
-            <port xsi:type="esdl:OutPort" id="bb54fdb8-e407-402c-8661-5e37b72b0981" name="OutPort" connectedTo="7bee0aee-ff4e-4227-afb2-e88741ff68d0"/>
+          <asset xsi:type="esdl:GasHeater" aggregated="true" id="29d866c9-0489-4bde-8b11-ea553689c6bc" name="Gas_heater">
+            <port xsi:type="esdl:InPort" name="InPort" id="607d063c-5b1a-4cd0-8a3b-95e5591fa119" connectedTo="7b135a0e-98fc-47d8-a9b8-5c1325475295"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="462cf595-323f-4828-a960-bf314d70475f" connectedTo="496c7c83-3113-4cbb-a6e0-0eadbba0072c"/>
+          </asset>
+          <asset xsi:type="esdl:HeatPump" aggregated="true" id="b98463b6-524e-4cac-b7d5-e9f2d2668ad1" name="eWP">
+            <port xsi:type="esdl:InPort" name="InPort" id="5b14be2b-7594-4e68-8459-ace81ca479f3" connectedTo="875c64b1-9bec-4f5f-9806-23ce2a51dd51"/>
+            <port xsi:type="esdl:OutPort" name="OutPort" id="a03ba807-c5f5-4f09-959e-46a6254e9818" connectedTo="496c7c83-3113-4cbb-a6e0-0eadbba0072c"/>
           </asset>
         </asset>
-        <KPIs xsi:type="esdl:KPIs" id="b4ce659e-1231-489e-aa33-0db6fb4ba539">
-          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="169ec672-2c4f-4afa-a9fd-5c94232b313d">
+        <KPIs xsi:type="esdl:KPIs" id="36c26146-a96b-4936-8812-cb431b09e071">
+          <kpi xsi:type="esdl:DoubleKPI" name="co2_uitstoot" id="4fab935a-c307-4335-9d90-153acb48824a">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="emission_TON_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="653622.0" name="nat_meerkost" id="94308497-bf0e-474c-a91f-a17673b4e433">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost" value="653622.0" id="90a2d63f-c99c-4b67-95c8-19f6cec19ee4">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="446.0" name="nat_meerkost_co2" id="19573911-fa6d-48ae-825e-a9b47107c640">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_co2" value="446.0" id="29f6287d-1cb0-4145-815b-7ae110b51317">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_TON"/>
           </kpi>
-          <kpi xsi:type="esdl:DoubleKPI" value="522.0" name="nat_meerkost_weq" id="70039d5d-d430-475a-a4a8-95a668a3152f">
+          <kpi xsi:type="esdl:DoubleKPI" name="nat_meerkost_weq" value="522.0" id="4fc6429d-d33f-4131-997f-c5674957b2cf">
             <quantityAndUnit xsi:type="esdl:QuantityAndUnitReference" reference="cost_EURO_yr"/>
           </kpi>
         </KPIs>
       </area>
     </area>
   </instance>
+  <energySystemInformation xsi:type="esdl:EnergySystemInformation" id="2eef7f8d-0e0c-49c6-b337-04a01302d08f">
+    <quantityAndUnits xsi:type="esdl:QuantityAndUnits" id="95863c35-d117-4773-9f00-e743f92733b9">
+      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" id="energy_GJ_yr" multiplier="GIGA" unit="JOULE" physicalQuantity="ENERGY" perTimeUnit="YEAR"/>
+      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" id="cost_EURO_yr" multiplier="NONE" unit="EURO" physicalQuantity="COST" perTimeUnit="YEAR"/>
+      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" id="energy_GJ_yr_ha" multiplier="GIGA" unit="JOULE" physicalQuantity="ENERGY" perUnit="HECTARE" perTimeUnit="YEAR"/>
+      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" physicalQuantity="EMISSION" unit="GRAM" multiplier="MEGA" id="cost_EURO_TON"/>
+      <quantityAndUnit xsi:type="esdl:QuantityAndUnitType" id="emission_TON_yr" multiplier="MEGA" unit="GRAM" physicalQuantity="EMISSION" perTimeUnit="YEAR"/>
+    </quantityAndUnits>
+  </energySystemInformation>
 </esdl:EnergySystem>

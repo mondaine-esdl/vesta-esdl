@@ -232,6 +232,17 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         energyLabel = EnergyLabelEnum.LABEL_A
                     )
                     
+                    energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=float(row[column_names.index('aantal_labelA')]) * float(row[column_names.index('i11_woningequivalenten')])))
+                    energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
+                    energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
+                    energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
+                    energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
+                    energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
+                    eld = esdl.EnergyLabelDistribution()
+                    eld.labelPerc.append(energylabelA_percentage)
+                    eld.labelPerc.append(energylabelB_percentage)
+
+                    
                     # =============================================================================
                     # ------------------------------CONNECTORS-------------------------------------          
                     # =============================================================================
