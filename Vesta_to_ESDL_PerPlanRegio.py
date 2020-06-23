@@ -75,7 +75,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
     instance.date = InstanceDate(date=EDate.from_string("2030-01-01"))
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
     es.instance.append(instance)
-    es.instance[0].area = Area(id=str(uuid.uuid4()), name=RegioNaam)
+    es.instance[0].area = Area(id=RegioNaam, name=RegioNaam)
     esi = EnergySystemInformation(id=str(uuid.uuid4()))
     qau = QuantityAndUnits(id=str(uuid.uuid4()))
     es.energySystemInformation = esi
@@ -102,53 +102,48 @@ def MakeESDL(RegioNaam, StrategieNaam):
         column_names = next(reader)
         print(column_names)
 
+# =============================================================================
+# ------------------------------NETWORK----------------------------------------          
+# =============================================================================
+                
+        
+        g_network = GasNetwork(id=str(uuid.uuid4()), name="Gas_network", aggregated = True)
+        g_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+        g_network.port.append(g_network_op)
+        es.instance[0].area.asset.append(g_network)
+            
+        h_lt_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_LT_network", aggregated = True)
+        h_lt_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+        h_lt_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+        h_lt_network.port.append(h_lt_network_ip)
+        h_lt_network.port.append(h_lt_network_op)
+        es.instance[0].area.asset.append(h_lt_network)
+            
+        h_mt_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_MT_network", aggregated = True)
+        h_mt_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+        h_mt_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+        h_mt_network.port.append(h_mt_network_ip)
+        h_mt_network.port.append(h_mt_network_op)
+        es.instance[0].area.asset.append(h_mt_network)
+            
+        e_network = ElectricityNetwork(id=str(uuid.uuid4()), name="Electricity_network", aggregated = True)
+        e_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+        e_network.port.append(e_network_op)
+        es.instance[0].area.asset.append(e_network)
+
+
         for row in reader:
             bu_code = row[column_names.index('bu_code')]
             bu_code.replace('\'', '')       # remove quotes from bu_code
             area = Area(id=bu_code, scope="NEIGHBOURHOOD")
             area_list = row[column_names.index('bu_code')]
         
-        
-# =============================================================================
-# ------------------------------NETWORK----------------------------------------          
-# =============================================================================
-                
-        
             input_naturalgas  = float(row[column_names.index('h09_input_aardgas')]) * float(row[column_names.index('i11_woningequivalenten')])
             input_greengas    = float(row[column_names.index('h10_input_duurzaamgas')]) * float(row[column_names.index('i11_woningequivalenten')])
-            input_gas         = input_naturalgas + input_greengas
             input_electricity = float(row[column_names.index('h11_input_elektriciteit')]) * float(row[column_names.index('i11_woningequivalenten')])
             input_MT          = float(row[column_names.index('h12_input_mtwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
             input_LT          = float(row[column_names.index('h13_input_ltwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
-        
-            if input_gas > 0.0:
-                g_network = GasNetwork(id=str(uuid.uuid4()), name="Gas_network", aggregated = True)
-                g_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                g_network.port.append(g_network_op)
-                area.asset.append(g_network)
-                
-            if input_LT > 0.0 or "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam]:
-                h_lt_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_LT_network", aggregated = True)
-                h_lt_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                h_lt_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                h_lt_network.port.append(h_lt_network_ip)
-                h_lt_network.port.append(h_lt_network_op)
-                area.asset.append(h_lt_network)
-                
-            if input_MT > 0.0 or "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam]: 
-
-                h_mt_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_MT_network", aggregated = True)
-                h_mt_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                h_mt_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                h_mt_network.port.append(h_mt_network_ip)
-                h_mt_network.port.append(h_mt_network_op)
-                area.asset.append(h_mt_network)
-                
-            if input_electricity > 0.0:
-                e_network = ElectricityNetwork(id=str(uuid.uuid4()), name="Electricity_network", aggregated = True)
-                e_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                e_network.port.append(e_network_op)
-                area.asset.append(e_network)
+            input_gas         = input_naturalgas + input_greengas
                 
 # =============================================================================
 # ------------------------------SOURCES----------------------------------------          
@@ -233,7 +228,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         id=str(uuid.uuid4()),
                         name="%s" % buildingname,
                         numberOfBuildings = int(float(row[column_names.index(wk)])),
-                        aggregated = True
+                        aggregated = True,
+                        energyLabel = EnergyLabelEnum.LABEL_A
                     )
                     
                     # =============================================================================
@@ -245,7 +241,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     input_electricity = float(row[column_names.index('h11_input_elektriciteit')]) * float(row[column_names.index('i11_woningequivalenten')])
                     input_MT          = float(row[column_names.index('h12_input_mtwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
                     input_LT          = float(row[column_names.index('h13_input_ltwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
-                    
+                    input_gas         = input_naturalgas + input_greengas
+                            
                     if input_naturalgas + input_greengas > 0.0:
                         g_con = GConnection(id=str(uuid.uuid4()), name="Gas_connector", aggregated = True)
                         g_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
@@ -487,7 +484,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
     resource.append(es)
     resource.save()
 
- #   mh.store_in_mondaine_hub('JC_'+StrategieNaam+'_'+RegioNaam+'', resource)
+    mh.store_in_mondaine_hub('JC_'+StrategieNaam+'_'+RegioNaam+'', resource)
     
     return (RegioNaam, StrategieNaam)
 
