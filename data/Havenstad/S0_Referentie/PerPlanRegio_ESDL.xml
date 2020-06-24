@@ -4,13 +4,13 @@
 <DefaultInfo>
 	<FullName>/LeidraadResultaten/Exports/ESDL/export_PerPlanRegio_Havenstad/result
 	</FullName>
-	<GeoDmsVersion>GeoDms 7.217 [Release] [x64] [Apr 25 2020] [Complete Edition]
+	<GeoDmsVersion>GeoDms 7.219 [Release] [x64] [Jun 17 2020] [Complete Edition]
 	</GeoDmsVersion>
-	<StatusFlags>0x45ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	<StatusFlags>0x45bf = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible ToolBarVisible MultiThreading1 MultiThreading2 
 	</StatusFlags>
 </DefaultInfo>
 <Software>
-	<GeoDmsVersion>7.217
+	<GeoDmsVersion>7.219
 	</GeoDmsVersion>
 </Software>
 <Config>

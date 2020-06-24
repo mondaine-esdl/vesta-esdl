@@ -20,7 +20,9 @@ def attr_to_dict(eobj):
             d[attr] = eobj.eGet(attr)
     return d
 
-woning_keuzes = ['a01_aansl_aardgas', 'a02_aansl_ewp', 'a03_aansl_mt', 'a04_aansl_lt', 'a05_aansl_hwp_hg', 'a06_aansl_hr_hg', 'a10_aansl_lt_wko', 'a11_aansl_lt_lt15_30', 'a12_aansl_lt_lt15_50', 'a13_aansl_lt_lt15_70', 'a14_aansl_lt_lt30_30', 'a15_aansl_lt_lt30_50', 'a16_aansl_lt_lt30_70', 'a17_aansl_lt_teo', 'a18_aansl_lt_buurtwko', 'a19_aansl_mt_restwarmte', 'a20_aansl_mt_geothermie','a21_aansl_mt_wijkwkk','a22_aansl_mt_biowkk','a23_aansl_h2']
+
+woning_keuzes = ['woning_a01_aansl_aardgas', 'woning_a02_aansl_ewp', 'woning_a03_aansl_mt', 'woning_a04_aansl_lt', 'woning_a05_aansl_hwp_hg', 'woning_a06_aansl_hr_hg', 'woning_a10_aansl_lt_wko', 'woning_a11_aansl_lt_lt15_30', 'woning_a12_aansl_lt_lt15_50', 'woning_a13_aansl_lt_lt15_70', 'woning_a14_aansl_lt_lt30_30', 'woning_a15_aansl_lt_lt30_50', 'woning_a16_aansl_lt_lt30_70', 'woning_a17_aansl_lt_teo', 'woning_a18_aansl_lt_buurtwko', 'woning_a19_aansl_mt_restwarmte', 'woning_a20_aansl_mt_geothermie','woning_a21_aansl_mt_wijkwkk','woning_a22_aansl_mt_biowkk','woning_a23_aansl_h2']
+util_keuzes   = ['util_a01_aansl_aardgas'  , 'util_a02_aansl_ewp'  , 'util_a03_aansl_mt', 'util_a04_aansl_lt', 'util_a05_aansl_hwp_hg', 'util_a06_aansl_hr_hg', 'util_a10_aansl_lt_wko', 'util_a11_aansl_lt_lt15_30', 'util_a12_aansl_lt_lt15_50', 'util_a13_aansl_lt_lt15_70', 'util_a14_aansl_lt_lt30_30', 'util_a15_aansl_lt_lt30_50', 'util_a16_aansl_lt_lt30_70', 'util_a17_aansl_lt_teo', 'util_a18_aansl_lt_buurtwko', 'util_a19_aansl_mt_restwarmte', 'util_a20_aansl_mt_geothermie','util_a21_aansl_mt_wijkwkk','util_a22_aansl_mt_biowkk','util_a23_aansl_h2']
 
 #                                      bron1,           ,bron2            ,enet1 ,enet2,conn1  ,conn2     ,wnet1  ,wnet2  , wconn ,coll conv          , indiv conv    ,indiv conv2      
 scenario_elementenlijst = {
@@ -138,12 +140,19 @@ def MakeESDL(RegioNaam, StrategieNaam):
             area = Area(id=bu_code, scope="NEIGHBOURHOOD")
             area_list = row[column_names.index('bu_code')]
         
-            input_naturalgas  = float(row[column_names.index('h09_input_aardgas')]) * float(row[column_names.index('i11_woningequivalenten')])
-            input_greengas    = float(row[column_names.index('h10_input_duurzaamgas')]) * float(row[column_names.index('i11_woningequivalenten')])
-            input_electricity = float(row[column_names.index('h11_input_elektriciteit')]) * float(row[column_names.index('i11_woningequivalenten')])
-            input_MT          = float(row[column_names.index('h12_input_mtwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
-            input_LT          = float(row[column_names.index('h13_input_ltwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
-            input_gas         = input_naturalgas + input_greengas
+            woning_input_naturalgas  = float(row[column_names.index('woning_h09_input_aardgas')])
+            woning_input_greengas    = float(row[column_names.index('woning_h10_input_duurzaamgas')])
+            woning_input_electricity = float(row[column_names.index('woning_h11_input_elektriciteit')])
+            woning_input_MT          = float(row[column_names.index('woning_h12_input_mtwarmte')])
+            woning_input_LT          = float(row[column_names.index('woning_h13_input_ltwarmte')]) 
+            woning_input_gas         = woning_input_naturalgas + woning_input_greengas
+            
+            util_input_naturalgas  = float(row[column_names.index('util_h09_input_aardgas')])
+            util_input_greengas    = float(row[column_names.index('util_h10_input_duurzaamgas')])
+            util_input_electricity = float(row[column_names.index('util_h11_input_elektriciteit')])
+            util_input_MT          = float(row[column_names.index('util_h12_input_mtwarmte')])
+            util_input_LT          = float(row[column_names.index('util_h13_input_ltwarmte')])
+            util_input_gas         = util_input_naturalgas + util_input_greengas
                 
 # =============================================================================
 # ------------------------------SOURCES----------------------------------------          
@@ -217,48 +226,48 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 area.asset.append(coll_g_heater)
                 
 # =============================================================================
-# ------------------------------BUILDINGS--------------------------------------          
+# --------------------------RESIDENTIAL BUILDINGS------------------------------          
 # =============================================================================
             
             for wk in woning_keuzes:
                 # Only add a AggregatedBuilding object if there are buildings of this type
                 if int(float(row[column_names.index(wk)])) > 0:  
-                    buildingname = wk #str.replace(wk, 'nraansl_', 'woningen_')
+                    buildingname = wk[4:]
                     buildings = AggregatedBuilding(
                         id=str(uuid.uuid4()),
                         name="%s" % buildingname,
                         numberOfBuildings = int(float(row[column_names.index(wk)])),
                         aggregated = True,
-                        energyLabel = EnergyLabelEnum.LABEL_A
+                        energyLabelDistribution = esdl.EnergyLabelDistribution(),
+                        buildingTypeDistribution = esdl.BuildingTypeDistribution()
                     )
                     
-                    energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=float(row[column_names.index('aantal_labelA')]) * float(row[column_names.index('i11_woningequivalenten')])))
-                    energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
-                    energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
-                    energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
-                    energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
-                    energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=float(row[column_names.index('aantal_labelB')]) * float(row[column_names.index('i11_woningequivalenten')])))
-                    eld = esdl.EnergyLabelDistribution()
-                    eld.labelPerc.append(energylabelA_percentage)
-                    eld.labelPerc.append(energylabelB_percentage)
-
+                    buildingTypePercentage = esdl.BuildingTypePercentage(buildingType=BuildingTypeEnum.RESIDENTIAL, percentage=(float(100)))
+                    buildings.buildingTypeDistribution.buildingTypePercentage.append(buildingTypePercentage)
+                    
+                    energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('woning_a30_aansl_labela')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('woning_a31_aansl_labelb')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('woning_a32_aansl_labelc')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('woning_a33_aansl_labeld')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('woning_a34_aansl_labele')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('woning_a35_aansl_labelf')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
+                    
                     
                     # =============================================================================
                     # ------------------------------CONNECTORS-------------------------------------          
                     # =============================================================================
                         
-                    input_naturalgas  = float(row[column_names.index('h09_input_aardgas')]) * float(row[column_names.index('i11_woningequivalenten')])
-                    input_greengas    = float(row[column_names.index('h10_input_duurzaamgas')]) * float(row[column_names.index('i11_woningequivalenten')])
-                    input_electricity = float(row[column_names.index('h11_input_elektriciteit')]) * float(row[column_names.index('i11_woningequivalenten')])
-                    input_MT          = float(row[column_names.index('h12_input_mtwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
-                    input_LT          = float(row[column_names.index('h13_input_ltwarmte')]) * float(row[column_names.index('i11_woningequivalenten')])
-                    input_gas         = input_naturalgas + input_greengas
-                            
-                    if input_naturalgas + input_greengas > 0.0:
+                    if woning_input_naturalgas + woning_input_greengas > 0.0:
                         g_con = GConnection(id=str(uuid.uuid4()), name="Gas_connector", aggregated = True)
                         g_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         g_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        g_con_sv = SingleValue(id=str(uuid.uuid4()), value=input_naturalgas + input_greengas)
+                        g_con_sv = SingleValue(id=str(uuid.uuid4()), value=woning_input_naturalgas + woning_input_greengas)
                         g_con_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
                         g_con_ip.profile.append(g_con_sv)
                         g_con_ip.connectedTo.append(g_network_op)
@@ -266,11 +275,11 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         g_con.port.append(g_con_op)
                         buildings.asset.append(g_con)
                         
-                    if input_electricity > 0.0:
+                    if woning_input_electricity > 0.0:
                         e_con = EConnection(id=str(uuid.uuid4()), name="Elektricity_connector", aggregated = True)
                         e_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         e_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        e_con_sv = SingleValue(id=str(uuid.uuid4()), value= input_electricity)
+                        e_con_sv = SingleValue(id=str(uuid.uuid4()), value= woning_input_electricity)
                         e_con_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
                         e_con_ip.profile.append(e_con_sv)
                         e_con_ip.connectedTo.append(e_network_op)
@@ -278,7 +287,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         e_con.port.append(e_con_op)
                         buildings.asset.append(e_con)
                         
-                    if input_LT > 0.0:
+                    if woning_input_LT > 0.0:
                         h_lt_con = HConnection(id=str(uuid.uuid4()), name="Heating_lt_connector", aggregated = True)
                         h_lt_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         h_lt_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -287,7 +296,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         h_lt_con.port.append(h_lt_con_op)
                         buildings.asset.append(h_lt_con)
                         
-                    if input_MT > 0.0 or "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam]: 
+                    if woning_input_MT > 0.0 or "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam]: 
                         h_mt_con = HConnection(id=str(uuid.uuid4()), name="Heating_mt_connector", aggregated = True)
                         h_mt_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         h_mt_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -302,7 +311,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     # =============================================================================
                         
      
-                    hd_rv_value = float(row[column_names.index('h02_vraag_ruimteverwarming')]) * float(row[column_names.index('i11_woningequivalenten')])
+                    hd_rv_value = float(row[column_names.index('woning_h02_vraag_ruimteverwarming')])
                     if hd_rv_value > 0.0:
                         hd_rv = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_Ruimteverwarming", aggregated = True)
                         hd_rv.type = HeatDemandTypeEnum.SPACE_HEATING
@@ -313,7 +322,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         hd_rv.port.append(hd_rv_ip)
                         buildings.asset.append(hd_rv)
         
-                    hd_tw_value = float(row[column_names.index('h03_vraag_tapwater')]) * float(row[column_names.index('i11_woningequivalenten')])
+                    hd_tw_value = float(row[column_names.index('woning_h03_vraag_tapwater')])
                     if hd_tw_value > 0.0:
                         hd_tw = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_Tapwater", aggregated = True)
                         hd_tw.type = HeatDemandTypeEnum.HOT_TAPWATER
@@ -324,7 +333,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         hd_tw.port.append(hd_tw_ip)
                         buildings.asset.append(hd_tw)
                         
-                    cd_value = float(row[column_names.index('h05_vraag_koude')]) * float(row[column_names.index('i11_woningequivalenten')])
+                    cd_value = float(row[column_names.index('woning_h05_vraag_koude')])
                     if cd_value > 0.0:
                         cd = CoolingDemand(id=str(uuid.uuid4()), name="Vraag_Koude", aggregated = True)
                         cd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
@@ -334,7 +343,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         cd.port.append(cd_ip)
                         buildings.asset.append(cd)
                         
-                    ed_vent_value = float(row[column_names.index('h04_vraag_ventilatie')]) * float(row[column_names.index('i11_woningequivalenten')])
+                    ed_vent_value = float(row[column_names.index('woning_h04_vraag_ventilatie')])
                     if ed_vent_value > 0.0:
                         ed_vent = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_elektrische_ventilatie", aggregated = True)
                         ed_vent_ip = InPort(id=str(uuid.uuid4()), name="InPort")
@@ -344,7 +353,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         ed_vent.port.append(ed_vent_ip)
                         buildings.asset.append(ed_vent)
                         
-                    ed_app_value = float(row[column_names.index('h06_vraag_apparaten')]) * float(row[column_names.index('i11_woningequivalenten')])
+                    ed_app_value = float(row[column_names.index('woning_h06_vraag_apparaten')]) 
                     if ed_app_value > 0.0:
                         ed_app = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_elektrische_apparaten", aggregated = True)
                         ed_app_ip = InPort(id=str(uuid.uuid4()), name="InPort")
@@ -374,22 +383,22 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         buildings.asset.append(ed)
                         
                                    
-                    input_electricity = float(row[column_names.index('h11_input_elektriciteit')]) * float(row[column_names.index('i11_woningequivalenten')])
-                    if input_electricity > 0.0:
+                    woning_input_electricity = float(row[column_names.index('woning_h11_input_elektriciteit')])
+                    if woning_input_electricity > 0.0:
                         e_con = e_con
                         e_con_op = e_con_op
                         e_con_op.connectedTo.append(ed_ip)
                         e_con.port.append(e_con_op)
                         buildings.asset.append(e_con)
                         
-                    if "coll_g_heater" in scenario_elementenlijst[StrategieNaam] and input_MT > 0.0: 
+                    if "coll_g_heater" in scenario_elementenlijst[StrategieNaam] and woning_input_MT > 0.0: 
                         h_mt_con = h_mt_con
                         h_mt_con_op = h_mt_con_op
                         h_mt_con_op.connectedTo.append(hd_ip)
                         h_mt_con.port.append(h_mt_con_op)
                         buildings.asset.append(h_mt_con)
                     
-                    if "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam] and input_LT > 0.0: 
+                    if "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam] and woning_input_LT > 0.0: 
                         h_mt_con = h_mt_con
                         h_mt_con_op = h_mt_con_op
                         h_mt_con_op.connectedTo.append(hd_ip)
@@ -401,7 +410,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     # -------------------------INDIVIDUAL CONVERTORS-------------------------------          
                     # =============================================================================
                         
-                    if "g_heater" in scenario_elementenlijst[StrategieNaam] and input_gas > 0.0: 
+                    if "g_heater" in scenario_elementenlijst[StrategieNaam] and woning_input_gas > 0.0: 
                         g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater", aggregated = True)
                         g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -474,10 +483,10 @@ def MakeESDL(RegioNaam, StrategieNaam):
 # =============================================================================
 # ------------------------------OTHER------------------------------------------          
 # =============================================================================
-            co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='co2_uitstoot',     value=float(row[column_names.index('h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
-            nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost',     value=float(row[column_names.index('h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
-            nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost_co2', value=float(row[column_names.index('h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
-            nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost_weq', value=float(row[column_names.index('h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='co2_uitstoot',     value=float(row[column_names.index('woning_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+            nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost',     value=float(row[column_names.index('woning_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost_co2', value=float(row[column_names.index('woning_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
+            nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost_weq', value=float(row[column_names.index('woning_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
 
             kpis = KPIs(id=str(uuid.uuid4()))
             kpis.kpi.append(co2_uistoot)
@@ -504,9 +513,9 @@ def main():
     RegioNamen= ["Havenstad"]
 #    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
 #    RegioNamen= ["Hengelo"]
-#    Strategien= ["S1a_B_LuchtWP","S1b_B_BodemWP","S2a_B_Restwarmte"]
+    Strategien= ["S0_Referentie"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
-    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
+#    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
    
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
 # "S2a_B_Restwarmte","S2b_B_Geo_contour","S2c_B_Geo_overal","S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal" 
