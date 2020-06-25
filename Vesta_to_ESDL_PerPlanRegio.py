@@ -102,7 +102,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
         reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
-        print(column_names)
+        # print(column_names)
 
 # =============================================================================
 # ------------------------------NETWORK----------------------------------------          
@@ -153,6 +153,13 @@ def MakeESDL(RegioNaam, StrategieNaam):
             util_input_MT          = float(row[column_names.index('util_h12_input_mtwarmte')])
             util_input_LT          = float(row[column_names.index('util_h13_input_ltwarmte')])
             util_input_gas         = util_input_naturalgas + util_input_greengas
+            
+            wu_input_naturalgas  = woning_input_naturalgas + util_input_naturalgas
+            wu_input_greengas    = woning_input_greengas + util_input_greengas
+            wu_input_electricity = woning_input_electricity + util_input_electricity
+            wu_input_MT          = woning_input_MT + util_input_MT
+            wu_input_LT          = woning_input_LT + util_input_LT
+            wu_input_gas         = woning_input_gas + util_input_gas
                 
 # =============================================================================
 # ------------------------------SOURCES----------------------------------------          
@@ -172,28 +179,28 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 h_air_15.port.append(h_air_15_op)
                 area.asset.append(h_air_15)
                 
-            if "h_rest_lt" in scenario_elementenlijst[StrategieNaam] and input_LT > 0.0: 
+            if "h_rest_lt" in scenario_elementenlijst[StrategieNaam] and wu_input_LT > 0.0: 
                 h_rest_lt = ResidualHeatSource(id=str(uuid.uuid4()), name="h_rest_lt", aggregated = True)
                 h_rest_lt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 h_rest_lt_op.connectedTo.append(h_lt_network_ip)
                 h_rest_lt.port.append(h_rest_lt_op)
                 area.asset.append(h_rest_lt)
                 
-            if "h_rest_mt" in scenario_elementenlijst[StrategieNaam] and input_MT > 0.0: 
+            if "h_rest_mt" in scenario_elementenlijst[StrategieNaam] and wu_input_MT > 0.0: 
                 h_rest_mt = ResidualHeatSource(id=str(uuid.uuid4()), name="h_rest_mt", aggregated = True)
                 h_rest_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 h_rest_mt_op.connectedTo.append(h_mt_network_ip)
                 h_rest_mt.port.append(h_rest_mt_op)
                 area.asset.append(h_rest_mt)
                 
-            if "h_geo_mt" in scenario_elementenlijst[StrategieNaam] and input_MT > 0.0: 
+            if "h_geo_mt" in scenario_elementenlijst[StrategieNaam] and wu_input_MT > 0.0: 
                 h_geo_mt = GeothermalSource(id=str(uuid.uuid4()), name="h_geo_mt", aggregated = True)
                 h_geo_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 h_geo_mt_op.connectedTo.append(h_mt_network_ip)
                 h_geo_mt.port.append(h_geo_mt_op)
                 area.asset.append(h_geo_mt)
         
-            if "h_wko_15" in scenario_elementenlijst[StrategieNaam] and input_LT > 0.0: 
+            if "h_wko_15" in scenario_elementenlijst[StrategieNaam] and wu_input_LT > 0.0: 
                 h_wko_15 = GeothermalSource(id=str(uuid.uuid4()), name="h_wko_15", aggregated = True)
                 h_wko_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 h_wko_15_op.connectedTo.append(h_lt_network_ip)
@@ -215,7 +222,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 coll_eWP_lt_mt.port.append(coll_eWP_lt_mt_op)
                 area.asset.append(coll_eWP_lt_mt)
                 
-            if "coll_g_heater" in scenario_elementenlijst[StrategieNaam] and input_gas > 0.0: 
+            if "coll_g_heater" in scenario_elementenlijst[StrategieNaam] and wu_input_gas > 0.0: 
                 coll_g_heater = HeatPump(id=str(uuid.uuid4()), name="collectieve_g_heater", aggregated = True)
                 coll_g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                 coll_g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -232,7 +239,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             for wk in woning_keuzes:
                 # Only add a AggregatedBuilding object if there are buildings of this type
                 if int(float(row[column_names.index(wk)])) > 0:  
-                    buildingname = wk[4:]
+                    buildingname = wk[11:]
                     buildings = AggregatedBuilding(
                         id=str(uuid.uuid4()),
                         name="%s" % buildingname,
@@ -382,8 +389,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         ed.port.append(ed_ip)
                         buildings.asset.append(ed)
                         
-                                   
-                    woning_input_electricity = float(row[column_names.index('woning_h11_input_elektriciteit')])
                     if woning_input_electricity > 0.0:
                         e_con = e_con
                         e_con_op = e_con_op
@@ -476,23 +481,277 @@ def MakeESDL(RegioNaam, StrategieNaam):
             
             
                 
+# =============================================================================
+# --------------------------UTILITY BUILDINGS----------------------------------          
+# =============================================================================
             
-            
+            for uk in util_keuzes:
+                # Only add a AggregatedBuilding object if there are buildings of this type
+                if int(float(row[column_names.index(uk)])) > 0:  
+                    buildingname = uk[9:]
+                    buildings = AggregatedBuilding(
+                        id=str(uuid.uuid4()),
+                        name="%s" % buildingname,
+                        numberOfBuildings = int(float(row[column_names.index(wk)])),
+                        aggregated = True,
+                        # energyLabelDistribution = esdl.EnergyLabelDistribution(),
+                        buildingTypeDistribution = esdl.BuildingTypeDistribution()
+                    )
+                    
+                    buildingTypePercentage = esdl.BuildingTypePercentage(buildingType=BuildingTypeEnum.UTILITY, percentage=(float(100)))
+                    buildings.buildingTypeDistribution.buildingTypePercentage.append(buildingTypePercentage)
+                    
+                    # energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('woning_a30_aansl_labela')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    # energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('woning_a31_aansl_labelb')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    # energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('woning_a32_aansl_labelc')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    # energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('woning_a33_aansl_labeld')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    # energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('woning_a34_aansl_labele')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    # energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('woning_a35_aansl_labelf')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                    # buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
+                    # buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
+                    # buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
+                    # buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
+                    # buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
+                    # buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
+                    
+                    
+                    # =============================================================================
+                    # ------------------------------CONNECTORS-------------------------------------          
+                    # =============================================================================
+                        
+                    if util_input_naturalgas + util_input_greengas > 0.0:
+                        g_con = GConnection(id=str(uuid.uuid4()), name="Gas_connector", aggregated = True)
+                        g_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        g_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        g_con_sv = SingleValue(id=str(uuid.uuid4()), value=util_input_naturalgas + util_input_greengas)
+                        g_con_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        g_con_ip.profile.append(g_con_sv)
+                        g_con_ip.connectedTo.append(g_network_op)
+                        g_con.port.append(g_con_ip)
+                        g_con.port.append(g_con_op)
+                        buildings.asset.append(g_con)
+                        
+                    if util_input_electricity > 0.0:
+                        e_con = EConnection(id=str(uuid.uuid4()), name="Elektricity_connector", aggregated = True)
+                        e_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        e_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        e_con_sv = SingleValue(id=str(uuid.uuid4()), value= util_input_electricity)
+                        e_con_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        e_con_ip.profile.append(e_con_sv)
+                        e_con_ip.connectedTo.append(e_network_op)
+                        e_con.port.append(e_con_ip)
+                        e_con.port.append(e_con_op)
+                        buildings.asset.append(e_con)
+                        
+                    if util_input_LT > 0.0:
+                        h_lt_con = HConnection(id=str(uuid.uuid4()), name="Heating_lt_connector", aggregated = True)
+                        h_lt_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        h_lt_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        h_lt_con_ip.connectedTo.append(h_lt_network_op)
+                        h_lt_con.port.append(h_lt_con_ip)
+                        h_lt_con.port.append(h_lt_con_op)
+                        buildings.asset.append(h_lt_con)
+                        
+                    if util_input_MT > 0.0 or "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam]: 
+                        h_mt_con = HConnection(id=str(uuid.uuid4()), name="Heating_mt_connector", aggregated = True)
+                        h_mt_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        h_mt_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        h_mt_con_ip.connectedTo.append(h_mt_network_op)
+                        h_mt_con.port.append(h_mt_con_ip)
+                        h_mt_con.port.append(h_mt_con_op)
+                        buildings.asset.append(h_mt_con)
+                        
+                    
+                    # =============================================================================
+                    # ------------------------------DEMAND-----------------------------------------          
+                    # =============================================================================
+                        
+     
+                    hd_rv_value = float(row[column_names.index('util_h02_vraag_ruimteverwarming')])
+                    if hd_rv_value > 0.0:
+                        hd_rv = HeatingDemand(id=str(uuid.uuid4()), name="util_Ruimteverwarming", aggregated = True)
+                        hd_rv.type = HeatDemandTypeEnum.SPACE_HEATING
+                        hd_rv_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        hd_rv_sv = SingleValue(id=str(uuid.uuid4()), value=hd_rv_value)
+                        hd_rv_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        hd_rv_ip.profile.append(hd_rv_sv)
+                        hd_rv.port.append(hd_rv_ip)
+                        buildings.asset.append(hd_rv)
+        
+                    hd_tw_value = float(row[column_names.index('util_h03_vraag_tapwater')])
+                    if hd_tw_value > 0.0:
+                        hd_tw = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_Tapwater", aggregated = True)
+                        hd_tw.type = HeatDemandTypeEnum.HOT_TAPWATER
+                        hd_tw_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        hd_tw_sv = SingleValue(id=str(uuid.uuid4()), value=hd_tw_value)
+                        hd_tw_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        hd_tw_ip.profile.append(hd_tw_sv)
+                        hd_tw.port.append(hd_tw_ip)
+                        buildings.asset.append(hd_tw)
+                        
+                    cd_value = float(row[column_names.index('util_h05_vraag_koude')])
+                    if cd_value > 0.0:
+                        cd = CoolingDemand(id=str(uuid.uuid4()), name="Vraag_Koude", aggregated = True)
+                        cd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        cd_sv = SingleValue(id=str(uuid.uuid4()), value=cd_value)
+                        cd_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        cd_ip.profile.append(cd_sv)
+                        cd.port.append(cd_ip)
+                        buildings.asset.append(cd)
+                        
+                    ed_vent_value = float(row[column_names.index('util_h04_vraag_ventilatie')])
+                    if ed_vent_value > 0.0:
+                        ed_vent = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_elektrische_ventilatie", aggregated = True)
+                        ed_vent_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        ed_vent_sv = SingleValue(id=str(uuid.uuid4()), value=ed_vent_value)
+                        ed_vent_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        ed_vent_ip.profile.append(ed_vent_sv)
+                        ed_vent.port.append(ed_vent_ip)
+                        buildings.asset.append(ed_vent)
+                        
+                    ed_app_value = float(row[column_names.index('util_h06_vraag_apparaten')]) 
+                    if ed_app_value > 0.0:
+                        ed_app = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_elektrische_apparaten", aggregated = True)
+                        ed_app_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        ed_app_sv = SingleValue(id=str(uuid.uuid4()), value=ed_app_value)
+                        ed_app_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        ed_app_ip.profile.append(ed_app_sv)
+                        ed_app.port.append(ed_app_ip)
+                        buildings.asset.append(ed_app)
+                        
+                    if hd_rv_value + hd_tw_value > 0.0:
+                        hd = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_warmte_totaal", aggregated = True)
+                        hd.type = HeatDemandTypeEnum.SH_AND_HTW
+                        hd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        hd_sv = SingleValue(id=str(uuid.uuid4()), value=hd_tw_value + hd_rv_value)
+                        hd_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        hd_ip.profile.append(hd_sv)
+                        hd.port.append(hd_ip)
+                        buildings.asset.append(hd)
+                    
+                    if ed_vent_value + ed_app_value > 0.0:
+                        ed = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_elektriciteit_totaal", aggregated = True)
+                        ed_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        ed_sv = SingleValue(id=str(uuid.uuid4()), value=ed_vent_value + ed_app_value)
+                        ed_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
+                        ed_ip.profile.append(ed_sv)
+                        ed.port.append(ed_ip)
+                        buildings.asset.append(ed)
+                        
+                    if util_input_electricity > 0.0:
+                        e_con = e_con
+                        e_con_op = e_con_op
+                        e_con_op.connectedTo.append(ed_ip)
+                        e_con.port.append(e_con_op)
+                        buildings.asset.append(e_con)
+                        
+                    if "coll_g_heater" in scenario_elementenlijst[StrategieNaam] and util_input_MT > 0.0: 
+                        h_mt_con = h_mt_con
+                        h_mt_con_op = h_mt_con_op
+                        h_mt_con_op.connectedTo.append(hd_ip)
+                        h_mt_con.port.append(h_mt_con_op)
+                        buildings.asset.append(h_mt_con)
+                    
+                    if "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam] and util_input_LT > 0.0: 
+                        h_mt_con = h_mt_con
+                        h_mt_con_op = h_mt_con_op
+                        h_mt_con_op.connectedTo.append(hd_ip)
+                        h_mt_con.port.append(h_mt_con_op)
+                        buildings.asset.append(h_mt_con)
+                        
+                        
+                    # =============================================================================
+                    # -------------------------INDIVIDUAL CONVERTORS-------------------------------          
+                    # =============================================================================
+                        
+                    if "g_heater" in scenario_elementenlijst[StrategieNaam] and util_input_gas > 0.0: 
+                        g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater", aggregated = True)
+                        g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        g_heater_ip.connectedTo.append(g_con_op)
+                        g_heater_op.connectedTo.append(hd_ip)
+                        g_heater.port.append(g_heater_ip)
+                        g_heater.port.append(g_heater_op)
+                        buildings.asset.append(g_heater)
+                        
+                    if "eWP_lucht" in scenario_elementenlijst[StrategieNaam]: 
+                        eWP_lucht = HeatPump(id=str(uuid.uuid4()), name="eWP_lucht", aggregated = True)
+                        eWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        eWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        eWP_lucht_ip.connectedTo.append(e_con_op)
+                        eWP_lucht_op.connectedTo.append(hd_ip)
+                        eWP_lucht.port.append(eWP_lucht_ip)
+                        eWP_lucht.port.append(eWP_lucht_op)
+                        buildings.asset.append(eWP_lucht)
+                        
+                    if "eWP_bodem" in scenario_elementenlijst[StrategieNaam]: 
+                        eWP_bodem = HeatPump(id=str(uuid.uuid4()), name="eWP_bodem", aggregated = True)
+                        eWP_bodem_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        eWP_bodem_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        eWP_bodem_ip.connectedTo.append(e_con_op)
+                        eWP_bodem_op.connectedTo.append(hd_ip)
+                        eWP_bodem.port.append(eWP_bodem_ip)
+                        eWP_bodem.port.append(eWP_bodem_op)
+                        buildings.asset.append(eWP_bodem)
+                        
+                    if "eWP_lt_mt" in scenario_elementenlijst[StrategieNaam]: 
+                        eWP_lt_mt = HeatPump(id=str(uuid.uuid4()), name="eWP_lt_mt", aggregated = True)
+                        eWP_lt_mt_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        eWP_lt_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        eWP_lt_mt_ip.connectedTo.append(h_lt_con_op)
+                        eWP_lt_mt_ip.connectedTo.append(e_con_op)
+                        eWP_lt_mt_op.connectedTo.append(hd_ip)
+                        eWP_lt_mt.port.append(eWP_lt_mt_ip)
+                        eWP_lt_mt.port.append(eWP_lt_mt_op)
+                        buildings.asset.append(eWP_lt_mt)
+                        
+                    if "eWP_mt_mt" in scenario_elementenlijst[StrategieNaam]: 
+                        eWP_mt_mt = HeatPump(id=str(uuid.uuid4()), name="eWP_mt_mt", aggregated = True)
+                        eWP_mt_mt_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        eWP_mt_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        eWP_mt_mt_ip.connectedTo.append(h_mt_con_op)
+                        eWP_mt_mt_ip.connectedTo.append(e_con_op)
+                        eWP_mt_mt_op.connectedTo.append(hd_ip)
+                        eWP_mt_mt.port.append(eWP_mt_mt_ip)
+                        eWP_mt_mt.port.append(eWP_mt_mt_op)
+                        buildings.asset.append(eWP_mt_mt)
+                        
+                    if "eWP" in scenario_elementenlijst[StrategieNaam]: 
+                        eWP = HeatPump(id=str(uuid.uuid4()), name="eWP", aggregated = True)
+                        eWP_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        eWP_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        eWP_ip.connectedTo.append(e_con_op)
+                        eWP_op.connectedTo.append(hd_ip)
+                        eWP.port.append(eWP_ip)
+                        eWP.port.append(eWP_op)
+                        buildings.asset.append(eWP)
+                    
+                    area.asset.append(buildings)
             
 
 # =============================================================================
 # ------------------------------OTHER------------------------------------------          
 # =============================================================================
-            co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='co2_uitstoot',     value=float(row[column_names.index('woning_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
-            nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost',     value=float(row[column_names.index('woning_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
-            nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost_co2', value=float(row[column_names.index('woning_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
-            nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='nat_meerkost_weq', value=float(row[column_names.index('woning_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            woning_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='woning_co2_uitstoot',     value=float(row[column_names.index('woning_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+            woning_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='woning_nat_meerkost',     value=float(row[column_names.index('woning_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            woning_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='woning_nat_meerkost_co2', value=float(row[column_names.index('woning_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
+            woning_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='woning_nat_meerkost_weq', value=float(row[column_names.index('woning_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+
+            util_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='util_co2_uitstoot',     value=float(row[column_names.index('util_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+            util_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='util_nat_meerkost',     value=float(row[column_names.index('util_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            util_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='util_nat_meerkost_co2', value=float(row[column_names.index('util_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
+            util_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='util_nat_meerkost_weq', value=float(row[column_names.index('util_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
 
             kpis = KPIs(id=str(uuid.uuid4()))
-            kpis.kpi.append(co2_uistoot)
-            kpis.kpi.append(nat_meerkosten)
-            kpis.kpi.append(nat_meerkosten_CO2)
-            kpis.kpi.append(nat_meerkosten_WEQ)
+            kpis.kpi.append(woning_co2_uistoot)
+            kpis.kpi.append(woning_nat_meerkosten)
+            kpis.kpi.append(woning_nat_meerkosten_CO2)
+            kpis.kpi.append(woning_nat_meerkosten_WEQ)
+            
+            kpis.kpi.append(util_co2_uistoot)
+            kpis.kpi.append(util_nat_meerkosten)
+            kpis.kpi.append(util_nat_meerkosten_CO2)
+            kpis.kpi.append(util_nat_meerkosten_WEQ)
             
             area.KPIs = kpis
 
@@ -510,12 +769,12 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
 def main():
     
-    RegioNamen= ["Havenstad"]
-#    RegioNamen= ["GooiEnVechtstreek","Hengelo"]
+    # RegioNamen= ["Havenstad"]
+    RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
 #    RegioNamen= ["Hengelo"]
-    Strategien= ["S0_Referentie"]
+    # Strategien= ["S0_Referentie"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
-#    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
+    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
    
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
 # "S2a_B_Restwarmte","S2b_B_Geo_contour","S2c_B_Geo_overal","S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal" 

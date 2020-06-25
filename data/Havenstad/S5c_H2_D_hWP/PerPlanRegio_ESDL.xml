@@ -2,11 +2,11 @@
 
 <DocType name="GeoDmsMetaInfo">
 <DefaultInfo>
-	<FullName>/LeidraadResultaten/Exports/ESDL/export_PerPlanRegio_Havenstad/result
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerStudyArea/Havenstad/export_PerPlanRegio/result
 	</FullName>
 	<GeoDmsVersion>GeoDms 7.217 [Release] [x64] [Apr 25 2020] [Complete Edition]
 	</GeoDmsVersion>
-	<StatusFlags>0x45df = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	<StatusFlags>0x45ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
 	</StatusFlags>
 </DefaultInfo>
 <Software>
@@ -14,7 +14,7 @@
 	</GeoDmsVersion>
 </Software>
 <Config>
-	<FullName>/LeidraadResultaten/Exports/ESDL/export_PerPlanRegio_Havenstad/result
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerStudyArea/Havenstad/export_PerPlanRegio/result
 	</FullName>
 	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)
 	</Expr>
@@ -34,7 +34,6 @@
 		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
 			modified:   git.txt<BR/>
-			modified:   model/LeidraadResultaten.dms<BR/>
 		<BR/>
 		no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<BR/>
 		
