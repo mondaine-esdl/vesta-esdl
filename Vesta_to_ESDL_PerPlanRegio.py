@@ -238,7 +238,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             
             for wk in woning_keuzes:
                 # Only add a AggregatedBuilding object if there are buildings of this type
-                if int(float(row[column_names.index(wk)])) > 0:  
+                if int(float(row[column_names.index(wk)])) > 0 and float(row[column_names.index('i09_aantal_woningen')]) > 0:  
                     buildingname = wk[11:]
                     buildings = AggregatedBuilding(
                         id=str(uuid.uuid4()),
@@ -487,12 +487,13 @@ def MakeESDL(RegioNaam, StrategieNaam):
             
             for uk in util_keuzes:
                 # Only add a AggregatedBuilding object if there are buildings of this type
-                if int(float(row[column_names.index(uk)])) > 0:  
+                if int(float(row[column_names.index(uk)])) > 0 and float(row[column_names.index('i10_aantal_utiliteit')]) > 0:  
                     buildingname = uk[9:]
                     buildings = AggregatedBuilding(
                         id=str(uuid.uuid4()),
                         name="%s" % buildingname,
-                        numberOfBuildings = int(float(row[column_names.index(wk)])),
+                        numberOfBuildings = int(float(row[column_names.index(uk)])),
+                        floorArea = float(row[column_names.index('i13_opp_utiliteit')]),
                         aggregated = True,
                         # energyLabelDistribution = esdl.EnergyLabelDistribution(),
                         buildingTypeDistribution = esdl.BuildingTypeDistribution()
@@ -771,7 +772,7 @@ def main():
     
     # RegioNamen= ["Havenstad"]
     RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
-#    RegioNamen= ["Hengelo"]
+
     # Strategien= ["S0_Referentie"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
