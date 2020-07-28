@@ -741,7 +741,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         buildings.asset.append(g_heater)
                         
                     if "eWP_lucht" in scenario_elementenlijst[StrategieNaam]: 
-                        eWP_lucht = HeatPump(id=str(uuid.uuid4()), name="eWP_lucht", aggregated = True)
+                        eWP_lucht = HeatPump(id=str(uuid.uuid4()), name="eWP_lucht", aggregated = True, source=SourceTypeEnum.AIR)
                         eWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_lucht_ip.connectedTo.append(e_con_op)
@@ -751,7 +751,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         buildings.asset.append(eWP_lucht)
                         
                     if "eWP_bodem" in scenario_elementenlijst[StrategieNaam]: 
-                        eWP_bodem = HeatPump(id=str(uuid.uuid4()), name="eWP_bodem", aggregated = True)
+                        eWP_bodem = HeatPump(id=str(uuid.uuid4()), name="eWP_bodem", aggregated = True, source=SourceTypeEnum.SUB_SURFACE)
                         eWP_bodem_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_bodem_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_bodem_ip.connectedTo.append(e_con_op)
