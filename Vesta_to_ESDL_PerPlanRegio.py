@@ -132,8 +132,10 @@ def MakeESDL(RegioNaam, StrategieNaam):
         es.instance[0].area.asset.append(h_mt_network)
             
         e_network = ElectricityNetwork(id=str(uuid.uuid4()), name="Electricity_network", aggregated = True)
+        e_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
         e_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
         e_network.port.append(e_network_op)
+        e_network.port.append(e_network_ip)
         es.instance[0].area.asset.append(e_network)
 
 
@@ -808,15 +810,15 @@ def MakeESDL(RegioNaam, StrategieNaam):
 # =============================================================================
 # ------------------------------OTHER------------------------------------------          
 # =============================================================================
-            woning_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='woning_co2_uitstoot',     value=float(row[column_names.index('woning_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
-            woning_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='woning_nat_meerkost',     value=float(row[column_names.index('woning_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
-            woning_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='woning_nat_meerkost_co2', value=float(row[column_names.index('woning_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
-            woning_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='woning_nat_meerkost_weq', value=float(row[column_names.index('woning_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            woning_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='CO2 uitstoot van woningen',     value=float(row[column_names.index('woning_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+            woning_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten voor woningen',     value=float(row[column_names.index('woning_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            woning_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van CO2 voor woningen', value=float(row[column_names.index('woning_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
+            woning_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van woningen per WEQ', value=float(row[column_names.index('woning_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
 
-            util_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='util_co2_uitstoot',     value=float(row[column_names.index('util_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
-            util_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='util_nat_meerkost',     value=float(row[column_names.index('util_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
-            util_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='util_nat_meerkost_co2', value=float(row[column_names.index('util_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
-            util_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='util_nat_meerkost_weq', value=float(row[column_names.index('util_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            util_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='CO2 uitstoot van utiliteiten',     value=float(row[column_names.index('util_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+            util_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten voor utiliteiten',     value=float(row[column_names.index('util_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            util_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van CO2 voor utiliteiten', value=float(row[column_names.index('util_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
+            util_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van utiliteiten per WEQ', value=float(row[column_names.index('util_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
 
             kpis = KPIs(id=str(uuid.uuid4()))
             kpis.kpi.append(woning_co2_uistoot)
@@ -845,12 +847,14 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
 def main():
     
-    # RegioNamen= ["Havenstad"]
-    RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
+    RegioNamen= ["Havenstad"]
+    # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
 
     # Strategien= ["S0_Referentie"]
+    Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP", "S4a_GG_B_hWP"]
+    # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
     # Strategien= ["S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
-    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
+    # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
 
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
