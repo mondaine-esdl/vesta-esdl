@@ -270,7 +270,25 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
                     buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
                     
-                    
+                    g_con = None
+                    e_con = None
+                    h_lt_con = None
+                    h_mt_con = None
+                    hd_rv = None
+                    hd_tw = None
+                    cd   = None
+                    ed_vent  = None
+                    ed_app = None
+                    h_mt_con = None
+                    g_heater  = None
+                    eWP_lucht  = None
+                    eWP_bodem  = None
+                    eWP_lt_mt  = None
+                    eWP_lt_mt = None
+                    eWP_mt_mt  = None
+                    eWP = None
+                    eAirco = None
+
                     # =============================================================================
                     # ------------------------------CONNECTORS-------------------------------------          
                     # =============================================================================
@@ -568,6 +586,24 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     # buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
                     # buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
                     
+                    g_con = None
+                    e_con = None
+                    h_lt_con = None
+                    h_mt_con = None
+                    hd_rv = None
+                    hd_tw = None
+                    cd   = None
+                    ed_vent  = None
+                    ed_app = None
+                    h_mt_con = None
+                    g_heater  = None
+                    eWP_lucht  = None
+                    eWP_bodem  = None
+                    eWP_lt_mt  = None
+                    eWP_lt_mt = None
+                    eWP_mt_mt  = None
+                    eWP = None
+                    eAirco = None
                     
                     # =============================================================================
                     # ------------------------------CONNECTORS-------------------------------------          
@@ -642,6 +678,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         hd_tw_ip.profile.append(hd_tw_sv)
                         hd_tw.port.append(hd_tw_ip)
                         buildings.asset.append(hd_tw)
+                    else: 
+                        hd_tw = None
                         
                     cd_value = float(row[column_names.index('util_h05_vraag_koude')])
                     if cd_value > 0.0:
@@ -737,7 +775,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         g_heater_ip.connectedTo.append(g_con_op)
                         g_heater_op.connectedTo.append(hd_rv_ip)
-                        g_heater_op.connectedTo.append(hd_tw_ip)
+                        if hd_tw: 
+                           g_heater_op.connectedTo.append(hd_tw_ip)
                         g_heater.port.append(g_heater_ip)
                         g_heater.port.append(g_heater_op)
                         buildings.asset.append(g_heater)
@@ -847,11 +886,11 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
 def main():
     
-    RegioNamen= ["Havenstad"]
-    # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
+    # RegioNamen= ["Havenstad"]
+    RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
 
-    # Strategien= ["S0_Referentie"]
-    Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP", "S4a_GG_B_hWP"]
+    Strategien= ["StartJaar","S0_Referentie"]
+    # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP", "S4a_GG_B_hWP"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
     # Strategien= ["S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
