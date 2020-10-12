@@ -648,25 +648,25 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         numberOfBuildings = int(float(row[column_names.index(uk)])),
                         floorArea = float(row[column_names.index('i13_opp_utiliteit')]),
                         aggregated = True,
-                        # energyLabelDistribution = esdl.EnergyLabelDistribution(),
+                        energyLabelDistribution = esdl.EnergyLabelDistribution(),
                         buildingTypeDistribution = esdl.BuildingTypeDistribution()
                     )
                     
                     buildingTypePercentage = esdl.BuildingTypePercentage(buildingType=BuildingTypeEnum.UTILITY, percentage=(float(100)))
                     buildings.buildingTypeDistribution.buildingTypePercentage.append(buildingTypePercentage)
                     
-                    # energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('woning_a30_aansl_labela')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    # energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('woning_a31_aansl_labelb')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    # energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('woning_a32_aansl_labelc')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    # energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('woning_a33_aansl_labeld')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    # energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('woning_a34_aansl_labele')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    # energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('woning_a35_aansl_labelf')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    # buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
-                    # buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
-                    # buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
-                    # buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
-                    # buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
-                    # buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
+                    energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('util_a30_aansl_labela')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                    energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('util_a31_aansl_labelb')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                    energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('util_a32_aansl_labelc')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                    energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('util_a33_aansl_labeld')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                    energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('util_a34_aansl_labele')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                    energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('util_a35_aansl_labelf')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
+                    buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
                     
                     g_con = None
                     e_con = None
