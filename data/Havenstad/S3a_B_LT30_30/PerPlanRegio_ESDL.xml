@@ -35,7 +35,7 @@
 		  (use &quot;git pull&quot; to merge the remote branch into yours)<BR/>
 		<BR/>
 		Changes not staged for commit:<BR/>
-		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
+		  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
 			modified:   Runs/S0_Referentie.dms<BR/>
 			modified:   Runs/S1a_B_LuchtWP.dms<BR/>
@@ -62,6 +62,8 @@
 			modified:   Runs/S5c_H2_D_hWP.dms<BR/>
 			modified:   Runs/S5d_H2_D_HR.dms<BR/>
 			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
+			deleted:    Runs/batch_leidraad_ESDL_Startjaar.bat<BR/>
+			modified:   Runs/path/set.bat<BR/>
 			modified:   model/LeidraadResultaten.dms<BR/>
 			modified:   model/RuimtelijkeData/WarmteBronnen.dms<BR/>
 			modified:   model/RuimtelijkeData/Warmtebronnen/ESDL_LTBronnen.dms<BR/>

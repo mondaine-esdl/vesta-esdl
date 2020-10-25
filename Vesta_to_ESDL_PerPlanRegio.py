@@ -90,7 +90,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
     qau_energy_GJ_yr    = QuantityAndUnitType(id="energy_GJ_yr", physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
     qau_cost_EURO_yr    = QuantityAndUnitType(id="cost_EURO_yr", physicalQuantity="COST", unit="EURO", multiplier="NONE", perTimeUnit="YEAR") 
     qau_energy_GJ_yr_ha = QuantityAndUnitType(id="energy_GJ_yr_ha", physicalQuantity="ENERGY", unit="JOULE", perUnit="HECTARE", multiplier="GIGA", perTimeUnit="YEAR")
-    qau_cost_EURO_TON   = QuantityAndUnitType(id="cost_EURO_TON", physicalQuantity="EMISSION", unit="GRAM", multiplier="MEGA") 
+    qau_cost_EURO_TON   = QuantityAndUnitType(id="cost_EURO_TON", physicalQuantity="COST", unit="EURO", perUnit="GRAM", perMultiplier="MEGA") 
     qau_emission_TON_yr = QuantityAndUnitType(id="emission_TON_yr", physicalQuantity="EMISSION", unit="GRAM", multiplier="MEGA", perTimeUnit="YEAR") 
     
     qau.quantityAndUnit.append(qau_energy_GJ_yr)
@@ -381,18 +381,24 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     buildingTypePercentage = esdl.BuildingTypePercentage(buildingType=BuildingTypeEnum.RESIDENTIAL, percentage=(float(100)))
                     buildings.buildingTypeDistribution.buildingTypePercentage.append(buildingTypePercentage)
                     
-                    energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('woning_a30_aansl_labela')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('woning_a31_aansl_labelb')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('woning_a32_aansl_labelc')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('woning_a33_aansl_labeld')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('woning_a34_aansl_labele')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('woning_a35_aansl_labelf')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
+                    if float(row[column_names.index('woning_a30_aansl_labela')]) > 0:
+                        energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('woning_a30_aansl_labela')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
+                    if float(row[column_names.index('woning_a31_aansl_labelb')]) > 0:
+                        energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('woning_a31_aansl_labelb')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
+                    if float(row[column_names.index('woning_a32_aansl_labelc')]) > 0:
+                        energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('woning_a32_aansl_labelc')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
+                    if float(row[column_names.index('woning_a33_aansl_labeld')]) > 0:
+                        energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('woning_a33_aansl_labeld')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
+                    if float(row[column_names.index('woning_a34_aansl_labele')]) > 0:
+                        energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('woning_a34_aansl_labele')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
+                    if float(row[column_names.index('woning_a35_aansl_labelf')]) > 0:
+                        energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('woning_a35_aansl_labelf')]) ) / float(row[column_names.index('i09_aantal_woningen')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
                     
                     g_con = None
                     e_con = None
@@ -697,18 +703,24 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     buildingTypePercentage = esdl.BuildingTypePercentage(buildingType=BuildingTypeEnum.UTILITY, percentage=(float(100)))
                     buildings.buildingTypeDistribution.buildingTypePercentage.append(buildingTypePercentage)
                     
-                    energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('util_a30_aansl_labela')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
-                    energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('util_a31_aansl_labelb')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
-                    energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('util_a32_aansl_labelc')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
-                    energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('util_a33_aansl_labeld')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
-                    energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('util_a34_aansl_labele')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
-                    energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('util_a35_aansl_labelf')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
-                    buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
+                    if float(row[column_names.index('util_a30_aansl_labela')]) > 0:
+                        energylabelA_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_A, percentage=(float(row[column_names.index('util_a30_aansl_labela')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelA_percentage)
+                    if float(row[column_names.index('util_a31_aansl_labelb')]) > 0:
+                        energylabelB_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_B, percentage=(float(row[column_names.index('util_a31_aansl_labelb')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelB_percentage)
+                    if float(row[column_names.index('util_a32_aansl_labelc')]) > 0:
+                        energylabelC_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_C, percentage=(float(row[column_names.index('util_a32_aansl_labelc')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelC_percentage)
+                    if float(row[column_names.index('util_a33_aansl_labeld')]) > 0:
+                        energylabelD_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_D, percentage=(float(row[column_names.index('util_a33_aansl_labeld')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelD_percentage)
+                    if float(row[column_names.index('util_a34_aansl_labele')]) > 0:
+                        energylabelE_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_E, percentage=(float(row[column_names.index('util_a34_aansl_labele')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelE_percentage)
+                    if float(row[column_names.index('util_a35_aansl_labelf')]) > 0:
+                        energylabelF_percentage = esdl.EnergyLabelPerc(energyLabel=EnergyLabelEnum.LABEL_F, percentage=(float(row[column_names.index('util_a35_aansl_labelf')]) ) / float(row[column_names.index('i10_aantal_utiliteit')]))
+                        buildings.energyLabelDistribution.labelPerc.append(energylabelF_percentage)
                     
                     g_con = None
                     e_con = None
@@ -973,26 +985,16 @@ def MakeESDL(RegioNaam, StrategieNaam):
 # =============================================================================
 # ------------------------------OTHER------------------------------------------          
 # =============================================================================
-            woning_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='CO2 uitstoot van woningen',     value=float(row[column_names.index('woning_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
-            woning_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten voor woningen',     value=float(row[column_names.index('woning_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
-            woning_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van CO2 voor woningen', value=float(row[column_names.index('woning_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
-            woning_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van woningen per WEQ', value=float(row[column_names.index('woning_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
-
-            util_co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='CO2 uitstoot van utiliteiten',     value=float(row[column_names.index('util_h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
-            util_nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten voor utiliteiten',     value=float(row[column_names.index('util_h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
-            util_nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van CO2 voor utiliteiten', value=float(row[column_names.index('util_h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
-            util_nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van utiliteiten per WEQ', value=float(row[column_names.index('util_h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='CO2 uitstoot',     value=float(row[column_names.index('h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+            nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten',     value=float(row[column_names.index('h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van CO2', value=float(row[column_names.index('h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
+            nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten per WEQ', value=float(row[column_names.index('h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
 
             kpis = KPIs(id=str(uuid.uuid4()))
-            kpis.kpi.append(woning_co2_uistoot)
-            kpis.kpi.append(woning_nat_meerkosten)
-            kpis.kpi.append(woning_nat_meerkosten_CO2)
-            kpis.kpi.append(woning_nat_meerkosten_WEQ)
-            
-            kpis.kpi.append(util_co2_uistoot)
-            kpis.kpi.append(util_nat_meerkosten)
-            kpis.kpi.append(util_nat_meerkosten_CO2)
-            kpis.kpi.append(util_nat_meerkosten_WEQ)
+            kpis.kpi.append(co2_uistoot)
+            kpis.kpi.append(nat_meerkosten)
+            kpis.kpi.append(nat_meerkosten_CO2)
+            kpis.kpi.append(nat_meerkosten_WEQ)
             
             area.KPIs = kpis
 
@@ -1012,13 +1014,13 @@ def main():
     
     RegioNamen= ["Havenstad"]
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
-
+    
     # Strategien= ["S3b_B_LT30_70"]
     # Strategien= ["StartJaar","S0_Referentie"]
-    # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP", "S4a_GG_B_hWP"]
+    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
     # Strategien= ["S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
-    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
+    # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
 
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
