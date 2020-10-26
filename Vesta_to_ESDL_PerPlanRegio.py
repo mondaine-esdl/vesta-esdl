@@ -114,7 +114,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
             print(column_names)
     
             for row in reader:
-                if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
+                # if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
                     bron_naam = row[column_names.index('bron_naam')]
                     x = float(row[column_names.index('x_coord')])
                     y = float(row[column_names.index('y_coord')])
@@ -122,90 +122,94 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     cap_benutting = float(row[column_names.index('capaciteit_benuttingsfactor')])
                     cap_verbruik_yr = mwth_max * 3600.0 * 24.0 * 365.0 * cap_benutting
                     locatie = esdl.Point(lat=y, lon=x, CRS="WGS84")
-                
-                # if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
-                    lt_rhs = esdl.ResidualHeatSource(
-                        id=str(uuid.uuid4()),
-                        name=bron_naam,
-                        power=mwth_max
-                    )
-                    lt_rhs.geometry = locatie
-                    lt_rhs_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                    lt_rhs_sv = SingleValue(id=str(uuid.uuid4()), value=cap_verbruik_yr)
-                    lt_rhs_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_MJ_yr)
-                    lt_rhs_op.profile.append(lt_rhs_sv)
-                    lt_rhs.port.append(lt_rhs_op)
+                    ingebruik = float(row[column_names.index('ingebruik')])
+                    uitgebruik = float(row[column_names.index('uitgebruik')])
                     
-                    capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
-                    label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
-                    ingebruik = DoubleKPI(id=str(uuid.uuid4()),name='ingebruik',value=float(row[column_names.index('ingebruik')]))
-                    uitgebruik = DoubleKPI(id=str(uuid.uuid4()),name='uitgebruik',value=float(row[column_names.index('uitgebruik')]))
-                    categorie_rel = DoubleKPI(id=str(uuid.uuid4()),name='categorie_rel',value=float(row[column_names.index('categorie_rel')]))
-                    mwth_max = DoubleKPI(id=str(uuid.uuid4()),name='mwth_max',value=mwth_max)
-                    bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')]))
-                    bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')]))
-                    T_bron = DoubleKPI(id=str(uuid.uuid4()),name='T_bron',value=float(row[column_names.index('t_bron')]))
-                    P_ow_max = DoubleKPI(id=str(uuid.uuid4()),name='P_ow_max',value=float(row[column_names.index('p_ow_max')]))
-                    Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
-                    Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
-                    K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=float(row[column_names.index('k_gj')]))
-    
-                    kpis = KPIs(id=str(uuid.uuid4()))
-                    kpis.kpi.append(capaciteit_benuttingsfactor)
-                    kpis.kpi.append(label)
-                    kpis.kpi.append(ingebruik)
-                    kpis.kpi.append(uitgebruik)
-                    kpis.kpi.append(categorie_rel)
-                    kpis.kpi.append(mwth_max)
-                    kpis.kpi.append(bron_vol)
-                    kpis.kpi.append(bron_cap)
-                    kpis.kpi.append(T_bron)
-                    kpis.kpi.append(P_ow_max)
-                    kpis.kpi.append(Ki_kW_min)
-                    kpis.kpi.append(Ki_kW_max)
-                    kpis.kpi.append(K_GJ)
-                
-                    lt_rhs.KPIs = kpis
-                    instance.area.asset.append(lt_rhs)
-                
-                # if float(row[column_names.index('capaciteit_benuttingsfactor')]) == 0:  
-                #     lt_rhsp = esdl.ResidualHeatSourcePotential(
-                #         id=str(uuid.uuid4()),
-                #         name=bron_naam
-                #     )
-                #     lt_rhsp.geometry = locatie
-    
-                    # capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
-                    # label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
-                    # ingebruik = DoubleKPI(id=str(uuid.uuid4()),name='ingebruik',value=float(row[column_names.index('ingebruik')]))
-                    # uitgebruik = DoubleKPI(id=str(uuid.uuid4()),name='uitgebruik',value=float(row[column_names.index('uitgebruik')]))
-                    # categorie_rel = DoubleKPI(id=str(uuid.uuid4()),name='categorie_rel',value=float(row[column_names.index('categorie_rel')]))
-                    # mwth_max = DoubleKPI(id=str(uuid.uuid4()),name='mwth_max',value=mwth_max)
-                    # bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')]))
-                    # bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')]))
-                    # T_bron = DoubleKPI(id=str(uuid.uuid4()),name='T_bron',value=float(row[column_names.index('t_bron')]))
-                    # P_ow_max = DoubleKPI(id=str(uuid.uuid4()),name='P_ow_max',value=float(row[column_names.index('p_ow_max')]))
-                    # Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
-                    # Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
-                    # K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=float(row[column_names.index('k_gj')]))
-    
-                    # kpis = KPIs(id=str(uuid.uuid4()))
-                    # kpis.kpi.append(capaciteit_benuttingsfactor)
-                    # kpis.kpi.append(label)
-                    # kpis.kpi.append(ingebruik)
-                    # kpis.kpi.append(uitgebruik)
-                    # kpis.kpi.append(categorie_rel)
-                    # kpis.kpi.append(mwth_max)
-                    # kpis.kpi.append(bron_vol)
-                    # kpis.kpi.append(bron_cap)
-                    # kpis.kpi.append(T_bron)
-                    # kpis.kpi.append(P_ow_max)
-                    # kpis.kpi.append(Ki_kW_min)
-                    # kpis.kpi.append(Ki_kW_max)
-                    # kpis.kpi.append(K_GJ)
-                
-                    # lt_rhsp.KPIs = kpis
-                    # instance.area.asset.append(lt_rhsp)
+                    if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
+                        lt_rhs = esdl.ResidualHeatSource(
+                            id=str(uuid.uuid4()),
+                            name=bron_naam,
+                            power=mwth_max,
+                            commissioningDate=ingebruik,
+                            decommissioningDate=uitgebruik    
+                        )
+                        lt_rhs.geometry = locatie
+                        lt_rhs_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        lt_rhs_sv = SingleValue(id=str(uuid.uuid4()), value=cap_verbruik_yr)
+                        lt_rhs_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_MJ_yr)
+                        lt_rhs_op.profile.append(lt_rhs_sv)
+                        lt_rhs.port.append(lt_rhs_op)
+                        
+                        capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
+                        label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
+                        categorie_rel = DoubleKPI(id=str(uuid.uuid4()),name='categorie_rel',value=float(row[column_names.index('categorie_rel')]))
+                        mwth_max = DoubleKPI(id=str(uuid.uuid4()),name='mwth_max',value=mwth_max)
+                        bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')]))
+                        bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')]))
+                        T_bron = DoubleKPI(id=str(uuid.uuid4()),name='T_bron',value=float(row[column_names.index('t_bron')]))
+                        P_ow_max = DoubleKPI(id=str(uuid.uuid4()),name='P_ow_max',value=float(row[column_names.index('p_ow_max')]))
+                        Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
+                        Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
+                        K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=float(row[column_names.index('k_gj')]))
+        
+                        kpis = KPIs(id=str(uuid.uuid4()))
+                        kpis.kpi.append(capaciteit_benuttingsfactor)
+                        kpis.kpi.append(label)
+                        kpis.kpi.append(categorie_rel)
+                        kpis.kpi.append(mwth_max)
+                        kpis.kpi.append(bron_vol)
+                        kpis.kpi.append(bron_cap)
+                        kpis.kpi.append(T_bron)
+                        kpis.kpi.append(P_ow_max)
+                        kpis.kpi.append(Ki_kW_min)
+                        kpis.kpi.append(Ki_kW_max)
+                        kpis.kpi.append(K_GJ)
+                        
+                        
+                        
+                        asset.costinformation.append(costinfo)
+                    
+                        lt_rhs.KPIs = kpis
+                        instance.area.asset.append(lt_rhs)
+                    
+                    if float(row[column_names.index('capaciteit_benuttingsfactor')]) == 0:  
+                        lt_rhsp = esdl.ResidualHeatSourcePotential(
+                            id=str(uuid.uuid4()),
+                            name=bron_naam
+                        )
+                        lt_rhsp.geometry = locatie
+        
+                        capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
+                        label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
+                        ingebruik = DoubleKPI(id=str(uuid.uuid4()),name='ingebruik',value=float(row[column_names.index('ingebruik')]))
+                        uitgebruik = DoubleKPI(id=str(uuid.uuid4()),name='uitgebruik',value=float(row[column_names.index('uitgebruik')]))
+                        categorie_rel = DoubleKPI(id=str(uuid.uuid4()),name='categorie_rel',value=float(row[column_names.index('categorie_rel')]))
+                        mwth_max = DoubleKPI(id=str(uuid.uuid4()),name='mwth_max',value=mwth_max)
+                        bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')]))
+                        bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')]))
+                        T_bron = DoubleKPI(id=str(uuid.uuid4()),name='T_bron',value=float(row[column_names.index('t_bron')]))
+                        P_ow_max = DoubleKPI(id=str(uuid.uuid4()),name='P_ow_max',value=float(row[column_names.index('p_ow_max')]))
+                        Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
+                        Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
+                        K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=float(row[column_names.index('k_gj')]))
+        
+                        kpis = KPIs(id=str(uuid.uuid4()))
+                        kpis.kpi.append(capaciteit_benuttingsfactor)
+                        kpis.kpi.append(label)
+                        kpis.kpi.append(ingebruik)
+                        kpis.kpi.append(uitgebruik)
+                        kpis.kpi.append(categorie_rel)
+                        kpis.kpi.append(mwth_max)
+                        kpis.kpi.append(bron_vol)
+                        kpis.kpi.append(bron_cap)
+                        kpis.kpi.append(T_bron)
+                        kpis.kpi.append(P_ow_max)
+                        kpis.kpi.append(Ki_kW_min)
+                        kpis.kpi.append(Ki_kW_max)
+                        kpis.kpi.append(K_GJ)
+                    
+                        lt_rhsp.KPIs = kpis
+                        instance.area.potential.append(lt_rhsp)
         
     
     
@@ -224,15 +228,16 @@ def MakeESDL(RegioNaam, StrategieNaam):
         reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
-        # print(column_names)
+        print(column_names)
 
 # =============================================================================
 # ------------------------------NETWORK----------------------------------------          
 # =============================================================================
                 
-        
+       
         g_network = GasNetwork(id=str(uuid.uuid4()), name="Gas_network", aggregated = True)
         g_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+        g_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
         g_network.port.append(g_network_op)
         es.instance[0].area.asset.append(g_network)
             
@@ -243,9 +248,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
             h_lt_network_ip.connectedTo.append(lt_rhs_op)
         h_lt_network.port.append(h_lt_network_ip)
         h_lt_network.port.append(h_lt_network_op)
-
-        
-
         es.instance[0].area.asset.append(h_lt_network)
             
         h_mt_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_MT_network", aggregated = True)
@@ -262,6 +264,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
         e_network.port.append(e_network_ip)
         es.instance[0].area.asset.append(e_network)
 
+        totaal_naturalgas = 0
+        totaal_greengas = 0
 
         for row in reader:
             bu_code = row[column_names.index('bu_code')]
@@ -282,6 +286,9 @@ def MakeESDL(RegioNaam, StrategieNaam):
             util_input_MT          = float(row[column_names.index('util_h12_input_mtwarmte')])
             util_input_LT          = float(row[column_names.index('util_h13_input_ltwarmte')])
             util_input_gas         = util_input_naturalgas + util_input_greengas
+            
+            totaal_naturalgas += woning_input_naturalgas + util_input_naturalgas
+            totaal_greengas   += woning_input_greengas + util_input_greengas
             
             wu_input_naturalgas  = woning_input_naturalgas + util_input_naturalgas
             wu_input_greengas    = woning_input_greengas + util_input_greengas
@@ -1000,6 +1007,31 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
             es.instance[0].area.area.append(area)
 
+        # totaal_naturalgas bevat hier de som van alle buurten (util + woningen)
+        
+        if totaal_naturalgas > 0:
+            ngp = GenericProducer(id=str(uuid.uuid4()),name='Natural Gas Producer')
+            ngp_op = OutPort(id=str(uuid.uuid4()),connectedTo = [g_network_ip])
+            ngp.port.append(ngp_op)
+            ngp_energie = esdl.SingleValue(id=str(uuid.uuid4()),value = totaal_naturalgas)
+            ngp_op.profile.append(ngp_energie)
+            es.instance[0].area.asset.append(ngp)
+            
+        if totaal_greengas > 0:
+            ggp = GenericProducer(id=str(uuid.uuid4()),name='Green Gas Producer')
+            ggp_op = OutPort(id=str(uuid.uuid4()),connectedTo = [g_network_ip])
+            ggp.port.append(ggp_op)
+            ggp_energie = esdl.SingleValue(id=str(uuid.uuid4()),value = totaal_greengas)
+            ggp_op.profile.append(ggp_energie)
+            es.instance[0].area.asset.append(ggp)
+            
+            
+        
+        # remove unused assets
+        # if (h_lt_network_op.connectedTo.aantal== 0):
+        #     h_lt_network.delete()
+            
+
     export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
 
     resource = rset.create_resource(URI(export_name))
@@ -1016,8 +1048,8 @@ def main():
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
     # Strategien= ["S3b_B_LT30_70"]
-    # Strategien= ["StartJaar","S0_Referentie"]
-    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
+    Strategien= ["StartJaar","S0_Referentie"]
+    # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
     # Strategien= ["S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
