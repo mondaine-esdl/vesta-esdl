@@ -1037,7 +1037,7 @@ def remove_unused_building_connections(es):
                             if isinstance(port, esdl.OutPort):  # als hij van het type OutPort is...
                                 if len(port.connectedTo) == 0:  # en niet aangesloten...
                                     print("Removed asset with name {} (type: {}) from building with name {} in area {}"
-                                          .format(bld_asset.name, bld_asset.__class__.name, asset.name, ar.id))
+                                          .format(bld_asset.name, type(bld_asset).__name__, asset.name, ar.id))
                                     asset.asset.remove(bld_asset)   # verwijder de connectie dan uit het gebouw
 
 
