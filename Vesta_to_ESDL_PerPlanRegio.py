@@ -122,8 +122,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     cap_benutting = float(row[column_names.index('capaciteit_benuttingsfactor')])
                     cap_verbruik_yr = mwth_max * 3600.0 * 24.0 * 365.0 * cap_benutting
                     locatie = esdl.Point(lat=y, lon=x, CRS="WGS84")
-                    ingebruik = float(row[column_names.index('ingebruik')])
-                    uitgebruik = float(row[column_names.index('uitgebruik')])
+                    ingebruik = EDate(int(row[column_names.index('ingebruik')]),1,1)
+                    uitgebruik = int(row[column_names.index('uitgebruik')])
                     
                     if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
                         lt_rhs = esdl.ResidualHeatSource(
@@ -530,25 +530,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         ed_app.port.append(ed_app_ip)
                         buildings.asset.append(ed_app)
                         
-                    # if hd_rv_value + hd_tw_value > 0.0:
-                    #     hd = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_warmte_totaal", aggregated = True)
-                    #     hd.type = HeatDemandTypeEnum.SH_AND_HTW
-                    #     hd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                    #     hd_sv = SingleValue(id=str(uuid.uuid4()), value=hd_tw_value + hd_rv_value)
-                    #     hd_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
-                    #     hd_ip.profile.append(hd_sv)
-                    #     hd.port.append(hd_ip)
-                    #     buildings.asset.append(hd)
-                    
-                    # if ed_vent_value + ed_app_value > 0.0:
-                    #     ed = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_elektriciteit_totaal", aggregated = True)
-                    #     ed_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                    #     ed_sv = SingleValue(id=str(uuid.uuid4()), value=ed_vent_value + ed_app_value)
-                    #     ed_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
-                    #     ed_ip.profile.append(ed_sv)
-                    #     ed.port.append(ed_ip)
-                    #     buildings.asset.append(ed)
-                        
                     if woning_input_electricity > 0.0:
                         e_con = e_con
                         e_con_op = e_con_op
@@ -854,25 +835,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         ed_app.port.append(ed_app_ip)
                         buildings.asset.append(ed_app)
                         
-                    # if hd_rv_value + hd_tw_value > 0.0:
-                    #     hd = HeatingDemand(id=str(uuid.uuid4()), name="Vraag_warmte_totaal", aggregated = True)
-                    #     hd.type = HeatDemandTypeEnum.SH_AND_HTW
-                    #     hd_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                    #     hd_sv = SingleValue(id=str(uuid.uuid4()), value=hd_tw_value + hd_rv_value)
-                    #     hd_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
-                    #     hd_ip.profile.append(hd_sv)
-                    #     hd.port.append(hd_ip)
-                    #     buildings.asset.append(hd)
-                    
-                    # if ed_vent_value + ed_app_value > 0.0:
-                    #     ed = ElectricityDemand(id=str(uuid.uuid4()), name="Vraag_elektriciteit_totaal", aggregated = True)
-                    #     ed_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                    #     ed_sv = SingleValue(id=str(uuid.uuid4()), value=ed_vent_value + ed_app_value)
-                    #     ed_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)
-                    #     ed_ip.profile.append(ed_sv)
-                    #     ed.port.append(ed_ip)
-                    #     buildings.asset.append(ed)
-                        
                     if util_input_electricity > 0.0:
                         e_con = e_con
                         e_con_op = e_con_op
@@ -1008,7 +970,6 @@ def MakeESDL(RegioNaam, StrategieNaam):
             es.instance[0].area.area.append(area)
 
         # totaal_naturalgas bevat hier de som van alle buurten (util + woningen)
-        
         if totaal_naturalgas > 0:
             ngp = GenericProducer(id=str(uuid.uuid4()),name='Natural Gas Producer')
             ngp_op = OutPort(id=str(uuid.uuid4()),connectedTo = [g_network_ip])
@@ -1048,7 +1009,7 @@ def main():
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
     # Strategien= ["S3b_B_LT30_70"]
-    Strategien= ["StartJaar","S0_Referentie"]
+    Strategien= ["StartJaar","S0_Referentie", "S3b_B_LT30_70"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
     # Strategien= ["S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
