@@ -64,6 +64,19 @@ scenario_elementenlijst = {
 }
 
 
+def str2float(string):
+    """
+    Try to convert a string to a float. For all invalid strings, 0.0 is returned
+
+    :param string: the string that contains the number to be converted
+    :return: float that represents the number in the string, 0.0 if any invalid string was given
+    """
+    try:
+        return float(string)
+    except:
+        return 0.0
+
+
 def MakeESDL(RegioNaam, StrategieNaam):
     # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
     rset = ResourceSet()
@@ -149,7 +162,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     # P_ow_max = DoubleKPI(id=str(uuid.uuid4()),name='P_ow_max',value=float(row[column_names.index('p_ow_max')]))
                     Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
                     Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
-                    K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=float(row[column_names.index('k_gj')]))
+                    K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')]))
     
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
@@ -188,7 +201,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     # P_ow_max = DoubleKPI(id=str(uuid.uuid4()),name='P_ow_max',value=float(row[column_names.index('p_ow_max')]))
                     Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
                     Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
-                    K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=float(row[column_names.index('k_gj')]))
+                    K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')]))
     
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
@@ -987,6 +1000,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
 def remove_unused_building_connections(es):
     area = es.instance[0].area  # hoofdarea in de ESDL
 
+    remove_connection_cnt = 0
     for ar in area.area:   # doorloop alle sub-areas
         for asset in ar.asset:  # doorloop alle assets in de sub-area
             if isinstance(asset, esdl.AbstractBuilding):    # als het een gebouw is...
@@ -995,10 +1009,11 @@ def remove_unused_building_connections(es):
                         for port in bld_asset.port:     # bekijk de poorten van deze connection
                             if isinstance(port, esdl.OutPort):  # als hij van het type OutPort is...
                                 if len(port.connectedTo) == 0:  # en niet aangesloten...
-                                    print("Removed asset with name {} (type: {}) from building with name {} in area {}"
-                                          .format(bld_asset.name, type(bld_asset).__name__, asset.name, ar.id))
+                                    remove_connection_cnt += 1
+                                    # print("Removed asset with name {} (type: {}) from building with name {} in area {}"
+                                    #       .format(bld_asset.name, type(bld_asset).__name__, asset.name, ar.id))
                                     asset.asset.remove(bld_asset)   # verwijder de connectie dan uit het gebouw
-
+    print("Number of unused connections removed: {}".format(remove_connection_cnt))
 
 def main():
     
@@ -1025,7 +1040,6 @@ def main():
             StrategieNaam= i
             RegioNaam= j
             MakeESDL(RegioNaam, StrategieNaam)
-            print(" ")
             print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
             print(" ")
 
