@@ -142,7 +142,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
                     label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
                     # categorie_rel = DoubleKPI(id=str(uuid.uuid4()),name='categorie_rel',value=float(row[column_names.index('categorie_rel')]))
-                    mwth_max = DoubleKPI(id=str(uuid.uuid4()),name='mwth_max',value=mwth_max)
+                    # mwth_max = DoubleKPI(id=str(uuid.uuid4()),name='mwth_max',value=mwth_max)
                     bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')]))
                     bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')]))
                     T_bron = DoubleKPI(id=str(uuid.uuid4()),name='T_bron',value=float(row[column_names.index('t_bron')]))
@@ -155,7 +155,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     kpis.kpi.append(capaciteit_benuttingsfactor)
                     kpis.kpi.append(label)
                     # kpis.kpi.append(categorie_rel)
-                    kpis.kpi.append(mwth_max)
+                    # kpis.kpi.append(mwth_max)
                     kpis.kpi.append(bron_vol)
                     kpis.kpi.append(bron_cap)
                     kpis.kpi.append(T_bron)
@@ -967,10 +967,9 @@ def MakeESDL(RegioNaam, StrategieNaam):
             ggp_energie = esdl.SingleValue(id=str(uuid.uuid4()),value = totaal_greengas)
             ggp_op.profile.append(ggp_energie)
             es.instance[0].area.asset.append(ggp)
-
-        # remove unused assets
-        # if (h_lt_network_op.connectedTo.aantal== 0):
-        #     h_lt_network.delete()
+            
+            ##CARIER toevoegen
+            
 
     remove_unused_building_connections(es)
 
@@ -1003,8 +1002,8 @@ def remove_unused_building_connections(es):
 
 def main():
     
-    RegioNamen= ["Hengelo"]
-    # RegioNamen= ["Havenstad"]
+    # RegioNamen= ["Hengelo"]
+    RegioNamen= ["Havenstad"]
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
     # Strategien= ["S3b_B_LT30_70"]
