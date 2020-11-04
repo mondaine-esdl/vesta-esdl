@@ -152,21 +152,17 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     lt_rhs_op.profile.append(lt_rhs_sv)
                     lt_rhs.port.append(lt_rhs_op)
                     
-                    capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
-                    label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
-                    # categorie_rel = DoubleKPI(id=str(uuid.uuid4()),name='categorie_rel',value=float(row[column_names.index('categorie_rel')]))
-                    # mwth_max = DoubleKPI(id=str(uuid.uuid4()),name='mwth_max',value=mwth_max)
-                    bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')]))
-                    bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')]))
+                    capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting) # Percentage van vermogen van de bron die benut wordt in strategie
+                    bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')])) # Fractie van het energieverbruik dat door bijstook geleverd wordt
+                    bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')])) # Fractie van de vermogenscapaciteit wat door bijstook kan worden gegenereerd (dus tijdens piekmomenten)
                     T_bron = DoubleKPI(id=str(uuid.uuid4()),name='T_bron',value=float(row[column_names.index('t_bron')]))
-                    # P_ow_max = DoubleKPI(id=str(uuid.uuid4()),name='P_ow_max',value=float(row[column_names.index('p_ow_max')]))
-                    Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
-                    Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
-                    K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')]))
+                    Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')])) # Ondergrens van de bandbreedte van de investeringkosten per kW van de beschikbaar te stellen vermogenscapaciteit
+                    Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')])) # Bovengrens van de bandbreedte van de investeringkosten per kW van de beschikbaar te stellen vermogenscapaciteit
+                    K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')])) # Kosten van verbruik
     
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
-                    kpis.kpi.append(label)
+                    # kpis.kpi.append(label)
                     # kpis.kpi.append(categorie_rel)
                     # kpis.kpi.append(mwth_max)
                     kpis.kpi.append(bron_vol)
@@ -190,7 +186,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     lt_rhsp.geometry = locatie
     
                     capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
-                    label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
+                    # label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
                     ingebruik = DoubleKPI(id=str(uuid.uuid4()),name='ingebruik',value=float(row[column_names.index('ingebruik')]))
                     uitgebruik = DoubleKPI(id=str(uuid.uuid4()),name='uitgebruik',value=float(row[column_names.index('uitgebruik')]))
                     # categorie_rel = DoubleKPI(id=str(uuid.uuid4()),name='categorie_rel',value=float(row[column_names.index('categorie_rel')]))
@@ -205,7 +201,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
     
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
-                    kpis.kpi.append(label)
+                    # kpis.kpi.append(label)
                     kpis.kpi.append(ingebruik)
                     kpis.kpi.append(uitgebruik)
                     # kpis.kpi.append(categorie_rel)
