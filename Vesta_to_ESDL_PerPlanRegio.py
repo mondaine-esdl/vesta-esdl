@@ -605,7 +605,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         eWP_lt_mt = HeatPump(id=str(uuid.uuid4()), name="eWP_lt_mt", aggregated = True)
                         eWP_lt_mt_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_lt_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        eWP_lt_mt_ip.connectedTo.append(h_lt_con_op)
+                        if woning_input_LT > 0.0:
+                            eWP_lt_mt_ip.connectedTo.append(h_lt_con_op)
                         eWP_lt_mt_ip.connectedTo.append(e_con_op)
                         eWP_lt_mt_op.connectedTo.append(hd_rv_ip)
                         eWP_lt_mt.port.append(eWP_lt_mt_ip)
@@ -908,7 +909,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         eWP_lt_mt = HeatPump(id=str(uuid.uuid4()), name="eWP_lt_mt", aggregated = True)
                         eWP_lt_mt_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_lt_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        eWP_lt_mt_ip.connectedTo.append(h_lt_con_op)
+                        if util_input_LT > 0.0:
+                            eWP_lt_mt_ip.connectedTo.append(h_lt_con_op)
                         eWP_lt_mt_ip.connectedTo.append(e_con_op)
                         eWP_lt_mt_op.connectedTo.append(hd_rv_ip)
                         eWP_lt_mt.port.append(eWP_lt_mt_ip)
@@ -1023,12 +1025,12 @@ def main():
     RegioNamen= ["Havenstad"]
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
-    Strategien= ["S0_Referentie"]
+    # Strategien= ["S0_Referentie"]
     # Strategien= ["StartJaar", "S2a_B_Restwarmte", "S3b_B_LT30_70"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
     # Strategien= ["S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
-    # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
+    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
 
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    

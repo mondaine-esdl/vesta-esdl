@@ -1,4 +1,4 @@
-bron_naam;Label;x_coord;y_coord;ingebruik;uitgebruik;MWth_max;bron_vol;bron_cap;T_bron;Ki_kW_min;Ki_kW_max;K_GJ;capaciteit_benuttingsfactor;SourceType
+bron_naam;bron_id;x_coord;y_coord;ingebruik;uitgebruik;MWth_max;bron_vol;bron_cap;T_bron;Ki_kW_min;Ki_kW_max;K_GJ;capaciteit_benuttingsfactor;SourceType
 Newasco Van Houten B V   HEEMSTEDE;21;4.62949;52.3463;1999;1999;2;0.7;0.3;30;50;250;0;0.412665269;LT
 Lamme Textielbeheer BV  NEDERHORST DEN BERG;41;5.04662;52.2731;1999;1999;2;0.7;0.3;30;50;250;0;0.0268364211;LT
 Martinez Chocolade BV;151;4.83918;52.2807;1999;1999;24;0.7;0.3;30;50;250;0;0.0369613947;LT

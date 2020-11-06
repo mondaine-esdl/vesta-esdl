@@ -1,4 +1,4 @@
-bron_naam;Label;x_coord;y_coord;ingebruik;uitgebruik;MWth_max;bron_vol;bron_cap;T_bron;Ki_kW_min;Ki_kW_max;K_GJ;capaciteit_benuttingsfactor;SourceType
+bron_naam;bron_id;x_coord;y_coord;ingebruik;uitgebruik;MWth_max;bron_vol;bron_cap;T_bron;Ki_kW_min;Ki_kW_max;K_GJ;capaciteit_benuttingsfactor;SourceType
 Vliegveld Hilversum;269;5.14957;52.1886;1999;2100;3;0.8;0.3;70;225;275;0.000142361111;0.969745658;HT
 Quaker Chemical BV;482;4.83235;52.2379;1999;2100;3;0.8;0.3;70;225;275;0.000142361111;0.947944158;HT
 Koppers Netherlands BV;481;4.84405;52.2389;1999;2100;3;0.8;0.3;70;225;275;0.000142361111;0.983422895;HT
