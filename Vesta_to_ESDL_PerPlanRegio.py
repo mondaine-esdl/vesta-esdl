@@ -25,7 +25,7 @@ def attr_to_dict(eobj):
     return d
 
 
-woning_keuzes = ['woning_a01_aansl_aardgas', 'woning_a02_aansl_ewp', 'woning_a03_aansl_mt', 'woning_a04_aansl_lt', 'woning_a05_aansl_hwp_hg', 'woning_a06_aansl_hr_hg', 'woning_a10_aansl_lt_wko', 'woning_a11_aansl_lt_lt15_30', 'woning_a12_aansl_lt_lt15_50', 'woning_a13_aansl_lt_lt15_70', 'woning_a14_aansl_lt_lt30_30', 'woning_a15_aansl_lt_lt30_50', 'woning_a16_aansl_lt_lt30_70', 'woning_a17_aansl_lt_teo', 'woning_a18_aansl_lt_buurtwko', 'woning_a19_aansl_mt_restwarmte', 'woning_a20_aansl_mt_geothermie','woning_a21_aansl_mt_wijkwkk','woning_a22_aansl_mt_biowkk','woning_a23_aansl_h2']
+woning_keuzes = ['woning_a01_aansl_aardgas', 'woning_a02_aansl_ewp', 'woning_a05_aansl_hwp_hg', 'woning_a06_aansl_hr_hg', 'woning_a10_aansl_lt_wko', 'woning_a11_aansl_lt_lt15_30', 'woning_a12_aansl_lt_lt15_50', 'woning_a13_aansl_lt_lt15_70', 'woning_a14_aansl_lt_lt30_30', 'woning_a15_aansl_lt_lt30_50', 'woning_a16_aansl_lt_lt30_70', 'woning_a17_aansl_lt_teo', 'woning_a18_aansl_lt_buurtwko', 'woning_a19_aansl_mt_restwarmte', 'woning_a20_aansl_mt_geothermie','woning_a21_aansl_mt_wijkwkk','woning_a22_aansl_mt_biowkk','woning_a23_aansl_h2']
 util_keuzes   = ['util_a01_aansl_aardgas'  , 'util_a02_aansl_ewp'  , 'util_a03_aansl_mt', 'util_a04_aansl_lt', 'util_a05_aansl_hwp_hg', 'util_a06_aansl_hr_hg', 'util_a10_aansl_lt_wko', 'util_a11_aansl_lt_lt15_30', 'util_a12_aansl_lt_lt15_50', 'util_a13_aansl_lt_lt15_70', 'util_a14_aansl_lt_lt30_30', 'util_a15_aansl_lt_lt30_50', 'util_a16_aansl_lt_lt30_70', 'util_a17_aansl_lt_teo', 'util_a18_aansl_lt_buurtwko', 'util_a19_aansl_mt_restwarmte', 'util_a20_aansl_mt_geothermie','util_a21_aansl_mt_wijkwkk','util_a22_aansl_mt_biowkk','util_a23_aansl_h2']
 
 #                                      bron1,           ,bron2            ,coll conv          , indiv conv    ,gastype      ,indiv conn    
@@ -228,7 +228,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
         reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
-        # print(column_names)
+        print(column_names)
 
 # =============================================================================
 # ------------------------------NETWORK----------------------------------------          
