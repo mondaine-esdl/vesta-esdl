@@ -43,8 +43,8 @@ scenario_elementenlijst = {
     ,"S2e_D_Geo_contour"            : ["h_geo_mt"       ,""               ,"coll_g_heater"    ,""             ,"groengas"   ,"mt"] ##MTGeothermie(70) + collHWK(70) + GG voor piek 
     ,"S2f_D_Geo_overal"             : ["h_geo_mt"       ,""               ,"coll_g_heater"    ,""             ,"groengas"   ,"mt"] ##MTGeothermie(70) + collHWK(70) + GG voor piek 
     
-    ,"S3a_B_LT30_30"                : ["h_rest_lt"      ,"h_air_15"       ,""                 ,"eWP_lucht"    ,""           ,"lt"] ##LTRestwarmte(30) + lucht + indiv. combiwartmepomp 
-    ,"S3b_B_LT30_70"                : ["h_rest_lt"      ,"h_air_15"       ,"coll_eWP_lt_mt"   ,""             ,""           ,"mt"] ##LTRestwarmte(30) + lucht + collWP(70) 
+    ,"S3a_B_LT30_30"                : ["h_rest_lt"      ,"h_air_15"       ,""                 ,"eWP_lucht"    ,""           ,"lt"] ##LTRestwarmte(30) + lucht + indiv. combiwartmepomp      
+    ,"S3b_B_LT30_70"                : ["h_rest_lt"      ,"h_air_15"       ,"coll_eWP_lt_mt"   ,""             ,""           ,"mt"] ##LTRestwarmte(30) + lucht + collWP(70)                  ##ipv WKK, coll WP, 
     ,"S3c_B_BuurtWKO"               : ["h_wko_15"       ,"h_air_15"       ,"coll_eWP_lt_mt"   ,""             ,""           ,"mt"] ##WKO(15) + lucht + collWP(70) 
     ,"S3d_B_WKO"                    : ["h_wko_15"       ,"h_air_15"       ,"coll_eWP_lt_mt"   ,"eWP_mt_mt"    ,""           ,"lt"] ##WKO(15) + lucht + collWP(50) + indiv.boosterWP
     ,"S3e_B_TEO"                    : ["h_wko_15"       ,"h_surfwater_15" ,"coll_eWP_lt_mt"   ,"h_air_15"     ,""           ,"mt"] ##WKO(15) + lucht + TEO + collWP(70)
@@ -52,15 +52,15 @@ scenario_elementenlijst = {
     ,"S3g_D_BuurtWKO"               : ["h_wko_15"       ,"h_air_15"       ,"coll_eWP_lt_mt"   ,""             ,""           ,"mt"] ##WKO(15) + lucht + collWP(70)
     ,"S3h_D_TEO"                    : ["h_wko_15"       ,"h_surfwater_15" ,"coll_eWP_lt_mt"   ,"h_air_15"     ,""           ,"mt"] ##WKO(15) + lucht + TEO + collWP(70)
 
-    ,"S4a_GG_B_hWP"                 : [""               ,""               ,""                 ,"eWP_lucht"    ,"groengas"   ,"g"] ##hybride lucht WP + GG + elek
+    ,"S4a_GG_B_hWP"                 : [""               ,"h_air_15"       ,""                 ,"eWP_lucht"    ,"groengas"   ,"g"] ##hybride lucht WP + GG + elek
     ,"S4b_GG_B_HR"                  : [""               ,""               ,""                 ,"g_heater"     ,"groengas"   ,"g"] ##HR-combiketel + GG
-    ,"S4c_GG_D_hWP"                 : [""               ,""               ,""                 ,"eWP_lucht"    ,"groengas"   ,"g"] ##hybride lucht WP + GG + elek
+    ,"S4c_GG_D_hWP"                 : [""               ,"h_air_15"       ,""                 ,"eWP_lucht"    ,"groengas"   ,"g"] ##hybride lucht WP + GG + elek
     ,"S4d_GG_D_HR"                  : [""               ,""               ,""                 ,"g_heater"     ,"groengas"   ,"g"] ##HR-combiketel + GG 
 
-    ,"S5a_H2_B_hWP"                 : [""               ,""               ,""                 ,"eWP_lucht"    ,"waterstof"  ,"g"] ##hybride lucht WP + H2 + elek
-    ,"S5b_H2_B_HR"                  : [""               ,""               ,""                 ,"g_heater"     ,"waterstof"  ,"g"] ##HR-combiketel + H2
-    ,"S5c_H2_D_hWP"                 : [""               ,""               ,""                 ,"eWP_lucht"    ,"waterstof"  ,"g"] ##hybride lucht WP + H2 + elek
-    ,"S5d_H2_D_HR"                  : [""               ,""               ,""                 ,"g_heater"     ,"waterstof"  ,"g"] ##HR-combiketel + H2
+    ,"S5a_H2_B_hWP"                 : [""               ,"h_air_15"       ,""                 ,"eWP_lucht"    ,"waterstof"  ,"h2"] ##hybride lucht WP + H2 + elek
+    ,"S5b_H2_B_HR"                  : [""               ,""               ,""                 ,"g_heater"     ,"waterstof"  ,"h2"] ##HR-combiketel + H2
+    ,"S5c_H2_D_hWP"                 : [""               ,"h_air_15"       ,""                 ,"eWP_lucht"    ,"waterstof"  ,"h2"] ##hybride lucht WP + H2 + elek
+    ,"S5d_H2_D_HR"                  : [""               ,""               ,""                 ,"g_heater"     ,"waterstof"  ,"h2"] ##HR-combiketel + H2
 }
 
 
@@ -228,7 +228,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
         reader = csv.reader(csvfile, delimiter=';')
         
         column_names = next(reader)
-        print(column_names)
+        # print(column_names)
 
 # =============================================================================
 # ------------------------------NETWORK----------------------------------------          
@@ -313,6 +313,13 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 h_air_15_op.connectedTo.append(h_lt_network_ip)
                 h_air_15.port.append(h_air_15_op)
                 area.asset.append(h_air_15)
+                
+            if "h_soil_15" in scenario_elementenlijst[StrategieNaam]: 
+                h_soil_15 = ResidualHeatSource(id=str(uuid.uuid4()), name="h_air_15", aggregated = True, prodType=RenewableTypeEnum.RENEWABLE)
+                h_soil_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                h_soil_15_op.connectedTo.append(h_lt_network_ip)
+                h_soil_15.port.append(h_soil_15_op)
+                area.asset.append(h_soil_15)
                 
             if "h_geo_mt" in scenario_elementenlijst[StrategieNaam]: 
                 h_geo_mt = GeothermalSource(id=str(uuid.uuid4()), name="h_geo_mt", aggregated = True, geothermalSourceType=GeothermalSourceTypeEnum.HEAT, prodType=RenewableTypeEnum.RENEWABLE)
@@ -418,7 +425,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     # ------------------------------CONNECTORS-------------------------------------          
                     # =============================================================================
                         
-                    if "g" in scenario_elementenlijst[StrategieNaam]: 
+                    if "g" in scenario_elementenlijst[StrategieNaam] or : 
                         g_con = GConnection(id=str(uuid.uuid4()), name="Gas_connector", aggregated = True)
                         g_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         g_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -429,6 +436,15 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         g_con.port.append(g_con_ip)
                         g_con.port.append(g_con_op)
                         buildings.asset.append(g_con)
+                    
+                    if "h2" in scenario_elementenlijst[StrategieNaam]: 
+                        h2_con = GConnection(id=str(uuid.uuid4()), name="H2 connector", aggregated = True)
+                        h2_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
+                        h2_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
+                        h2_con_ip.connectedTo.append(g_network_op)
+                        h2_con.port.append(h2_con_ip)
+                        h2_con.port.append(h2_con_op)
+                        buildings.asset.append(h2_con)
                         
                     e_con = EConnection(id=str(uuid.uuid4()), name="Elektricity_connector", aggregated = True)
                     e_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
@@ -561,7 +577,10 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater", aggregated = True)
                         g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        g_heater_ip.connectedTo.append(g_con_op)
+                        if "g" in scenario_elementenlijst[StrategieNaam]: 
+                            g_heater_ip.connectedTo.append(g_con_op)
+                        if "h2" in scenario_elementenlijst[StrategieNaam]: 
+                            g_heater_ip.connectedTo.append(h2_con_op)
                         g_heater_op.connectedTo.append(hd_rv_ip)
                         g_heater_op.connectedTo.append(hd_tw_ip)
                         g_heater.port.append(g_heater_ip)
@@ -573,7 +592,9 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         eWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_lucht_ip.connectedTo.append(e_con_op)
+                        eWP_lucht_ip.connectedTo.append(h_air_15_op)
                         eWP_lucht_op.connectedTo.append(hd_rv_ip)
+                        eWP_lucht_op.connectedTo.append(hd_tw_ip)
                         eWP_lucht.port.append(eWP_lucht_ip)
                         eWP_lucht.port.append(eWP_lucht_op)
                         buildings.asset.append(eWP_lucht)
@@ -583,7 +604,9 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         eWP_bodem_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_bodem_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_bodem_ip.connectedTo.append(e_con_op)
+                        eWP_bodem_ip.connectedTo.append(e_con_op)
                         eWP_bodem_op.connectedTo.append(hd_rv_ip)
+                        eWP_bodem_op.connectedTo.append(hd_tw_ip)
                         eWP_bodem.port.append(eWP_bodem_ip)
                         eWP_bodem.port.append(eWP_bodem_op)
                         buildings.asset.append(eWP_bodem)
@@ -593,33 +616,12 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         eWP_mt_mt_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_mt_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_mt_mt_ip.connectedTo.append(h_mt_con_op)
-                        eWP_mt_mt_ip.connectedTo.append(e_con_op)
+                        eWP_mt_mt_ip.connectedTo.append(h_soil_15_op)
                         eWP_mt_mt_op.connectedTo.append(hd_rv_ip)
+                        eWP_mt_mt_op.connectedTo.append(hd_tw_ip)
                         eWP_mt_mt.port.append(eWP_mt_mt_ip)
                         eWP_mt_mt.port.append(eWP_mt_mt_op)
                         buildings.asset.append(eWP_mt_mt)
-                        
-                    if "hWP_gas" in scenario_elementenlijst[StrategieNaam]: 
-                        hWP_gas = HeatPump(id=str(uuid.uuid4()), name="hWP_gas", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType = AdditionalHeatingSourceTypeEnum.GAS)
-                        hWP_gas_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                        hWP_gas_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        hWP_gas_ip.connectedTo.append(e_con_op)
-                        hWP_gas_ip.connectedTo.append(g_con_op)
-                        hWP_gas_op.connectedTo.append(hd_rv_ip)
-                        hWP_gas.port.append(hWP_gas_ip)
-                        hWP_gas.port.append(hWP_gas_op)
-                        buildings.asset.append(hWP_gas)
-                        
-                    if "hWP_h2" in scenario_elementenlijst[StrategieNaam]: 
-                        hWP_h2 = HeatPump(id=str(uuid.uuid4()), name="hWP_h2", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType = AdditionalHeatingSourceTypeEnum.GAS)
-                        hWP_h2_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                        hWP_h2_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        hWP_h2_ip.connectedTo.append(e_con_op)
-                        hWP_h2_ip.connectedTo.append(g_con_op)
-                        hWP_h2_op.connectedTo.append(hd_rv_ip)
-                        hWP_h2.port.append(hWP_h2_ip)
-                        hWP_h2.port.append(hWP_h2_op)
-                        buildings.asset.append(hWP_h2)
                         
                     if "h_wko_15" not in scenario_elementenlijst[StrategieNaam] and cd_value > 0.0: 
                         eAirco = Airco(id=str(uuid.uuid4()), name="eAirco", aggregated = True)
@@ -844,7 +846,10 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater", aggregated = True)
                         g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        g_heater_ip.connectedTo.append(g_con_op)
+                        if "g" in scenario_elementenlijst[StrategieNaam]: 
+                            g_heater_ip.connectedTo.append(g_con_op)
+                        if "h2" in scenario_elementenlijst[StrategieNaam]: 
+                            g_heater_ip.connectedTo.append(h2_con_op)
                         g_heater_op.connectedTo.append(hd_rv_ip)
                         g_heater_op.connectedTo.append(hd_tw_ip)
                         g_heater.port.append(g_heater_ip)
@@ -852,57 +857,40 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         buildings.asset.append(g_heater)
                         
                     if "eWP_lucht" in scenario_elementenlijst[StrategieNaam]: 
-                        eWP_lucht = HeatPump(id=str(uuid.uuid4()), name="eWP_lucht", aggregated = True, source=SourceTypeEnum.AIR)
+                        eWP_lucht = HeatPump(id=str(uuid.uuid4()), name="eWP_lucht", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.ELECTRIC)
                         eWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_lucht_ip.connectedTo.append(e_con_op)
+                        eWP_lucht_ip.connectedTo.append(h_air_15_op)
                         eWP_lucht_op.connectedTo.append(hd_rv_ip)
+                        eWP_lucht_op.connectedTo.append(hd_tw_ip)
                         eWP_lucht.port.append(eWP_lucht_ip)
                         eWP_lucht.port.append(eWP_lucht_op)
                         buildings.asset.append(eWP_lucht)
                         
                     if "eWP_bodem" in scenario_elementenlijst[StrategieNaam]: 
-                        eWP_bodem = HeatPump(id=str(uuid.uuid4()), name="eWP_bodem", aggregated = True, source=SourceTypeEnum.SUB_SURFACE)
+                        eWP_bodem = HeatPump(id=str(uuid.uuid4()), name="eWP_bodem", aggregated = True, source=SourceTypeEnum.SUB_SURFACE, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.ELECTRIC)
                         eWP_bodem_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_bodem_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_bodem_ip.connectedTo.append(e_con_op)
+                        eWP_bodem_ip.connectedTo.append(e_con_op)
                         eWP_bodem_op.connectedTo.append(hd_rv_ip)
+                        eWP_bodem_op.connectedTo.append(hd_tw_ip)
                         eWP_bodem.port.append(eWP_bodem_ip)
                         eWP_bodem.port.append(eWP_bodem_op)
                         buildings.asset.append(eWP_bodem)
                         
                     if "eWP_mt_mt" in scenario_elementenlijst[StrategieNaam]: 
-                        eWP_mt_mt = HeatPump(id=str(uuid.uuid4()), name="eWP_mt_mt", aggregated = True)
+                        eWP_mt_mt = HeatPump(id=str(uuid.uuid4()), name="eWP_mt_mt", aggregated = True, source=SourceTypeEnum.HEAT_NETWORK)
                         eWP_mt_mt_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         eWP_mt_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                         eWP_mt_mt_ip.connectedTo.append(h_mt_con_op)
-                        eWP_mt_mt_ip.connectedTo.append(e_con_op)
+                        eWP_mt_mt_ip.connectedTo.append(h_soil_15_op)
                         eWP_mt_mt_op.connectedTo.append(hd_rv_ip)
+                        eWP_mt_mt_op.connectedTo.append(hd_tw_ip)
                         eWP_mt_mt.port.append(eWP_mt_mt_ip)
                         eWP_mt_mt.port.append(eWP_mt_mt_op)
                         buildings.asset.append(eWP_mt_mt)
-                        
-                    if "hWP_gas" in scenario_elementenlijst[StrategieNaam]: 
-                        hWP_gas = HeatPump(id=str(uuid.uuid4()), name="hWP_gas", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType = AdditionalHeatingSourceTypeEnum.GAS)
-                        hWP_gas_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                        hWP_gas_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        hWP_gas_ip.connectedTo.append(e_con_op)
-                        hWP_gas_ip.connectedTo.append(g_con_op)
-                        hWP_gas_op.connectedTo.append(hd_rv_ip)
-                        hWP_gas.port.append(hWP_gas_ip)
-                        hWP_gas.port.append(hWP_gas_op)
-                        buildings.asset.append(hWP_gas)
-                        
-                    if "hWP_h2" in scenario_elementenlijst[StrategieNaam]: 
-                        hWP_h2 = HeatPump(id=str(uuid.uuid4()), name="hWP_h2", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType = AdditionalHeatingSourceTypeEnum.GAS)
-                        hWP_h2_ip = InPort(id=str(uuid.uuid4()), name="InPort")
-                        hWP_h2_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
-                        hWP_h2_ip.connectedTo.append(e_con_op)
-                        hWP_h2_ip.connectedTo.append(g_con_op)
-                        hWP_h2_op.connectedTo.append(hd_rv_ip)
-                        hWP_h2.port.append(hWP_h2_ip)
-                        hWP_h2.port.append(hWP_h2_op)
-                        buildings.asset.append(hWP_h2)
                         
                     if "h_wko_15" in scenario_elementenlijst[StrategieNaam] and cd_value > 0.0: 
                         eAirco = Airco(id=str(uuid.uuid4()), name="eAirco", aggregated = True)
