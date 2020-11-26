@@ -4,13 +4,13 @@
 <DefaultInfo>
 	<FullName>/LeidraadResultaten/Exports/ESDL/Bronnen/BronnenExportSettings/export_PerRekenstap/result
 	</FullName>
-	<GeoDmsVersion>GeoDms 7.233 [Release] [x64] [Oct 19 2020] [Complete Edition]
+	<GeoDmsVersion>GeoDms 7.238 [Release] [x64] [Nov 17 2020] [Complete Edition]
 	</GeoDmsVersion>
-	<StatusFlags>0x45ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	<StatusFlags>0x53f = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible MultiThreading1 MultiThreading2 
 	</StatusFlags>
 </DefaultInfo>
 <Software>
-	<GeoDmsVersion>7.233
+	<GeoDmsVersion>7.238
 	</GeoDmsVersion>
 </Software>
 <Config>
@@ -36,6 +36,7 @@
 		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
 			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
+			modified:   Runs/path/set.bat<BR/>
 		<BR/>
 		no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<BR/>
 		
