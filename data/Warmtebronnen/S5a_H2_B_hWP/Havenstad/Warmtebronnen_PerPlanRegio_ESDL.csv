@@ -1,1 +1,1 @@
-bron_naam;Label;x_coord;y_coord;ingebruik;uitgebruik;MWth_max;bron_vol;bron_cap;T_bron;Ki_kW_min;Ki_kW_max;K_GJ;capaciteit_benuttingsfactor;SourceType
+bron_naam;bron_id;x_coord;y_coord;ingebruik;uitgebruik;MWth_max;bron_vol;bron_cap;T_bron;Ki_kW_min;Ki_kW_max;K_GJ;capaciteit_benuttingsfactor;SourceType
