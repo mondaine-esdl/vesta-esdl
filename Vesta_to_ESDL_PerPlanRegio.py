@@ -1,4 +1,6 @@
 from pyecore.resources import ResourceSet, URI
+
+from StringURI import StringURI
 from esdl.esdl import *
 import esdl
 from xmlresource import XMLResource
@@ -79,7 +81,7 @@ def str2float(string):
         return 0.0
 
 
-def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, store_in_mondaine_hub):
+def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, actions):
     # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
     rset = ResourceSet()
     # register the metamodel (available in the generated files)
@@ -1009,14 +1011,23 @@ def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, stor
 
     remove_unused_building_connections(es)
 
-    export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
+    if 'save_to_disk' in actions:
+        export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
+        resource = rset.create_resource(URI(export_name))
+        resource.append(es)
+        resource.save()
 
-    resource = rset.create_resource(URI(export_name))
-    resource.append(es)
-    resource.save()
-
-    if store_in_mondaine_hub:
+    if 'store_in_mondaine_hub' in actions:
         mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+str_date, resource)
+
+    if 'return_as_string' in actions:
+        # to use strings as resources, we simulate a string as being a URI
+        uri = StringURI('{}_{}'.format(StrategieNaam, RegioNaam) + '.esdl')
+        resource = rset.create_resource(uri)
+        resource.append(es)
+        resource.save(uri)
+        return uri.getvalue()
+
 
 
 def remove_unused_building_connections(es):
@@ -1064,7 +1075,7 @@ def main():
             warmtebronnen_csv = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
             vesta_output_csv = "data/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam)
 
-            MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, True)
+            MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
             print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
             print(" ")
 
