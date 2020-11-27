@@ -5,6 +5,7 @@ from xmlresource import XMLResource
 import datetime
 import uuid
 import csv
+import os
 # import pandas
 
 from MondaineHub import MondaineHub
@@ -77,7 +78,7 @@ def str2float(string):
         return 0.0
 
 
-def MakeESDL(RegioNaam, StrategieNaam):
+def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, store_in_mondaine_hub):
     # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
     rset = ResourceSet()
     # register the metamodel (available in the generated files)
@@ -115,18 +116,18 @@ def MakeESDL(RegioNaam, StrategieNaam):
 # =============================================================================
 # ------------------------------WARMTEBRONNEN----------------------------------          
 # =============================================================================
+    if not os.path.exists(warmtebronnen_csv):
+        print("========= WARNING: {} does not exist! Skipping...".format(warmtebronnen_csv))
+    else:
+        with open(warmtebronnen_csv, newline='') as csvfile:
+            csvfile = (line.lower() for line in csvfile)
+            reader = csv.reader(csvfile, delimiter=';')
 
-    filename_warmtebronnen = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
-   
-    with open(filename_warmtebronnen, newline='') as csvfile:
-        csvfile = (line.lower() for line in csvfile)
-        reader = csv.reader(csvfile, delimiter=';')
-        
-        column_names = next(reader)
-        # print(column_names)
+            column_names = next(reader)
+            # print(column_names)
 
-        for row in reader:
-            # if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
+            for row in reader:
+                # if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:
                 bron_naam = row[column_names.index('bron_naam')]
                 x = float(row[column_names.index('x_coord')])
                 y = float(row[column_names.index('y_coord')])
@@ -136,14 +137,14 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 locatie = esdl.Point(lat=y, lon=x, CRS="WGS84")
                 ingebruik = EDate.from_string(row[column_names.index('ingebruik')]+'-01-01')    # Assume 1st of January
                 uitgebruik = EDate.from_string(row[column_names.index('uitgebruik')]+'-01-01')  # Assume 1st of January
-                
-                if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
+
+                if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:
                     lt_rhs = esdl.ResidualHeatSource(
                         id=str(uuid.uuid4()),
                         name=bron_naam,
                         power=mwth_max,
                         commissioningDate=ingebruik,
-                        decommissioningDate=uitgebruik    
+                        decommissioningDate=uitgebruik
                     )
                     lt_rhs.geometry = locatie
                     lt_rhs_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -151,7 +152,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     lt_rhs_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_MJ_yr)
                     lt_rhs_op.profile.append(lt_rhs_sv)
                     lt_rhs.port.append(lt_rhs_op)
-                    
+
                     capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting) # Percentage van vermogen van de bron die benut wordt in strategie
                     bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')])) # Fractie van het energieverbruik dat door bijstook geleverd wordt
                     bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')])) # Fractie van de vermogenscapaciteit wat door bijstook kan worden gegenereerd (dus tijdens piekmomenten)
@@ -159,7 +160,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')])) # Ondergrens van de bandbreedte van de investeringkosten per kW van de beschikbaar te stellen vermogenscapaciteit
                     Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')])) # Bovengrens van de bandbreedte van de investeringkosten per kW van de beschikbaar te stellen vermogenscapaciteit
                     K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')])) # Kosten van verbruik
-    
+
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
                     # kpis.kpi.append(label)
@@ -174,17 +175,17 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     kpis.kpi.append(K_GJ)
 
                     # asset.costinformation.append(costinfo)
-                
+
                     lt_rhs.KPIs = kpis
                     instance.area.asset.append(lt_rhs)
-                
-                if float(row[column_names.index('capaciteit_benuttingsfactor')]) == 0:  
+
+                if float(row[column_names.index('capaciteit_benuttingsfactor')]) == 0:
                     lt_rhsp = esdl.ResidualHeatSourcePotential(
                         id=str(uuid.uuid4()),
                         name=bron_naam
                     )
                     lt_rhsp.geometry = locatie
-    
+
                     capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
                     # label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
                     ingebruik = DoubleKPI(id=str(uuid.uuid4()),name='ingebruik',value=float(row[column_names.index('ingebruik')]))
@@ -198,7 +199,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
                     Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
                     K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')]))
-    
+
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
                     # kpis.kpi.append(label)
@@ -213,17 +214,18 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     kpis.kpi.append(Ki_kW_min)
                     kpis.kpi.append(Ki_kW_max)
                     kpis.kpi.append(K_GJ)
-                
+
                     lt_rhsp.KPIs = kpis
                     instance.area.potential.append(lt_rhsp)
 
 # =============================================================================
 # ------------------------------ENGERGYSYSTEM----------------------------------          
 # =============================================================================
-    
-    filename = "data/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam,StrategieNaam)
+    if not os.path.exists(vesta_output_csv):
+        print("========= ERROR: {} does not exist! Skipping....".format(vesta_output_csv))
+        return
 
-    with open(filename, newline='') as csvfile:
+    with open(vesta_output_csv, newline='') as csvfile:
         csvfile = (line.lower() for line in csvfile)
         reader = csv.reader(csvfile, delimiter=';')
         
@@ -988,9 +990,8 @@ def MakeESDL(RegioNaam, StrategieNaam):
     resource.append(es)
     resource.save()
 
-    mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+str_date, resource)
-    
-    return (RegioNaam, StrategieNaam)
+    if store_in_mondaine_hub:
+        mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+str_date, resource)
 
 
 def remove_unused_building_connections(es):
@@ -1023,19 +1024,21 @@ def main():
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
     # Strategien= ["S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
-    # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
+    Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
 
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
 # "S2a_B_Restwarmte","S2b_B_Geo_contour","S2c_B_Geo_overal","S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal" 
 # "S3a_B_LT30_30"   ,"S3b_B_LT30_70"    ,"S3c_B_BuurtWKO"  ,"S3d_B_WKO"       ,"S3e_B_TEO"        ,"S3f_D_LT30_70"   ,"S3g_D_BuurtWKO", "S3h_D_TEO"
 # "S4a_GG_B_hWP"    ,"S4b_GG_B_HR"      ,"S4c_GG_D_hWP"    ,"S4d_GG_D_HR"
 # "S5a_H2_B_hWP"    ,"S5b_H2_B_HR"      ,"S5c_H2_D_hWP"    ,"S5d_H2_D_HR"
-    
-    for i in list(Strategien):
-        for j in list(RegioNamen):
-            StrategieNaam= i
-            RegioNaam= j
-            MakeESDL(RegioNaam, StrategieNaam)
+
+    for StrategieNaam in Strategien:
+        for RegioNaam in RegioNamen:
+
+            warmtebronnen_csv = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
+            vesta_output_csv = "data/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam)
+
+            MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, True)
             print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
             print(" ")
 
