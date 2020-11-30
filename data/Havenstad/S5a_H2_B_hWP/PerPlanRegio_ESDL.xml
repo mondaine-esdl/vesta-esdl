@@ -36,7 +36,7 @@
 		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
 			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
-			modified:   Runs/path/set.bat<BR/>
+			modified:   model/LeidraadResultaten.dms<BR/>
 		<BR/>
 		no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<BR/>
 		
