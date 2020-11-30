@@ -1,10 +1,13 @@
 from pyecore.resources import ResourceSet, URI
+
+from StringURI import StringURI
 from esdl.esdl import *
 import esdl
 from xmlresource import XMLResource
 import datetime
 import uuid
 import csv
+import os
 # import pandas
 
 from MondaineHub import MondaineHub
@@ -27,7 +30,7 @@ def attr_to_dict(eobj):
 woning_keuzes = ['woning_a04_aansl_hr', 'woning_a05_aansl_ewp_lucht', 'woning_a05_aansl_ewp_bodem', 'woning_a06_aansl_rest70_collggheater', 'woning_a07_aansl_geo70_collggheater', 'woning_a08_aansl_rest30_ewplucht', 'woning_a09_aansl_rest30_collewp70', 'woning_a10_aansl_wko15_collewp70', 'woning_a11_aansl_wko15_collewp50_bewp', 'woning_a12_aansl_wko15_teo15_collewp70', 'woning_a13_aansl_hwp', 'woning_a14_aansl_h2wp', 'woning_a15_aansl_h2r']
 util_keuzes   = ['util_a04_aansl_hr', 'util_a05_aansl_ewp_lucht', 'util_a05_aansl_ewp_bodem', 'util_a06_aansl_rest70_collggheater', 'util_a07_aansl_geo70_collggheater', 'util_a08_aansl_rest30_ewplucht', 'util_a09_aansl_rest30_collewp70', 'util_a10_aansl_wko15_collewp70', 'util_a11_aansl_wko15_collewp50_bewp', 'util_a12_aansl_wko15_teo15_collewp70', 'util_a13_aansl_hwp', 'util_a14_aansl_h2wp', 'util_a15_aansl_h2r']
 
-#                                      bron1,           ,bron2            ,coll conv          , indiv conv    ,gastype      ,indiv conn    
+#                                      bron1,           ,bron2            ,coll conv          , indiv conv    ,gastype      ,indiv conn
 scenario_elementenlijst = {
      "StartJaar"                    : [""               ,""               ,""                 ,"g_heater"     ,""           ,"g_con"] ## gas hr + evt restwarmte
     ,"S0_Referentie"                : [""               ,""               ,""                 ,"g_heater"     ,""           ,"g_con"] ## gas hr + evt restwarmte
@@ -78,7 +81,7 @@ def str2float(string):
         return 0.0
 
 
-def MakeESDL(RegioNaam, StrategieNaam):
+def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, actions):
     # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
     rset = ResourceSet()
     # register the metamodel (available in the generated files)
@@ -116,18 +119,18 @@ def MakeESDL(RegioNaam, StrategieNaam):
 # =============================================================================
 # ------------------------------WARMTEBRONNEN----------------------------------          
 # =============================================================================
+    if not os.path.exists(warmtebronnen_csv):
+        print("========= WARNING: {} does not exist! Skipping...".format(warmtebronnen_csv))
+    else:
+        with open(warmtebronnen_csv, newline='') as csvfile:
+            csvfile = (line.lower() for line in csvfile)
+            reader = csv.reader(csvfile, delimiter=';')
 
-    filename_warmtebronnen = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
-   
-    with open(filename_warmtebronnen, newline='') as csvfile:
-        csvfile = (line.lower() for line in csvfile)
-        reader = csv.reader(csvfile, delimiter=';')
-        
-        column_names = next(reader)
-        # print(column_names)
+            column_names = next(reader)
+            # print(column_names)
 
-        for row in reader:
-            # if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
+            for row in reader:
+                # if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:
                 bron_naam = row[column_names.index('bron_naam')]
                 x = float(row[column_names.index('x_coord')])
                 y = float(row[column_names.index('y_coord')])
@@ -137,14 +140,14 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 locatie = esdl.Point(lat=y, lon=x, CRS="WGS84")
                 ingebruik = EDate.from_string(row[column_names.index('ingebruik')]+'-01-01')    # Assume 1st of January
                 uitgebruik = EDate.from_string(row[column_names.index('uitgebruik')]+'-01-01')  # Assume 1st of January
-                
-                if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:  
+
+                if float(row[column_names.index('capaciteit_benuttingsfactor')]) > 0:
                     lt_rhs = esdl.ResidualHeatSource(
                         id=str(uuid.uuid4()),
                         name=bron_naam,
                         power=mwth_max,
                         commissioningDate=ingebruik,
-                        decommissioningDate=uitgebruik    
+                        decommissioningDate=uitgebruik
                     )
                     lt_rhs.geometry = locatie
                     lt_rhs_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -152,7 +155,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     lt_rhs_sv.profileQuantityAndUnit = QuantityAndUnitReference(reference=qau_energy_MJ_yr)
                     lt_rhs_op.profile.append(lt_rhs_sv)
                     lt_rhs.port.append(lt_rhs_op)
-                    
+
                     capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting) # Percentage van vermogen van de bron die benut wordt in strategie
                     bron_vol = DoubleKPI(id=str(uuid.uuid4()),name='bron_vol',value=float(row[column_names.index('bron_vol')])) # Fractie van het energieverbruik dat door bijstook geleverd wordt
                     bron_cap = DoubleKPI(id=str(uuid.uuid4()),name='bron_cap',value=float(row[column_names.index('bron_cap')])) # Fractie van de vermogenscapaciteit wat door bijstook kan worden gegenereerd (dus tijdens piekmomenten)
@@ -160,7 +163,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')])) # Ondergrens van de bandbreedte van de investeringkosten per kW van de beschikbaar te stellen vermogenscapaciteit
                     Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')])) # Bovengrens van de bandbreedte van de investeringkosten per kW van de beschikbaar te stellen vermogenscapaciteit
                     K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')])) # Kosten van verbruik
-    
+
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
                     # kpis.kpi.append(label)
@@ -175,17 +178,17 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     kpis.kpi.append(K_GJ)
 
                     # asset.costinformation.append(costinfo)
-                
+
                     lt_rhs.KPIs = kpis
                     instance.area.asset.append(lt_rhs)
-                
-                if float(row[column_names.index('capaciteit_benuttingsfactor')]) == 0:  
+
+                if float(row[column_names.index('capaciteit_benuttingsfactor')]) == 0:
                     lt_rhsp = esdl.ResidualHeatSourcePotential(
                         id=str(uuid.uuid4()),
                         name=bron_naam
                     )
                     lt_rhsp.geometry = locatie
-    
+
                     capaciteit_benuttingsfactor = DoubleKPI(id=str(uuid.uuid4()),name='benuttingsfactor',value=cap_benutting)
                     # label = StringKPI(id=str(uuid.uuid4()),name='label',value=row[column_names.index('label')])
                     ingebruik = DoubleKPI(id=str(uuid.uuid4()),name='ingebruik',value=float(row[column_names.index('ingebruik')]))
@@ -199,7 +202,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     Ki_kW_min = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_min',value=float(row[column_names.index('ki_kw_min')]))
                     Ki_kW_max = DoubleKPI(id=str(uuid.uuid4()),name='Ki_kW_max',value=float(row[column_names.index('ki_kw_max')]))
                     K_GJ = DoubleKPI(id=str(uuid.uuid4()),name='K_GJ',value=str2float(row[column_names.index('k_gj')]))
-    
+
                     kpis = KPIs(id=str(uuid.uuid4()))
                     kpis.kpi.append(capaciteit_benuttingsfactor)
                     # kpis.kpi.append(label)
@@ -214,17 +217,18 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     kpis.kpi.append(Ki_kW_min)
                     kpis.kpi.append(Ki_kW_max)
                     kpis.kpi.append(K_GJ)
-                
+
                     lt_rhsp.KPIs = kpis
                     instance.area.potential.append(lt_rhsp)
 
 # =============================================================================
 # ------------------------------ENGERGYSYSTEM----------------------------------          
 # =============================================================================
-    
-    filename = "data/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam,StrategieNaam)
+    if not os.path.exists(vesta_output_csv):
+        print("========= ERROR: {} does not exist! Skipping....".format(vesta_output_csv))
+        return
 
-    with open(filename, newline='') as csvfile:
+    with open(vesta_output_csv, newline='') as csvfile:
         csvfile = (line.lower() for line in csvfile)
         reader = csv.reader(csvfile, delimiter=';')
         
@@ -240,13 +244,13 @@ def MakeESDL(RegioNaam, StrategieNaam):
         g_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
         g_network.port.append(g_network_op)
         es.instance[0].area.asset.append(g_network)
-        
+
         h2_network = GasNetwork(id=str(uuid.uuid4()), name="Waterstof_network", aggregated = True)
         h2_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
         h2_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
         h2_network.port.append(h2_network_op)
         es.instance[0].area.asset.append(h2_network)
-                
+
         h_lt_network = HeatNetwork(id=str(uuid.uuid4()), name="Heating_LT_network", aggregated = True)
         h_lt_network_ip = InPort(id=str(uuid.uuid4()), name="InPort")
         h_lt_network_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -323,21 +327,21 @@ def MakeESDL(RegioNaam, StrategieNaam):
                 h_air_15.port.append(h_air_15_op)
                 area.asset.append(h_air_15)
                 
-            if "h_soil_15" in scenario_elementenlijst[StrategieNaam]: 
+            if "h_soil_15" in scenario_elementenlijst[StrategieNaam]:
                 h_soil_15 = ResidualHeatSource(id=str(uuid.uuid4()), name="h_air_15", aggregated = True, prodType=RenewableTypeEnum.RENEWABLE)
                 h_soil_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 h_soil_15_op.connectedTo.append(h_lt_network_ip)
                 h_soil_15.port.append(h_soil_15_op)
                 area.asset.append(h_soil_15)
                 
-            if "h_geo_mt" in scenario_elementenlijst[StrategieNaam]: 
+            if "h_geo_mt" in scenario_elementenlijst[StrategieNaam]:
                 h_geo_mt = GeothermalSource(id=str(uuid.uuid4()), name="h_geo_mt", aggregated = True, geothermalSourceType=GeothermalSourceTypeEnum.HEAT, prodType=RenewableTypeEnum.RENEWABLE)
                 h_geo_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 h_geo_mt_op.connectedTo.append(h_mt_network_ip)
                 h_geo_mt.port.append(h_geo_mt_op)
                 area.asset.append(h_geo_mt)
         
-            if "h_wko_15" in scenario_elementenlijst[StrategieNaam]: 
+            if "h_wko_15" in scenario_elementenlijst[StrategieNaam]:
                 h_wko_15 = ResidualHeatSource(id=str(uuid.uuid4()), name="h warmte koude overschot uit gebouwen 15", aggregated = True, prodType=RenewableTypeEnum.RENEWABLE, type=ResidualHeatSourceTypeEnum.OTHER)
                 h_wko_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                 h_wko_15_op.connectedTo.append(h_lt_network_ip)
@@ -429,13 +433,13 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     h2WP_lucht  = None
                     h2r = None
                     eAirco = None
-                    
+
 
                     Aansl_aardgas = float(row[column_names.index('woning_a01_aansl_aardgas')])
                     Aansl_groengas = float(row[column_names.index('woning_a02_aansl_groengas')])
                     Aansl_gas = Aansl_aardgas + Aansl_groengas
                     Aansl_waterstof = float(row[column_names.index('woning_a03_aansl_waterstof')])
-                    
+
                     HasAansl_HR = float(row[column_names.index('woning_a04_aansl_hr')]) > 0
                     HasAansl_eWP = float(row[column_names.index('woning_a08_aansl_rest30_ewplucht')]) > 0
                     HasAansl_hWP = float(row[column_names.index('woning_a13_aansl_hwp')]) > 0
@@ -478,7 +482,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         h2_con.port.append(h2_con_ip)
                         h2_con.port.append(h2_con_op)
                         buildings.asset.append(h2_con)
-                        
+
                     e_con = EConnection(id=str(uuid.uuid4()), name="Elektricity_connector", aggregated = True)
                     e_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                     e_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -683,7 +687,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         h2WP_lucht.port.append(h2WP_lucht_op)
                         buildings.asset.append(h2WP_lucht)
                         
-                    # if "h_wko_15" not in scenario_elementenlijst[StrategieNaam] and cd_value > 0.0: 
+                    # if "h_wko_15" not in scenario_elementenlijst[StrategieNaam] and cd_value > 0.0:
                     #     eAirco = Airco(id=str(uuid.uuid4()), name="eAirco", aggregated = True)
                     #     eAirco_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                     #     eAirco_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -761,7 +765,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                     Aansl_groengas = float(row[column_names.index('util_a02_aansl_groengas')])
                     Aansl_gas = Aansl_aardgas + Aansl_groengas
                     Aansl_waterstof = float(row[column_names.index('util_a03_aansl_waterstof')])
-                    
+
                     HasAansl_HR = float(row[column_names.index('util_a04_aansl_hr')]) > 0
                     HasAansl_eWP = float(row[column_names.index('util_a08_aansl_rest30_ewplucht')]) > 0
                     HasAansl_hWP = float(row[column_names.index('util_a13_aansl_hwp')]) > 0
@@ -806,7 +810,7 @@ def MakeESDL(RegioNaam, StrategieNaam):
                         h2_con.port.append(h2_con_ip)
                         h2_con.port.append(h2_con_op)
                         buildings.asset.append(h2_con)
-                        
+
                     e_con = EConnection(id=str(uuid.uuid4()), name="Elektricity_connector", aggregated = True)
                     e_con_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                     e_con_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -1054,15 +1058,23 @@ def MakeESDL(RegioNaam, StrategieNaam):
 
     remove_unused_building_connections(es)
 
-    export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
+    if 'save_to_disk' in actions:
+        export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
+        resource = rset.create_resource(URI(export_name))
+        resource.append(es)
+        resource.save()
 
-    resource = rset.create_resource(URI(export_name))
-    resource.append(es)
-    resource.save()
+    if 'store_in_mondaine_hub' in actions:
+        mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+str_date, resource)
 
-    mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+str_date, resource)
-    
-    return (RegioNaam, StrategieNaam)
+    if 'return_as_string' in actions:
+        # to use strings as resources, we simulate a string as being a URI
+        uri = StringURI('{}_{}'.format(StrategieNaam, RegioNaam) + '.esdl')
+        resource = rset.create_resource(uri)
+        resource.append(es)
+        resource.save(uri)
+        return uri.getvalue()
+
 
 
 def remove_unused_building_connections(es):
@@ -1103,12 +1115,14 @@ def main():
 # "S3a_B_LT30_30"   ,"S3b_B_LT30_70"    ,"S3c_B_BuurtWKO"  ,"S3d_B_WKO"       ,"S3e_B_TEO"        ,"S3f_D_LT30_70"   ,"S3g_D_BuurtWKO", "S3h_D_TEO"
 # "S4a_GG_B_hWP"    ,"S4b_GG_B_HR"      ,"S4c_GG_D_hWP"    ,"S4d_GG_D_HR"
 # "S5a_H2_B_hWP"    ,"S5b_H2_B_HR"      ,"S5c_H2_D_hWP"    ,"S5d_H2_D_HR"
-    
-    for i in list(Strategien):
-        for j in list(RegioNamen):
-            StrategieNaam= i
-            RegioNaam= j
-            MakeESDL(RegioNaam, StrategieNaam)
+
+    for StrategieNaam in Strategien:
+        for RegioNaam in RegioNamen:
+
+            warmtebronnen_csv = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
+            vesta_output_csv = "data/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam)
+
+            MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
             print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
             print(" ")
 
