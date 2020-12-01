@@ -2,7 +2,7 @@
 
 <DocType name="GeoDmsMetaInfo">
 <DefaultInfo>
-	<FullName>/LeidraadResultaten/Exports/ESDL/Bronnen/BronnenExportSettings/export_PerRekenstap/result
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/R3_2030/PerStudyArea/export_PerPlanRegio/result
 	</FullName>
 	<GeoDmsVersion>GeoDms 7.238 [Release] [x64] [Nov 17 2020] [Complete Edition]
 	</GeoDmsVersion>
@@ -14,7 +14,7 @@
 	</GeoDmsVersion>
 </Software>
 <Config>
-	<FullName>/LeidraadResultaten/Exports/ESDL/Bronnen/BronnenExportSettings/export_PerRekenstap/result
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/R3_2030/PerStudyArea/export_PerPlanRegio/result
 	</FullName>
 	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)
 	</Expr>

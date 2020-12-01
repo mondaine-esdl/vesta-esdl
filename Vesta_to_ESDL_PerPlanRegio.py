@@ -81,7 +81,7 @@ def str2float(string):
         return 0.0
 
 
-def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, actions):
+def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv, warmtebronnen_csv, actions):
     # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
     rset = ResourceSet()
     # register the metamodel (available in the generated files)
@@ -91,10 +91,11 @@ def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, acti
 
     # Create a new EnergySystem
     es = EnergySystem(id=str(uuid.uuid4()), name=StrategieNaam+'_'+RegioNaam)
-    instance = Instance(id=str(uuid.uuid4()), name="y2050")
+    instance = Instance(id=str(uuid.uuid4()), name=TijdstapNaam)
 
     # AbstractInstanceDate = InstanceDate.date(2020)
-    instance.date = InstanceDate(date=EDate.from_string("2050-01-01"))
+    RawDate = TijdstapNaam[1:]
+    instance.date = InstanceDate(date=EDate.from_string(RawDate+"-01-01"))
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
     es.instance.append(instance)
     es.instance[0].area = Area(id=RegioNaam, name=RegioNaam)  
@@ -1065,7 +1066,7 @@ def MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, acti
         resource.save()
 
     if 'store_in_mondaine_hub' in actions:
-        mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+str_date, resource)
+        mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+TijdstapNaam+'_'+str_date, resource)
 
     if 'return_as_string' in actions:
         # to use strings as resources, we simulate a string as being a URI
@@ -1096,6 +1097,8 @@ def remove_unused_building_connections(es):
     print("Number of unused connections removed: {}".format(remove_connection_cnt))
 
 def main():
+    # TijdstapNamen= ["y2019" , "y2030", "y2040", "y2050"]
+    TijdstapNamen= ["y2050"]
     
     # RegioNamen= ["Hengelo"]
     RegioNamen= ["Havenstad"]
@@ -1118,13 +1121,14 @@ def main():
 
     for StrategieNaam in Strategien:
         for RegioNaam in RegioNamen:
+            for TijdstapNaam in TijdstapNamen:
 
-            warmtebronnen_csv = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
-            vesta_output_csv = "data/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam)
-
-            MakeESDL(RegioNaam, StrategieNaam, vesta_output_csv, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
-            print("ESDL-output generated for: ", RegioNaam, StrategieNaam)
-            print(" ")
+                warmtebronnen_csv = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
+                vesta_output_csv = "data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam, TijdstapNaam)
+    
+                MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
+                print("ESDL-output generated for: ", RegioNaam, StrategieNaam, TijdstapNaam)
+                print(" ")
 
 
 if __name__ == '__main__':
