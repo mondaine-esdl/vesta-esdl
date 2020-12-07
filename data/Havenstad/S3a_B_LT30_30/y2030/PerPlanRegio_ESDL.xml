@@ -2,7 +2,7 @@
 
 <DocType name="GeoDmsMetaInfo">
 <DefaultInfo>
-	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/R3_2030/PerStudyArea/export_PerPlanRegio/Result
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/R3_2030/PerStudyArea/export_PerPlanRegio/result
 	</FullName>
 	<GeoDmsVersion>GeoDms 7.238 [Release] [x64] [Nov 25 2020] [Complete Edition]
 	</GeoDmsVersion>
@@ -14,7 +14,7 @@
 	</GeoDmsVersion>
 </Software>
 <Config>
-	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/R3_2030/PerStudyArea/export_PerPlanRegio/Result
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/R3_2030/PerStudyArea/export_PerPlanRegio/result
 	</FullName>
 	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)
 	</Expr>
@@ -35,10 +35,8 @@
 		Changes not staged for commit:<BR/>
 		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
-			modified:   Runs/S3a_B_LT30_30.dms<BR/>
-			modified:   model/BeginSituatie.dms<BR/>
 			modified:   model/LeidraadResultaten.dms<BR/>
-			modified:   model/stam/CalculationSchemes/TussenResultaten/RekenStapT/StateNaAllocatie.dms<BR/>
+			modified:   model/RuimtelijkeData.dms<BR/>
 		<BR/>
 		no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<BR/>
 		

@@ -646,7 +646,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv, warmtebro
                         eWP_lucht_op.connectedTo.append(hd_rv_ip)
                         eWP_lucht_op.connectedTo.append(hd_tw_ip)
                         if "lt_con" in scenario_elementenlijst[StrategieNaam]: 
-                            eWP_lucht_ip.connectedTo.append(h_lt_network_op)
+                            eWP_lucht_ip.connectedTo.append(h_lt_con_op)
                         eWP_lucht.port.append(eWP_lucht_ip)
                         eWP_lucht.port.append(eWP_lucht_op)
                         buildings.asset.append(eWP_lucht)
@@ -1072,7 +1072,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv, warmtebro
     remove_unused_building_connections(es)
 
     if 'save_to_disk' in actions:
-        export_name = "output/%s_%s.esdl" %(StrategieNaam,RegioNaam)
+        export_name = "output/%s_%s_%s.esdl" %(StrategieNaam,RegioNaam,TijdstapNaam)
         resource = rset.create_resource(URI(export_name))
         resource.append(es)
         resource.save()
@@ -1114,10 +1114,11 @@ def main():
     
     # RegioNamen= ["Hengelo"]
     RegioNamen= ["Havenstad"]
+    # RegioNamen= ["RESNoordHollandZuid"]
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
-    # Strategien= ["S0_Referentie"]
-    Strategien= ["S3a_B_LT30_30"]
+    Strategien= ["S0_Referentie"]
+    # Strategien= ["S3a_B_LT30_30"]
     # Strategien= ["StartJaar", "S2a_B_Restwarmte", "S3a_B_LT30_30", "S4a_GG_B_hWP", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
@@ -1135,7 +1136,7 @@ def main():
         for RegioNaam in RegioNamen:
             for TijdstapNaam in TijdstapNamen:
 
-                warmtebronnen_csv = "data/Warmtebronnen/%s/%s/Warmtebronnen_PerPlanRegio_ESDL.csv" % (StrategieNaam, RegioNaam)
+                warmtebronnen_csv = "data/%s/%s/y2030/Warmtebronnen_PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam)
                 vesta_output_csv = "data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam, TijdstapNaam)
     
                 MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
