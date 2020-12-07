@@ -89,8 +89,13 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     # Assign files with the .esdl extension to the XMLResource instead of default XMI
     rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)  # we register the factory for '.esdl' extension and XML serialization
 
+    if isinstance(StrategieNaam, list):
+        es_name = 'GecombineerdeStrategie_' + RegioNaam
+    else:
+        es_name = StrategieNaam+'_'+RegioNaam
+
     # Create a new EnergySystem
-    es = EnergySystem(id=str(uuid.uuid4()), name=StrategieNaam+'_'+RegioNaam)
+    es = EnergySystem(id=str(uuid.uuid4()), name=es_name)
     instance = Instance(id=str(uuid.uuid4()), name=TijdstapNaam)
 
     # AbstractInstanceDate = InstanceDate.date(2020)
@@ -99,6 +104,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     instance.aggrType = AggrTypeEnum.PER_COMMODITY
     es.instance.append(instance)
     es.instance[0].area = Area(id=RegioNaam, name=RegioNaam)  
+
     esi = EnergySystemInformation(id=str(uuid.uuid4()))
     qau = QuantityAndUnits(id=str(uuid.uuid4()))
     es.energySystemInformation = esi
@@ -287,6 +293,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                 bu_code.replace('\'', '')       # remove quotes from bu_code
                 nat_meerkosten = float(row[column_names.index('h16_nat_meerkost')])
                 nat_meerkosten_dict[vesta_output_csv][bu_code] = nat_meerkosten
+    # print(nat_meerkosten_dict)
 
     # Bepalen strategie met laagste kosten
     laagste_nat_meerkosten = dict()
@@ -303,7 +310,11 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                     'waarde': nat_meerkosten_dict[csv_key][bu_key],
                     'strategie': csv_key
                 }
-
+    print(laagste_nat_meerkosten)
+    
+    tot_nat_meerkosten = 0
+    tot_co2_uitstoot = 0
+    
     for vesta_output_csv in vesta_output_csv_list:
         if not os.path.exists(vesta_output_csv):
             print("========= ERROR: {} does not exist! Skipping....".format(vesta_output_csv))
@@ -327,6 +338,16 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                     # Kennelijk is er een andere csv_file uit de lijst waar voor deze buurt lagere nationale meerkosten
                     # te vinden zijn. Hier slaan we dus deze buurt over.
                     break
+
+                if isinstance(StrategieNaam, list):
+                    for sn in StrategieNaam:
+                        if sn in vesta_output_csv:
+                            strat_name = sn
+                            break
+                else:
+                    strat_name = StrategieNaam
+
+                print("{}: {}".format(bu_code, strat_name))
 
                 area = Area(id=bu_code, scope="NEIGHBOURHOOD")
                 area_list = row[column_names.index('bu_code')]
@@ -363,35 +384,35 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     # ------------------------------SOURCES----------------------------------------
     # =============================================================================
 
-                if "h_surfwater_15" in scenario_elementenlijst[StrategieNaam]:
+                if "h_surfwater_15" in scenario_elementenlijst[strat_name]:
                     h_surfwater_15 = ResidualHeatSource(id=str(uuid.uuid4()), name="h_surfwater_15", aggregated = True, prodType=RenewableTypeEnum.RENEWABLE)
                     h_surfwater_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                     h_surfwater_15_op.connectedTo.append(h_lt_network_ip)
                     h_surfwater_15.port.append(h_surfwater_15_op)
                     area.asset.append(h_surfwater_15)
 
-                if "h_air_15" in scenario_elementenlijst[StrategieNaam]:
+                if "h_air_15" in scenario_elementenlijst[strat_name]:
                     h_air_15 = ResidualHeatSource(id=str(uuid.uuid4()), name="h_air_15", aggregated = True, prodType=RenewableTypeEnum.RENEWABLE)
                     h_air_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                     h_air_15_op.connectedTo.append(h_lt_network_ip)
                     h_air_15.port.append(h_air_15_op)
                     area.asset.append(h_air_15)
 
-                if "h_soil_15" in scenario_elementenlijst[StrategieNaam]:
+                if "h_soil_15" in scenario_elementenlijst[strat_name]:
                     h_soil_15 = ResidualHeatSource(id=str(uuid.uuid4()), name="h_air_15", aggregated = True, prodType=RenewableTypeEnum.RENEWABLE)
                     h_soil_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                     h_soil_15_op.connectedTo.append(h_lt_network_ip)
                     h_soil_15.port.append(h_soil_15_op)
                     area.asset.append(h_soil_15)
 
-                if "h_geo_mt" in scenario_elementenlijst[StrategieNaam]:
+                if "h_geo_mt" in scenario_elementenlijst[strat_name]:
                     h_geo_mt = GeothermalSource(id=str(uuid.uuid4()), name="h_geo_mt", aggregated = True, geothermalSourceType=GeothermalSourceTypeEnum.HEAT, prodType=RenewableTypeEnum.RENEWABLE)
                     h_geo_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                     h_geo_mt_op.connectedTo.append(h_mt_network_ip)
                     h_geo_mt.port.append(h_geo_mt_op)
                     area.asset.append(h_geo_mt)
 
-                if "h_wko_15" in scenario_elementenlijst[StrategieNaam]:
+                if "h_wko_15" in scenario_elementenlijst[strat_name]:
                     h_wko_15 = ResidualHeatSource(id=str(uuid.uuid4()), name="h warmte koude overschot uit gebouwen 15", aggregated = True, prodType=RenewableTypeEnum.RENEWABLE, type=ResidualHeatSourceTypeEnum.OTHER)
                     h_wko_15_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
                     h_wko_15_op.connectedTo.append(h_lt_network_ip)
@@ -402,7 +423,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     # -----------------------COLLECTIVE CONVERTORS---------------------------------
     # =============================================================================
 
-                if "coll_eWP_lt_mt" in scenario_elementenlijst[StrategieNaam] and (woning_HasColl_eWP or util_HasColl_eWP):
+                if "coll_eWP_lt_mt" in scenario_elementenlijst[strat_name] and (woning_HasColl_eWP or util_HasColl_eWP):
                     coll_eWP_lt_mt = HeatPump(id=str(uuid.uuid4()), name="collectieve_eWP_lt_mt", aggregated = True, source=SourceTypeEnum.HEAT_NETWORK, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.ELECTRIC)
                     coll_eWP_lt_mt_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                     coll_eWP_lt_mt_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -413,7 +434,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                     coll_eWP_lt_mt.port.append(coll_eWP_lt_mt_op)
                     area.asset.append(coll_eWP_lt_mt)
 
-                if "coll_g_heater" in scenario_elementenlijst[StrategieNaam] and (woning_HasColl_g_heater or util_HasColl_g_heater):
+                if "coll_g_heater" in scenario_elementenlijst[strat_name] and (woning_HasColl_g_heater or util_HasColl_g_heater):
                     coll_g_heater = GasHeater(id=str(uuid.uuid4()), name="collectieve_g_heater", aggregated = True, type=GasHeaterTypeEnum.UNDEFINED)
                     coll_g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                     coll_g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -685,7 +706,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             h2r.port.append(h2r_op)
                             buildings.asset.append(h2r)
 
-                        if "eWP_lucht" in scenario_elementenlijst[StrategieNaam] and HasAansl_eWP:
+                        if "eWP_lucht" in scenario_elementenlijst[strat_name] and HasAansl_eWP:
                             eWP_lucht = HeatPump(id=str(uuid.uuid4()), name="eWP_lucht", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.ELECTRIC)
                             eWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             eWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -693,13 +714,13 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             eWP_lucht_ip.connectedTo.append(h_air_15_op)
                             eWP_lucht_op.connectedTo.append(hd_rv_ip)
                             eWP_lucht_op.connectedTo.append(hd_tw_ip)
-                            if "lt_con" in scenario_elementenlijst[StrategieNaam]:
+                            if "lt_con" in scenario_elementenlijst[strat_name]:
                                 eWP_lucht_ip.connectedTo.append(h_lt_con_op)
                             eWP_lucht.port.append(eWP_lucht_ip)
                             eWP_lucht.port.append(eWP_lucht_op)
                             buildings.asset.append(eWP_lucht)
 
-                        if "eWP_bodem" in scenario_elementenlijst[StrategieNaam] and HasAansl_eWP:
+                        if "eWP_bodem" in scenario_elementenlijst[strat_name] and HasAansl_eWP:
                             eWP_bodem = HeatPump(id=str(uuid.uuid4()), name="eWP_bodem", aggregated = True, source=SourceTypeEnum.SUB_SURFACE, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.ELECTRIC)
                             eWP_bodem_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             eWP_bodem_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -711,7 +732,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             eWP_bodem.port.append(eWP_bodem_op)
                             buildings.asset.append(eWP_bodem)
 
-                        if "hWP_lucht" in scenario_elementenlijst[StrategieNaam] and HasAansl_hWP:
+                        if "hWP_lucht" in scenario_elementenlijst[strat_name] and HasAansl_hWP:
                             hWP_lucht = HeatPump(id=str(uuid.uuid4()), name="hWP_lucht", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.GAS)
                             hWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             hWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -724,7 +745,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             hWP_lucht.port.append(hWP_lucht_op)
                             buildings.asset.append(hWP_lucht)
 
-                        if "h2WP_lucht" in scenario_elementenlijst[StrategieNaam] and HasAansl_h2WP:
+                        if "h2WP_lucht" in scenario_elementenlijst[strat_name] and HasAansl_h2WP:
                             h2WP_lucht = HeatPump(id=str(uuid.uuid4()), name="h2WP_lucht", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.GAS)
                             h2WP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             h2WP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -737,7 +758,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             h2WP_lucht.port.append(h2WP_lucht_op)
                             buildings.asset.append(h2WP_lucht)
 
-                        # if "h_wko_15" not in scenario_elementenlijst[StrategieNaam] and cd_value > 0.0:
+                        # if "h_wko_15" not in scenario_elementenlijst[strat_name] and cd_value > 0.0:
                         #     eAirco = Airco(id=str(uuid.uuid4()), name="eAirco", aggregated = True)
                         #     eAirco_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                         #     eAirco_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -1014,7 +1035,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             h2r.port.append(h2r_op)
                             buildings.asset.append(h2r)
 
-                        if "eWP_lucht" in scenario_elementenlijst[StrategieNaam] and HasAansl_eWP:
+                        if "eWP_lucht" in scenario_elementenlijst[strat_name] and HasAansl_eWP:
                             eWP_lucht = HeatPump(id=str(uuid.uuid4()), name="eWP_lucht", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.ELECTRIC)
                             eWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             eWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -1022,13 +1043,13 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             eWP_lucht_ip.connectedTo.append(h_air_15_op)
                             eWP_lucht_op.connectedTo.append(hd_rv_ip)
                             eWP_lucht_op.connectedTo.append(hd_tw_ip)
-                            if "lt_con" in scenario_elementenlijst[StrategieNaam]:
+                            if "lt_con" in scenario_elementenlijst[strat_name]:
                                 eWP_lucht_ip.connectedTo.append(h_lt_network_op)
                             eWP_lucht.port.append(eWP_lucht_ip)
                             eWP_lucht.port.append(eWP_lucht_op)
                             buildings.asset.append(eWP_lucht)
 
-                        if "eWP_bodem" in scenario_elementenlijst[StrategieNaam] and HasAansl_eWP:
+                        if "eWP_bodem" in scenario_elementenlijst[strat_name] and HasAansl_eWP:
                             eWP_bodem = HeatPump(id=str(uuid.uuid4()), name="eWP_bodem", aggregated = True, source=SourceTypeEnum.SUB_SURFACE, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.ELECTRIC)
                             eWP_bodem_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             eWP_bodem_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -1040,7 +1061,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             eWP_bodem.port.append(eWP_bodem_op)
                             buildings.asset.append(eWP_bodem)
 
-                        if "hWP_lucht" in scenario_elementenlijst[StrategieNaam] and HasAansl_hWP:
+                        if "hWP_lucht" in scenario_elementenlijst[strat_name] and HasAansl_hWP:
                             hWP_lucht = HeatPump(id=str(uuid.uuid4()), name="hWP_lucht", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.GAS)
                             hWP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             hWP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -1053,7 +1074,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                             hWP_lucht.port.append(hWP_lucht_op)
                             buildings.asset.append(hWP_lucht)
 
-                        if "h2WP_lucht" in scenario_elementenlijst[StrategieNaam] and HasAansl_h2WP:
+                        if "h2WP_lucht" in scenario_elementenlijst[strat_name] and HasAansl_h2WP:
                             h2WP_lucht = HeatPump(id=str(uuid.uuid4()), name="h2WP_lucht", aggregated = True, source=SourceTypeEnum.AIR, additionalHeatingSourceType=AdditionalHeatingSourceTypeEnum.GAS)
                             h2WP_lucht_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             h2WP_lucht_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -1072,16 +1093,19 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     # ------------------------------OTHER------------------------------------------
     # =============================================================================
                 co2_uistoot        = DoubleKPI(id=str(uuid.uuid4()),name='CO2 uitstoot',     value=float(row[column_names.index('h15_co2_uitstoot')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+                tot_co2_uitstoot   += float(row[column_names.index('h15_co2_uitstoot')])
                 nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten',     value=float(row[column_names.index('h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr))
+                tot_nat_meerkosten += float(row[column_names.index('h16_nat_meerkost')])
                 nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van CO2', value=float(row[column_names.index('h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON))
                 nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten per WEQ', value=float(row[column_names.index('h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr))
                 totale_warmtevraag = DoubleKPI(id=str(uuid.uuid4()),name='Total warmtevraag per buurt', value=float(row[column_names.index('woning_h01_vraag_warmte_totaal')]) + float(row[column_names.index('util_h01_vraag_warmte_totaal')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr))
+                tot_SA_warmtevraag = float(row[column_names.index('woning_h01_vraag_warmte_totaal')]) + float(row[column_names.index('util_h01_vraag_warmte_totaal')])
                 totale_elekvraag   = DoubleKPI(id=str(uuid.uuid4()),name='Total elekvraag per buurt', value=float(row[column_names.index('woning_h11_input_elektriciteit')]) + float(row[column_names.index('util_h11_input_elektriciteit')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr))
                 capaciteitsvraage  = DoubleKPI(id=str(uuid.uuid4()),name='Total capaciteitsvraag elek per buurt', value=float(row[column_names.index('woning_h21_capaciteitsvraage')]) + float(row[column_names.index('util_h21_capaciteitsvraage')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_kW))
                 aantal_nieuweMSR   = DoubleKPI(id=str(uuid.uuid4()),name='Totaal aantal nieuwe MSR per buurt', value=float(row[column_names.index('woning_h22_aantalnieuwemsr')]) + float(row[column_names.index('util_h22_aantalnieuwemsr')]))
                 capaciteit_huidig  = DoubleKPI(id=str(uuid.uuid4()),name='Huidige capaciteit elek per buurt', value=float(row[column_names.index('h23_capaciteit_huidig')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_kW))
-
-
+                gekozen_strategie  = StringKPI(id=str(uuid.uuid4()),name='Strategie', value=strat_name)
+                
                 kpis = KPIs(id=str(uuid.uuid4()))
                 kpis.kpi.append(co2_uistoot)
                 kpis.kpi.append(nat_meerkosten)
@@ -1092,10 +1116,23 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                 kpis.kpi.append(capaciteitsvraage)
                 kpis.kpi.append(aantal_nieuweMSR)
                 kpis.kpi.append(capaciteit_huidig)
+                kpis.kpi.append(gekozen_strategie)
 
                 area.KPIs = kpis
 
                 es.instance[0].area.area.append(area)
+
+
+    tot_SA_warmtevraag_kpi = DoubleKPI(id=str(uuid.uuid4()),name='Totale Warmtevraag in studyarea', value=tot_SA_warmtevraag, quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr))
+    tot_nat_meerkosten_kpi = DoubleKPI(id=str(uuid.uuid4()),name='Totale Nationale meerkosten', value=tot_nat_meerkosten, quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr))
+    tot_co2_uitstoot_kpi   = DoubleKPI(id=str(uuid.uuid4()),name='Totale CO2 uitstoot', value=tot_co2_uitstoot, quantityAndUnit = QuantityAndUnitReference(reference=qau_emission_TON_yr))
+   
+    tot_kpis = KPIs(id=str(uuid.uuid4()))
+    tot_kpis.kpi.append(tot_SA_warmtevraag_kpi)
+    tot_kpis.kpi.append(tot_nat_meerkosten_kpi)
+    tot_kpis.kpi.append(tot_co2_uitstoot_kpi)
+    es.instance[0].area.KPIs = tot_kpis
+
 
     # totaal_naturalgas bevat hier de som van alle buurten (util + woningen)
     if totaal_naturalgas > 0:
@@ -1126,11 +1163,11 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
         resource.save()
 
     if 'store_in_mondaine_hub' in actions:
-        mh.store_in_mondaine_hub(StrategieNaam+'_'+RegioNaam+'_'+TijdstapNaam+'_'+str_date, resource)
+        mh.store_in_mondaine_hub(es_name+'_'+TijdstapNaam+'_'+str_date, resource)
 
     if 'return_as_string' in actions:
         # to use strings as resources, we simulate a string as being a URI
-        uri = StringURI('{}_{}'.format(StrategieNaam, RegioNaam) + '.esdl')
+        uri = StringURI(es_name + '.esdl')
         resource = rset.create_resource(uri)
         resource.append(es)
         resource.save(uri)
@@ -1157,16 +1194,17 @@ def remove_unused_building_connections(es):
     print("Number of unused connections removed: {}".format(remove_connection_cnt))
 
 def main():
-    # TijdstapNamen= ["y2019" , "y2030", "y2040", "y2050"]
-    TijdstapNamen= ["y2050"]
+    TijdstapNamen= ["y2019" , "y2030", "y2040", "y2050"]
+    # TijdstapNamen= ["y2050"]
     
     # RegioNamen= ["Hengelo"]
     RegioNamen= ["Havenstad"]
     # RegioNamen= ["RESNoordHollandZuid"]
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
-    Strategien= ["S0_Referentie"]
+    # Strategien= ["S0_Referentie"]
     # Strategien= ["S3a_B_LT30_30"]
+    Strategien= ["S0_Referentie", "S3a_B_LT30_30"]
     # Strategien= ["StartJaar", "S2a_B_Restwarmte", "S3a_B_LT30_30", "S4a_GG_B_hWP", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
@@ -1174,23 +1212,44 @@ def main():
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO","S4a_GG_B_hWP","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2c_B_Geo_overal", "S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR","S5c_H2_D_hWP","S5d_H2_D_HR"]
 
+    #COMBINATIE STRATEGIEEN
+    # Strategien= ["S0_Referentie", ["S1a_B_LuchtWP", "S3a_B_LT30_30"]]
+
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
 # "S2a_B_Restwarmte","S2b_B_Geo_contour","S2c_B_Geo_overal","S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal" 
 # "S3a_B_LT30_30"   ,"S3b_B_LT30_70"    ,"S3c_B_BuurtWKO"  ,"S3d_B_WKO"       ,"S3e_B_TEO"        ,"S3f_D_LT30_70"   ,"S3g_D_BuurtWKO", "S3h_D_TEO"
 # "S4a_GG_B_hWP"    ,"S4b_GG_B_HR"      ,"S4c_GG_D_hWP"    ,"S4d_GG_D_HR"
 # "S5a_H2_B_hWP"    ,"S5b_H2_B_HR"      ,"S5c_H2_D_hWP"    ,"S5d_H2_D_HR"
 
+    # for StrategieNaam in Strategien:
+    #     for RegioNaam in RegioNamen:
+    #         for TijdstapNaam in TijdstapNamen:
+
+    #             warmtebronnen_csv = "data/%s/%s/y2030/Warmtebronnen_PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam)
+    #             vesta_output_csv = "data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam, TijdstapNaam)
+    
+    #             MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, [vesta_output_csv], warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
+    #             print("ESDL-output generated for: ", RegioNaam, StrategieNaam, TijdstapNaam)
+    #             print(" ")
+                    
     for StrategieNaam in Strategien:
         for RegioNaam in RegioNamen:
             for TijdstapNaam in TijdstapNamen:
-
-                warmtebronnen_csv = "data/%s/%s/y2030/Warmtebronnen_PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam)
-                vesta_output_csv = "data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam, TijdstapNaam)
+                
+                warmtebronnen_csv = "data/%s/S0_Referentie/y2030/Warmtebronnen_PerPlanRegio_ESDL.csv" % (RegioNaam)
+                
+                if isinstance(StrategieNaam, list):
+                    vesta_output_csv_list = list()
+                    for s in StrategieNaam:
+                        vesta_output_csv_list.append("data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, s, TijdstapNaam))
+                    print(vesta_output_csv_list)
+                else:
+                    vesta_output_csv_list = ["data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam, TijdstapNaam)]
     
-                MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, [vesta_output_csv], warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
-                print("ESDL-output generated for: ", RegioNaam, StrategieNaam, TijdstapNaam)
+                MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
+                print("ESDL-output generated for: ", RegioNaam, TijdstapNaam)
                 print(" ")
-
+    
 
 if __name__ == '__main__':
     main()
