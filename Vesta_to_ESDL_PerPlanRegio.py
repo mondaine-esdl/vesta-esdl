@@ -106,6 +106,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv, warmtebro
 
     qau_energy_MJ_yr    = QuantityAndUnitType(id="energy_MJ_yr", physicalQuantity="ENERGY", unit="JOULE", multiplier="MEGA", perTimeUnit="YEAR")
     qau_energy_GJ_yr    = QuantityAndUnitType(id="energy_GJ_yr", physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
+    qau_energy_kW       = QuantityAndUnitType(id="energy_kW"   , physicalQuantity="ENERGY", unit="WATT", multiplier="KILO")
     qau_cost_EURO_yr    = QuantityAndUnitType(id="cost_EURO_yr", physicalQuantity="COST", unit="EURO", multiplier="NONE", perTimeUnit="YEAR") 
     qau_energy_GJ_yr_ha = QuantityAndUnitType(id="energy_GJ_yr_ha", physicalQuantity="ENERGY", unit="JOULE", perUnit="HECTARE", multiplier="GIGA", perTimeUnit="YEAR")
     qau_cost_EURO_TON   = QuantityAndUnitType(id="cost_EURO_TON", physicalQuantity="COST", unit="EURO", perUnit="GRAM", perMultiplier="MEGA") 
@@ -1026,12 +1027,23 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv, warmtebro
             nat_meerkosten     = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten',     value=float(row[column_names.index('h16_nat_meerkost')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
             nat_meerkosten_CO2 = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten van CO2', value=float(row[column_names.index('h17_nat_meerkost_co2')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_TON)) 
             nat_meerkosten_WEQ = DoubleKPI(id=str(uuid.uuid4()),name='Nationale meerkosten per WEQ', value=float(row[column_names.index('h18_nat_meerkost_weq')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_cost_EURO_yr)) 
+            totale_warmtevraag = DoubleKPI(id=str(uuid.uuid4()),name='Total warmtevraag per buurt', value=float(row[column_names.index('woning_h01_vraag_warmte_totaal')]) + float(row[column_names.index('util_h01_vraag_warmte_totaal')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)) 
+            totale_elekvraag   = DoubleKPI(id=str(uuid.uuid4()),name='Total elekvraag per buurt', value=float(row[column_names.index('woning_h11_input_elektriciteit')]) + float(row[column_names.index('util_h11_input_elektriciteit')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_GJ_yr)) 
+            capaciteitsvraage  = DoubleKPI(id=str(uuid.uuid4()),name='Total capaciteitsvraag elek per buurt', value=float(row[column_names.index('woning_h21_capaciteitsvraage')]) + float(row[column_names.index('util_h21_capaciteitsvraage')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_kW)) 
+            aantal_nieuweMSR   = DoubleKPI(id=str(uuid.uuid4()),name='Totaal aantal nieuwe MSR per buurt', value=float(row[column_names.index('woning_h22_aantalnieuwemsr')]) + float(row[column_names.index('util_h22_aantalnieuwemsr')])) 
+            capaciteit_huidig  = DoubleKPI(id=str(uuid.uuid4()),name='Huidige capaciteit elek per buurt', value=float(row[column_names.index('h23_capaciteit_huidig')]), quantityAndUnit = QuantityAndUnitReference(reference=qau_energy_kW)) 
 
+ 
             kpis = KPIs(id=str(uuid.uuid4()))
             kpis.kpi.append(co2_uistoot)
             kpis.kpi.append(nat_meerkosten)
             kpis.kpi.append(nat_meerkosten_CO2)
             kpis.kpi.append(nat_meerkosten_WEQ)
+            kpis.kpi.append(totale_warmtevraag)
+            kpis.kpi.append(totale_elekvraag)
+            kpis.kpi.append(capaciteitsvraage)
+            kpis.kpi.append(aantal_nieuweMSR)
+            kpis.kpi.append(capaciteit_huidig)
             
             area.KPIs = kpis
 
