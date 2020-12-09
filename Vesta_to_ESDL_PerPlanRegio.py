@@ -27,8 +27,8 @@ def attr_to_dict(eobj):
             d[attr] = eobj.eGet(attr)
     return d
 
-woning_keuzes = ['woning_a04_aansl_hr', 'woning_a05_aansl_ewp_lucht', 'woning_a05_aansl_ewp_bodem', 'woning_a06_aansl_rest70_collggheater', 'woning_a07_aansl_geo70_collggheater', 'woning_a08_aansl_rest30_ewplucht', 'woning_a09_aansl_rest30_collewp70', 'woning_a10_aansl_wko15_collewp70', 'woning_a11_aansl_wko15_collewp50_bewp', 'woning_a12_aansl_wko15_teo15_collewp70', 'woning_a13_aansl_hwp', 'woning_a14_aansl_h2wp', 'woning_a15_aansl_h2r']
-util_keuzes   = ['util_a04_aansl_hr', 'util_a05_aansl_ewp_lucht', 'util_a05_aansl_ewp_bodem', 'util_a06_aansl_rest70_collggheater', 'util_a07_aansl_geo70_collggheater', 'util_a08_aansl_rest30_ewplucht', 'util_a09_aansl_rest30_collewp70', 'util_a10_aansl_wko15_collewp70', 'util_a11_aansl_wko15_collewp50_bewp', 'util_a12_aansl_wko15_teo15_collewp70', 'util_a13_aansl_hwp', 'util_a14_aansl_h2wp', 'util_a15_aansl_h2r']
+woning_keuzes = ['woning_a04_aansl_gasketel', 'woning_a05_aansl_ewp_lucht', 'woning_a05_aansl_ewp_bodem', 'woning_a06_aansl_rest70_collggheater', 'woning_a07_aansl_geo70_collggheater', 'woning_a08_aansl_rest30_ewplucht', 'woning_a09_aansl_rest30_collewp70', 'woning_a10_aansl_wko15_collewp70', 'woning_a11_aansl_wko15_collewp50_bewp', 'woning_a12_aansl_wko15_teo15_collewp70', 'woning_a13_aansl_hwp', 'woning_a14_aansl_h2wp', 'woning_a15_aansl_h2r']
+util_keuzes   = ['util_a04_aansl_gasketel', 'util_a05_aansl_ewp_lucht', 'util_a05_aansl_ewp_bodem', 'util_a06_aansl_rest70_collggheater', 'util_a07_aansl_geo70_collggheater', 'util_a08_aansl_rest30_ewplucht', 'util_a09_aansl_rest30_collewp70', 'util_a10_aansl_wko15_collewp70', 'util_a11_aansl_wko15_collewp50_bewp', 'util_a12_aansl_wko15_teo15_collewp70', 'util_a13_aansl_hwp', 'util_a14_aansl_h2wp', 'util_a15_aansl_h2r']
 
 #                                      bron1,           ,bron2            ,coll conv          , indiv conv    ,gastype      ,indiv conn
 scenario_elementenlijst = {
@@ -112,9 +112,11 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
 
     qau_energy_MJ_yr    = QuantityAndUnitType(id="energy_MJ_yr", physicalQuantity="ENERGY", unit="JOULE", multiplier="MEGA", perTimeUnit="YEAR")
     qau_energy_GJ_yr    = QuantityAndUnitType(id="energy_GJ_yr", physicalQuantity="ENERGY", unit="JOULE", multiplier="GIGA", perTimeUnit="YEAR")
+    qau_energy_TJ_yr    = QuantityAndUnitType(id="energy_TJ_yr", physicalQuantity="ENERGY", unit="JOULE", multiplier="TERRA", perTimeUnit="YEAR")
     qau_energy_kW       = QuantityAndUnitType(id="energy_kW"   , physicalQuantity="ENERGY", unit="WATT", multiplier="KILO")
     qau_cost_EURO_yr    = QuantityAndUnitType(id="cost_EURO_yr", physicalQuantity="COST", unit="EURO", multiplier="NONE", perTimeUnit="YEAR") 
     qau_energy_GJ_yr_ha = QuantityAndUnitType(id="energy_GJ_yr_ha", physicalQuantity="ENERGY", unit="JOULE", perUnit="HECTARE", multiplier="GIGA", perTimeUnit="YEAR")
+    qau_energy_TJ_yr_ha = QuantityAndUnitType(id="energy_TJ_yr_ha", physicalQuantity="ENERGY", unit="JOULE", perUnit="HECTARE", multiplier="TERRA", perTimeUnit="YEAR")
     qau_cost_EURO_TON   = QuantityAndUnitType(id="cost_EURO_TON", physicalQuantity="COST", unit="EURO", perUnit="GRAM", perMultiplier="MEGA") 
     qau_emission_TON_yr = QuantityAndUnitType(id="emission_TON_yr", physicalQuantity="EMISSION", unit="GRAM", multiplier="MEGA", perTimeUnit="YEAR") 
     
@@ -511,7 +513,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                         Aansl_gas = Aansl_aardgas + Aansl_groengas
                         Aansl_waterstof = float(row[column_names.index('woning_a03_aansl_waterstof')])
 
-                        HasAansl_HR = float(row[column_names.index('woning_a04_aansl_hr')]) > 0
+                        HasAansl_HR = float(row[column_names.index('woning_a04_aansl_gasketel')]) > 0
                         HasAansl_eWP = float(row[column_names.index('woning_a08_aansl_rest30_ewplucht')]) > 0
                         HasAansl_hWP = float(row[column_names.index('woning_a13_aansl_hwp')]) > 0
                         HasAansl_h2WP = float(row[column_names.index('woning_a14_aansl_h2wp')]) > 0
@@ -682,7 +684,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                         # -------------------------INDIVIDUAL CONVERTORS-------------------------------
                         # =============================================================================
 
-                        if HasAansl_HR and wk == 'woning_a04_aansl_hr':
+                        if HasAansl_HR and wk == 'woning_a04_aansl_gasketel':
                             g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater", aggregated = True)
                             g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -837,7 +839,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                         Aansl_gas = Aansl_aardgas + Aansl_groengas
                         Aansl_waterstof = float(row[column_names.index('util_a03_aansl_waterstof')])
 
-                        HasAansl_HR = float(row[column_names.index('util_a04_aansl_hr')]) > 0
+                        HasAansl_HR = float(row[column_names.index('util_a04_aansl_gasketel')]) > 0
                         HasAansl_eWP = float(row[column_names.index('util_a08_aansl_rest30_ewplucht')]) > 0
                         HasAansl_hWP = float(row[column_names.index('util_a13_aansl_hwp')]) > 0
                         HasAansl_h2WP = float(row[column_names.index('util_a14_aansl_h2wp')]) > 0
@@ -1011,7 +1013,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                         # -------------------------INDIVIDUAL CONVERTORS-------------------------------
                         # =============================================================================
 
-                        if HasAansl_HR and uk == 'util_a04_aansl_hr':
+                        if HasAansl_HR and uk == 'util_a04_aansl_gasketel':
                             g_heater = GasHeater(id=str(uuid.uuid4()), name="Gas_heater", aggregated = True)
                             g_heater_ip = InPort(id=str(uuid.uuid4()), name="InPort")
                             g_heater_op = OutPort(id=str(uuid.uuid4()), name="OutPort")
@@ -1152,7 +1154,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
         es.instance[0].area.asset.append(ggp)
 
         ##CARIER toevoegen
-
+        
 
     remove_unused_building_connections(es)
 
@@ -1203,8 +1205,9 @@ def main():
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
     # Strategien= ["S0_Referentie"]
-    # Strategien= ["S3a_B_LT30_30"]
-    Strategien= ["S0_Referentie", "S3a_B_LT30_30"]
+    Strategien= ["S3a_B_LT30_30"]
+    # Strategien= ["S0_Referentie","S1a_B_LuchtWP", "S3a_B_LT30_30"]
+    # Strategien= ["S1a_B_LuchtWP"]
     # Strategien= ["StartJaar", "S2a_B_Restwarmte", "S3a_B_LT30_30", "S4a_GG_B_hWP", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar","S0_Referentie", "S1a_B_LuchtWP", "S1b_B_BodemWP", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3f_D_LT30_70","S3g_D_BuurtWKO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR", "S5a_H2_B_hWP","S5b_H2_B_HR"]
     # Strategien= ["StartJaar", "S0_Referentie", "S1a_B_LuchtWP"]
@@ -1214,6 +1217,7 @@ def main():
 
     #COMBINATIE STRATEGIEEN
     # Strategien= ["S0_Referentie", ["S1a_B_LuchtWP", "S3a_B_LT30_30"]]
+    # Strategien= [["S0_Referentie", "S1a_B_LuchtWP", "S3a_B_LT30_30"]]
 
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
 # "S2a_B_Restwarmte","S2b_B_Geo_contour","S2c_B_Geo_overal","S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal" 
