@@ -1240,8 +1240,11 @@ def main():
         for RegioNaam in RegioNamen:
             for TijdstapNaam in TijdstapNamen:
                 
-                warmtebronnen_csv = "data/%s/S0_Referentie/y2030/Warmtebronnen_PerPlanRegio_ESDL.csv" % (RegioNaam)
-                
+                if StrategieNaam == 'S3a_B_LT30_30':
+                    warmtebronnen_csv = "data/%s/S3a_B_LT30_30/y2030/Warmtebronnen_PerPlanRegio_ESDL.csv" % (RegioNaam)
+                else:
+                    warmtebronnen_csv = "data/%s/S0_Referentie/y2030/Warmtebronnen_PerPlanRegio_ESDL.csv" % (RegioNaam)
+                    
                 if isinstance(StrategieNaam, list):
                     vesta_output_csv_list = list()
                     for s in StrategieNaam:

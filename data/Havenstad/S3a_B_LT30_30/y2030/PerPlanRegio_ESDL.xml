@@ -36,14 +36,21 @@
 		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
 		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
 			modified:   ESDL/BuurtMaatregelen.esdl<BR/>
+			modified:   Runs/S1a_B_LuchtWP.dms<BR/>
+			modified:   Runs/S2a_B_Restwarmte.dms<BR/>
+			modified:   Runs/S3a_B_LT30_30.dms<BR/>
 			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
 			modified:   model/LeidraadResultaten.dms<BR/>
 			modified:   model/RuimtelijkeData/EsdlNieuwbouwT.dms<BR/>
+			modified:   model/RuimtelijkeData/WarmteBronnen.dms<BR/>
+			modified:   model/RuimtelijkeData/Warmtebronnen/ESDL_LTBronnen.dms<BR/>
 		<BR/>
 		Untracked files:<BR/>
 		  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)<BR/>
 			ESDL/BuurtMaatregelen_AmsterdamDemo.esdl<BR/>
 			ESDL/BuurtMaatregelen_clean.esdl<BR/>
+			ESDL/Warmtebron_AmsterdamDemo.esdl<BR/>
+			model/RuimtelijkeData/Warmtebronnen/ESDL_MTBronnen.dms<BR/>
 		<BR/>
 		no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<BR/>
 		
