@@ -275,7 +275,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     totaal_naturalgas = 0
     totaal_greengas = 0
 
-    # Verzamelen alle info over KPI nationale meerkosten over alle voor nu relevante strategieÃ«n
+    # Verzamelen alle info over KPI nationale meerkosten over alle voor nu relevante strategieën
     nat_meerkosten_dict = dict()
     for vesta_output_csv in vesta_output_csv_list:
         if not os.path.exists(vesta_output_csv):
@@ -300,18 +300,16 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     # Bepalen strategie met laagste kosten
     laagste_nat_meerkosten = dict()
     for csv_key in nat_meerkosten_dict:
+        print(nat_meerkosten_dict[csv_key])
+        
         for bu_key in nat_meerkosten_dict[csv_key]:
-            if bu_key in laagste_nat_meerkosten:
-                if laagste_nat_meerkosten[bu_key]['waarde'] > nat_meerkosten_dict[csv_key][bu_key]:
-                    laagste_nat_meerkosten[bu_key] = {
-                        'waarde': nat_meerkosten_dict[csv_key][bu_key],
-                        'strategie': csv_key
-                    }
-            else:
+            if (not bu_key in laagste_nat_meerkosten) or laagste_nat_meerkosten[bu_key]['waarde'] > nat_meerkosten_dict[csv_key][bu_key]:
                 laagste_nat_meerkosten[bu_key] = {
                     'waarde': nat_meerkosten_dict[csv_key][bu_key],
                     'strategie': csv_key
                 }
+                print(laagste_nat_meerkosten[bu_key])
+                
     print(laagste_nat_meerkosten)
     
     tot_nat_meerkosten = 0
