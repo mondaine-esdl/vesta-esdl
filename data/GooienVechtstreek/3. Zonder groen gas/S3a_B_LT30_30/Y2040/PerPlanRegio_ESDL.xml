@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocType name="GeoDmsMetaInfo">
+<DefaultInfo>
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/Res2040/PerStudyArea/export_PerPlanRegio/result
+	</FullName>
+	<GeoDmsVersion>GeoDms 7.304 [Jan 19 2021]
+	</GeoDmsVersion>
+	<StatusFlags>0x45ff = AdminMode SuspendForGUI ShowStateColors TraceLogFile TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	</StatusFlags>
+</DefaultInfo>
+<Software>
+	<GeoDmsVersion>7.304
+	</GeoDmsVersion>
+</Software>
+<Config>
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/Res2040/PerStudyArea/export_PerPlanRegio/result
+	</FullName>
+	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)
+	</Expr>
+</Config>
+<Environment>
+	<Processor>Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+	</Processor>
+	<User>jipcl
+	</User>
+	<ComputerName>JIP-LAPTOP
+	</ComputerName>
+</Environment>
+<Git>
+	<RevisionInfo>heads/MONDAINE2<BR/>
+		On branch MONDAINE2<BR/>
+		Your branch is up to date with &apos;origin/MONDAINE2&apos;.<BR/>
+		<BR/>
+		Changes not staged for commit:<BR/>
+		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
+		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
+			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
+		<BR/>
+		no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)<BR/>
+		
+	</RevisionInfo>
+</Git>
+</DocType>

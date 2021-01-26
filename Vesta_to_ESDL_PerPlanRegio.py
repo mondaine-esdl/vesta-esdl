@@ -90,7 +90,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     rset.resource_factory['esdl'] = lambda uri: XMLResource(uri)  # we register the factory for '.esdl' extension and XML serialization
 
     if isinstance(StrategieNaam, list):
-        es_name = 'GecombineerdeStrategie_' + RegioNaam
+        es_name = ScenarioNaam + '_' + RegioNaam
     else:
         es_name = StrategieNaam+'_'+RegioNaam
 
@@ -1220,16 +1220,17 @@ def main():
     # Strategien= [["S0_Referentie", "S1a_B_LuchtWP", "S3a_B_LT30_30"]]
     
     ##CE Delft scenario 1
-    ScenarioNaam = "1. Startanalyse LN-Strategie"
-    Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2d_D_Restwarmte","S2e_D_Geo_contour","S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR"]]
-    ##CE Delft scenario 2
     # ScenarioNaam = "1. Startanalyse LN-Strategie"
     # Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2d_D_Restwarmte","S2e_D_Geo_contour","S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR"]]
+    ##CE Delft scenario 2
+    # ScenarioNaam = "2. Reality check"
+    # Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2d_D_Restwarmte","S2e_D_Geo_contour","S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR"]]
     ##CE Delft scenario 3
+    # ScenarioNaam = "3. Zonder groen gas"
     # Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2d_D_Restwarmte","S2e_D_Geo_contour","S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO"]]
     ##CE Delft scenario 4
-    # ScenarioNaam = "4. Label B"
-    # Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR"]]
+    ScenarioNaam = "4. Label B"
+    Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR"]]
 
 
 
