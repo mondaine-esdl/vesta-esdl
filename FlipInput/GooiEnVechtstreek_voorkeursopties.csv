@@ -1,123 +1,123 @@
-﻿bu_code;Buurt;Wijk;Gemeente;Aantal aansluitingen;Uitkomst_SA;Uitkomst_gecheckt,,
-BU03760101;Bijvanck;Blaricum;Blaricum;1912;All-electric;Warmtenet,,
-BU03760102;Blaricum-Dorp;Blaricum;Blaricum;2434;Groengas;Groengas,,
-BU03760103;Blaricummer Heide;Blaricum;Blaricum;4;All-electric;All-electric,,
-BU03760104;Blaricummermeent;Blaricum;Blaricum;1056;Warmtenet;Warmtenet,,
-BU03760105;Crailo;Blaricum;Blaricum;61;All-electric;Groengas,,
-BU03760106;De Kampen;Blaricum;Blaricum;1;Groengas;Groengas,,
-BU03760107;Eemmeer-Blaricum;Blaricum;Blaricum;0;#N/B;,,
-BU03760108;Stichtsebrug;Blaricum;Blaricum;0;#N/B;,,
-BU03760109;Warandepark-De Eng;Blaricum;Blaricum;2;Groengas;Groengas,,
-BU04060001;De Noord;Wijk 00 Oude Dorp;Huizen;1914;All-electric;All-electric,,
-BU04060002;De Zuid;Wijk 00 Oude Dorp;Huizen;1327;Groengas;Groengas,,
-BU04060103;Westereng;Wijk 01 Westereng;Huizen;1042;Groengas;Groengas,,
-BU04060204;Flevo;Wijk 02 Buitenwijken;Huizen;96;Groengas;Groengas,,
-BU04060205;Bikbergen;Wijk 02 Buitenwijken;Huizen;113;Groengas;Groengas,,
-BU04060206;Crailo;Wijk 02 Buitenwijken;Huizen;166;Groengas;Groengas,,
-BU04060307;Thames;Wijk 03 Erica en Tafelberg;Huizen;35;Groengas;Groengas,,
-BU04060308;IJzeren veld;Wijk 03 Erica en Tafelberg;Huizen;69;Groengas;Groengas,,
-BU04060327;Parrewijn;Wijk 03 Erica en Tafelberg;Huizen;9;Groengas;Groengas,,
-BU04060328;Tafelberger Heide;Wijk 03 Erica en Tafelberg;Huizen;2;All-electric;All-electric,,
-BU04060329;Rijsbergen;Wijk 03 Erica en Tafelberg;Huizen;7;All-electric;All-electric,,
-BU04060330;Huizerhoogt;Wijk 03 Erica en Tafelberg;Huizen;44;Groengas;Groengas,,
-BU04060409;Sijsjesberg;Wijk 04 Staatslieden en Componistenbuurt;Huizen;247;Groengas;Groengas,,
-BU04060410;Zuidereng;Wijk 04 Staatslieden en Componistenbuurt;Huizen;1029;Groengas;Groengas,,
-BU04060511;Gooierhoofd;Wijk 05 Havengebied;Huizen;378;Warmtenet;Warmtenet,,
-BU04060512;Wolfskamer;Wijk 05 Havengebied;Huizen;65;All-electric;All-electric,,
-BU04060513;Industriewijk 't Plaveen;Wijk 05 Havengebied;Huizen;359;All-electric;All-electric,,
-BU04060614;Bovenweg;Wijk 06 Zenderwijk en Bovenweg;Huizen;1429;Warmtenet;Warmtenet,,
-BU04060615;Zenderwijk;Wijk 06 Zenderwijk en Bovenweg;Huizen;604;All-electric;All-electric,,
-BU04060716;Stad en Lande;Wijk 07 Stad en Lande;Huizen;1901;All-electric;All-electric,,
-BU04060817;Huizermaat West;Wijk 08 Huizermaat West en Zuid;Huizen;1620;All-electric;All-electric,,
-BU04060818;Huizermaat Zuid;Wijk 08 Huizermaat West en Zuid;Huizen;1446;All-electric;All-electric,,
-BU04060919;Huizermaat Noord;Wijk 09 Huizermaat Noord;Huizen;1509;Groengas;Warmtenet,,
-BU04061020;Bijvanck Noord;Wijk 10 Bijvanck;Huizen;778;Groengas;Warmtenet,,
-BU04061021;Bijvanck West;Wijk 10 Bijvanck;Huizen;233;Groengas;Warmtenet,,
-BU04061123;Bovenmaat Noord;Wijk 11 Bovenmaten;Huizen;1513;Warmtenet;Warmtenet,,
-BU04061124;Bovenmaat West;Wijk 11 Bovenmaten;Huizen;879;Warmtenet;Warmtenet,,
-BU04061125;Bovenmaat-Oost;Wijk 11 Bovenmaten;Huizen;601;Warmtenet;Warmtenet,,
-BU04061226;Filosofenbuurt;Wijk 12 Hogemaat;Huizen;811;All-electric;All-electric,,
-BU04061231;De Tuit;Wijk 12 Hogemaat;Huizen;120;Groengas;Warmtenet,,
-BU04170320;Laren-Centrum;Laren;Laren;1371;All-electric;Groengas,,
-BU04170321;Laren-Natuurgebied;Laren;Laren;11;All-electric;All-electric,,
-BU04170322;Omloop;Laren;Laren;624;Groengas;Groengas,,
-BU04170323;Oostereng;Laren;Laren;553;Groengas;Groengas,,
-BU04170324;Postiljon;Laren;Laren;173;All-electric;All-electric,,
-BU04170325;Rijksweg-Noord;Laren;Laren;158;Groengas;Groengas,,
-BU04170326;Rijksweg-Zuid;Laren;Laren;117;Groengas;Groengas,,
-BU04170327;Steenbergen;Laren;Laren;357;Groengas;Groengas,,
-BU04170328;Zevenend;Laren;Laren;2419;All-electric;Groengas,,
-BU04170329;Zwarte Berg;Laren;Laren;315;Groengas;Groengas,,
-BU16960000;'s-Graveland;Wijk 00 's-Graveland;Wijdemeren;800;All-electric;All-electric,,
-BU16960100;Oud-Kortenhoef;Wijk 01 Kortenhoef;Wijdemeren;185;Groengas;Groengas,,
-BU16960101;Rade, Oranjebuurt, Munniksveen en omgeving;Wijk 01 Kortenhoef;Wijdemeren;3040;All-electric;All-electric
-BU16960102;Moleneind;Wijk 01 Kortenhoef;Wijdemeren;88;Groengas;Groengas,,
-BU16960103;Kromme Rade;Wijk 01 Kortenhoef;Wijdemeren;49;Groengas;Groengas,,
-BU16960200;Ankeveen;Wijk 02 Ankeveen;Wijdemeren;124;Groengas;Warmtenet,,
-BU16960201;Ankeveense Rade;Wijk 02 Ankeveen;Wijdemeren;572;All-electric;All-electric,,
-BU16960202;Hollandsch Ankeveen;Wijk 02 Ankeveen;Wijdemeren;61;Groengas;Groengas,,
-BU16960300;Oud-Loosdrecht;Wijk 03 Loosdrecht;Wijdemeren;1627;All-electric;All-electric,,
-BU16960400;Nieuw-Loosdrechtsedijk;Wijk 04 Nieuw-Loosdrecht;Wijdemeren;3185;All-electric;Warmtenet,,
-BU16960401;Muijeveld;Wijk 04 Nieuw-Loosdrecht;Wijdemeren;69;Groengas;Groengas,,
-BU16960402;Boomhoek;Wijk 04 Nieuw-Loosdrecht;Wijdemeren;662;Groengas;Groengas,,
-BU16960500;Breukeleveen;Wijk 05 Breukeleveen;Wijdemeren;144;Groengas;Groengas,,
-BU16960601;Horn- en Kuijerpolder;Wijk 06 Nederhorst den Berg;Wijdemeren;729;All-electric;All-electric,,
-BU16960602;Blijkpolder;Wijk 06 Nederhorst den Berg;Wijdemeren;607;All-electric;Warmtenet,,
-BU16960603;Horstermeer;Wijk 06 Nederhorst den Berg;Wijdemeren;327;Groengas;Warmtenet,,
-BU16960604;Splegelpolder;Wijk 06 Nederhorst den Berg;Wijdemeren;932;All-electric;All-electric,,
-BU19420000;Brinklaan;Bussum Centrum;Gooise Meren;1326;Warmtenet;Warmtenet,,
-BU19420001;Raadhuisplein;Bussum Centrum;Gooise Meren;984;Warmtenet;Warmtenet,,
-BU19420002;Verbindingslaan;Bussum Centrum;Gooise Meren;721;All-electric;All-electric,,
-BU19420003;Batterijlaan;Bussum Centrum;Gooise Meren;536;All-electric;All-electric,,
-BU19420004;Cereslaan;Bussum Centrum;Gooise Meren;618;Warmtenet;Warmtenet,,
-BU19420005;Bijlstraat;Bussum Centrum;Gooise Meren;529;All-electric;All-electric,,
-BU19420006;Nijverheidswerf;Bussum Centrum;Gooise Meren;472;All-electric;All-electric,,
-BU19420007;Laarderwegkwartier;Bussum Centrum;Gooise Meren;774;All-electric;All-electric,,
-BU19420008;Spiegelzicht;Bussum Centrum;Gooise Meren;628;All-electric;All-electric,,
-BU19420100;Prins Hendrikkwartier;Brediuskwartier;Gooise Meren;384;All-electric;All-electric,,
-BU19420101;Hooftlaan;Brediuskwartier;Gooise Meren;304;All-electric;All-electric,,
-BU19420102;Vondellaan;Brediuskwartier;Gooise Meren;490;Groengas;Groengas,,
-BU19420103;Bredius-West;Brediuskwartier;Gooise Meren;199;Groengas;Warmtenet,,
-BU19420104;Bredius-Oost;Brediuskwartier;Gooise Meren;455;Groengas;Warmtenet,,
-BU19420200;Sportpark-Zuid;Eng;Gooise Meren;17;All-electric;All-electric,,
-BU19420201;Donderstraat;Eng;Gooise Meren;460;Groengas;Groengas,,
-BU19420202;Godelindebuurt;Eng;Gooise Meren;422;All-electric;All-electric,,
-BU19420203;Waltherlaan;Eng;Gooise Meren;284;Groengas;Groengas,,
-BU19420204;Bloemenbuurt;Eng;Gooise Meren;560;Groengas;Groengas,,
-BU19420205;Ooster Eng-Noord;Eng;Gooise Meren;1172;Groengas;Warmtenet,,
-BU19420206;Ooster Eng-Zuid;Eng;Gooise Meren;1714;Groengas;Warmtenet,,
-BU19420207;Midden Eng-Oost;Eng;Gooise Meren;884;All-electric;All-electric,,
-BU19420208;Midden Eng-West;Eng;Gooise Meren;738;All-electric;All-electric,,
-BU19420209;Wester Eng;Eng;Gooise Meren;1331;Warmtenet;Warmtenet,,
-BU19420300;Lomanplein;Spiegel;Gooise Meren;456;Groengas;Groengas,,
-BU19420301;Schimmellaan;Spiegel;Gooise Meren;202;Warmtenet;Warmtenet,,
-BU19420302;Boslaan;Spiegel;Gooise Meren;551;Groengas;Groengas,,
-BU19420303;Koedijk;Spiegel;Gooise Meren;284;Groengas;Groengas,,
-BU19420304;Kom van Bieghel;Spiegel;Gooise Meren;820;All-electric;All-electric,,
-BU19420305;Meijerkamp;Spiegel;Gooise Meren;233;Groengas;Groengas,,
-BU19420306;Fransekamp;Spiegel;Gooise Meren;132;All-electric;All-electric,,
-BU19420400;Vesting Muiden;Muiden;Gooise Meren;719;Warmtenet;Groengas,,
-BU19420401;Krijgsman;Muiden;Gooise Meren;640;All-electric;All-electric,,
-BU19420402;Muiderberg;Muiden;Gooise Meren;1002;All-electric;Warmtenet,,
-BU19420403;Mariahoeve Muiden;Muiden;Gooise Meren;352;All-electric;All-electric,,
-BU19420404;Buitendijken Muiderberg;Muiden;Gooise Meren;561;Warmtenet;Warmtenet,,
-BU19420408;Pampusweg;Muiden;Gooise Meren;35;All-electric;All-electric,,
-BU19420409;IJmeer;Muiden;Gooise Meren;1;Groengas;Groengas,,
-BU19420410;Noordpolder;Muiden;Gooise Meren;91;Groengas;Groengas,,
-BU19420501;Naarden Vesting;Naarden;Gooise Meren;1072;All-electric;Groengas,,
-BU19420502;Tuindorp Keverdijk;Naarden;Gooise Meren;1939;All-electric;All-electric,,
-BU19420503;Naarderwoonbos;Naarden;Gooise Meren;198;Groengas;Groengas,,
-BU19420504;Bedrijvenpark Gooimeer-Zuid;Naarden;Gooise Meren;158;All-electric;All-electric,,
-BU19420506;Oranje Nassaupark-Noord;Naarden;Gooise Meren;318;All-electric;All-electric,,
-BU19420507;Oranje Nassaupark-Zuid;Naarden;Gooise Meren;617;Groengas;Groengas,,
-BU19420508;Ministerpark;Naarden;Gooise Meren;1169;All-electric;All-electric,,
-BU19420509;Componistenkwartier;Naarden;Gooise Meren;828;All-electric;All-electric,,
-BU19420510;Rembrandtpark;Naarden;Gooise Meren;991;Groengas;Groengas,,
-BU19420511;Bos van Bredius-Noord;Naarden;Gooise Meren;98;Groengas;Groengas,,
-BU19420512;Valkeveen;Naarden;Gooise Meren;369;All-electric;All-electric,,
-BU19420513;Naardermeer;Naarden;Gooise Meren;45;Groengas;Groengas,,
-BU19420515;Bos van Bredius-Zuid;Naarden;Gooise Meren;46;Groengas;Groengas,,
-BU19420555;Bedrijvenpark Gooimeer-Noord;Naarden;Gooise Meren;89;All-electric;All-electric,,
-BU19420565;Vierhoven;Naarden;Gooise Meren;617;Warmtenet;Warmtenet,,
-BU19420575;Naardermeerkwartier;Naarden;Gooise Meren;261;Groengas;Groengas,,
-BU19420585;De Fortlanden;Naarden;Gooise Meren;412;Warmtenet;Warmtenet,,
+﻿bu_code;Buurt;Wijk;Gemeente;Aantal aansluitingen;Uitkomst_SA;Uitkomst_gecheckt
+BU03760101;Bijvanck;Blaricum;Blaricum;1912;All-electric;Warmtenet
+BU03760102;Blaricum-Dorp;Blaricum;Blaricum;2434;Groengas;Groengas
+BU03760103;Blaricummer Heide;Blaricum;Blaricum;4;All-electric;All-electric
+BU03760104;Blaricummermeent;Blaricum;Blaricum;1056;Warmtenet;Warmtenet
+BU03760105;Crailo;Blaricum;Blaricum;61;All-electric;Groengas
+BU03760106;De Kampen;Blaricum;Blaricum;1;Groengas;Groengas
+BU03760107;Eemmeer-Blaricum;Blaricum;Blaricum;0;#N/B;
+BU03760108;Stichtsebrug;Blaricum;Blaricum;0;#N/B;
+BU03760109;Warandepark-De Eng;Blaricum;Blaricum;2;Groengas;Groengas
+BU04060001;De Noord;Wijk 00 Oude Dorp;Huizen;1914;All-electric;All-electric
+BU04060002;De Zuid;Wijk 00 Oude Dorp;Huizen;1327;Groengas;Groengas
+BU04060103;Westereng;Wijk 01 Westereng;Huizen;1042;Groengas;Groengas
+BU04060204;Flevo;Wijk 02 Buitenwijken;Huizen;96;Groengas;Groengas
+BU04060205;Bikbergen;Wijk 02 Buitenwijken;Huizen;113;Groengas;Groengas
+BU04060206;Crailo;Wijk 02 Buitenwijken;Huizen;166;Groengas;Groengas
+BU04060307;Thames;Wijk 03 Erica en Tafelberg;Huizen;35;Groengas;Groengas
+BU04060308;IJzeren veld;Wijk 03 Erica en Tafelberg;Huizen;69;Groengas;Groengas
+BU04060327;Parrewijn;Wijk 03 Erica en Tafelberg;Huizen;9;Groengas;Groengas
+BU04060328;Tafelberger Heide;Wijk 03 Erica en Tafelberg;Huizen;2;All-electric;All-electric
+BU04060329;Rijsbergen;Wijk 03 Erica en Tafelberg;Huizen;7;All-electric;All-electric
+BU04060330;Huizerhoogt;Wijk 03 Erica en Tafelberg;Huizen;44;Groengas;Groengas
+BU04060409;Sijsjesberg;Wijk 04 Staatslieden en Componistenbuurt;Huizen;247;Groengas;Groengas
+BU04060410;Zuidereng;Wijk 04 Staatslieden en Componistenbuurt;Huizen;1029;Groengas;Groengas
+BU04060511;Gooierhoofd;Wijk 05 Havengebied;Huizen;378;Warmtenet;Warmtenet
+BU04060512;Wolfskamer;Wijk 05 Havengebied;Huizen;65;All-electric;All-electric
+BU04060513;Industriewijk 't Plaveen;Wijk 05 Havengebied;Huizen;359;All-electric;All-electric
+BU04060614;Bovenweg;Wijk 06 Zenderwijk en Bovenweg;Huizen;1429;Warmtenet;Warmtenet
+BU04060615;Zenderwijk;Wijk 06 Zenderwijk en Bovenweg;Huizen;604;All-electric;All-electric
+BU04060716;Stad en Lande;Wijk 07 Stad en Lande;Huizen;1901;All-electric;All-electric
+BU04060817;Huizermaat West;Wijk 08 Huizermaat West en Zuid;Huizen;1620;All-electric;All-electric
+BU04060818;Huizermaat Zuid;Wijk 08 Huizermaat West en Zuid;Huizen;1446;All-electric;All-electric
+BU04060919;Huizermaat Noord;Wijk 09 Huizermaat Noord;Huizen;1509;Groengas;Warmtenet
+BU04061020;Bijvanck Noord;Wijk 10 Bijvanck;Huizen;778;Groengas;Warmtenet
+BU04061021;Bijvanck West;Wijk 10 Bijvanck;Huizen;233;Groengas;Warmtenet
+BU04061123;Bovenmaat Noord;Wijk 11 Bovenmaten;Huizen;1513;Warmtenet;Warmtenet
+BU04061124;Bovenmaat West;Wijk 11 Bovenmaten;Huizen;879;Warmtenet;Warmtenet
+BU04061125;Bovenmaat-Oost;Wijk 11 Bovenmaten;Huizen;601;Warmtenet;Warmtenet
+BU04061226;Filosofenbuurt;Wijk 12 Hogemaat;Huizen;811;All-electric;All-electric
+BU04061231;De Tuit;Wijk 12 Hogemaat;Huizen;120;Groengas;Warmtenet
+BU04170320;Laren-Centrum;Laren;Laren;1371;All-electric;Groengas
+BU04170321;Laren-Natuurgebied;Laren;Laren;11;All-electric;All-electric
+BU04170322;Omloop;Laren;Laren;624;Groengas;Groengas
+BU04170323;Oostereng;Laren;Laren;553;Groengas;Groengas
+BU04170324;Postiljon;Laren;Laren;173;All-electric;All-electric
+BU04170325;Rijksweg-Noord;Laren;Laren;158;Groengas;Groengas
+BU04170326;Rijksweg-Zuid;Laren;Laren;117;Groengas;Groengas
+BU04170327;Steenbergen;Laren;Laren;357;Groengas;Groengas
+BU04170328;Zevenend;Laren;Laren;2419;All-electric;Groengas
+BU04170329;Zwarte Berg;Laren;Laren;315;Groengas;Groengas
+BU16960000;'s-Graveland;Wijk 00 's-Graveland;Wijdemeren;800;All-electric;All-electric
+BU16960100;Oud-Kortenhoef;Wijk 01 Kortenhoef;Wijdemeren;185;Groengas;Groengas
+BU16960101;Rade  Oranjebuurt  Munniksveen en omgeving;Wijk 01 Kortenhoef;Wijdemeren;3040;All-electric;All-electric
+BU16960102;Moleneind;Wijk 01 Kortenhoef;Wijdemeren;88;Groengas;Groengas
+BU16960103;Kromme Rade;Wijk 01 Kortenhoef;Wijdemeren;49;Groengas;Groengas
+BU16960200;Ankeveen;Wijk 02 Ankeveen;Wijdemeren;124;Groengas;Warmtenet
+BU16960201;Ankeveense Rade;Wijk 02 Ankeveen;Wijdemeren;572;All-electric;All-electric
+BU16960202;Hollandsch Ankeveen;Wijk 02 Ankeveen;Wijdemeren;61;Groengas;Groengas
+BU16960300;Oud-Loosdrecht;Wijk 03 Loosdrecht;Wijdemeren;1627;All-electric;All-electric
+BU16960400;Nieuw-Loosdrechtsedijk;Wijk 04 Nieuw-Loosdrecht;Wijdemeren;3185;All-electric;Warmtenet
+BU16960401;Muijeveld;Wijk 04 Nieuw-Loosdrecht;Wijdemeren;69;Groengas;Groengas
+BU16960402;Boomhoek;Wijk 04 Nieuw-Loosdrecht;Wijdemeren;662;Groengas;Groengas
+BU16960500;Breukeleveen;Wijk 05 Breukeleveen;Wijdemeren;144;Groengas;Groengas
+BU16960601;Horn- en Kuijerpolder;Wijk 06 Nederhorst den Berg;Wijdemeren;729;All-electric;All-electric
+BU16960602;Blijkpolder;Wijk 06 Nederhorst den Berg;Wijdemeren;607;All-electric;Warmtenet
+BU16960603;Horstermeer;Wijk 06 Nederhorst den Berg;Wijdemeren;327;Groengas;Warmtenet
+BU16960604;Splegelpolder;Wijk 06 Nederhorst den Berg;Wijdemeren;932;All-electric;All-electric
+BU19420000;Brinklaan;Bussum Centrum;Gooise Meren;1326;Warmtenet;Warmtenet
+BU19420001;Raadhuisplein;Bussum Centrum;Gooise Meren;984;Warmtenet;Warmtenet
+BU19420002;Verbindingslaan;Bussum Centrum;Gooise Meren;721;All-electric;All-electric
+BU19420003;Batterijlaan;Bussum Centrum;Gooise Meren;536;All-electric;All-electric
+BU19420004;Cereslaan;Bussum Centrum;Gooise Meren;618;Warmtenet;Warmtenet
+BU19420005;Bijlstraat;Bussum Centrum;Gooise Meren;529;All-electric;All-electric
+BU19420006;Nijverheidswerf;Bussum Centrum;Gooise Meren;472;All-electric;All-electric
+BU19420007;Laarderwegkwartier;Bussum Centrum;Gooise Meren;774;All-electric;All-electric
+BU19420008;Spiegelzicht;Bussum Centrum;Gooise Meren;628;All-electric;All-electric
+BU19420100;Prins Hendrikkwartier;Brediuskwartier;Gooise Meren;384;All-electric;All-electric
+BU19420101;Hooftlaan;Brediuskwartier;Gooise Meren;304;All-electric;All-electric
+BU19420102;Vondellaan;Brediuskwartier;Gooise Meren;490;Groengas;Groengas
+BU19420103;Bredius-West;Brediuskwartier;Gooise Meren;199;Groengas;Warmtenet
+BU19420104;Bredius-Oost;Brediuskwartier;Gooise Meren;455;Groengas;Warmtenet
+BU19420200;Sportpark-Zuid;Eng;Gooise Meren;17;All-electric;All-electric
+BU19420201;Donderstraat;Eng;Gooise Meren;460;Groengas;Groengas
+BU19420202;Godelindebuurt;Eng;Gooise Meren;422;All-electric;All-electric
+BU19420203;Waltherlaan;Eng;Gooise Meren;284;Groengas;Groengas
+BU19420204;Bloemenbuurt;Eng;Gooise Meren;560;Groengas;Groengas
+BU19420205;Ooster Eng-Noord;Eng;Gooise Meren;1172;Groengas;Warmtenet
+BU19420206;Ooster Eng-Zuid;Eng;Gooise Meren;1714;Groengas;Warmtenet
+BU19420207;Midden Eng-Oost;Eng;Gooise Meren;884;All-electric;All-electric
+BU19420208;Midden Eng-West;Eng;Gooise Meren;738;All-electric;All-electric
+BU19420209;Wester Eng;Eng;Gooise Meren;1331;Warmtenet;Warmtenet
+BU19420300;Lomanplein;Spiegel;Gooise Meren;456;Groengas;Groengas
+BU19420301;Schimmellaan;Spiegel;Gooise Meren;202;Warmtenet;Warmtenet
+BU19420302;Boslaan;Spiegel;Gooise Meren;551;Groengas;Groengas
+BU19420303;Koedijk;Spiegel;Gooise Meren;284;Groengas;Groengas
+BU19420304;Kom van Bieghel;Spiegel;Gooise Meren;820;All-electric;All-electric
+BU19420305;Meijerkamp;Spiegel;Gooise Meren;233;Groengas;Groengas
+BU19420306;Fransekamp;Spiegel;Gooise Meren;132;All-electric;All-electric
+BU19420400;Vesting Muiden;Muiden;Gooise Meren;719;Warmtenet;Groengas
+BU19420401;Krijgsman;Muiden;Gooise Meren;640;All-electric;All-electric
+BU19420402;Muiderberg;Muiden;Gooise Meren;1002;All-electric;Warmtenet
+BU19420403;Mariahoeve Muiden;Muiden;Gooise Meren;352;All-electric;All-electric
+BU19420404;Buitendijken Muiderberg;Muiden;Gooise Meren;561;Warmtenet;Warmtenet
+BU19420408;Pampusweg;Muiden;Gooise Meren;35;All-electric;All-electric
+BU19420409;IJmeer;Muiden;Gooise Meren;1;Groengas;Groengas
+BU19420410;Noordpolder;Muiden;Gooise Meren;91;Groengas;Groengas
+BU19420501;Naarden Vesting;Naarden;Gooise Meren;1072;All-electric;Groengas
+BU19420502;Tuindorp Keverdijk;Naarden;Gooise Meren;1939;All-electric;All-electric
+BU19420503;Naarderwoonbos;Naarden;Gooise Meren;198;Groengas;Groengas
+BU19420504;Bedrijvenpark Gooimeer-Zuid;Naarden;Gooise Meren;158;All-electric;All-electric
+BU19420506;Oranje Nassaupark-Noord;Naarden;Gooise Meren;318;All-electric;All-electric
+BU19420507;Oranje Nassaupark-Zuid;Naarden;Gooise Meren;617;Groengas;Groengas
+BU19420508;Ministerpark;Naarden;Gooise Meren;1169;All-electric;All-electric
+BU19420509;Componistenkwartier;Naarden;Gooise Meren;828;All-electric;All-electric
+BU19420510;Rembrandtpark;Naarden;Gooise Meren;991;Groengas;Groengas
+BU19420511;Bos van Bredius-Noord;Naarden;Gooise Meren;98;Groengas;Groengas
+BU19420512;Valkeveen;Naarden;Gooise Meren;369;All-electric;All-electric
+BU19420513;Naardermeer;Naarden;Gooise Meren;45;Groengas;Groengas
+BU19420515;Bos van Bredius-Zuid;Naarden;Gooise Meren;46;Groengas;Groengas
+BU19420555;Bedrijvenpark Gooimeer-Noord;Naarden;Gooise Meren;89;All-electric;All-electric
+BU19420565;Vierhoven;Naarden;Gooise Meren;617;Warmtenet;Warmtenet
+BU19420575;Naardermeerkwartier;Naarden;Gooise Meren;261;Groengas;Groengas
+BU19420585;De Fortlanden;Naarden;Gooise Meren;412;Warmtenet;Warmtenet

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocType name="GeoDmsMetaInfo">
+<DefaultInfo>
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/Res2030/PerStudyArea/export_PerPlanRegio/result
+	</FullName>
+	<GeoDmsVersion>GeoDms 7.304 [Jan 19 2021]
+	</GeoDmsVersion>
+	<StatusFlags>0x45f7 = AdminMode SuspendForGUI ShowStateColors TreeViewVisible DetailsVisible EventLogVisible ToolBarVisible MultiThreading1 MultiThreading2 
+	</StatusFlags>
+</DefaultInfo>
+<Software>
+	<GeoDmsVersion>7.304
+	</GeoDmsVersion>
+</Software>
+<Config>
+	<FullName>/LeidraadResultaten/Exports/ESDL/PerRekenstap/Res2030/PerStudyArea/export_PerPlanRegio/result
+	</FullName>
+	<Expr>Header + &apos;\n&apos; + AsList(Body+&apos;\n&apos;, &apos;&apos;)
+	</Expr>
+</Config>
+<Environment>
+	<Processor>Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+	</Processor>
+	<User>Maarten Hilferink
+	</User>
+	<ComputerName>OVSRV04
+	</ComputerName>
+</Environment>
+<Git>
+	<RevisionInfo>heads/MONDAINE2<BR/>
+		On branch MONDAINE2<BR/>
+		Cherry-pick currently in progress.<BR/>
+		  (run &quot;git cherry-pick --continue&quot; to continue)<BR/>
+		  (use &quot;git cherry-pick --abort&quot; to cancel the cherry-pick operation)<BR/>
+		<BR/>
+		Changes to be committed:<BR/>
+		  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)<BR/>
+			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
+			modified:   Runs/path/set.bat<BR/>
+		<BR/>
+		Changes not staged for commit:<BR/>
+		  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)<BR/>
+		  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)<BR/>
+			modified:   Runs/SharedInvoer.dms<BR/>
+			modified:   Runs/batch_leidraad_ESDL.bat<BR/>
+		<BR/>
+		Untracked files:<BR/>
+		  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)<BR/>
+			log_vesta/<BR/>
+		<BR/>
+		
+	</RevisionInfo>
+</Git>
+</DocType>

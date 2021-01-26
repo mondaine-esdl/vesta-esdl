@@ -81,7 +81,7 @@ def str2float(string):
         return 0.0
 
 
-def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warmtebronnen_csv, actions):
+def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warmtebronnen_csv, actions, ScenarioNaam):
     # create a resourceSet that hold the contents of the esdl.ecore model and the instances we use/create
     rset = ResourceSet()
     # register the metamodel (available in the generated files)
@@ -339,7 +339,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
                 if laagste_nat_meerkosten[bu_code]['strategie'] != vesta_output_csv:
                     # Kennelijk is er een andere csv_file uit de lijst waar voor deze buurt lagere nationale meerkosten
                     # te vinden zijn. Hier slaan we dus deze buurt over.
-                    break
+                    continue
 
                 if isinstance(StrategieNaam, list):
                     for sn in StrategieNaam:
@@ -1159,7 +1159,7 @@ def MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warm
     remove_unused_building_connections(es)
 
     if 'save_to_disk' in actions:
-        export_name = "output/%s_%s_%s.esdl" %(StrategieNaam,RegioNaam,TijdstapNaam)
+        export_name = "output/%s_%s_%s.esdl" %(ScenarioNaam,RegioNaam,TijdstapNaam)
         resource = rset.create_resource(URI(export_name))
         resource.append(es)
         resource.save()
@@ -1196,16 +1196,16 @@ def remove_unused_building_connections(es):
     print("Number of unused connections removed: {}".format(remove_connection_cnt))
 
 def main():
-    TijdstapNamen= ["y2019" , "y2030", "y2040", "y2050"]
-    # TijdstapNamen= ["y2050"]
+    # TijdstapNamen= ["y2019" , "y2030", "y2040", "y2050"]
+    TijdstapNamen= ["y2050"]
     
     # RegioNamen= ["Hengelo"]
-    RegioNamen= ["Havenstad"]
+    RegioNamen= ["GooiEnVechtstreek"]
     # RegioNamen= ["RESNoordHollandZuid"]
     # RegioNamen= ["Havenstad","GooiEnVechtstreek","Hengelo"]
     
     # Strategien= ["S0_Referentie"]
-    Strategien= ["S3a_B_LT30_30"]
+    # Strategien= ["S3a_B_LT30_30"]
     # Strategien= ["S0_Referentie","S1a_B_LuchtWP", "S3a_B_LT30_30"]
     # Strategien= ["S1a_B_LuchtWP"]
     # Strategien= ["StartJaar", "S2a_B_Restwarmte", "S3a_B_LT30_30", "S4a_GG_B_hWP", "S5a_H2_B_hWP","S5b_H2_B_HR"]
@@ -1218,6 +1218,21 @@ def main():
     #COMBINATIE STRATEGIEEN
     # Strategien= ["S0_Referentie", ["S1a_B_LuchtWP", "S3a_B_LT30_30"]]
     # Strategien= [["S0_Referentie", "S1a_B_LuchtWP", "S3a_B_LT30_30"]]
+    
+    ##CE Delft scenario 1
+    ScenarioNaam = "1. Startanalyse LN-Strategie"
+    Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2d_D_Restwarmte","S2e_D_Geo_contour","S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR"]]
+    ##CE Delft scenario 2
+    # ScenarioNaam = "1. Startanalyse LN-Strategie"
+    # Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2d_D_Restwarmte","S2e_D_Geo_contour","S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR","S4c_GG_D_hWP","S4d_GG_D_HR"]]
+    ##CE Delft scenario 3
+    # Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S2d_D_Restwarmte","S2e_D_Geo_contour","S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO","S3f_D_LT30_70","S3g_D_BuurtWKO","S3h_D_TEO"]]
+    ##CE Delft scenario 4
+    # ScenarioNaam = "4. Label B"
+    # Strategien= [["S1a_B_LuchtWP", "S1b_B_BodemWP", "S2a_B_Restwarmte", "S2b_B_Geo_contour", "S3a_B_LT30_30", "S3b_B_LT30_70", "S3c_B_BuurtWKO", "S3d_B_WKO", "S3e_B_TEO", "S4a_GG_B_hWP","S4b_GG_B_HR"]]
+
+
+
 
 # "S1a_B_LuchtWP"   ,"S1b_B_BodemWP"    
 # "S2a_B_Restwarmte","S2b_B_Geo_contour","S2c_B_Geo_overal","S2d_D_Restwarmte","S2e_D_Geo_contour","S2f_D_Geo_overal" 
@@ -1248,12 +1263,12 @@ def main():
                 if isinstance(StrategieNaam, list):
                     vesta_output_csv_list = list()
                     for s in StrategieNaam:
-                        vesta_output_csv_list.append("data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, s, TijdstapNaam))
+                        vesta_output_csv_list.append("data/%s/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, ScenarioNaam, s, TijdstapNaam))
                     print(vesta_output_csv_list)
                 else:
                     vesta_output_csv_list = ["data/%s/%s/%s/PerPlanRegio_ESDL.csv" % (RegioNaam, StrategieNaam, TijdstapNaam)]
     
-                MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'])
+                MakeESDL(RegioNaam, StrategieNaam, TijdstapNaam, vesta_output_csv_list, warmtebronnen_csv, ['store_in_mondaine_hub', 'save_to_disk'], ScenarioNaam)
                 print("ESDL-output generated for: ", RegioNaam, TijdstapNaam)
                 print(" ")
     

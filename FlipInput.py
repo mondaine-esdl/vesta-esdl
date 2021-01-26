@@ -35,6 +35,8 @@ def MakeESDL(RegioNaam, flipcsv, actions):
     qau = QuantityAndUnits(id=str(uuid.uuid4()))
     es.energySystemInformation = esi
     esi.quantityAndUnits = qau
+    
+    s1a    = Measures(id=str(uuid.uuid4()))
 
     if not os.path.exists(flipcsv):
         print("========= WARNING: {} does not exist! Skipping...".format(flipcsv))
@@ -51,17 +53,44 @@ def MakeESDL(RegioNaam, flipcsv, actions):
                 bu_code.replace('\'', '')       # remove quotes from bu_code
                 area = Area(id=bu_code, scope="NEIGHBOURHOOD")
                 
-                print(row[column_names.index('uitkomst_gecheckt,,')])
                 
+                ce_buurtoptie = row[column_names.index('uitkomst_gecheckt')]
                 
-                uitkomst_gecheckt = Measure(id=str(uuid.uuid4()),name=row[column_names.index('uitkomst_gecheckt,,')])
-                measures = Measures(id=str(uuid.uuid4()),name=row[column_names.index('uitkomst_gecheckt,,')])                
-                measures.measure.append(uitkomst_gecheckt)
-                area.measures = measures
-                es.instance[0].area.area.append(area)
+                # measure = Measure(id=str(uuid.uuid4()),name=ce_buurtoptie)
                 
+                if not ce_buurtoptie == '':
+                    measures = Measures(id=str(uuid.uuid4())) 
+                    # measures.measure.append(ce_buurtoptie)
                 
+                    # ce_buurtoptie = row[column_names.index('uitkomst_gecheckt')]
+                    # measure = Measure(id=str(uuid.uuid4()),name=ce_buurtoptie)
+                    if ce_buurtoptie == 'all-electric':
+                        measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='S1a_B_LuchtWP'))
+                        # measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='s1b'))
+                    if ce_buurtoptie == 'warmtenet':
+                        measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='S2a_B_Restwarmte'))
+                        # measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='s2b'))
+                        # measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='s3a'))
+                        # measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='s3b'))
+                        # measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='s3c'))
+                        # measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='s3d'))
+                        measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='S3e_B_TEO'))
+                    if ce_buurtoptie == 'groengas':
+                        measures.measure.append(MeasureReference(id=str(uuid.uuid4()),reference='S4a_GG_B_hWP'))
+                        # measure.append(MeasureReference(id=str(uuid.uuid4()),reference='s4b'))
+                    
+                    ed_app_sv.profileQuantityAndUnit = MeasureReference(reference=s1a)
+                    ed_app_ip.profile.append(ed_app_sv)
+                    
+                    
+                    area.measures = measures
+                es.instance[0].area.area.append(area)      
                 
+  # <measures xsi:type="esdl:Measures">
+  #   <measure xsi:type="esdl:Measure" id="S1a_B_LuchtWP" name="S1a_B_LuchtWP"/>
+  #   <measure xsi:type="esdl:Measure" id="S3a_B_LT30_30" name="S3a_B_LT30_30"/>
+  #   <measure xsi:type="esdl:Measure" id="S0_Referentie" name="S0_Referentie"/>
+  # </measures>
                 
     if 'save_to_disk' in actions:
         export_name = "FlipInput/%s.esdl" %(RegioNaam)
